@@ -1,0 +1,7 @@
+/* Minimal base stylesheet for The New Tiptris : Recompiled.
+   recompui loads this via init_styling(); the launcher/menu elements extend it. */
+body {
+    font-family: primary;
+    font-size: 20dp;
+    color: #ffffff;
+}

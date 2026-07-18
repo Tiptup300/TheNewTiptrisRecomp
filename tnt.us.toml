@@ -1,0 +1,14 @@
+[input]
+symbols_file_path = "tnt.syms.toml"
+rom_file_path     = "tnt-splat/baserom.z64"
+output_func_path  = "RecompiledFuncs"
+entrypoint        = 0x8003AD80
+single_file_output = false
+use_absolute_symbols = false
+
+[patches]
+# Handwritten debug watchpoint routines (cop0 WatchLo/WatchHi $18/$19) — not needed by the modern runtime.
+stubs = [
+    "func_800A32B0",
+    "func_800A32E0",
+]
