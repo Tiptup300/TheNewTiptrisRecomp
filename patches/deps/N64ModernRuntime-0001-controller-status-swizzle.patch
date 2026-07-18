@@ -1,0 +1,88 @@
+diff --git a/ultramodern/src/input.cpp b/ultramodern/src/input.cpp
+index a170407..2e16117 100644
+--- a/ultramodern/src/input.cpp
++++ b/ultramodern/src/input.cpp
+@@ -55,8 +55,21 @@ static u16 get_controller_type(ultramodern::input::Device device_type) {
+     return 0;
+ }
+ 
+-static void __osContGetInitData(u8* pattern, OSContStatus *data) {
+-    *pattern = 0x00;
++// Write a single byte into rdram at the (unswizzled) location `host_ptr` points
++// to, applying the recompiled game's byte swizzle (bytes live at index ^ 3).
++// This makes HLE struct writes correct regardless of the struct's alignment,
++// unlike the "reversed field order" trick which only works when 4-byte aligned.
++static inline void sw_write8(uint8_t* rdram, void* host_ptr, uint8_t val) {
++    size_t idx = (uint8_t*)host_ptr - rdram;
++    rdram[idx ^ 3] = val;
++}
++
++// `data` points at the game's OSContStatus array (big-endian layout:
++// type@0(u16), status@2(u8), err_no@3(u8)). `pattern` points at the game's
++// bitpattern byte (may be null to skip, e.g. osContGetQuery).
++static void __osContGetInitData(RDRAM_ARG u8* pattern, OSContStatus *data) {
++    uint8_t* base = (uint8_t*)data;
++    uint8_t pat = 0;
+ 
+     for (int controller = 0; controller < max_controllers; controller++) {
+         ultramodern::input::connected_device_info_t device_info{};
+@@ -65,22 +78,29 @@ static void __osContGetInitData(u8* pattern, OSContStatus *data) {
+             device_info = input_callbacks.get_connected_device_info(controller);
+         }
+ 
++        uint8_t* slot = base + controller * 4; // OSContStatus is 4 bytes
++
+         if (device_info.connected_device != ultramodern::input::Device::None) {
+-            // Mark controller as present
++            uint16_t type = get_controller_type(device_info.connected_device);
++            uint8_t status = device_info.connected_pak != ultramodern::input::Pak::None;
+ 
+-            data[controller].type = get_controller_type(device_info.connected_device);
+-            data[controller].status = device_info.connected_pak != ultramodern::input::Pak::None;
+-            data[controller].err_no = 0x00;
++            sw_write8(rdram, slot + 0, (uint8_t)(type >> 8)); // type high (big-endian)
++            sw_write8(rdram, slot + 1, (uint8_t)(type & 0xFF)); // type low
++            sw_write8(rdram, slot + 2, status);
++            sw_write8(rdram, slot + 3, 0x00); // err_no
+ 
+-            *pattern = 1 << controller;
++            pat |= (uint8_t)(1 << controller);
+         }
+         else {
+-            // Mark controller as not connected
+-
+-            // Libultra doesn't write status or type for absent controllers
+-            data[controller].err_no = CONT_NO_RESPONSE_ERROR; // CHNL_ERR_NORESP >> 4
++            sw_write8(rdram, slot + 3, CONT_NO_RESPONSE_ERROR); // err_no
+         }
+     }
++
++    // `pattern` is a host pointer (a stack local in the recomp wrapper, which
++    // then copies it into rdram via MEM_B) — write it directly, not swizzled.
++    if (pattern != nullptr) {
++        *pattern = pat;
++    }
+ }
+ 
+ extern "C" s32 osContInit(RDRAM_ARG PTR(OSMesgQueue) mq, u8* bitpattern, PTR(OSContStatus) data_) {
+@@ -88,7 +108,7 @@ extern "C" s32 osContInit(RDRAM_ARG PTR(OSMesgQueue) mq, u8* bitpattern, PTR(OSC
+ 
+     max_controllers = MAXCONTROLLERS;
+ 
+-    __osContGetInitData(bitpattern, data);
++    __osContGetInitData(PASS_RDRAM bitpattern, data);
+ 
+     return 0;
+ }
+@@ -123,9 +143,9 @@ extern "C" s32 osContSetCh(RDRAM_ARG u8 ch) {
+ 
+ extern "C" void osContGetQuery(RDRAM_ARG PTR(OSContStatus) data_) {
+     OSContStatus *data = TO_PTR(OSContStatus, data_);
+-    u8 pattern;
+ 
+-    __osContGetInitData(&pattern, data);
++    // No bitpattern out-param for query; pass nullptr to skip that write.
++    __osContGetInitData(PASS_RDRAM nullptr, data);
+ }
+ 
+ void convert_to_n64_range(float x, float y, int8_t& stick_x, int8_t& stick_y) {

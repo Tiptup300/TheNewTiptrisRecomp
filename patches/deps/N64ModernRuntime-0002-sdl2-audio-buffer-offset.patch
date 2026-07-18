@@ -1,0 +1,20 @@
+diff --git a/ultramodern/src/audio.cpp b/ultramodern/src/audio.cpp
+index 3198be0..91ef4fa 100644
+--- a/ultramodern/src/audio.cpp
++++ b/ultramodern/src/audio.cpp
+@@ -35,10 +35,11 @@ void ultramodern::queue_audio_buffer(RDRAM_ARG PTR(int16_t) audio_data_, uint32_
+     }
+ }
+ 
+-// For SDL2
+-//uint32_t buffer_offset_frames = 1;
+-// For Godot
+-float buffer_offset_frames = 0.5f;
++// For SDL2 (this port uses an SDL2 queue-based audio device, so use the SDL2 value).
++// Reporting too-few remaining bytes causes the game to over-generate (higher latency);
++// reporting too-many causes chronic underrun -> periodic buzz/crackle. See note below.
++float buffer_offset_frames = 1.0f;
++// For Godot: 0.5f
+ 
+ // If there's ever any audio popping, check here first. Some games are very sensitive to
+ // the remaining sample count and reporting a number that's too high here can lead to issues.

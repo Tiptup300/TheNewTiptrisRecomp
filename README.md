@@ -50,6 +50,13 @@ cd ..
 Also build the N64Recomp tools (`N64Recomp`, `RSPRecomp`) from
 [N64Recomp](https://github.com/N64Recomp/N64Recomp).
 
+Then apply our required dependency fixes (controller detection, keyboard mapping,
+SDL2 audio buffering) — small patches kept in this repo:
+```bash
+./patches/deps/apply.sh
+```
+See `patches/deps/apply.sh` for what each patch does and why.
+
 ### 3. Generate the game code from *your* ROM (nothing here is committed)
 ```bash
 # a) Symbols: from the chris-gilmore/tnt-splat decompilation (matches this ROM).

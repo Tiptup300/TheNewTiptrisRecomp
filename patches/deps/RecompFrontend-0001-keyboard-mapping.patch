@@ -1,0 +1,61 @@
+diff --git a/recompinput/src/input_mapping.cpp b/recompinput/src/input_mapping.cpp
+index bfcfef4..2e3beda 100644
+--- a/recompinput/src/input_mapping.cpp
++++ b/recompinput/src/input_mapping.cpp
+@@ -5,30 +5,36 @@ namespace recompinput {
+ 
+     using default_game_input_device_mapping = std::unordered_map<GameInput, std::vector<InputField>>;
+ 
++    // The New Tiptris default keyboard layout. Movement uses the arrow keys, which
++    // drive BOTH the D-pad (TNT menus/pieces read the D-pad) and the analog stick.
+     default_game_input_device_mapping default_n64_mappings_keyboard = {
+-        { GameInput::A,              { InputField::keyboard(SDL_SCANCODE_SPACE) } },
+-        { GameInput::B,              { InputField::keyboard(SDL_SCANCODE_LSHIFT) } },
+-        { GameInput::L,              { InputField::keyboard(SDL_SCANCODE_E) } },
+-        { GameInput::B,              { InputField::keyboard(SDL_SCANCODE_LSHIFT) } },
+-        { GameInput::R,              { InputField::keyboard(SDL_SCANCODE_R) } },
+-        { GameInput::Z,              { InputField::keyboard(SDL_SCANCODE_Q) } },
+-        { GameInput::START,          { InputField::keyboard(SDL_SCANCODE_RETURN) } },
+-        { GameInput::C_LEFT,         { InputField::keyboard(SDL_SCANCODE_LEFT) } },
+-        { GameInput::C_RIGHT,        { InputField::keyboard(SDL_SCANCODE_RIGHT) } },
+-        { GameInput::C_UP,           { InputField::keyboard(SDL_SCANCODE_UP) } },
+-        { GameInput::C_DOWN,         { InputField::keyboard(SDL_SCANCODE_DOWN) } },
+-        { GameInput::DPAD_LEFT,      { InputField::keyboard(SDL_SCANCODE_J) } },
+-        { GameInput::DPAD_RIGHT,     { InputField::keyboard(SDL_SCANCODE_L) } },
+-        { GameInput::DPAD_UP,        { InputField::keyboard(SDL_SCANCODE_I) } },
+-        { GameInput::DPAD_DOWN,      { InputField::keyboard(SDL_SCANCODE_K) } },
+-        { GameInput::X_AXIS_NEG,     { InputField::keyboard(SDL_SCANCODE_A) } },
+-        { GameInput::X_AXIS_POS,     { InputField::keyboard(SDL_SCANCODE_D) } },
+-        { GameInput::Y_AXIS_POS,     { InputField::keyboard(SDL_SCANCODE_W) } },
+-        { GameInput::Y_AXIS_NEG,     { InputField::keyboard(SDL_SCANCODE_S) } },
++        // Up / Down / Left / Right (move & navigate)
++        { GameInput::DPAD_UP,        { InputField::keyboard(SDL_SCANCODE_UP) } },
++        { GameInput::DPAD_DOWN,      { InputField::keyboard(SDL_SCANCODE_DOWN) } },
++        { GameInput::DPAD_LEFT,      { InputField::keyboard(SDL_SCANCODE_LEFT) } },
++        { GameInput::DPAD_RIGHT,     { InputField::keyboard(SDL_SCANCODE_RIGHT) } },
++        { GameInput::Y_AXIS_POS,     { InputField::keyboard(SDL_SCANCODE_UP) } },
++        { GameInput::Y_AXIS_NEG,     { InputField::keyboard(SDL_SCANCODE_DOWN) } },
++        { GameInput::X_AXIS_NEG,     { InputField::keyboard(SDL_SCANCODE_LEFT) } },
++        { GameInput::X_AXIS_POS,     { InputField::keyboard(SDL_SCANCODE_RIGHT) } },
++
++        // Actions
++        { GameInput::A,              { InputField::keyboard(SDL_SCANCODE_Z) } },      // flip clockwise / accept
++        { GameInput::B,              { InputField::keyboard(SDL_SCANCODE_X) } },      // flip counter-clockwise / back
++        { GameInput::Z,              { InputField::keyboard(SDL_SCANCODE_LSHIFT) } }, // hold block
++        { GameInput::START,          { InputField::keyboard(SDL_SCANCODE_RETURN) } }, // start / pause
++        { GameInput::L,              { InputField::keyboard(SDL_SCANCODE_Q) } },      // rotate field left
++        { GameInput::R,              { InputField::keyboard(SDL_SCANCODE_E) } },      // rotate field right
++
++        // C-buttons (camera / secondary)
++        { GameInput::C_UP,           { InputField::keyboard(SDL_SCANCODE_W) } },
++        { GameInput::C_DOWN,         { InputField::keyboard(SDL_SCANCODE_S) } },
++        { GameInput::C_LEFT,         { InputField::keyboard(SDL_SCANCODE_A) } },
++        { GameInput::C_RIGHT,        { InputField::keyboard(SDL_SCANCODE_D) } },
+ 
+         { GameInput::TOGGLE_MENU,    { InputField::keyboard(SDL_SCANCODE_ESCAPE) } },
+         { GameInput::ACCEPT_MENU,    { InputField::keyboard(SDL_SCANCODE_RETURN) } },
+-        { GameInput::BACK_MENU,      { InputField::keyboard(SDL_SCANCODE_F15) } },
++        { GameInput::BACK_MENU,      { InputField::keyboard(SDL_SCANCODE_BACKSPACE) } },
+         { GameInput::APPLY_MENU,     { InputField::keyboard(SDL_SCANCODE_F) } },
+         { GameInput::TAB_LEFT_MENU,  { InputField::keyboard(SDL_SCANCODE_F16) } },
+         { GameInput::TAB_RIGHT_MENU, { InputField::keyboard(SDL_SCANCODE_F17) } }
