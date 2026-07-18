@@ -1,0 +1,86 @@
+name: Release
+
+# Builds a self-contained Linux tarball of The New Tiptris and publishes it.
+#  - push a tag like v0.1.0  -> builds + attaches the tarball to a GitHub Release
+#  - "Run workflow" (manual) -> builds + uploads the tarball as a run artifact
+#
+# No ROM and no game data are involved: the recompiled program code is committed
+# to this repo, so CI only clones deps, applies patches, builds, and packages.
+# The end user supplies their own ROM at runtime.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to create/update the Release
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            cmake ninja-build lld llvm \
+            libsdl2-dev libgtk-3-dev libfreetype-dev libx11-dev libxrandr-dev \
+            python3 patchelf file ca-certificates wget lsb-release software-properties-common gnupg
+
+      - name: Install clang 18
+        run: |
+          wget -q https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 18
+          clang-18 --version
+
+      - name: Cache pinned dependencies (lib/)
+        id: cache-lib
+        uses: actions/cache@v4
+        with:
+          path: lib
+          key: lib-${{ runner.os }}-nmr_ca568b6-rt64_f0d8c9f-rf_b3b7ebb-v1
+
+      - name: Clone pinned dependencies
+        if: steps.cache-lib.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p lib && cd lib
+          git clone https://github.com/N64Recomp/N64ModernRuntime
+          (cd N64ModernRuntime && git checkout ca568b6 && git submodule update --init --recursive)
+          git clone https://github.com/rt64/rt64
+          (cd rt64 && git checkout f0d8c9f && git submodule update --init --recursive)
+          git clone https://github.com/N64Recomp/RecompFrontend
+          (cd RecompFrontend && git checkout b3b7ebb && git submodule update --init --recursive)
+
+      - name: Apply dependency patches
+        run: ./patches/deps/apply.sh
+
+      - name: Configure
+        run: |
+          cmake -S . -B build-cmake \
+            -DCMAKE_C_COMPILER=clang-18 -DCMAKE_CXX_COMPILER=clang++-18 \
+            -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build-cmake --target TntRecompiled -j"$(nproc)"
+
+      - name: Package
+        run: ./packaging/package-linux.sh
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TheNewTiptris-linux-x64
+          path: dist/*.tar.gz
+          if-no-files-found: error
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.tar.gz
+          generate_release_notes: true

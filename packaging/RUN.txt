@@ -1,0 +1,31 @@
+The New Tiptris — how to run
+=============================
+
+1. Extract this archive and run the app:
+
+     ./TheNewTiptris
+
+2. On first launch it asks for your ROM (the NTSC-U release:
+   sha1 83fff25e82181a6993f28c91b9eeb8430396838b, crc32 528a07fa).
+   It stores a local copy in your config dir and reuses it on every
+   later run — no game data ships with this app.
+
+If the file picker does not open on your desktop, point it at the ROM
+directly the first time:
+
+     TNT_ROM=/path/to/your-rom.n64 ./TheNewTiptris
+
+Requirements
+------------
+- A Vulkan-capable GPU with a working driver (Mesa/RADV, NVIDIA, etc.).
+- A normal desktop library stack (SDL2, GTK, freetype) — present on any
+  typical Linux desktop. Only app-specific libraries are bundled in ./lib.
+
+Controls (keyboard defaults)
+----------------------------
+  Arrows      move / menu
+  Z           rotate CW / accept
+  X           rotate CCW / back
+  Left Shift  hold piece
+  Enter       start / pause
+  Q / E       L / R triggers

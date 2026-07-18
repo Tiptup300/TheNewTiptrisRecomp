@@ -4,13 +4,14 @@ A work-in-progress native PC port of **The New Tiptris** — an N64 game by H2O 
 built with [N64: Recompiled](https://github.com/N64Recomp/N64Recomp): static
 recompilation of the game's MIPS code to C, run on a modern runtime + renderer.
 
-> ### ⚠️ No game content is included in this repository
-> This repo contains **only** original harness code, build scripts, and
-> configuration. It contains **no ROM, no recompiled game code, no audio
-> microcode, no symbols, and no rendered game imagery** — all of that is
-> generated locally from **your own legally-obtained copy** of the ROM. You must
-> supply the ROM yourself. See "Generate the game code" below. `.gitignore`
-> enforces this.
+> ### ⚠️ No game data is included in this repository
+> This repo contains the port harness plus the **recompiled program code** — a
+> machine translation of the game's MIPS code to C, which is what every
+> N64Recomp port (Banjo/Zelda) ships. It contains **no ROM and no game data**
+> (graphics, audio, level data) and **no rendered game imagery**. The game data
+> is read from **your own legally-obtained ROM at runtime**: on first launch the
+> app asks for your ROM, stores a local copy, and reuses it on every run after.
+> You must supply the ROM yourself. `.gitignore` keeps ROMs and game data out.
 
 ## What's here
 
@@ -30,7 +31,22 @@ recompilation of the game's MIPS code to C, run on a modern runtime + renderer.
 - ✅ Music/SFX play (audio microcode recompiled) — delivery still being polished
 - Target ROM: the (U) release — sha1 `83fff25e82181a6993f28c91b9eeb8430396838b`, crc32 `528a07fa`
 
-## Build
+## Download & play
+
+Grab the latest Linux build from the [Releases](../../releases) page, then:
+```bash
+tar xzf TheNewTiptris-linux-x64.tar.gz
+cd TheNewTiptris
+./TheNewTiptris
+```
+On first launch it asks for your ROM (the (U) release above). It stores a local
+copy in your config dir and reuses it automatically on every later run — no game
+data is bundled. If the file picker doesn't work on your desktop, you can point
+it at the ROM directly once: `TNT_ROM=/path/to/rom.n64 ./TheNewTiptris`.
+
+Needs a Vulkan-capable GPU (any modern Mesa/RADV/NVIDIA driver). Tested on CachyOS.
+
+## Build from source
 
 ### 1. Prerequisites (Ubuntu/WSL2)
 ```bash
@@ -57,20 +73,20 @@ SDL2 audio buffering) — small patches kept in this repo:
 ```
 See `patches/deps/apply.sh` for what each patch does and why.
 
-### 3. Generate the game code from *your* ROM (nothing here is committed)
+### 3. (Optional) Regenerate the recompiled code from *your* ROM
+The recompiled program code is already committed (`RecompiledFuncs/`,
+`rsp/n_aspMain.cpp`, `tnt.syms.toml`), so a normal build does **not** need the
+ROM or the recompiler tools. You only need this to reproduce the recompilation
+from scratch (place your ROM where the configs expect it — `tnt-splat/baserom.z64`):
 ```bash
 # a) Symbols: from the chris-gilmore/tnt-splat decompilation (matches this ROM).
 #    Run its `splat split` on an all-asm variant, then:
 python3 gen_syms.py            # -> tnt.syms.toml
-
-# b) Recompiled game code:
+# b) Recompiled game code (needs the N64Recomp tool + ROM):
 N64Recomp tnt.us.toml          # -> RecompiledFuncs/
-
-# c) Recompiled audio microcode:
+# c) Recompiled audio microcode (needs the RSPRecomp tool + ROM):
 RSPRecomp n_aspMain.us.toml    # -> rsp/n_aspMain.cpp
 ```
-(See `gen_syms.py` and the `.toml` configs for exact offsets. Put your ROM where
-the configs expect it — it is never checked in.)
 
 ### 4. Build
 ```bash

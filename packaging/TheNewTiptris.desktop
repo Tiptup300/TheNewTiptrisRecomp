@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=The New Tiptris
+Comment=Native PC port (N64 game by H2O) built with N64: Recompiled
+Exec=TheNewTiptris
+Icon=TheNewTiptris
+Terminal=false
+Categories=Game;

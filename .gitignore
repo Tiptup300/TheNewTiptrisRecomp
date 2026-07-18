@@ -1,9 +1,11 @@
 # =========================================================================
-#  Never commit the ROM or anything extracted from it as game content.
-#  Game *assets* (graphics/audio/level data) are NEVER stored here — the app
-#  loads them from your own ROM at runtime. The game's recompiled program code
-#  (RecompiledFuncs) is regenerated locally from your ROM and is not committed.
-#  (Matches BanjoRecomp's policy.)
+#  Never commit the ROM or any GAME DATA extracted from it (graphics, audio,
+#  level data). Those are loaded from the user's own ROM at runtime and stored
+#  locally — they are NEVER checked in.
+#  The recompiled program *code* (RecompiledFuncs / rsp microcode) IS committed
+#  and shipped in the binary, as is standard for N64Recomp ports (Banjo/Zelda).
+#  It is a machine translation of code, not game assets. The end user still must
+#  supply their own ROM at runtime for the game data.
 # =========================================================================
 
 # --- ROMs / game images (never commit) ---
@@ -13,10 +15,6 @@
 *.rom
 *.elf
 baserom*
-
-# --- Recompiled game program code (game-specific; regenerate with N64Recomp) ---
-/RecompiledFuncs/
-/RecompiledPatches/
 
 # --- Rendered game frames / screenshots (contain copyrighted game imagery) ---
 /shots/
@@ -31,6 +29,7 @@ baserom*
 /build-cmake/
 /build/
 /out/
+/dist/
 *.o
 *.exe
 *.dll
