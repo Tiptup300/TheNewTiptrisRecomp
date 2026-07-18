@@ -1,0 +1,52 @@
+# =========================================================================
+#  Never commit the ROM or anything extracted from it as game content.
+#  Game *assets* (graphics/audio/level data) are NEVER stored here — the app
+#  loads them from your own ROM at runtime. The game's recompiled program code
+#  (RecompiledFuncs) is regenerated locally from your ROM and is not committed.
+#  (Matches BanjoRecomp's policy.)
+# =========================================================================
+
+# --- ROMs / game images (never commit) ---
+*.z64
+*.n64
+*.v64
+*.rom
+*.elf
+baserom*
+
+# --- Recompiled game program code (game-specific; regenerate with N64Recomp) ---
+/RecompiledFuncs/
+/RecompiledPatches/
+
+# --- Rendered game frames / screenshots (contain copyrighted game imagery) ---
+/shots/
+
+# --- External dependencies (cloned per README; see build instructions) ---
+/lib/
+
+# --- Mesa Dozen driver (extracted binary, not ours to redistribute) ---
+/dzn/
+
+# --- Build output ---
+/build-cmake/
+/build/
+/out/
+*.o
+*.exe
+*.dll
+*.lib
+*.pdb
+
+# --- Recompiler binaries ---
+/N64Recomp
+/RSPRecomp
+
+# --- Logs / scratch ---
+*.log
+*.raw
+*.tmp
+rt64.log
+imgui.ini
+
+# --- Local config / saves (config dir may hold a stored copy of the ROM) ---
+/config/
