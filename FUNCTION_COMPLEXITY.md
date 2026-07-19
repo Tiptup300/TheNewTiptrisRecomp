@@ -232,7 +232,7 @@
 | 226 | 8 | 7 | 0 | 98 | y | _libultra | `__osMakeMotorData` |
 | 227 | 8 | 7 | 0 | 97 |   | Garbage | `func_80073C60` |
 | 228 | 8 | 7 | 0 | 90 | y | BoardP | `BoardP_IsPointEmpty` |
-| 229 | 8 | 7 | 0 | 85 |   | CubeTiles | `func_800766C8` |
+| 229 | 8 | 7 | 0 | 85 | y | CubeTiles | `CubeTiles_FreeTiles` |
 | 230 | 8 | 7 | 0 | 60 |   | displayText | `FUN_SRAM_800785e0_sixliner_loop_arg0_t` |
 | 231 | 8 | 7 | 0 | 60 |   | Garbage | `func_800757BC` |
 | 232 | 7 | 6 | 0 | 699 | y | _libultra | `guLookAtReflectF` |
@@ -267,11 +267,11 @@
 | 261 | 7 | 6 | 0 | 78 |   | aisquarelist | `FUN_006930_800406b0_fifteenliner_two_loops` |
 | 262 | 7 | 6 | 0 | 76 |   | CurrentPiece | `CurrentPiece_80067c1c_fifteenliner_loops3times` |
 | 263 | 7 | 6 | 0 | 74 |   | Garbage | `func_80073030` |
-| 264 | 7 | 6 | 0 | 67 |   | Font | `Font_80077e18_fifteenliner` |
+| 264 | 7 | 6 | 0 | 67 | y | Font | `Font_GetScaledTextWidth` |
 | 265 | 7 | 6 | 0 | 67 |   | displayText | `func_8007AEB0` |
 | 266 | 7 | 6 | 0 | 64 |   | frametime | `func_800A484C` |
 | 267 | 7 | 1 | 5 | 62 |   | frametime | `func_800A5660` |
-| 268 | 7 | 6 | 0 | 45 |   | wonders2 | `wonders2_8004619c_sixliner_crazy_if` |
+| 268 | 7 | 6 | 0 | 45 | y | wonders2 | `wonders2_IsLastColumnOfWonder` |
 | 269 | 6 | 5 | 0 | 697 |   | _libultra | `func_8009E44C` |
 | 270 | 6 | 5 | 0 | 571 | y | wonders4 | `has_rounds_and_floors_large_liner` |
 | 271 | 6 | 5 | 0 | 344 |   | vec3 | `func_800B11C4` |
@@ -283,7 +283,7 @@
 | 277 | 6 | 5 | 0 | 223 |   | n64Heap | `func_8007EFE4` |
 | 278 | 6 | 5 | 0 | 221 |   | n64Heap | `func_8007EA2C` |
 | 279 | 6 | 5 | 0 | 191 |   | PFGFX | `func_800611E0` |
-| 280 | 6 | 5 | 0 | 174 |   | CubeTiles | `func_800764B8` |
+| 280 | 6 | 5 | 0 | 174 | y | CubeTiles | `CubeTiles_LoadTiles` |
 | 281 | 6 | 5 | 0 | 171 |   | frametime | `func_800AC4E0` |
 | 282 | 6 | 5 | 0 | 166 |   | wonders1 | `wonders1_80043ed8_thirtyliner_loop` |
 | 283 | 6 | 5 | 0 | 162 |   | wonders1 | `wonders1_80043c7c_thirtyliner_loop` |
@@ -377,7 +377,7 @@
 | 371 | 5 | 4 | 0 | 89 |   | displayText | `func_8007BB54` |
 | 372 | 5 | 4 | 0 | 87 |   | Audio | `Audio_80085bec_tenliner` |
 | 373 | 5 | 4 | 0 | 85 | y | BoardP | `BoardP_SetCubeAt` |
-| 374 | 5 | 4 | 0 | 85 |   | wonders2 | `wonders2_80046280_tenliner_trap` |
+| 374 | 5 | 4 | 0 | 85 | y | wonders2 | `wonders2_GetWonderProgressPercent` |
 | 375 | 5 | 4 | 0 | 84 |   | KeySpin | `KeySpin_8006bc8c_twelveliner_uses_pf_logic_cell_1` |
 | 376 | 5 | 4 | 0 | 84 |   | KeySpin | `KeySpin_8006bd94_twelveliner_uses_pf_logic_cell_2` |
 | 377 | 5 | 4 | 0 | 84 |   | displayText | `displayText_80078094_6` |
@@ -409,16 +409,16 @@
 | 403 | 5 | 4 | 0 | 61 | y | LineScan | `LineScan_ProcessLineClears` |
 | 404 | 5 | 4 | 0 | 61 |   | Bag63 | `func_80072248` |
 | 405 | 5 | 4 | 0 | 60 |   | CurrentPiece | `CurrentPiece_80067708_eightliner_interesting_1_2_8_10` |
-| 406 | 5 | 4 | 0 | 60 |   | wonders4 | `FUN_80048020_eightliner` |
-| 407 | 5 | 4 | 0 | 60 |   | Landfill | `func_8007257C` |
-| 408 | 5 | 4 | 0 | 60 | y | _libultra | `osScRemoveClient` |
+| 406 | 5 | 4 | 0 | 60 |   | Landfill | `func_8007257C` |
+| 407 | 5 | 4 | 0 | 60 | y | _libultra | `osScRemoveClient` |
+| 408 | 5 | 4 | 0 | 60 | y | wonders4 | `wonders4_UpdateMaxScroll` |
 | 409 | 5 | 4 | 0 | 59 |   | Landfill | `func_80072610` |
 | 410 | 5 | 4 | 0 | 58 |   | frametime | `func_800A6DD8` |
 | 411 | 5 | 4 | 0 | 58 |   | frametime | `func_800ABD64` |
 | 412 | 5 | 4 | 0 | 57 |   | frametime | `func_800A6D08` |
 | 413 | 5 | 4 | 0 | 57 | y | Game | `getMinPlayerTime` |
 | 414 | 5 | 4 | 0 | 55 |   | aisquarelist | `FUN_80041ab4_tenliner_loop` |
-| 415 | 5 | 4 | 0 | 55 |   | PFGFX | `func_80060680` |
+| 415 | 5 | 4 | 0 | 55 | y | PFGFX | `PFGFX_RotatePoint90` |
 | 416 | 5 | 4 | 0 | 52 |   | PFGFX | `FUN_026C80_80060a28_twelveliner_retbool` |
 | 417 | 5 | 4 | 0 | 51 |   | aisquarelist | `aisquarelist_8003e22c_tenliner_loops_6t` |
 | 418 | 5 | 4 | 0 | 50 |   | EndScroller | `EndScroller_8007fdb0_returns_0_1_2` |
@@ -431,7 +431,7 @@
 | 425 | 5 | 4 | 0 | 42 |   | PieceHold | `PieceHold_8006593c_nineliner_sets_struct_stuff` |
 | 426 | 5 | 4 | 0 | 41 | y | MobileCubes | `MobileCubes_Alloc` |
 | 427 | 5 | 4 | 0 | 39 | y | Bag63 | `Bag63_FillBag` |
-| 428 | 5 | 4 | 0 | 39 |   | Font | `Font_8007802c_fiveliner` |
+| 428 | 5 | 4 | 0 | 39 | y | Font | `Font_GetCharWidthUpper` |
 | 429 | 5 | 4 | 0 | 39 |   | displayText | `func_8007AA5C` |
 | 430 | 5 | 4 | 0 | 38 |   | gamefinish | `func_8005360C` |
 | 431 | 5 | 4 | 0 | 33 | y | n64Heap | `n64HeapGetMaxFreeBlockSize` |
@@ -479,7 +479,7 @@
 | 473 | 4 | 3 | 0 | 67 |   | Landfill | `func_80072A84` |
 | 474 | 4 | 3 | 0 | 65 |   | displayText | `func_8007B964` |
 | 475 | 4 | 3 | 0 | 63 |   | KeySpin | `KeySpin_8006b608_uses_pf_logic_cell_loops_10t_2` |
-| 476 | 4 | 3 | 0 | 62 |   | Game | `FUN_800508ec_fifteen_liner_allocs_heap` |
+| 476 | 4 | 3 | 0 | 62 | y | Game | `Ids_CopyFrom` |
 | 477 | 4 | 3 | 0 | 62 |   | Garbage | `func_800735D8` |
 | 478 | 4 | 3 | 0 | 62 |   | vec3 | `func_800B0890` |
 | 479 | 4 | 3 | 0 | 61 |   | Audio2 | `Audio2_8008a61c_twelveliner` |
@@ -493,7 +493,7 @@
 | 487 | 4 | 3 | 0 | 57 |   | NextPieces | `NextPieces_8006883c_tenliner_loops_4_times_sets_glb_var` |
 | 488 | 4 | 3 | 0 | 57 |   | displayText | `func_8007B8A8` |
 | 489 | 4 | 3 | 0 | 56 |   | frametime | `func_800A5E80` |
-| 490 | 4 | 3 | 0 | 54 |   | Font | `Font_800781a8_elevenliner_loops_arg2_t` |
+| 490 | 4 | 3 | 0 | 54 | y | Font | `Font_MeasureChars` |
 | 491 | 4 | 3 | 0 | 54 |   | KeySpin | `KeySpin_8006b478_eightliner` |
 | 492 | 4 | 3 | 0 | 54 |   | wonders1 | `wonders1_800446ac_eightliner` |
 | 493 | 4 | 3 | 0 | 52 |   | wonders1 | `wonders1_80043810_eightliner` |
@@ -567,7 +567,7 @@
 | 561 | 3 | 2 | 0 | 122 | y | _libultra | `_saveBuffer` |
 | 562 | 3 | 2 | 0 | 113 |   | LineEffect | `LineEffect_80069160_seventeen_liner` |
 | 563 | 3 | 2 | 0 | 113 | y | _libultra | `_doModFunc` |
-| 564 | 3 | 2 | 0 | 109 |   | wonders4 | `FUN_800481C0_allocs_heap` |
+| 564 | 3 | 2 | 0 | 109 | y | wonders4 | `wonders4_AllocBuffers` |
 | 565 | 3 | 2 | 0 | 102 | y | Game | `Game_SetAlpha` |
 | 566 | 3 | 2 | 0 | 93 | y | _libultra | `_decodeChunk` |
 | 567 | 3 | 2 | 0 | 88 |   | BoardP | `BoardP_8006e288_adds_8_entries_and_swaps_cubes` |
@@ -586,7 +586,7 @@
 | 580 | 3 | 2 | 0 | 72 |   | FrameAct | `FrameAct_80053868_twentyliner` |
 | 581 | 3 | 2 | 0 | 72 | y | GameStats | `GameStats_saveCurrentPieceFallVelocity` |
 | 582 | 3 | 2 | 0 | 72 |   | frametime | `func_800AFE4C` |
-| 583 | 3 | 2 | 0 | 72 | y | wonders1 | `wonders1_anim_related` |
+| 583 | 3 | 2 | 0 | 72 | y | wonders1 | `wonders1_Init` |
 | 584 | 3 | 2 | 0 | 71 |   | aisquarelist | `FUN_8004172c_twentyliner` |
 | 585 | 3 | 2 | 0 | 70 | y | _libultra | `guMtxL2F` |
 | 586 | 3 | 2 | 0 | 69 |   | frametime | `func_800A72B8` |
@@ -615,7 +615,7 @@
 | 609 | 3 | 2 | 0 | 55 |   | BoardP | `BoardP_8006d450_fourteenliner_pf_logic_cell_loops` |
 | 610 | 3 | 2 | 0 | 55 |   | Garbage | `func_800736E0` |
 | 611 | 3 | 2 | 0 | 55 |   | frametime | `func_800A5930` |
-| 612 | 3 | 2 | 0 | 54 |   | NextPieces | `NextPieces_80068a84_calls_Bag63_GetNextPiece` |
+| 612 | 3 | 2 | 0 | 54 | y | NextPieces | `NextPieces_Advance` |
 | 613 | 3 | 2 | 0 | 54 |   | frametime | `func_800A58A4` |
 | 614 | 3 | 2 | 0 | 53 |   | Game | `Game_80051320_fiveliner` |
 | 615 | 3 | 2 | 0 | 53 | y | MobileCubes | `MobileCubes_Init` |
@@ -627,7 +627,7 @@
 | 621 | 3 | 2 | 0 | 50 | y | _libultra | `alSynSetPitch` |
 | 622 | 3 | 2 | 0 | 50 |   | _libultra | `func_80090A44` |
 | 623 | 3 | 2 | 0 | 49 |   | MobilePiece | `MobilePiece_800654b0_sixliner_if_zero_if_one` |
-| 624 | 3 | 2 | 0 | 49 |   | SaveData | `func_8007BD48` |
+| 624 | 3 | 2 | 0 | 49 | y | SaveData | `SaveData_ComputeChecksum16` |
 | 625 | 3 | 2 | 0 | 49 |   | n64Heap | `func_8007FC74` |
 | 626 | 3 | 2 | 0 | 48 | y | Audio2 | `Audio2_GFXDone_SendPlayMessage` |
 | 627 | 3 | 2 | 0 | 48 | y | PieceHoldPiece | `PieceHoldPiece_RenderShadow` |
@@ -638,9 +638,9 @@
 | 632 | 3 | 2 | 0 | 47 | y | FrameAct | `FrameAct_calls_gamefinish_something2` |
 | 633 | 3 | 2 | 0 | 47 | y | _libultra | `alSynStopVoice` |
 | 634 | 3 | 2 | 0 | 47 | y | Game | `setPlayerTopOutOrder` |
-| 635 | 3 | 2 | 0 | 46 |   | EndScroller | `EndScroller_8007fe54_twoliner` |
+| 635 | 3 | 2 | 0 | 46 | y | EndScroller | `EndScroller_DrawLine` |
 | 636 | 3 | 2 | 0 | 46 | y | FallingCubes | `FallingCubes_Init` |
-| 637 | 3 | 2 | 0 | 46 |   | SaveData | `func_8007BCC4` |
+| 637 | 3 | 2 | 0 | 46 | y | SaveData | `SaveData_ComputeChecksum32` |
 | 638 | 3 | 2 | 0 | 45 | y | Multisquare | `Multisquare_pGetColor` |
 | 639 | 3 | 2 | 0 | 45 |   | Bag63 | `func_800720C0` |
 | 640 | 3 | 2 | 0 | 45 |   | frametime | `func_800A9D78` |
@@ -656,7 +656,7 @@
 | 650 | 3 | 2 | 0 | 42 | y | Minos | `Minos_SetVtxTransform` |
 | 651 | 3 | 2 | 0 | 42 |   | aiplayer | `aiplayer_8004376c_fiveliner` |
 | 652 | 3 | 2 | 0 | 42 | y | _libultra | `sins` |
-| 653 | 3 | 2 | 0 | 41 |   | FrameAct | `FrameAct_80053EC4_tenliner` |
+| 653 | 3 | 2 | 0 | 41 | y | FrameAct | `FrameAct_TimerTick` |
 | 654 | 3 | 2 | 0 | 41 | y | _libultra | `__scTaskReady` |
 | 655 | 3 | 2 | 0 | 41 |   | Garbage | `func_80073784` |
 | 656 | 3 | 2 | 0 | 41 |   | gamefinish | `gamefinish_80052AA0_tenliner` |
@@ -667,8 +667,8 @@
 | 661 | 3 | 2 | 0 | 38 | y | MobileCubes | `MobileCubes_Deinit` |
 | 662 | 3 | 2 | 0 | 37 |   | CurrentPiece | `CurrentPiece_800675a8_fiveliner_loops4times` |
 | 663 | 3 | 2 | 0 | 37 | y | _libultra | `_collectPVoices` |
-| 664 | 3 | 2 | 0 | 37 |   | Garbage | `func_8007318C` |
-| 665 | 3 | 2 | 0 | 37 |   | displayText | `func_8007A564` |
+| 664 | 3 | 2 | 0 | 37 | y | displayText | `displayText_CountSetBits` |
+| 665 | 3 | 2 | 0 | 37 |   | Garbage | `func_8007318C` |
 | 666 | 3 | 2 | 0 | 36 |   | aisquarelist | `FUN_008050_80041e24_maybe_calls_unalloc_heap` |
 | 667 | 3 | 2 | 0 | 36 |   | PFGFX | `FUN_027BF0_8006307c_sixliner` |
 | 668 | 3 | 2 | 0 | 36 |   | PFGFX | `func_80061134` |
@@ -699,7 +699,7 @@
 | 693 | 3 | 2 | 0 | 29 |   | aiplayer | `aiplayer_8004370c_threeliner` |
 | 694 | 3 | 2 | 0 | 29 |   | Garbage | `func_80072FC4` |
 | 695 | 3 | 2 | 0 | 29 |   | Garbage | `func_80073130` |
-| 696 | 3 | 2 | 0 | 29 | y | wonders3 | `wonders3_related` |
+| 696 | 3 | 2 | 0 | 29 | y | wonders3 | `wonders3_RenderWondersHall` |
 | 697 | 3 | 2 | 0 | 28 | y | LineScan | `LineScan_MarkAllRowsDirty` |
 | 698 | 3 | 2 | 0 | 28 |   | MobilePiece | `MobilePiece_800655c4_oneliner_if_calls_fun` |
 | 699 | 3 | 2 | 0 | 27 | y | Multisquare | `Multisquare_ClearFlags` |
@@ -716,14 +716,14 @@
 | 710 | 3 | 2 | 0 | 23 | y | n64Heap | `n64HeapGetTotalHandles` |
 | 711 | 3 | 2 | 0 | 23 | y | _libultra | `strlen_recomp` |
 | 712 | 3 | 2 | 0 | 22 |   | _libultra | `func_800A2F00` |
-| 713 | 3 | 2 | 0 | 21 |   | displayText | `func_8007AADC` |
+| 713 | 3 | 2 | 0 | 21 | y | displayText | `displayText_MatchXY` |
 | 714 | 3 | 2 | 0 | 21 |   | frametime | `func_800A48CC` |
 | 715 | 3 | 2 | 0 | 21 |   | frametime | `func_800A8FA0` |
 | 716 | 3 | 2 | 0 | 19 |   | frametime | `func_800A8FC8` |
 | 717 | 3 | 2 | 0 | 19 |   | frametime | `func_800A8FE8` |
 | 718 | 2 | 1 | 0 | 421 |   | vec3 | `func_800B0A98` |
 | 719 | 2 | 1 | 0 | 261 | y | _libultra | `guAlignF` |
-| 720 | 2 | 1 | 0 | 248 |   | SaveData | `func_8007BDD8` |
+| 720 | 2 | 1 | 0 | 248 | y | SaveData | `SaveData_InitDefaultScores` |
 | 721 | 2 | 1 | 0 | 244 |   | frametime | `func_800A40FC` |
 | 722 | 2 | 1 | 0 | 207 | y | _libultra | `_loadOutputBuffer` |
 | 723 | 2 | 1 | 0 | 195 |   | displayText | `func_8007A738` |
@@ -748,9 +748,9 @@
 | 742 | 2 | 1 | 0 | 72 |   | vec3 | `func_800B00BC` |
 | 743 | 2 | 1 | 0 | 67 |   | frametime | `func_800A4A88` |
 | 744 | 2 | 1 | 0 | 66 | y | vec3 | `vec3_normalize` |
-| 745 | 2 | 1 | 0 | 62 |   | wonders4 | `FUN_8004831C_allocs_heap` |
-| 746 | 2 | 1 | 0 | 62 |   | wonders4 | `FUN_800483E8_allocs_heap` |
-| 747 | 2 | 1 | 0 | 62 |   | frametime | `func_800AC0F8` |
+| 745 | 2 | 1 | 0 | 62 |   | frametime | `func_800AC0F8` |
+| 746 | 2 | 1 | 0 | 62 | y | wonders4 | `wonders4_AllocBuffer16` |
+| 747 | 2 | 1 | 0 | 62 | y | wonders4 | `wonders4_AllocBuffer8` |
 | 748 | 2 | 1 | 0 | 61 |   | BoardP | `BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry` |
 | 749 | 2 | 1 | 0 | 60 |   | MobilePiece | `MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times` |
 | 750 | 2 | 1 | 0 | 56 |   | BoardP | `BoardP_8006d674_tenliner_alloc_fallingcubes` |
@@ -776,11 +776,11 @@
 | 770 | 2 | 1 | 0 | 43 |   | frametime | `func_800A3CDC` |
 | 771 | 2 | 1 | 0 | 43 |   | frametime | `func_800A95F8` |
 | 772 | 2 | 1 | 0 | 43 |   | wonders1 | `wonders1_80044628_eightliner` |
-| 773 | 2 | 1 | 0 | 41 |   | wonders4 | `FUN_800480E0_threeliner_glist` |
-| 774 | 2 | 1 | 0 | 41 |   | wonders4 | `FUN_80048150_threeliner_vlist` |
+| 773 | 2 | 1 | 0 | 41 | y | wonders4 | `wonders4_DebugPrintGList` |
+| 774 | 2 | 1 | 0 | 41 | y | wonders4 | `wonders4_DebugPrintVList` |
 | 775 | 2 | 1 | 0 | 40 |   | _libultra | `func_800A3550` |
 | 776 | 2 | 1 | 0 | 40 |   | frametime | `func_800A94A8` |
-| 777 | 2 | 1 | 0 | 40 |   | wonders2 | `wonders2_80046388_fiveliner` |
+| 777 | 2 | 1 | 0 | 40 | y | wonders2 | `wonders2_GetLinesRemainingToWonder` |
 | 778 | 2 | 1 | 0 | 39 |   | Audio2 | `Audio2_80088ba4_fiveliner` |
 | 779 | 2 | 1 | 0 | 39 |   | _libultra | `FUN_001050_8003b544_motor_sendmsg_2` |
 | 780 | 2 | 1 | 0 | 39 |   | KeySpin | `KeySpin_8006c5c4_sevenliner_sets_arg0_struct_1` |
@@ -875,7 +875,7 @@
 | 869 | 2 | 1 | 0 | 16 |   | frametime | `func_800A989C` |
 | 870 | 2 | 1 | 0 | 16 |   | frametime | `func_800A98C0` |
 | 871 | 2 | 1 | 0 | 15 |   | _libultra | `func_800A2F30` |
-| 872 | 2 | 1 | 0 | 14 |   | FrameAct | `FrameAct_80053EA0_threeliner` |
+| 872 | 2 | 1 | 0 | 14 | y | FrameAct | `FrameAct_TimerExpired` |
 | 873 | 2 | 1 | 0 | 14 | y | Multisquare | `Multisquare_IsValidIndex` |
 | 874 | 2 | 1 | 0 | 14 |   | Tetris | `Tetris_FUN_80054220_fourliner` |
 | 875 | 2 | 1 | 0 | 13 | y | _libultra | `alFxParam` |
@@ -943,18 +943,18 @@
 | 937 | 1 | 0 | 0 | 85 |   | frametime | `func_800A56E4` |
 | 938 | 1 | 0 | 0 | 84 |   | MobilePiece | `MobilePiece_80064e10_similar_to_Minos_setUpdFlag` |
 | 939 | 1 | 0 | 0 | 84 |   | vec3 | `func_800B09A8` |
-| 940 | 1 | 0 | 0 | 83 |   | wonders4 | `FUN_80048934_inits_struct_q` |
+| 940 | 1 | 0 | 0 | 83 | y | wonders4 | `wonders4_BuildFillRectDL` |
 | 941 | 1 | 0 | 0 | 79 | y | MobilePiece | `MobilePiece_Minos_setUpdateFlag` |
 | 942 | 1 | 0 | 0 | 79 | y | _libultra | `guNormalize` |
 | 943 | 1 | 0 | 0 | 77 |   | CurrentPiece | `CurrentPiece_80066d8c_maybeRotCkw_retbool` |
 | 944 | 1 | 0 | 0 | 75 | y | Minos | `Minos_Mino_Copy` |
 | 945 | 1 | 0 | 0 | 75 |   | vec3 | `func_800B051C` |
 | 946 | 1 | 0 | 0 | 73 | y | Minos | `Minos_TransformVtx_Flat` |
-| 947 | 1 | 0 | 0 | 68 |   | CubeTiles | `FUN_03C130_80075EB0_nineliner_allocs_heap` |
+| 947 | 1 | 0 | 0 | 68 | y | CubeTiles | `CubeTiles_Alloc` |
 | 948 | 1 | 0 | 0 | 68 | y | Game | `Game_SetGlobalPointers` |
 | 949 | 1 | 0 | 0 | 67 | y | Color | `Color_Blend` |
 | 950 | 1 | 0 | 0 | 67 | y | Color | `Color_Tint` |
-| 951 | 1 | 0 | 0 | 67 |   | wonders4 | `FUN_80048A6C_inits_struct_q` |
+| 951 | 1 | 0 | 0 | 67 | y | wonders4 | `wonders4_BuildScissoredFillRectDL` |
 | 952 | 1 | 0 | 0 | 66 | y | vec3 | `vec3_cross` |
 | 953 | 1 | 0 | 0 | 63 |   | Bag63 | `func_80071730` |
 | 954 | 1 | 0 | 0 | 63 |   | debug | `func_80084630` |
@@ -990,7 +990,7 @@
 | 984 | 1 | 0 | 0 | 50 | y | _libultra | `alEnvmixerNew` |
 | 985 | 1 | 0 | 0 | 50 |   | frametime | `func_800AC06C` |
 | 986 | 1 | 0 | 0 | 48 | y | EndScroller | `EndScroller_font_size_scrolltext` |
-| 987 | 1 | 0 | 0 | 48 |   | SaveData | `func_8007C5CC` |
+| 987 | 1 | 0 | 0 | 48 | y | SaveData | `SaveData_Save` |
 | 988 | 1 | 0 | 0 | 48 |   | vec3 | `func_800B0F08` |
 | 989 | 1 | 0 | 0 | 48 |   | vec3 | `func_800B10C0` |
 | 990 | 1 | 0 | 0 | 47 |   | _libultra | `FUN_001050_cpakFileState` |
@@ -1063,8 +1063,8 @@
 | 1057 | 1 | 0 | 0 | 34 |   | Minos | `Minos_80070fd8_notcalled_q` |
 | 1058 | 1 | 0 | 0 | 34 |   | PFGFX | `func_8006364C` |
 | 1059 | 1 | 0 | 0 | 34 | y | gamefinish | `gamefinish_LoadResultImages` |
-| 1060 | 1 | 0 | 0 | 33 |   | MobilePiece | `MobilePiece_8006553c_nineliner_sets_arg0_struct` |
-| 1061 | 1 | 0 | 0 | 33 |   | CubeTiles | `func_8007635C` |
+| 1060 | 1 | 0 | 0 | 33 | y | CubeTiles | `CubeTiles_AllocGrid` |
+| 1061 | 1 | 0 | 0 | 33 |   | MobilePiece | `MobilePiece_8006553c_nineliner_sets_arg0_struct` |
 | 1062 | 1 | 0 | 0 | 33 | y | gamefinish | `gamefinish_FreeResultImages` |
 | 1063 | 1 | 0 | 0 | 33 | y | _libultra | `guMtxXFML` |
 | 1064 | 1 | 0 | 0 | 32 | y | FrameAct | `FrameAct_Init` |
@@ -1081,7 +1081,7 @@
 | 1075 | 1 | 0 | 0 | 31 | y | _libultra | `guPerspective` |
 | 1076 | 1 | 0 | 0 | 30 | y | Bag63 | `Bag63_GetNextPiece` |
 | 1077 | 1 | 0 | 0 | 30 |   | _libultra | `FUN_001050_Create_and_Start_ControllerThread` |
-| 1078 | 1 | 0 | 0 | 30 |   | NextPieces | `NextPieces_80068b18_threeliner` |
+| 1078 | 1 | 0 | 0 | 30 | y | NextPieces | `NextPieces_PopNext` |
 | 1079 | 1 | 0 | 0 | 30 |   | frametime | `func_800A4304` |
 | 1080 | 1 | 0 | 0 | 30 |   | vec3 | `func_800B04BC` |
 | 1081 | 1 | 0 | 0 | 30 | y | _libultra | `guTranslate` |
@@ -1163,12 +1163,12 @@
 | 1157 | 1 | 0 | 0 | 20 |   | frametime | `func_800A3DD4` |
 | 1158 | 1 | 0 | 0 | 20 |   | frametime | `func_800A3F98` |
 | 1159 | 1 | 0 | 0 | 19 |   | Audio2 | `Audio2_80087478_oneliner_calls_fun` |
-| 1160 | 1 | 0 | 0 | 19 | y | Game | `Ids_Deinit` |
-| 1161 | 1 | 0 | 0 | 19 |   | Minos | `Minos_80070820_fiveliner_sets_arg0_2_4_8_12_to_arg1` |
-| 1162 | 1 | 0 | 0 | 19 | y | PFGFX | `PFGFX_Init` |
-| 1163 | 1 | 0 | 0 | 19 |   | PieceHold | `PieceHold_80065fbc_oneliner_calls_fun1` |
-| 1164 | 1 | 0 | 0 | 19 |   | CubeTiles | `func_80075F5C` |
-| 1165 | 1 | 0 | 0 | 19 |   | CubeTiles | `func_800763B4` |
+| 1160 | 1 | 0 | 0 | 19 | y | CubeTiles | `CubeTiles_Free` |
+| 1161 | 1 | 0 | 0 | 19 | y | CubeTiles | `CubeTiles_FreeGrid` |
+| 1162 | 1 | 0 | 0 | 19 | y | Game | `Ids_Deinit` |
+| 1163 | 1 | 0 | 0 | 19 |   | Minos | `Minos_80070820_fiveliner_sets_arg0_2_4_8_12_to_arg1` |
+| 1164 | 1 | 0 | 0 | 19 | y | PFGFX | `PFGFX_Init` |
+| 1165 | 1 | 0 | 0 | 19 |   | PieceHold | `PieceHold_80065fbc_oneliner_calls_fun1` |
 | 1166 | 1 | 0 | 0 | 19 |   | CubeTiles | `func_8007641C` |
 | 1167 | 1 | 0 | 0 | 19 |   | _libultra | `func_800A0A08` |
 | 1168 | 1 | 0 | 0 | 19 |   | frametime | `func_800A46DC` |
@@ -1186,22 +1186,22 @@
 | 1180 | 1 | 0 | 0 | 18 |   | PFGFX | `func_80063618` |
 | 1181 | 1 | 0 | 0 | 18 | y | CurrentPiece | `getStartingRotationAngle` |
 | 1182 | 1 | 0 | 0 | 18 |   | wonders1 | `wonders1_80044464_threeliner` |
-| 1183 | 1 | 0 | 0 | 18 |   | wonders2 | `wonders2_8004624c_mult_7_add_6_etc` |
-| 1184 | 1 | 0 | 0 | 18 | y | wonders2 | `wonders2_divide_by_seven` |
+| 1183 | 1 | 0 | 0 | 18 | y | wonders2 | `wonders2_ColumnToWonderIndex` |
+| 1184 | 1 | 0 | 0 | 18 | y | wonders2 | `wonders2_WonderIndexToLastColumn` |
 | 1185 | 1 | 0 | 0 | 17 |   | Color | `FUN_01D300_80057080_nevercalled` |
 | 1186 | 1 | 0 | 0 | 17 |   | KeySpin | `FUN_032F00_8006cedc_sets_glb_to_fun_call_glb` |
 | 1187 | 1 | 0 | 0 | 17 | y | Font | `Font_Deinit` |
 | 1188 | 1 | 0 | 0 | 17 | y | Multisquare | `Multisquare_TestCell` |
-| 1189 | 1 | 0 | 0 | 17 | y | Game | `PlayerVars_SetGlobalPointers` |
-| 1190 | 1 | 0 | 0 | 17 |   | PFGFX | `func_80060704` |
-| 1191 | 1 | 0 | 0 | 17 |   | Bag63 | `func_80071B88` |
-| 1192 | 1 | 0 | 0 | 17 |   | Bag63 | `func_80071BBC` |
-| 1193 | 1 | 0 | 0 | 17 |   | Garbage | `func_800756A8` |
-| 1194 | 1 | 0 | 0 | 17 |   | displayText | `func_8007A508` |
+| 1189 | 1 | 0 | 0 | 17 | y | PFGFX | `PFGFX_GetRectCellCount` |
+| 1190 | 1 | 0 | 0 | 17 | y | Game | `PlayerVars_SetGlobalPointers` |
+| 1191 | 1 | 0 | 0 | 17 | y | displayText | `displayText_ClearTableBit` |
+| 1192 | 1 | 0 | 0 | 17 |   | Bag63 | `func_80071B88` |
+| 1193 | 1 | 0 | 0 | 17 |   | Bag63 | `func_80071BBC` |
+| 1194 | 1 | 0 | 0 | 17 |   | Garbage | `func_800756A8` |
 | 1195 | 1 | 0 | 0 | 17 | y | _libultra | `proutSprintf` |
-| 1196 | 1 | 0 | 0 | 16 |   | Audio2 | `Audio2_8008c104_oneliner_arg0_math_2` |
-| 1197 | 1 | 0 | 0 | 16 |   | Audio2 | `Audio2_8008c130_oneliner_arg0_math_3` |
-| 1198 | 1 | 0 | 0 | 16 |   | Audio | `Audio_80085408_oneliner_calls_allocdcm` |
+| 1196 | 1 | 0 | 0 | 16 | y | Audio2 | `Audio2_ReadU32BE` |
+| 1197 | 1 | 0 | 0 | 16 | y | Audio2 | `Audio2_ReadU32LE` |
+| 1198 | 1 | 0 | 0 | 16 | y | Audio | `Audio_AllocDcmScratch8` |
 | 1199 | 1 | 0 | 0 | 16 | y | GameStats | `GameStats_Render` |
 | 1200 | 1 | 0 | 0 | 16 | y | GhostPiece | `GhostPiece_Init` |
 | 1201 | 1 | 0 | 0 | 16 |   | MobilePiece | `MobilePiece_800652e4_sets_arg0_struct_to_arg1_struct` |
@@ -1209,9 +1209,9 @@
 | 1203 | 1 | 0 | 0 | 16 |   | PieceHold | `PieceHold_80065ff8_oneliner_calls_fun2_wunk518` |
 | 1204 | 1 | 0 | 0 | 16 |   | PieceHold | `PieceHold_80066020_oneliner_calls_fun3_wunk518` |
 | 1205 | 1 | 0 | 0 | 16 | y | PieceHold | `PieceHold_Deinit` |
-| 1206 | 1 | 0 | 0 | 16 | y | frametime | `frametime_update` |
-| 1207 | 1 | 0 | 0 | 16 |   | CubeTiles | `func_800763EC` |
-| 1208 | 1 | 0 | 0 | 16 |   | displayText | `func_8007A538` |
+| 1206 | 1 | 0 | 0 | 16 | y | displayText | `displayText_SetTableBit` |
+| 1207 | 1 | 0 | 0 | 16 | y | frametime | `frametime_update` |
+| 1208 | 1 | 0 | 0 | 16 |   | CubeTiles | `func_800763EC` |
 | 1209 | 1 | 0 | 0 | 16 |   | frametime | `func_800A3CB4` |
 | 1210 | 1 | 0 | 0 | 16 |   | frametime | `func_800A4698` |
 | 1211 | 1 | 0 | 0 | 16 |   | frametime | `func_800A4714` |
@@ -1226,7 +1226,7 @@
 | 1220 | 1 | 0 | 0 | 15 |   | n64Heap | `func_8007F320` |
 | 1221 | 1 | 0 | 0 | 15 |   | lzo1x | `func_8008313C` |
 | 1222 | 1 | 0 | 0 | 15 | y | CurrentPiece | `getStartingRotationState` |
-| 1223 | 1 | 0 | 0 | 14 |   | Audio2 | `Audio2_8008c0e0_oneliner_arg0_math` |
+| 1223 | 1 | 0 | 0 | 14 | y | Audio2 | `Audio2_ReadS16LE` |
 | 1224 | 1 | 0 | 0 | 14 | y | Board | `BoardInfo_Init` |
 | 1225 | 1 | 0 | 0 | 14 | y | Garbage | `Garbage_FreeTexture` |
 | 1226 | 1 | 0 | 0 | 14 |   | KeySpin | `KeySpin_8006b454_fourliner_sets_arg0_struct` |
@@ -1266,9 +1266,9 @@
 | 1260 | 1 | 0 | 0 | 12 | y | Multisquare | `Multisquare_Free` |
 | 1261 | 1 | 0 | 0 | 12 |   | PFGFX | `PFGFX_80060654_doesnothing` |
 | 1262 | 1 | 0 | 0 | 12 | y | _libultra | `alFilterNew` |
-| 1263 | 1 | 0 | 0 | 12 |   | Garbage | `func_80073014` |
-| 1264 | 1 | 0 | 0 | 12 |   | displayText | `func_80079F74` |
-| 1265 | 1 | 0 | 0 | 12 |   | displayText | `func_8007A62C` |
+| 1263 | 1 | 0 | 0 | 12 | y | displayText | `displayText_ClearBit` |
+| 1264 | 1 | 0 | 0 | 12 | y | displayText | `displayText_GetEntry` |
+| 1265 | 1 | 0 | 0 | 12 |   | Garbage | `func_80073014` |
 | 1266 | 1 | 0 | 0 | 12 |   | frametime | `func_800A6AA8` |
 | 1267 | 1 | 0 | 0 | 12 |   | frametime | `func_800AC334` |
 | 1268 | 1 | 0 | 0 | 12 |   | frametime | `func_800AD120` |
@@ -1283,17 +1283,17 @@
 | 1277 | 1 | 0 | 0 | 11 |   | LineEffect | `LineEffect_80069684_threeliner_sets_arg0_struct_v2` |
 | 1278 | 1 | 0 | 0 | 11 |   | Multisquare | `Multisquare_8006a6f0_threeliner_sets_arg0_stuff` |
 | 1279 | 1 | 0 | 0 | 11 | y | gamefinish | `PV_set_controller_no` |
-| 1280 | 1 | 0 | 0 | 11 |   | PFGFX | `func_8006110C` |
-| 1281 | 1 | 0 | 0 | 11 |   | Multisquare | `func_8006A9A4` |
-| 1282 | 1 | 0 | 0 | 11 |   | Bag63 | `func_80071B2C` |
-| 1283 | 1 | 0 | 0 | 11 |   | displayText | `func_8007A648` |
+| 1280 | 1 | 0 | 0 | 11 | y | displayText | `displayText_SetBit` |
+| 1281 | 1 | 0 | 0 | 11 |   | PFGFX | `func_8006110C` |
+| 1282 | 1 | 0 | 0 | 11 |   | Multisquare | `func_8006A9A4` |
+| 1283 | 1 | 0 | 0 | 11 |   | Bag63 | `func_80071B2C` |
 | 1284 | 1 | 0 | 0 | 11 |   | Audio2 | `func_80087600` |
 | 1285 | 1 | 0 | 0 | 11 |   | _libultra | `func_800A3534` |
 | 1286 | 1 | 0 | 0 | 11 |   | frametime | `func_800AA134` |
 | 1287 | 1 | 0 | 0 | 11 |   | frametime | `func_800AA3DC` |
 | 1288 | 1 | 0 | 0 | 11 |   | frametime | `func_800AA91C` |
 | 1289 | 1 | 0 | 0 | 11 |   | gamefinish | `gamefinish_80052D24_oneliner` |
-| 1290 | 1 | 0 | 0 | 10 | y | FrameAct | `FrameAct_set_state` |
+| 1290 | 1 | 0 | 0 | 10 | y | FrameAct | `FrameAct_SetState` |
 | 1291 | 1 | 0 | 0 | 10 | y | Garbage | `Garbage_GetState` |
 | 1292 | 1 | 0 | 0 | 10 | y | Minos | `Minos_Mino_SetBrightness` |
 | 1293 | 1 | 0 | 0 | 10 | y | _libultra | `__lzo_ptr_linear` |
@@ -1398,8 +1398,8 @@
 | 1392 | 1 | 0 | 0 | 7 |   | Board | `Board_8006D1F8_doesnothing3` |
 | 1393 | 1 | 0 | 0 | 7 | y | CubeTiles | `CubeTiles_Deinit` |
 | 1394 | 1 | 0 | 0 | 7 |   | EndScroller | `EndScroller_8007ffb0_doesnothing` |
-| 1395 | 1 | 0 | 0 | 7 |   | FrameAct | `FrameAct_80053F40_oneliner` |
-| 1396 | 1 | 0 | 0 | 7 | y | FrameAct | `FrameAct_Deinit_doesnothing` |
+| 1395 | 1 | 0 | 0 | 7 | y | FrameAct | `FrameAct_Deinit_doesnothing` |
+| 1396 | 1 | 0 | 0 | 7 | y | FrameAct | `FrameAct_SetTimer` |
 | 1397 | 1 | 0 | 0 | 7 | y | GameStats | `GameStats_Deinit` |
 | 1398 | 1 | 0 | 0 | 7 |   | Garbage | `Garbage_80072e2c_set_arg0p_to_arg1` |
 | 1399 | 1 | 0 | 0 | 7 | y | Garbage | `Garbage_Deinit` |
