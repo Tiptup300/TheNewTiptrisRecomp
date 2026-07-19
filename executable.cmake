@@ -22,6 +22,9 @@ target_include_directories(TntRecompiled PRIVATE
     ${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/nativefiledialog-extended/src/include
     ${CMAKE_SOURCE_DIR}/lib/RecompFrontend/recompinput/include
     ${CMAKE_SOURCE_DIR}/lib/RecompFrontend/recompui/include
+    # recompui's theme API (set_theme_color etc.) lives in an internal header;
+    # add its dir so we can theme the launcher/config menus from src/main.cpp.
+    ${CMAKE_SOURCE_DIR}/lib/RecompFrontend/recompui/src/elements
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
