@@ -11,7 +11,10 @@ set(TNT_SOURCES
 # Use the LLD linker: it resolves the circular static-lib dependencies between
 # RecompiledFuncs / librecomp / recompui without needing --start-group.
 # -rdynamic exports symbols so backtrace() prints function names on a crash.
-target_link_options(TntRecompiled PRIVATE -fuse-ld=lld -rdynamic)
+# (Linux/clang toolchain only; the Windows/clang-cl link is set up below.)
+if (NOT WIN32)
+    target_link_options(TntRecompiled PRIVATE -fuse-ld=lld -rdynamic)
+endif()
 
 target_include_directories(TntRecompiled PRIVATE
     ${CMAKE_SOURCE_DIR}/include
@@ -47,6 +50,29 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     target_link_libraries(TntRecompiled PRIVATE
         ${X11_LIBRARIES} ${X11_Xrandr_LIB} ${FREETYPE_LIBRARIES}
         "-latomic -static-libstdc++" ${CMAKE_DL_LIBS} Threads::Threads SDL2::SDL2)
+endif()
+
+if (WIN32)
+    # Reuse the SDL2 that rt64 bundles for Windows (mupen64plus-win32-deps).
+    set(TNT_SDL2_WIN "${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/mupen64plus-win32-deps/SDL2-2.26.3")
+    target_include_directories(TntRecompiled PRIVATE "${TNT_SDL2_WIN}/include")
+    target_link_directories(TntRecompiled PRIVATE "${TNT_SDL2_WIN}/lib/x64")
+    target_link_libraries(TntRecompiled PRIVATE SDL2 Winmm.lib)
+    target_link_options(TntRecompiled PRIVATE /OPT:NOICF)
+    # No console window in release; main() is the entry point (SDL2main's WinMain
+    # is bypassed by /ENTRY, matching BanjoRecomp).
+    set_target_properties(TntRecompiled PROPERTIES
+        LINK_FLAGS_DEBUG "/SUBSYSTEM:CONSOLE"
+        LINK_FLAGS_RELEASE "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
+        LINK_FLAGS_RELWITHDEBINFO "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
+        LINK_FLAGS_MINSIZEREL "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+    # Ship SDL2 + the DXC runtime DLLs (D3D12 runtime shader compilation) beside the exe.
+    add_custom_command(TARGET TntRecompiled POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${TNT_SDL2_WIN}/lib/x64/SDL2.dll"
+            "${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/dxc/bin/x64/dxil.dll"
+            "${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/dxc/bin/x64/dxcompiler.dll"
+            $<TARGET_FILE_DIR:TntRecompiled>)
 endif()
 
 target_link_libraries(TntRecompiled PRIVATE

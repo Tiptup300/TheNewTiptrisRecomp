@@ -1,8 +1,8 @@
 name: Release
 
-# Builds a self-contained Linux tarball of The New Tiptris and publishes it.
-#  - push a tag like v0.1.0  -> builds + attaches the tarball to a GitHub Release
-#  - "Run workflow" (manual) -> builds + uploads the tarball as a run artifact
+# Builds The New Tiptris for Linux (tar.gz) and Windows (zip) and publishes them.
+#  - push a tag like v0.1.0  -> builds + attaches both archives to a GitHub Release
+#  - "Run workflow" (manual) -> builds + uploads both as run artifacts
 #
 # No ROM and no game data are involved: the recompiled program code is committed
 # to this repo, so CI only clones deps, applies patches, builds, and packages.
@@ -82,3 +82,70 @@ jobs:
         with:
           files: dist/*.tar.gz
           generate_release_notes: true
+
+  build-windows:
+    # Windows build via clang-cl (matches BanjoRecomp/Zelda64Recomp). RT64 uses
+    # D3D12 here. Independent of build-linux, so a Windows failure never blocks
+    # the Linux release.
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install Ninja + expose clang-cl
+        shell: pwsh
+        run: |
+          choco install ninja -y
+          echo "C:\Program Files\LLVM\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Cache pinned dependencies (lib/)
+        id: cache-lib-win
+        uses: actions/cache@v4
+        with:
+          path: lib
+          key: libwin-nmr_ca568b6-rt64_f0d8c9f-rf_b3b7ebb-v1
+
+      - name: Clone pinned dependencies
+        if: steps.cache-lib-win.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p lib && cd lib
+          git clone https://github.com/N64Recomp/N64ModernRuntime
+          (cd N64ModernRuntime && git checkout ca568b6 && git submodule update --init --recursive)
+          git clone https://github.com/rt64/rt64
+          (cd rt64 && git checkout f0d8c9f && git submodule update --init --recursive)
+          git clone https://github.com/N64Recomp/RecompFrontend
+          (cd RecompFrontend && git checkout b3b7ebb && git submodule update --init --recursive)
+
+      - name: Apply dependency patches
+        run: ./patches/deps/apply.sh
+
+      - name: Configure
+        run: |
+          cmake -S . -B build-cmake -G Ninja -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl
+
+      - name: Build
+        run: cmake --build build-cmake --target TntRecompiled
+
+      - name: Package
+        shell: pwsh
+        run: ./packaging/package-windows.ps1
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TheNewTiptris-windows-x64
+          path: dist/*.zip
+          if-no-files-found: error
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip

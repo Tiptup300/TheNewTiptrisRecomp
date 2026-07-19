@@ -25,9 +25,16 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     add_compile_definitions(PLUME_SDL_VULKAN_ENABLED RT64_SDL_WINDOW_VULKAN)
 endif()
 
-# SDL2 is needed by rt64, recompui and recompinput. find_package sets SDL2_INCLUDE_DIRS
-# (which recompui/recompinput consume) and the SDL2::SDL2 target.
-find_package(SDL2 REQUIRED)
+# SDL2 is needed by rt64, recompui and recompinput. On Linux, find_package sets
+# SDL2_INCLUDE_DIRS (consumed by recompui/recompinput) and the SDL2::SDL2 target.
+# On Windows, reuse the SDL2 that rt64 bundles (mupen64plus-win32-deps) so the
+# frontend libs get their headers without a separate SDL2 install.
+if (WIN32)
+    add_compile_definitions(NOMINMAX)
+    set(SDL2_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/mupen64plus-win32-deps/SDL2-2.26.3/include")
+else()
+    find_package(SDL2 REQUIRED)
+endif()
 
 # ROM file picker: use the XDG desktop portal (via D-Bus) instead of GTK for
 # nativefiledialog-extended (pulled in by rt64). The portal works on non-GTK and
@@ -73,7 +80,11 @@ set (DXC_VS_OPTS "${DXC_COMMON_OPTS}" "-E" "VSMain" "-T vs_6_0" "-D DYNAMIC_REND
 set (DXC_CS_OPTS "${DXC_COMMON_OPTS}" "-E" "CSMain" "-T cs_6_0")
 set (DXC_GS_OPTS "${DXC_COMMON_OPTS}" "-E" "GSMain" "-T gs_6_0")
 set (DXC_RT_OPTS "${DXC_COMMON_OPTS}" "-D" "RT_SHADER" "-T" "lib_6_3" "-fspv-target-env=vulkan1.1spirv1.4" "-fspv-extension=SPV_KHR_ray_tracing" "-fspv-extension=SPV_EXT_descriptor_indexing")
-set (DXC "LD_LIBRARY_PATH=${PROJECT_SOURCE_DIR}/lib/rt64/src/contrib/dxc/lib/x64" "${PROJECT_SOURCE_DIR}/lib/rt64/src/contrib/dxc/bin/x64/dxc-linux")
+if (WIN32)
+    set (DXC "${PROJECT_SOURCE_DIR}/lib/rt64/src/contrib/dxc/bin/x64/dxc.exe")
+else()
+    set (DXC "LD_LIBRARY_PATH=${PROJECT_SOURCE_DIR}/lib/rt64/src/contrib/dxc/lib/x64" "${PROJECT_SOURCE_DIR}/lib/rt64/src/contrib/dxc/bin/x64/dxc-linux")
+endif()
 
 # RecompFrontend (recompui + recompinput) — must be added after rt64.
 set(RECOMP_FRONTEND_N64MODERNRUNTIME_PATH ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime)

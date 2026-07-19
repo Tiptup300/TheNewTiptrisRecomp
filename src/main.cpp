@@ -11,6 +11,9 @@
 #include <execinfo.h>
 #include <csignal>
 #endif
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 #include "SDL.h"
 
@@ -207,6 +210,16 @@ int main(int argc, char** argv) {
         ssize_t n = readlink("/proc/self/exe", exe_path, sizeof(exe_path) - 1);
         if (n > 0) {
             exe_path[n] = '\0';
+            std::error_code ec;
+            std::filesystem::current_path(std::filesystem::path(exe_path).parent_path(), ec);
+        }
+    }
+#endif
+#ifdef _WIN32
+    {
+        wchar_t exe_path[MAX_PATH];
+        DWORD n = GetModuleFileNameW(nullptr, exe_path, MAX_PATH);
+        if (n > 0 && n < MAX_PATH) {
             std::error_code ec;
             std::filesystem::current_path(std::filesystem::path(exe_path).parent_path(), ec);
         }
