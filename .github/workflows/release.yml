@@ -19,7 +19,10 @@ permissions:
 
 jobs:
   build-linux:
-    runs-on: ubuntu-22.04
+    # ubuntu-24.04 (noble): ships clang-18 + a recent libstdc++ (GCC-14, complete
+    # C++20) and SDL 2.30. glibc 2.39 stays older than CachyOS / Fedora COSMIC
+    # Atomic, so the binary remains forward-compatible with those targets.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,16 +31,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            cmake ninja-build lld llvm \
+            cmake ninja-build clang lld llvm \
             libsdl2-dev libdbus-1-dev libgtk-3-dev libfreetype-dev libx11-dev libxrandr-dev \
-            python3 patchelf file ca-certificates wget lsb-release software-properties-common gnupg
-
-      - name: Install clang 18
-        run: |
-          wget -q https://apt.llvm.org/llvm.sh
-          chmod +x llvm.sh
-          sudo ./llvm.sh 18
-          clang-18 --version
+            python3 patchelf file
+          clang --version
 
       - name: Cache pinned dependencies (lib/)
         id: cache-lib
@@ -63,7 +60,7 @@ jobs:
       - name: Configure
         run: |
           cmake -S . -B build-cmake \
-            -DCMAKE_C_COMPILER=clang-18 -DCMAKE_CXX_COMPILER=clang++-18 \
+            -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
             -G Ninja -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
