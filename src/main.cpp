@@ -141,12 +141,17 @@ static void audio_set_frequency(uint32_t freq) {
     want.freq = (int)freq;
     want.format = AUDIO_S16SYS;
     want.channels = 2;
-    want.samples = 1024;
+    // Keep the device buffer small: the game paces its own audio queue to a
+    // fairly low floor (~600 frames), so a large device buffer (e.g. 1024) is
+    // bigger than the queued audio and underruns every cycle -> a periodic buzz.
+    // A small buffer stays well under the queue floor and avoids the underrun.
+    want.samples = 256;
     want.callback = nullptr; // queue-based
     g_audio_dev = SDL_OpenAudioDevice(nullptr, 0, &want, &have, 0);
     if (g_audio_dev != 0) {
         SDL_PauseAudioDevice(g_audio_dev, 0);
-        fprintf(stderr, "[tnt] audio device opened: %d Hz, %d ch\n", have.freq, have.channels);
+        fprintf(stderr, "[tnt] audio device opened: %d Hz, %d ch, buffer=%d frames\n",
+                have.freq, have.channels, have.samples);
     } else {
         fprintf(stderr, "[tnt] SDL_OpenAudioDevice failed: %s\n", SDL_GetError());
     }
