@@ -76,6 +76,18 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 
 ## 🟡 UI / UX
 
+- [ ] **Missing-font errors flood the event log, and some buttons are invisible**
+  (only appear/clickable on hover). The theme/RCSS references font weights, faces,
+  or glyphs that aren't actually provided (`primary.ttf` is single-weight;
+  `promptfont.ttf` is an Ubuntu placeholder; emoji font) — so those elements
+  render nothing until a hover state changes them. Likely the same root cause
+  behind several UI problems (invisible buttons, missing icons, maybe the
+  "controls config looks broken" symptom). Fix: register the font under all
+  requested weights (or alias to the single face) and ship the real
+  promptfont/icon/emoji faces.
+- [ ] **Back / Close buttons show no icon** — they're meant to display an icon
+  glyph but nothing renders (missing icon/promptfont glyph; same root cause as
+  above). Ship/register the proper icon font.
 - [ ] Register a **bold** font face for headers — `primary.ttf` is single-weight,
   so the theme's bold/weight requests don't render as bold.
 - [ ] Real **promptfont** for controller glyphs (currently an Ubuntu placeholder),
@@ -99,6 +111,14 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 
 ## 🟢 Graphics
 
+- [ ] **Implement 16:9 widescreen mode** (native is 4:3; add proper widescreen,
+  not just stretch).
+- [ ] **Explore custom framerates** — options beyond native (e.g. 30/60/120/144/
+  uncapped) with game-speed correctly decoupled from render rate.
+- [ ] **Confirm MSAA / anti-aliasing actually works** — the setting exists; verify
+  it visibly applies (and at which sample counts).
+- [ ] **Confirm downsampling / resolution-scale actually works** — verify the
+  resolution / upscale / downsample options take real effect.
 - [ ] Exercise the graphics settings tab (resolution, upscaling, vsync) end-to-end.
 - [ ] Widescreen / high-res verification across all screens (intro 3D "N", menus,
   gameplay, WONDERS, multiplayer).
