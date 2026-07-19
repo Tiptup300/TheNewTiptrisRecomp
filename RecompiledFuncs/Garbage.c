@@ -122,7 +122,7 @@ L_80072DF4:
     // 0x80072DFC: jal         0x80072CC8
     // 0x80072E00: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    func_80072CC8(rdram, ctx);
+    Landfill_SetRowCell(rdram, ctx);
         goto after_3;
     // 0x80072E00: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);

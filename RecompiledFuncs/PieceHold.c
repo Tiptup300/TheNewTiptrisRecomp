@@ -606,7 +606,7 @@ RECOMP_FUNC void PieceHold_80065fbc_oneliner_calls_fun1(uint8_t* rdram, recomp_c
     // 0x80065FD8: jal         0x80065238
     // 0x80065FDC: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    MobilePiece_80065238_sevenliner_loops_4_times(rdram, ctx);
+    MobilePiece_Copy(rdram, ctx);
         goto after_0;
     // 0x80065FDC: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);

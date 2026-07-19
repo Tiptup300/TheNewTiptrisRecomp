@@ -769,7 +769,7 @@ L_800651B8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MobilePiece_800651c8_sevenliner_loops_4_times_v2_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_CanPlace(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800651C8: addiu       $sp, $sp, -0x28
@@ -858,7 +858,7 @@ L_80065228:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MobilePiece_80065238_sevenliner_loops_4_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_Copy(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80065238: addiu       $sp, $sp, -0x28

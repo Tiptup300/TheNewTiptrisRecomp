@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void Landfill_800723a0_calls_garbage_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_SetCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800723A0: addiu       $sp, $sp, -0x18
@@ -35,7 +35,7 @@ RECOMP_FUNC void Landfill_800723a0_calls_garbage_fun(uint8_t* rdram, recomp_cont
     // 0x800723D8: jal         0x80072CC8
     // 0x800723DC: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    func_80072CC8(rdram, ctx);
+    Landfill_SetRowCell(rdram, ctx);
         goto after_0;
     // 0x800723DC: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -154,7 +154,7 @@ L_80072480:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80072494(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_GetRowLength(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072494: lui         $t6, 0x8012
@@ -183,7 +183,7 @@ RECOMP_FUNC void func_80072494(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800724C0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_GetCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800724C0: addiu       $sp, $sp, -0x18
@@ -213,7 +213,7 @@ RECOMP_FUNC void func_800724C0(uint8_t* rdram, recomp_context* ctx) {
     // 0x800724F0: jal         0x80072D24
     // 0x800724F4: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    func_80072D24(rdram, ctx);
+    Landfill_GetRowCell(rdram, ctx);
         goto after_0;
     // 0x800724F4: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -246,7 +246,7 @@ RECOMP_FUNC void func_80072508(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007251C: jal         0x80072494
     // 0x80072520: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    func_80072494(rdram, ctx);
+    Landfill_GetRowLength(rdram, ctx);
         goto after_0;
     // 0x80072520: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -271,7 +271,7 @@ L_80072534:
     // 0x8007253C: jal         0x800724C0
     // 0x80072540: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    func_800724C0(rdram, ctx);
+    Landfill_GetCell(rdram, ctx);
         goto after_1;
     // 0x80072540: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
@@ -352,7 +352,7 @@ RECOMP_FUNC void func_8007257C(uint8_t* rdram, recomp_context* ctx) {
     // 0x800725A4: jal         0x80072494
     // 0x800725A8: addiu       $s0, $s0, -0x1
     ctx->r16 = ADD32(ctx->r16, -0X1);
-    func_80072494(rdram, ctx);
+    Landfill_GetRowLength(rdram, ctx);
         goto after_0;
     // 0x800725A8: addiu       $s0, $s0, -0x1
     ctx->r16 = ADD32(ctx->r16, -0X1);
@@ -379,7 +379,7 @@ L_800725C0:
     // 0x800725C8: jal         0x800724C0
     // 0x800725CC: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    func_800724C0(rdram, ctx);
+    Landfill_GetCell(rdram, ctx);
         goto after_1;
     // 0x800725CC: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -464,7 +464,7 @@ RECOMP_FUNC void func_80072610(uint8_t* rdram, recomp_context* ctx) {
     // 0x80072638: jal         0x80072494
     // 0x8007263C: addiu       $s0, $s0, -0x1
     ctx->r16 = ADD32(ctx->r16, -0X1);
-    func_80072494(rdram, ctx);
+    Landfill_GetRowLength(rdram, ctx);
         goto after_0;
     // 0x8007263C: addiu       $s0, $s0, -0x1
     ctx->r16 = ADD32(ctx->r16, -0X1);
@@ -494,7 +494,7 @@ L_8007265C:
     // 0x80072660: jal         0x800724C0
     // 0x80072664: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    func_800724C0(rdram, ctx);
+    Landfill_GetCell(rdram, ctx);
         goto after_1;
     // 0x80072664: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -634,7 +634,7 @@ L_80072708:
     // 0x8007272C: jal         0x80072CC8
     // 0x80072730: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    func_80072CC8(rdram, ctx);
+    Landfill_SetRowCell(rdram, ctx);
         goto after_1;
     // 0x80072730: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -821,7 +821,7 @@ L_80072820:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void Landfill_Garbage(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_AppendRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007283C: lui         $t6, 0x8012
@@ -1683,7 +1683,7 @@ L_80072CB0:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void func_80072CC8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_SetRowCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072CC8: addiu       $sp, $sp, -0x18
@@ -1745,7 +1745,7 @@ L_80072D00:
 
 ;}
 
-RECOMP_FUNC void func_80072D24(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_GetRowCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072D24: andi        $a1, $a1, 0xFF

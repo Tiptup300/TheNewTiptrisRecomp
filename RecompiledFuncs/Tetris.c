@@ -1794,7 +1794,7 @@ RECOMP_FUNC void Tetris_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x80054944: jal         0x8007283C
     // 0x80054948: nop
 
-    Landfill_Garbage(rdram, ctx);
+    Landfill_AppendRow(rdram, ctx);
         goto after_12;
     // 0x80054948: nop
 
@@ -1908,7 +1908,7 @@ L_800549C4:
     // 0x800549E4: jal         0x800723A0
     // 0x800549E8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    Landfill_800723a0_calls_garbage_fun(rdram, ctx);
+    Landfill_SetCell(rdram, ctx);
         goto after_16;
     // 0x800549E8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;

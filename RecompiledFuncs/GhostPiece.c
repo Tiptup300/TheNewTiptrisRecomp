@@ -102,7 +102,7 @@ RECOMP_FUNC void GhostPiece_Render(uint8_t* rdram, recomp_context* ctx) {
     // 0x80066754: jal         0x800651C8
     // 0x80066758: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    MobilePiece_800651c8_sevenliner_loops_4_times_v2_retbool(rdram, ctx);
+    MobilePiece_CanPlace(rdram, ctx);
         goto after_0;
     // 0x80066758: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -163,7 +163,7 @@ L_80066788:
     // 0x800667A4: jal         0x800651C8
     // 0x800667A8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    MobilePiece_800651c8_sevenliner_loops_4_times_v2_retbool(rdram, ctx);
+    MobilePiece_CanPlace(rdram, ctx);
         goto after_0;
     // 0x800667A8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
