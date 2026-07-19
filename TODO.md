@@ -43,6 +43,11 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 - [ ] **Implement mod support** — load/enable/manage mods. The N64Recomp stack has
   a mod framework (`RecompModTool`, `OfflineModRecomp`, librecomp mod loading);
   integrate it and expose a mods UI.
+- [ ] Investigate **default mods that ship enabled** out of the box (bundled mods
+  on by default, not requiring the user to enable them).
+- [ ] Default mod: **hide the "Transfer Name" and "Dump Lines to Game Pak" data
+  menu options** — Controller/Game-Pak transfer features that don't apply to the
+  PC port; hide them from the data/options menu.
 
 ## 🟠 Audio
 
