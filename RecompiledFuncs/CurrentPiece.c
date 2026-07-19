@@ -73,7 +73,7 @@ RECOMP_FUNC void CurrentPiece_80066920_sixteenliner(uint8_t* rdram, recomp_conte
     // 0x800669A4: jal         0x800667DC
     // 0x800669A8: or          $a3, $t7, $zero
     ctx->r7 = ctx->r15 | 0;
-    GhostPiece_800667dc_twelveliner_sets_struct(rdram, ctx);
+    GhostPiece_Update(rdram, ctx);
         goto after_0;
     // 0x800669A8: or          $a3, $t7, $zero
     ctx->r7 = ctx->r15 | 0;
@@ -3761,7 +3761,7 @@ RECOMP_FUNC void CurrentPiece_80067dd8_big_fiftyliner(uint8_t* rdram, recomp_con
     // 0x80067F88: jal         0x800668EC
     // 0x80067F8C: addiu       $a0, $s0, 0x540
     ctx->r4 = ADD32(ctx->r16, 0X540);
-    GhostPiece_800668ec_sixliner_inits_struct(rdram, ctx);
+    GhostPiece_Init(rdram, ctx);
         goto after_10;
     // 0x80067F8C: addiu       $a0, $s0, 0x540
     ctx->r4 = ADD32(ctx->r16, 0X540);
@@ -3819,7 +3819,7 @@ RECOMP_FUNC void CurrentPiece_80067dd8_big_fiftyliner(uint8_t* rdram, recomp_con
     // 0x80067FF4: jal         0x800667DC
     // 0x80067FF8: or          $a3, $t1, $zero
     ctx->r7 = ctx->r9 | 0;
-    GhostPiece_800667dc_twelveliner_sets_struct(rdram, ctx);
+    GhostPiece_Update(rdram, ctx);
         goto after_11;
     // 0x80067FF8: or          $a3, $t1, $zero
     ctx->r7 = ctx->r9 | 0;

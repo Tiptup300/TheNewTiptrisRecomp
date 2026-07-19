@@ -136,7 +136,7 @@ L_8006676C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void GhostPiece_8006677c_fourliner_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GhostPiece_DropToLanding(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006677C: addiu       $sp, $sp, -0x18
@@ -200,7 +200,7 @@ L_80066788:
 
 ;}
 
-RECOMP_FUNC void GhostPiece_800667dc_twelveliner_sets_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GhostPiece_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800667DC: addiu       $sp, $sp, -0x20
@@ -351,7 +351,7 @@ L_8006683C:
     // 0x800668D4: jal         0x8006677C
     // 0x800668D8: nop
 
-    GhostPiece_8006677c_fourliner_loops(rdram, ctx);
+    GhostPiece_DropToLanding(rdram, ctx);
         goto after_2;
     // 0x800668D8: nop
 
@@ -369,7 +369,7 @@ L_800668DC:
 
 ;}
 
-RECOMP_FUNC void GhostPiece_800668ec_sixliner_inits_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GhostPiece_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800668EC: andi        $a2, $a2, 0xFF
