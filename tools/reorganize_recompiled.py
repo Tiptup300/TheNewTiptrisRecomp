@@ -64,6 +64,56 @@ GENERIC_VERB_PREFIXES = {
 LIBULTRA_BUCKET = "_libultra"
 UNLABELED_BUCKET = "_unlabeled"
 
+# Second hierarchy level: group subsystem files into top-level module domains,
+# so the tree is RecompiledFuncs/<domain>/<subsystem>.c. A subsystem not listed
+# here falls into "misc/" (and is logged, so a regen surfaces it for triage).
+DOMAINS = {
+    # core game loop / top-level
+    "main": "core", "Game": "core", "Tetris": "core", "FrameAct": "core",
+    # gameplay: board, pieces, cubes, line/square mechanics, input
+    "Board": "gameplay", "BoardP": "gameplay", "BoardPieces": "gameplay",
+    "CurrentPiece": "gameplay", "MobilePiece": "gameplay", "MobileCubes": "gameplay",
+    "FallingCubes": "gameplay", "GhostPiece": "gameplay", "PieceHold": "gameplay",
+    "PieceHoldPiece": "gameplay", "Bag63": "gameplay", "NextPieces": "gameplay",
+    "Cube": "gameplay", "LineScan": "gameplay", "LineEffect": "gameplay",
+    "Landfill": "gameplay", "Garbage": "gameplay", "Multisquare": "gameplay",
+    "MultisquareGlow": "gameplay", "Multisquares": "gameplay", "GameStats": "gameplay",
+    "KeySpin": "gameplay", "Ids": "gameplay",
+    # graphics / rendering
+    "Minos": "graphics", "PFGFX": "graphics", "CubeTiles": "graphics",
+    "displayText": "graphics", "Font": "graphics", "Color": "graphics",
+    # audio
+    "Audio": "audio", "Audio2": "audio", "Dcm": "audio", "h2o": "audio",
+    # cpu opponent
+    "aiplayer": "ai", "aisquarelist": "ai",
+    # modes / non-core screens
+    "wonders1": "modes", "wonders2": "modes", "wonders3": "modes", "wonders4": "modes",
+    "gamefinish": "modes", "EndScroller": "modes", "Credits": "modes",
+    # platform / libraries / util / persistence
+    LIBULTRA_BUCKET: "system", UNLABELED_BUCKET: "system", "n64Heap": "system",
+    "lzo": "system", "lzo1x": "system", "vec3": "system", "strutil": "system",
+    "debug": "system", "frametime": "system", "SaveData": "system",
+}
+DEFAULT_DOMAIN = "misc"
+
+# Per-function overrides: a subsystem whose functions span two domains can send
+# specific functions to a different <domain>/<file>. The Minos (tetromino)
+# subsystem is really a shared renderer PLUS a per-mino entity; the entity's
+# state/animation functions belong with game logic, the rest with rendering.
+FUNC_DOMAIN_OVERRIDE = {
+    name: ("gameplay", "Mino") for name in (
+        "Minos_800702e4_nineliner",                          # Mino_Spawn
+        "Minos_Mino_Copy",
+        "Minos_800704e0_threeliner_sets_0x130",              # Mino_UpdateGraphic
+        "Minos_80070528_Morph",
+        "Minos_Mino_SetGraphicHandle",
+        "Minos_80070820_fiveliner_sets_arg0_2_4_8_12_to_arg1",  # Mino_SetTransform
+        "Minos_80070860_fortyliner",                         # Mino_TweenTransform
+        "Minos_Mino_SetBrightness",
+        "Minos_Mino_FadeBrightness",
+    )
+}
+
 
 def parse_units(path: Path):
     """Split one .c file into (name, body_text) units; verify the invariant
@@ -189,21 +239,43 @@ def main():
     if args.dry_run:
         return
 
-    # Emit one flat file per subsystem (RecompiledFuncs/<Subsystem>.c), then
-    # delete every previously-parsed .c that is no longer an output (old flat
-    # chunk files, or stale subsystem files after a re-categorization).
-    # funcs.h / lookup.cpp / recomp_overlays.inl are never touched.
-    outputs = set()
+    # Route each function to an output file RecompiledFuncs/<domain>/<stem>.c:
+    # by default domain = DOMAINS[subsystem] and stem = subsystem, but a
+    # FUNC_DOMAIN_OVERRIDE entry can redirect individual functions (used to
+    # split the Minos renderer from the per-mino entity across graphics/gameplay).
+    outfiles = defaultdict(list)
+    unmapped = set()
     for sub, units in buckets.items():
+        for u in units:
+            name = u[0]
+            if name in FUNC_DOMAIN_OVERRIDE:
+                domain, stem = FUNC_DOMAIN_OVERRIDE[name]
+            else:
+                stem = sub
+                domain = DOMAINS.get(sub)
+                if domain is None:
+                    unmapped.add(sub)
+                    domain = DEFAULT_DOMAIN
+            outfiles[(domain, stem)].append(u)
+    if unmapped:
+        print(f"  WARNING: unmapped subsystems -> {DEFAULT_DOMAIN}/: {sorted(unmapped)}")
+
+    # Emit, then delete every previously-parsed .c no longer an output (old flat
+    # or nested files after a re-categorization) and prune empty dirs.
+    # funcs.h / lookup.cpp / recomp_overlays.inl at the root are never touched.
+    outputs = set()
+    for (domain, stem), units in outfiles.items():
         units.sort(key=lambda u: u[1])
-        out = FUNCS_DIR / f"{sub}.c"
+        d = FUNCS_DIR / domain
+        d.mkdir(exist_ok=True)
+        out = d / f"{stem}.c"
         out.write_text(PREAMBLE + "\n".join(body for _, _, body in units))
         outputs.add(out)
     for f in src_files:
         if f not in outputs:
             f.unlink()
-    for d in sorted(FUNCS_DIR.iterdir()):
-        if d.is_dir() and not any(d.iterdir()):
+    for d in sorted((p for p in FUNCS_DIR.rglob("*") if p.is_dir()), reverse=True):
+        if not any(d.iterdir()):
             d.rmdir()
 
     # Post-write symbol-set invariant.
