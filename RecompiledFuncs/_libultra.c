@@ -28353,7 +28353,7 @@ L_80093090:
     // 0x800930BC: jal         0x8007AADC
     // 0x800930C0: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_75;
     // 0x800930C0: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
@@ -28375,7 +28375,7 @@ L_80093090:
     // 0x800930D8: jal         0x8007A62C
     // 0x800930DC: nop
 
-    func_8007A62C(rdram, ctx);
+    displayText_ClearBit(rdram, ctx);
         goto after_76;
     // 0x800930DC: nop
 
@@ -28722,7 +28722,7 @@ L_80093268:
     // 0x80093300: jal         0x8007AADC
     // 0x80093304: nop
 
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_88;
     // 0x80093304: nop
 
@@ -37898,7 +37898,7 @@ L_80096F08:
     // 0x80096F28: jal         0x8007AADC
     // 0x80096F2C: nop
 
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_249;
     // 0x80096F2C: nop
 
@@ -38636,7 +38636,7 @@ L_80097354:
     // 0x80097380: jal         0x8007AADC
     // 0x80097384: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_270;
     // 0x80097384: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
@@ -38779,7 +38779,7 @@ L_8009741C:
     // 0x80097460: jal         0x8007A62C
     // 0x80097464: sw          $t2, 0x94($sp)
     MEM_W(0X94, ctx->r29) = ctx->r10;
-    func_8007A62C(rdram, ctx);
+    displayText_ClearBit(rdram, ctx);
         goto after_274;
     // 0x80097464: sw          $t2, 0x94($sp)
     MEM_W(0X94, ctx->r29) = ctx->r10;
@@ -39299,7 +39299,7 @@ L_80097770:
     // 0x80097790: jal         0x8007AADC
     // 0x80097794: nop
 
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_288;
     // 0x80097794: nop
 
@@ -39444,7 +39444,7 @@ L_800977F4:
     // 0x8009786C: jal         0x8007A648
     // 0x80097870: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    func_8007A648(rdram, ctx);
+    displayText_SetBit(rdram, ctx);
         goto after_294;
     // 0x80097870: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;

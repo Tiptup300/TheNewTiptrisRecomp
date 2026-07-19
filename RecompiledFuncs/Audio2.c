@@ -1615,7 +1615,7 @@ L_80086A64:
     // 0x80086A68: jal         0x8008C0E0
     // 0x80086A6C: nop
 
-    Audio2_8008c0e0_oneliner_arg0_math(rdram, ctx);
+    Audio2_ReadS16LE(rdram, ctx);
         goto after_4;
     // 0x80086A6C: nop
 
@@ -5869,7 +5869,7 @@ L_80089950:
     // 0x80089954: jal         0x8008C0E0
     // 0x80089958: nop
 
-    Audio2_8008c0e0_oneliner_arg0_math(rdram, ctx);
+    Audio2_ReadS16LE(rdram, ctx);
         goto after_7;
     // 0x80089958: nop
 
@@ -8114,7 +8114,7 @@ RECOMP_FUNC void Audio2_8008bf58_eightliner(uint8_t* rdram, recomp_context* ctx)
     // 0x8008BF68: jal         0x8008C130
     // 0x8008BF6C: sw          $a1, 0x1C($sp)
     MEM_W(0X1C, ctx->r29) = ctx->r5;
-    Audio2_8008c130_oneliner_arg0_math_3(rdram, ctx);
+    Audio2_ReadU32BE(rdram, ctx);
         goto after_0;
     // 0x8008BF6C: sw          $a1, 0x1C($sp)
     MEM_W(0X1C, ctx->r29) = ctx->r5;
@@ -8164,7 +8164,7 @@ RECOMP_FUNC void Audio2_8008bf58_eightliner(uint8_t* rdram, recomp_context* ctx)
     // 0x8008BFC4: jal         0x8008C104
     // 0x8008BFC8: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    Audio2_8008c104_oneliner_arg0_math_2(rdram, ctx);
+    Audio2_ReadU32LE(rdram, ctx);
         goto after_1;
     // 0x8008BFC8: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
@@ -8186,7 +8186,7 @@ RECOMP_FUNC void Audio2_8008bf58_eightliner(uint8_t* rdram, recomp_context* ctx)
     // 0x8008BFE8: jal         0x8008C104
     // 0x8008BFEC: or          $a0, $t9, $zero
     ctx->r4 = ctx->r25 | 0;
-    Audio2_8008c104_oneliner_arg0_math_2(rdram, ctx);
+    Audio2_ReadU32LE(rdram, ctx);
         goto after_2;
     // 0x8008BFEC: or          $a0, $t9, $zero
     ctx->r4 = ctx->r25 | 0;
@@ -8227,7 +8227,7 @@ RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008C024: jal         0x8008C104
     // 0x8008C028: sw          $a1, 0x1C($sp)
     MEM_W(0X1C, ctx->r29) = ctx->r5;
-    Audio2_8008c104_oneliner_arg0_math_2(rdram, ctx);
+    Audio2_ReadU32LE(rdram, ctx);
         goto after_0;
     // 0x8008C028: sw          $a1, 0x1C($sp)
     MEM_W(0X1C, ctx->r29) = ctx->r5;
@@ -8249,7 +8249,7 @@ RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008C048: jal         0x8008C104
     // 0x8008C04C: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
-    Audio2_8008c104_oneliner_arg0_math_2(rdram, ctx);
+    Audio2_ReadU32LE(rdram, ctx);
         goto after_1;
     // 0x8008C04C: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
@@ -8271,7 +8271,7 @@ RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008C06C: jal         0x8008C104
     // 0x8008C070: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
-    Audio2_8008c104_oneliner_arg0_math_2(rdram, ctx);
+    Audio2_ReadU32LE(rdram, ctx);
         goto after_2;
     // 0x8008C070: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
@@ -8293,7 +8293,7 @@ RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008C090: jal         0x8008C0E0
     // 0x8008C094: or          $a0, $t4, $zero
     ctx->r4 = ctx->r12 | 0;
-    Audio2_8008c0e0_oneliner_arg0_math(rdram, ctx);
+    Audio2_ReadS16LE(rdram, ctx);
         goto after_3;
     // 0x8008C094: or          $a0, $t4, $zero
     ctx->r4 = ctx->r12 | 0;
@@ -8315,7 +8315,7 @@ RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008C0B4: jal         0x8008C0E0
     // 0x8008C0B8: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
-    Audio2_8008c0e0_oneliner_arg0_math(rdram, ctx);
+    Audio2_ReadS16LE(rdram, ctx);
         goto after_4;
     // 0x8008C0B8: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
@@ -8342,7 +8342,7 @@ RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X18);
 ;}
 
-RECOMP_FUNC void Audio2_8008c0e0_oneliner_arg0_math(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ReadS16LE(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008C0E0: lbu         $t6, 0x1($a0)
@@ -8367,7 +8367,7 @@ RECOMP_FUNC void Audio2_8008c0e0_oneliner_arg0_math(uint8_t* rdram, recomp_conte
     ctx->r2 = ctx->r8 | 0;
 ;}
 
-RECOMP_FUNC void Audio2_8008c104_oneliner_arg0_math_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ReadU32LE(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008C104: lbu         $t7, 0x1($a0)
@@ -8396,7 +8396,7 @@ RECOMP_FUNC void Audio2_8008c104_oneliner_arg0_math_2(uint8_t* rdram, recomp_con
     ctx->r2 = ADD32(ctx->r12, ctx->r10);
 ;}
 
-RECOMP_FUNC void Audio2_8008c130_oneliner_arg0_math_3(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ReadU32BE(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008C130: lbu         $t7, 0x2($a0)

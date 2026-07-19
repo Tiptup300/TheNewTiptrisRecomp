@@ -446,7 +446,7 @@ L_800849D0:
     // 0x800849D4: jal         0x80085408
     // 0x800849D8: addiu       $a0, $a0, 0xA70
     ctx->r4 = ADD32(ctx->r4, 0XA70);
-    Audio_80085408_oneliner_calls_allocdcm(rdram, ctx);
+    Audio_AllocDcmScratch8(rdram, ctx);
         goto after_18;
     // 0x800849D8: addiu       $a0, $a0, 0xA70
     ctx->r4 = ADD32(ctx->r4, 0XA70);
@@ -1366,7 +1366,7 @@ L_80084F40:
     // 0x80084F44: jal         0x80085408
     // 0x80084F48: nop
 
-    Audio_80085408_oneliner_calls_allocdcm(rdram, ctx);
+    Audio_AllocDcmScratch8(rdram, ctx);
         goto after_5;
     // 0x80084F48: nop
 
@@ -2197,7 +2197,7 @@ L_800853F0:
     ctx->r29 = ADD32(ctx->r29, 0X50);
 ;}
 
-RECOMP_FUNC void Audio_80085408_oneliner_calls_allocdcm(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio_AllocDcmScratch8(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80085408: addiu       $sp, $sp, -0x20

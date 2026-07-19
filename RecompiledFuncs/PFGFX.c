@@ -1999,7 +1999,7 @@ RECOMP_FUNC void PFGFX_80060654_doesnothing(uint8_t* rdram, recomp_context* ctx)
 
 ;}
 
-RECOMP_FUNC void func_80060680(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_RotatePoint90(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80060680: sll         $a2, $a2, 16
@@ -2101,7 +2101,7 @@ L_800606FC:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_80060704(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_GetRectCellCount(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80060704: lh          $t6, 0x4($a0)

@@ -1252,7 +1252,7 @@ L_800553BC:
     // 0x80055400: jal         0x8007AADC
     // 0x80055404: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_6;
     // 0x80055404: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
@@ -2906,7 +2906,7 @@ L_80055D2C:
     // 0x80055DCC: jal         0x8007AADC
     // 0x80055DD0: nop
 
-    func_8007AADC(rdram, ctx);
+    displayText_MatchXY(rdram, ctx);
         goto after_24;
     // 0x80055DD0: nop
 

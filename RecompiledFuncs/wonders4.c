@@ -114,7 +114,7 @@ L_80047778:
     // 0x800477B0: jal         0x80079F74
     // 0x800477B4: sb          $t9, 0x1F97($at)
     MEM_B(0X1F97, ctx->r1) = ctx->r25;
-    func_80079F74(rdram, ctx);
+    displayText_GetEntry(rdram, ctx);
         goto after_0;
     // 0x800477B4: sb          $t9, 0x1F97($at)
     MEM_B(0X1F97, ctx->r1) = ctx->r25;
@@ -311,7 +311,7 @@ RECOMP_FUNC void wonders4_display_contributors(uint8_t* rdram, recomp_context* c
     // 0x800478F0: jal         0x80079F74
     // 0x800478F4: sw          $s0, 0x38($sp)
     MEM_W(0X38, ctx->r29) = ctx->r16;
-    func_80079F74(rdram, ctx);
+    displayText_GetEntry(rdram, ctx);
         goto after_0;
     // 0x800478F4: sw          $s0, 0x38($sp)
     MEM_W(0X38, ctx->r29) = ctx->r16;

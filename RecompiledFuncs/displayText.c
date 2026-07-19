@@ -5687,7 +5687,7 @@ L_80079F3C:
     ctx->r29 = ADD32(ctx->r29, 0XA0);
 ;}
 
-RECOMP_FUNC void func_80079F74(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_GetEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80079F74: andi        $a1, $a1, 0xFF
@@ -6471,7 +6471,7 @@ L_8007A34C:
     // 0x8007A430: jal         0x8007A648
     // 0x8007A434: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    func_8007A648(rdram, ctx);
+    displayText_SetBit(rdram, ctx);
         goto after_11;
     // 0x8007A434: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -6616,7 +6616,7 @@ L_8007A500:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007A508(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_ClearTableBit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A508: lui         $t6, 0x800E
@@ -6647,7 +6647,7 @@ RECOMP_FUNC void func_8007A508(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(-0X1, ctx->r11) = ctx->r10;
 ;}
 
-RECOMP_FUNC void func_8007A538(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_SetTableBit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A538: lui         $t6, 0x800E
@@ -6676,7 +6676,7 @@ RECOMP_FUNC void func_8007A538(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(-0X1, ctx->r10) = ctx->r9;
 ;}
 
-RECOMP_FUNC void func_8007A564(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_CountSetBits(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A564: lui         $t6, 0x800E
@@ -6813,7 +6813,7 @@ L_8007A624:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007A62C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_ClearBit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A62C: addiu       $t7, $zero, 0x1
@@ -6834,7 +6834,7 @@ RECOMP_FUNC void func_8007A62C(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X0, ctx->r4) = ctx->r8;
 ;}
 
-RECOMP_FUNC void func_8007A648(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_SetBit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A648: lw          $t6, 0x0($a0)
@@ -7531,7 +7531,7 @@ L_8007AAD4:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007AADC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_MatchXY(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007AADC: lbu         $t6, 0x6($a0)

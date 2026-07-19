@@ -4842,7 +4842,7 @@ L_8008B180:
     // 0x8008B1B4: jal         0x8008C0E0
     // 0x8008B1B8: nop
 
-    Audio2_8008c0e0_oneliner_arg0_math(rdram, ctx);
+    Audio2_ReadS16LE(rdram, ctx);
         goto after_22;
     // 0x8008B1B8: nop
 
