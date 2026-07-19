@@ -18,8 +18,9 @@ directly the first time:
 Requirements
 ------------
 - A Vulkan-capable GPU with a working driver (Mesa/RADV, NVIDIA, etc.).
-- A normal desktop library stack (SDL2, GTK, freetype) — present on any
-  typical Linux desktop. Only app-specific libraries are bundled in ./lib.
+- A desktop session with xdg-desktop-portal running (standard on GNOME, KDE,
+  COSMIC, etc.) — used for the ROM file picker. If it's unavailable, use the
+  TNT_ROM=/path fallback above. App-specific libraries are bundled in ./lib.
 
 Controls (keyboard defaults)
 ----------------------------

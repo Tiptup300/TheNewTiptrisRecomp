@@ -29,6 +29,15 @@ endif()
 # (which recompui/recompinput consume) and the SDL2::SDL2 target.
 find_package(SDL2 REQUIRED)
 
+# ROM file picker: use the XDG desktop portal (via D-Bus) instead of GTK for
+# nativefiledialog-extended (pulled in by rt64). The portal works on non-GTK and
+# immutable desktops (e.g. Fedora COSMIC Atomic) and removes the hard GTK3
+# dependency from the binary. Requires xdg-desktop-portal at runtime (present on
+# any modern desktop session); the TNT_ROM=/path env fallback covers the rest.
+if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    set(NFD_PORTAL ON CACHE BOOL "nfd: use xdg-desktop-portal instead of GTK" FORCE)
+endif()
+
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/rt64 ${CMAKE_BINARY_DIR}/rt64)
 
 set(BUILD_SHARED_LIBS OFF)
