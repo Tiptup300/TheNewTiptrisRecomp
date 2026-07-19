@@ -53,6 +53,9 @@ Backlog of improvements toward a polished release. The game is **fully playable*
   requirements** to more reasonable values.
   - Current (too extreme): 2499, 7499, 19999, 49999, 99999, 249999, 499999
   - Proposed: 2499, 9300, 20061, 34611, 52838, 74657, 99999
+- [ ] Included (but **off by default**) mod: **HD texture pack** — higher-res
+  replacement textures. RT64 supports texture replacement/packs; provide a bundled
+  HD pack the user can toggle on.
 
 ## 🟠 Audio
 
