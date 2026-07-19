@@ -44,7 +44,10 @@ EXCLUDE+='|libgtk-3.*|libgdk-3.*|libgdk_pixbuf.*|libglib.*|libgobject.*|libgio.*
 EXCLUDE+='|libpango.*|libcairo.*|libatk.*|libatspi|libharfbuzz.*|libfribidi|libthai|libdatrie|libgraphite2'
 EXCLUDE+='|libfontconfig.*|libpixman.*|libglycin.*|libpng.*|liblcms2|libz|libbz2|libbrotli.*|libexpat|libffi|libpcre2.*'
 EXCLUDE+='|libdbus.*|libsystemd.*|libudev.*|libselinux|libapparmor|libseccomp|libblkid|libmount|libuuid|libcap.*'
-EXCLUDE+='|libasound.*|libpulse.*|libpulsecommon.*|libpipewire.*|libasyncns|libjack.*|libsndio.*)'
+EXCLUDE+='|libasound.*|libpulse.*|libpulsecommon.*|libpipewire.*|libasyncns|libjack.*|libsndio.*'
+# libdecor loads its own plugins from a system path; let the host provide it so
+# those resolve (SDL falls back gracefully if it is absent). dbus is host-side.
+EXCLUDE+='|libdecor.*|libdbus.*)'
 
 echo "Bundling app-payload libs into $STAGE/lib ..."
 ldd "$BIN" | awk '/=>/ {print $3} /ld-linux/ {print $1}' | grep -E '^/' | sort -u | while read -r so; do
@@ -71,6 +74,15 @@ exec "$here/TheNewTiptris.bin" "$@"
 EOF
     chmod +x "$STAGE/$NAME"
 fi
+
+# Sanity-check the staged bundle before shipping it.
+fail=0
+[ -x "$STAGE/$NAME" ] || { echo "MISSING: executable $NAME" >&2; fail=1; }
+[ -f "$STAGE/assets/fonts/primary.ttf" ] || { echo "MISSING: assets/fonts/primary.ttf" >&2; fail=1; }
+[ -f "$STAGE/assets/recomp.rcss" ] || { echo "MISSING: assets/recomp.rcss" >&2; fail=1; }
+ls "$STAGE"/lib/libSDL2-2.0.so* >/dev/null 2>&1 || { echo "MISSING: bundled libSDL2" >&2; fail=1; }
+ls "$STAGE"/lib/libfreetype.so* >/dev/null 2>&1 || { echo "MISSING: bundled libfreetype" >&2; fail=1; }
+[ "$fail" -eq 0 ] || { echo "package sanity check FAILED" >&2; exit 1; }
 
 TARBALL="$OUTDIR/${NAME}-linux-${ARCH}.tar.gz"
 ( cd "$OUTDIR" && tar czf "$TARBALL" "$NAME" )

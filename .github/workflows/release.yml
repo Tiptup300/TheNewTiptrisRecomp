@@ -10,7 +10,8 @@ name: Release
 
 on:
   push:
-    tags: ['v*']
+    branches: [main]      # build + artifact on every push (validates CI); no release
+    tags: ['v*']          # tag -> build + attach tarball to a GitHub Release
   workflow_dispatch:
 
 permissions:
