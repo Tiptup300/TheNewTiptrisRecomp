@@ -31,7 +31,19 @@ endif()
 # frontend libs get their headers without a separate SDL2 install.
 if (WIN32)
     add_compile_definitions(NOMINMAX)
-    set(SDL2_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/lib/rt64/src/contrib/mupen64plus-win32-deps/SDL2-2.26.3/include")
+    # recompui/recompinput reference ${sdl2_SOURCE_DIR} on Windows, so SDL2 must be
+    # provided via FetchContent under the name "sdl2" (this is what BanjoRecomp does).
+    # This also sets SDL2_INCLUDE_DIRS for anything else that consumes it.
+    include(FetchContent)
+    if (DEFINED ENV{SDL2_VERSION})
+        set(SDL2_VERSION $ENV{SDL2_VERSION})
+    else()
+        set(SDL2_VERSION "2.30.3")
+    endif()
+    FetchContent_Declare(sdl2
+        URL https://github.com/libsdl-org/SDL/releases/download/release-${SDL2_VERSION}/SDL2-devel-${SDL2_VERSION}-VC.zip)
+    FetchContent_MakeAvailable(sdl2)
+    set(SDL2_INCLUDE_DIRS "${sdl2_SOURCE_DIR}/include")
 else()
     find_package(SDL2 REQUIRED)
 endif()
