@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-"""Reorganize RecompiledFuncs/*.c into a subsystem hierarchy (Layout A).
+"""Reorganize RecompiledFuncs/*.c into one flat file per subsystem.
 
-The N64Recomp recompiler (driven by tnt.us.toml) emits flat chunk files
-(funcs_0.c ... funcs_N.c) into RecompiledFuncs/. This script re-buckets every
-RECOMP_FUNC body into RecompiledFuncs/<Subsystem>/<Subsystem>.c, where the
-subsystem is derived from the function name (identifier before the first '_';
-libultra/OS routines and unlabeled FUN_/func_ names get special handling).
+The N64Recomp recompiler (driven by tnt.us.toml) emits arbitrary flat chunk
+files (funcs_0.c ... funcs_N.c) into RecompiledFuncs/. This script re-buckets
+every RECOMP_FUNC body into RecompiledFuncs/<Subsystem>.c, where the subsystem
+is derived from the function name (identifier before the first '_'; libultra/OS
+routines and unlabeled FUN_/func_ names get special handling).
 
 It is a pure, mechanical reorganization: function bodies are copied verbatim
 (byte-for-byte, including asm comments), nothing is renamed, and funcs.h /
-lookup.cpp / recomp_overlays.inl are untouched at the RecompiledFuncs/ root.
+lookup.cpp / recomp_overlays.inl are untouched.
 
 Re-runnable and idempotent: it parses RecompiledFuncs/**/*.c recursively, so
-running it on an already-hierarchical tree reproduces the same tree, and
-running it after the recompiler drops fresh flat chunk files folds them in.
+running it on an already-organized tree reproduces the same files (and migrates
+an older per-subsystem-subdirectory layout to the flat one), and running it
+after the recompiler drops fresh flat chunk files re-buckets them.
 
 Usage:
     python3 tools/reorganize_recompiled.py [--dry-run]
@@ -188,15 +189,14 @@ def main():
     if args.dry_run:
         return
 
-    # Emit the hierarchy, then delete every previously-parsed .c that is no
-    # longer an output (old flat chunk files, or stale subsystem files after a
-    # re-categorization). funcs.h / lookup.cpp / recomp_overlays.inl are never
-    # touched.
+    # Emit one flat file per subsystem (RecompiledFuncs/<Subsystem>.c), then
+    # delete every previously-parsed .c that is no longer an output (old flat
+    # chunk files, or stale subsystem files after a re-categorization).
+    # funcs.h / lookup.cpp / recomp_overlays.inl are never touched.
     outputs = set()
     for sub, units in buckets.items():
         units.sort(key=lambda u: u[1])
-        out = FUNCS_DIR / sub / f"{sub}.c"
-        out.parent.mkdir(exist_ok=True)
+        out = FUNCS_DIR / f"{sub}.c"
         out.write_text(PREAMBLE + "\n".join(body for _, _, body in units))
         outputs.add(out)
     for f in src_files:
