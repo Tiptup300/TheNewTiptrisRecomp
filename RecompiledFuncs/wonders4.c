@@ -1501,7 +1501,7 @@ L_80047FF8:
 
 ;}
 
-RECOMP_FUNC void FUN_80048020_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_UpdateMaxScroll(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80048020: lui         $t6, 0x800E
@@ -1629,7 +1629,7 @@ RECOMP_FUNC void func_800480D8_nevercalled(uint8_t* rdram, recomp_context* ctx) 
 
 ;}
 
-RECOMP_FUNC void FUN_800480E0_threeliner_glist(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_DebugPrintGList(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800480E0: lui         $t7, 0x800E
@@ -1705,7 +1705,7 @@ L_80048140:
 
 ;}
 
-RECOMP_FUNC void FUN_80048150_threeliner_vlist(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_DebugPrintVList(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80048150: lui         $t7, 0x800E
@@ -1781,7 +1781,7 @@ L_800481B0:
 
 ;}
 
-RECOMP_FUNC void FUN_800481C0_allocs_heap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_AllocBuffers(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800481C0: addiu       $sp, $sp, -0x18
@@ -2008,7 +2008,7 @@ L_800482DC:
     MEM_W(0X20D0, ctx->r1) = ctx->r11;
 ;}
 
-RECOMP_FUNC void FUN_8004831C_allocs_heap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_AllocBuffer8(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004831C: addiu       $sp, $sp, -0x18
@@ -2142,7 +2142,7 @@ L_800483D8:
 
 ;}
 
-RECOMP_FUNC void FUN_800483E8_allocs_heap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_AllocBuffer16(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800483E8: addiu       $sp, $sp, -0x18
@@ -2889,7 +2889,7 @@ L_80048560:
 
 ;}
 
-RECOMP_FUNC void FUN_80048934_inits_struct_q(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_BuildFillRectDL(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80048934: addiu       $sp, $sp, -0x20
@@ -3052,7 +3052,7 @@ RECOMP_FUNC void FUN_80048934_inits_struct_q(uint8_t* rdram, recomp_context* ctx
     MEM_W(0X4, ctx->r11) = 0;
 ;}
 
-RECOMP_FUNC void FUN_80048A6C_inits_struct_q(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_BuildScissoredFillRectDL(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80048A6C: addiu       $sp, $sp, -0x18
@@ -3399,7 +3399,7 @@ RECOMP_FUNC void has_rounds_and_floors_large_liner(uint8_t* rdram, recomp_contex
     // 0x80048CF0: jal         0x80048A6C
     // 0x80048CF4: nop
 
-    FUN_80048A6C_inits_struct_q(rdram, ctx);
+    wonders4_BuildScissoredFillRectDL(rdram, ctx);
         goto after_3;
     // 0x80048CF4: nop
 
@@ -3419,7 +3419,7 @@ RECOMP_FUNC void has_rounds_and_floors_large_liner(uint8_t* rdram, recomp_contex
     // 0x80048D10: jal         0x80048934
     // 0x80048D14: nop
 
-    FUN_80048934_inits_struct_q(rdram, ctx);
+    wonders4_BuildFillRectDL(rdram, ctx);
         goto after_4;
     // 0x80048D14: nop
 
@@ -4154,7 +4154,7 @@ L_800491C8:
     // 0x80049228: jal         0x80048020
     // 0x8004922C: sw          $zero, 0x4($t1)
     MEM_W(0X4, ctx->r9) = 0;
-    FUN_80048020_eightliner(rdram, ctx);
+    wonders4_UpdateMaxScroll(rdram, ctx);
         goto after_10;
     // 0x8004922C: sw          $zero, 0x4($t1)
     MEM_W(0X4, ctx->r9) = 0;
@@ -4162,7 +4162,7 @@ L_800491C8:
     // 0x80049230: jal         0x800480E0
     // 0x80049234: nop
 
-    FUN_800480E0_threeliner_glist(rdram, ctx);
+    wonders4_DebugPrintGList(rdram, ctx);
         goto after_11;
     // 0x80049234: nop
 
@@ -4170,7 +4170,7 @@ L_800491C8:
     // 0x80049238: jal         0x80048150
     // 0x8004923C: nop
 
-    FUN_80048150_threeliner_vlist(rdram, ctx);
+    wonders4_DebugPrintVList(rdram, ctx);
         goto after_12;
     // 0x8004923C: nop
 
@@ -4576,7 +4576,7 @@ L_80049388:
     // 0x800494F4: jal         0x80048A6C
     // 0x800494F8: nop
 
-    FUN_80048A6C_inits_struct_q(rdram, ctx);
+    wonders4_BuildScissoredFillRectDL(rdram, ctx);
         goto after_7;
     // 0x800494F8: nop
 
@@ -4611,7 +4611,7 @@ L_80049504:
     // 0x80049528: jal         0x80048934
     // 0x8004952C: nop
 
-    FUN_80048934_inits_struct_q(rdram, ctx);
+    wonders4_BuildFillRectDL(rdram, ctx);
         goto after_8;
     // 0x8004952C: nop
 
@@ -5160,7 +5160,7 @@ L_80049538:
     // 0x80049920: jal         0x80048020
     // 0x80049924: sw          $zero, 0x4($t0)
     MEM_W(0X4, ctx->r8) = 0;
-    FUN_80048020_eightliner(rdram, ctx);
+    wonders4_UpdateMaxScroll(rdram, ctx);
         goto after_10;
     // 0x80049924: sw          $zero, 0x4($t0)
     MEM_W(0X4, ctx->r8) = 0;
@@ -5168,7 +5168,7 @@ L_80049538:
     // 0x80049928: jal         0x800480E0
     // 0x8004992C: nop
 
-    FUN_800480E0_threeliner_glist(rdram, ctx);
+    wonders4_DebugPrintGList(rdram, ctx);
         goto after_11;
     // 0x8004992C: nop
 
@@ -5176,7 +5176,7 @@ L_80049538:
     // 0x80049930: jal         0x80048150
     // 0x80049934: nop
 
-    FUN_80048150_threeliner_vlist(rdram, ctx);
+    wonders4_DebugPrintVList(rdram, ctx);
         goto after_12;
     // 0x80049934: nop
 

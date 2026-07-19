@@ -2084,7 +2084,7 @@ L_80046FE8:
     ctx->r29 = ADD32(ctx->r29, 0X78);
 ;}
 
-RECOMP_FUNC void wonders3_related(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders3_RenderWondersHall(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80047014: addiu       $sp, $sp, -0x28
@@ -2414,7 +2414,7 @@ RECOMP_FUNC void wonders3_switch_0to3_2and3are_same(uint8_t* rdram, recomp_conte
     // 0x80047224: jal         0x80047014
     // 0x80047228: nop
 
-    wonders3_related(rdram, ctx);
+    wonders3_RenderWondersHall(rdram, ctx);
         goto after_0;
     // 0x80047228: nop
 

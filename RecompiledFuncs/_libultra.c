@@ -28451,7 +28451,7 @@ L_80093140:
     // 0x80093148: jal         0x8007C5CC
     // 0x8009314C: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_79;
     // 0x8009314C: nop
 
@@ -37459,7 +37459,7 @@ L_80096C24:
     // 0x80096C64: jal         0x8007C5CC
     // 0x80096C68: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_237;
     // 0x80096C68: nop
 
@@ -37488,7 +37488,7 @@ L_80096C74:
     // 0x80096C90: jal         0x8007C5CC
     // 0x80096C94: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_238;
     // 0x80096C94: nop
 
@@ -38157,7 +38157,7 @@ L_80097094:
     // 0x800970A4: jal         0x8007C5CC
     // 0x800970A8: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_260;
     // 0x800970A8: nop
 
@@ -38815,7 +38815,7 @@ L_8009741C:
     // 0x80097498: jal         0x8007C5CC
     // 0x8009749C: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_276;
     // 0x8009749C: nop
 
@@ -39456,7 +39456,7 @@ L_800977F4:
     // 0x8009787C: jal         0x8007C5CC
     // 0x80097880: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_295;
     // 0x80097880: nop
 
@@ -42557,7 +42557,7 @@ L_80098BC0:
     // 0x80098CB8: jal         0x8007C5CC
     // 0x80098CBC: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_329;
     // 0x80098CBC: nop
 
@@ -61665,7 +61665,7 @@ RECOMP_FUNC void func_800A08EC(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A0964: jal         0x8007C5CC
     // 0x800A0968: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_1;
     // 0x800A0968: nop
 
@@ -61750,7 +61750,7 @@ RECOMP_FUNC void func_800A097C(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A09F0: jal         0x8007C5CC
     // 0x800A09F4: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_1;
     // 0x800A09F4: nop
 
@@ -61791,7 +61791,7 @@ RECOMP_FUNC void func_800A0A08(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A0A2C: jal         0x8007C5CC
     // 0x800A0A30: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_0;
     // 0x800A0A30: nop
 
@@ -66705,7 +66705,7 @@ L_800A29F0:
     // 0x800A2A10: jal         0x80048934
     // 0x800A2A14: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    FUN_80048934_inits_struct_q(rdram, ctx);
+    wonders4_BuildFillRectDL(rdram, ctx);
         goto after_4;
     // 0x800A2A14: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -66721,7 +66721,7 @@ L_800A29F0:
     // 0x800A2A28: jal         0x80048934
     // 0x800A2A2C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    FUN_80048934_inits_struct_q(rdram, ctx);
+    wonders4_BuildFillRectDL(rdram, ctx);
         goto after_5;
     // 0x800A2A2C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);

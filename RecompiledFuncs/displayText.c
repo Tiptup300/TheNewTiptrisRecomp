@@ -4123,7 +4123,7 @@ L_800794EC:
     // 0x80079558: jal         0x8007C5CC
     // 0x8007955C: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_2;
     // 0x8007955C: nop
 
@@ -4178,7 +4178,7 @@ L_800795A0:
     // 0x800795A8: jal         0x8007C5CC
     // 0x800795AC: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_3;
     // 0x800795AC: nop
 
@@ -4197,7 +4197,7 @@ L_800795B8:
     // 0x800795C0: jal         0x8007C5CC
     // 0x800795C4: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_4;
     // 0x800795C4: nop
 
@@ -6483,7 +6483,7 @@ L_8007A34C:
     // 0x8007A440: jal         0x8007C5CC
     // 0x8007A444: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_12;
     // 0x8007A444: nop
 
@@ -8280,7 +8280,7 @@ RECOMP_FUNC void func_8007AF88(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007AFE8: jal         0x8007BD48
     // 0x8007AFEC: nop
 
-    func_8007BD48(rdram, ctx);
+    SaveData_ComputeChecksum16(rdram, ctx);
         goto after_1;
     // 0x8007AFEC: nop
 

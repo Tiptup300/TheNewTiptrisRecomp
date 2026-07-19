@@ -8153,7 +8153,7 @@ L_80062954:
     // 0x80062958: jal         0x800764B8
     // 0x8006295C: addiu       $a0, $a0, 0x1030
     ctx->r4 = ADD32(ctx->r4, 0X1030);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_2;
     // 0x8006295C: addiu       $a0, $a0, 0x1030
     ctx->r4 = ADD32(ctx->r4, 0X1030);
@@ -8322,7 +8322,7 @@ L_80062A48:
     // 0x80062A4C: jal         0x800764B8
     // 0x80062A50: addiu       $a0, $a0, 0x2890
     ctx->r4 = ADD32(ctx->r4, 0X2890);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_13;
     // 0x80062A50: addiu       $a0, $a0, 0x2890
     ctx->r4 = ADD32(ctx->r4, 0X2890);
@@ -8363,7 +8363,7 @@ L_80062A7C:
     // 0x80062A80: jal         0x800764B8
     // 0x80062A84: addiu       $a0, $a0, 0x292C
     ctx->r4 = ADD32(ctx->r4, 0X292C);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_16;
     // 0x80062A84: addiu       $a0, $a0, 0x292C
     ctx->r4 = ADD32(ctx->r4, 0X292C);
@@ -8373,7 +8373,7 @@ L_80062A7C:
     // 0x80062A8C: jal         0x800764B8
     // 0x80062A90: addiu       $a0, $a0, 0x29C8
     ctx->r4 = ADD32(ctx->r4, 0X29C8);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_17;
     // 0x80062A90: addiu       $a0, $a0, 0x29C8
     ctx->r4 = ADD32(ctx->r4, 0X29C8);
@@ -8383,7 +8383,7 @@ L_80062A7C:
     // 0x80062A98: jal         0x800764B8
     // 0x80062A9C: addiu       $a0, $a0, 0x2A64
     ctx->r4 = ADD32(ctx->r4, 0X2A64);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_18;
     // 0x80062A9C: addiu       $a0, $a0, 0x2A64
     ctx->r4 = ADD32(ctx->r4, 0X2A64);
@@ -8400,7 +8400,7 @@ L_80062AA8:
     // 0x80062AAC: jal         0x800764B8
     // 0x80062AB0: addiu       $a0, $a0, 0x2008
     ctx->r4 = ADD32(ctx->r4, 0X2008);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_19;
     // 0x80062AB0: addiu       $a0, $a0, 0x2008
     ctx->r4 = ADD32(ctx->r4, 0X2008);
@@ -8441,7 +8441,7 @@ L_80062ADC:
     // 0x80062AE0: jal         0x800764B8
     // 0x80062AE4: addiu       $a0, $a0, 0x2C38
     ctx->r4 = ADD32(ctx->r4, 0X2C38);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_22;
     // 0x80062AE4: addiu       $a0, $a0, 0x2C38
     ctx->r4 = ADD32(ctx->r4, 0X2C38);
@@ -8470,7 +8470,7 @@ L_80062B00:
     // 0x80062B04: jal         0x800764B8
     // 0x80062B08: addiu       $a0, $a0, 0x1510
     ctx->r4 = ADD32(ctx->r4, 0X1510);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_24;
     // 0x80062B08: addiu       $a0, $a0, 0x1510
     ctx->r4 = ADD32(ctx->r4, 0X1510);
@@ -8536,7 +8536,7 @@ L_80062B00:
     // 0x80062B60: jal         0x800764B8
     // 0x80062B64: addiu       $a0, $a0, 0x181C
     ctx->r4 = ADD32(ctx->r4, 0X181C);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_29;
     // 0x80062B64: addiu       $a0, $a0, 0x181C
     ctx->r4 = ADD32(ctx->r4, 0X181C);
@@ -8577,7 +8577,7 @@ L_80062B90:
     // 0x80062B94: jal         0x800764B8
     // 0x80062B98: addiu       $a0, $a0, 0x20A4
     ctx->r4 = ADD32(ctx->r4, 0X20A4);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_32;
     // 0x80062B98: addiu       $a0, $a0, 0x20A4
     ctx->r4 = ADD32(ctx->r4, 0X20A4);
@@ -8786,7 +8786,7 @@ L_80062CB4:
     // 0x80062CB8: jal         0x800764B8
     // 0x80062CBC: addiu       $a0, $a0, 0x18B8
     ctx->r4 = ADD32(ctx->r4, 0X18B8);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_47;
     // 0x80062CBC: addiu       $a0, $a0, 0x18B8
     ctx->r4 = ADD32(ctx->r4, 0X18B8);
@@ -8824,7 +8824,7 @@ L_80062CB4:
     // 0x80062CEC: jal         0x800764B8
     // 0x80062CF0: addiu       $a0, $a0, 0x1A8C
     ctx->r4 = ADD32(ctx->r4, 0X1A8C);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_50;
     // 0x80062CF0: addiu       $a0, $a0, 0x1A8C
     ctx->r4 = ADD32(ctx->r4, 0X1A8C);
@@ -8932,7 +8932,7 @@ L_80062CB4:
     // 0x80062D84: jal         0x800764B8
     // 0x80062D88: addiu       $a0, $a0, 0x1F6C
     ctx->r4 = ADD32(ctx->r4, 0X1F6C);
-    func_800764B8(rdram, ctx);
+    CubeTiles_LoadTiles(rdram, ctx);
         goto after_58;
     // 0x80062D88: addiu       $a0, $a0, 0x1F6C
     ctx->r4 = ADD32(ctx->r4, 0X1F6C);
@@ -9558,7 +9558,7 @@ L_80063144:
     // 0x80063154: jal         0x800766C8
     // 0x80063158: addiu       $a0, $a0, 0x1030
     ctx->r4 = ADD32(ctx->r4, 0X1030);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_2;
     // 0x80063158: addiu       $a0, $a0, 0x1030
     ctx->r4 = ADD32(ctx->r4, 0X1030);
@@ -9605,7 +9605,7 @@ L_80063170:
     // 0x8006318C: jal         0x800766C8
     // 0x80063190: addiu       $a0, $a0, 0x2890
     ctx->r4 = ADD32(ctx->r4, 0X2890);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_6;
     // 0x80063190: addiu       $a0, $a0, 0x2890
     ctx->r4 = ADD32(ctx->r4, 0X2890);
@@ -9622,7 +9622,7 @@ L_8006319C:
     // 0x800631A0: jal         0x800766C8
     // 0x800631A4: addiu       $a0, $a0, 0x2A64
     ctx->r4 = ADD32(ctx->r4, 0X2A64);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_7;
     // 0x800631A4: addiu       $a0, $a0, 0x2A64
     ctx->r4 = ADD32(ctx->r4, 0X2A64);
@@ -9632,7 +9632,7 @@ L_8006319C:
     // 0x800631AC: jal         0x800766C8
     // 0x800631B0: addiu       $a0, $a0, 0x29C8
     ctx->r4 = ADD32(ctx->r4, 0X29C8);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_8;
     // 0x800631B0: addiu       $a0, $a0, 0x29C8
     ctx->r4 = ADD32(ctx->r4, 0X29C8);
@@ -9642,7 +9642,7 @@ L_8006319C:
     // 0x800631B8: jal         0x800766C8
     // 0x800631BC: addiu       $a0, $a0, 0x292C
     ctx->r4 = ADD32(ctx->r4, 0X292C);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_9;
     // 0x800631BC: addiu       $a0, $a0, 0x292C
     ctx->r4 = ADD32(ctx->r4, 0X292C);
@@ -9679,7 +9679,7 @@ L_800631C8:
     // 0x800631E4: jal         0x800766C8
     // 0x800631E8: addiu       $a0, $a0, 0x2008
     ctx->r4 = ADD32(ctx->r4, 0X2008);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_12;
     // 0x800631E8: addiu       $a0, $a0, 0x2008
     ctx->r4 = ADD32(ctx->r4, 0X2008);
@@ -9706,7 +9706,7 @@ L_800631F4:
     // 0x80063204: jal         0x800766C8
     // 0x80063208: addiu       $a0, $a0, 0x2C38
     ctx->r4 = ADD32(ctx->r4, 0X2C38);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_14;
     // 0x80063208: addiu       $a0, $a0, 0x2C38
     ctx->r4 = ADD32(ctx->r4, 0X2C38);
@@ -9743,7 +9743,7 @@ L_80063214:
     // 0x80063230: jal         0x800766C8
     // 0x80063234: addiu       $a0, $a0, 0x181C
     ctx->r4 = ADD32(ctx->r4, 0X181C);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_17;
     // 0x80063234: addiu       $a0, $a0, 0x181C
     ctx->r4 = ADD32(ctx->r4, 0X181C);
@@ -9753,7 +9753,7 @@ L_80063214:
     // 0x8006323C: jal         0x800766C8
     // 0x80063240: addiu       $a0, $a0, 0x1510
     ctx->r4 = ADD32(ctx->r4, 0X1510);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_18;
     // 0x80063240: addiu       $a0, $a0, 0x1510
     ctx->r4 = ADD32(ctx->r4, 0X1510);
@@ -9790,7 +9790,7 @@ L_8006324C:
     // 0x80063268: jal         0x800766C8
     // 0x8006326C: addiu       $a0, $a0, 0x20A4
     ctx->r4 = ADD32(ctx->r4, 0X20A4);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_21;
     // 0x8006326C: addiu       $a0, $a0, 0x20A4
     ctx->r4 = ADD32(ctx->r4, 0X20A4);
@@ -9807,7 +9807,7 @@ L_80063278:
     // 0x8006327C: jal         0x800766C8
     // 0x80063280: addiu       $a0, $a0, 0x1F6C
     ctx->r4 = ADD32(ctx->r4, 0X1F6C);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_22;
     // 0x80063280: addiu       $a0, $a0, 0x1F6C
     ctx->r4 = ADD32(ctx->r4, 0X1F6C);
@@ -9817,7 +9817,7 @@ L_80063278:
     // 0x80063288: jal         0x800766C8
     // 0x8006328C: addiu       $a0, $a0, 0x1A8C
     ctx->r4 = ADD32(ctx->r4, 0X1A8C);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_23;
     // 0x8006328C: addiu       $a0, $a0, 0x1A8C
     ctx->r4 = ADD32(ctx->r4, 0X1A8C);
@@ -9827,7 +9827,7 @@ L_80063278:
     // 0x80063294: jal         0x800766C8
     // 0x80063298: addiu       $a0, $a0, 0x18B8
     ctx->r4 = ADD32(ctx->r4, 0X18B8);
-    func_800766C8(rdram, ctx);
+    CubeTiles_FreeTiles(rdram, ctx);
         goto after_24;
     // 0x80063298: addiu       $a0, $a0, 0x18B8
     ctx->r4 = ADD32(ctx->r4, 0X18B8);

@@ -8537,7 +8537,7 @@ L_8004138C:
     // 0x800413A0: jal         0x800508EC
     // 0x800413A4: addiu       $a0, $a0, 0x258
     ctx->r4 = ADD32(ctx->r4, 0X258);
-    FUN_800508ec_fifteen_liner_allocs_heap(rdram, ctx);
+    Ids_CopyFrom(rdram, ctx);
         goto after_1;
     // 0x800413A4: addiu       $a0, $a0, 0x258
     ctx->r4 = ADD32(ctx->r4, 0X258);

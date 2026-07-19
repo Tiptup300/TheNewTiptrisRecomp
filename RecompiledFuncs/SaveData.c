@@ -41,7 +41,7 @@ RECOMP_FUNC void SaveData_GetTotalWonderLines(uint8_t* rdram, recomp_context* ct
     ctx->r2 = ctx->r14 | ctx->r15;
 ;}
 
-RECOMP_FUNC void func_8007BCC4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void SaveData_ComputeChecksum32(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007BCC4: addiu       $sp, $sp, -0x8
@@ -124,7 +124,7 @@ L_8007BD3C:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007BD48(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void SaveData_ComputeChecksum16(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007BD48: addiu       $sp, $sp, -0x8
@@ -213,7 +213,7 @@ L_8007BDCC:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007BDD8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void SaveData_InitDefaultScores(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007BDD8: addiu       $sp, $sp, -0x20
@@ -881,7 +881,7 @@ L_8007C168:
     // 0x8007C220: jal         0x8007BDD8
     // 0x8007C224: nop
 
-    func_8007BDD8(rdram, ctx);
+    SaveData_InitDefaultScores(rdram, ctx);
         goto after_7;
     // 0x8007C224: nop
 
@@ -891,7 +891,7 @@ L_8007C168:
     // 0x8007C22C: jal         0x8007BCC4
     // 0x8007C230: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
-    func_8007BCC4(rdram, ctx);
+    SaveData_ComputeChecksum32(rdram, ctx);
         goto after_8;
     // 0x8007C230: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
@@ -1008,7 +1008,7 @@ L_8007C2DC:
     // 0x8007C2E0: jal         0x8007BCC4
     // 0x8007C2E4: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
-    func_8007BCC4(rdram, ctx);
+    SaveData_ComputeChecksum32(rdram, ctx);
         goto after_14;
     // 0x8007C2E4: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
@@ -1048,7 +1048,7 @@ L_8007C2DC:
     // 0x8007C318: jal         0x8007BCC4
     // 0x8007C31C: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
-    func_8007BCC4(rdram, ctx);
+    SaveData_ComputeChecksum32(rdram, ctx);
         goto after_16;
     // 0x8007C31C: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
@@ -1088,7 +1088,7 @@ L_8007C2DC:
     // 0x8007C350: jal         0x8007BCC4
     // 0x8007C354: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
-    func_8007BCC4(rdram, ctx);
+    SaveData_ComputeChecksum32(rdram, ctx);
         goto after_18;
     // 0x8007C354: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
@@ -1264,7 +1264,7 @@ L_8007C2DC:
     // 0x8007C480: jal         0x8007BDD8
     // 0x8007C484: nop
 
-    func_8007BDD8(rdram, ctx);
+    SaveData_InitDefaultScores(rdram, ctx);
         goto after_23;
     // 0x8007C484: nop
 
@@ -1274,7 +1274,7 @@ L_8007C2DC:
     // 0x8007C48C: jal         0x8007BCC4
     // 0x8007C490: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
-    func_8007BCC4(rdram, ctx);
+    SaveData_ComputeChecksum32(rdram, ctx);
         goto after_24;
     // 0x8007C490: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
@@ -1473,7 +1473,7 @@ L_8007C5B0:
     MEM_B(-0X1108, ctx->r1) = ctx->r25;
 ;}
 
-RECOMP_FUNC void func_8007C5CC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void SaveData_Save(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007C5CC: addiu       $sp, $sp, -0x18
@@ -1499,7 +1499,7 @@ RECOMP_FUNC void func_8007C5CC(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007C5EC: jal         0x8007BCC4
     // 0x8007C5F0: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);
-    func_8007BCC4(rdram, ctx);
+    SaveData_ComputeChecksum32(rdram, ctx);
         goto after_1;
     // 0x8007C5F0: addiu       $a1, $zero, 0x18FC
     ctx->r5 = ADD32(0, 0X18FC);

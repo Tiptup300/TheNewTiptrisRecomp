@@ -1315,7 +1315,7 @@ L_8005543C:
     // 0x8005545C: jal         0x8007C5CC
     // 0x80055460: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_8;
     // 0x80055460: nop
 

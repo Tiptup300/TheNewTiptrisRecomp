@@ -1062,7 +1062,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void FUN_03C130_80075EB0_nineliner_allocs_heap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075EB0: addiu       $sp, $sp, -0x28
@@ -1187,7 +1187,7 @@ RECOMP_FUNC void FUN_03C130_80075EB0_nineliner_allocs_heap(uint8_t* rdram, recom
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80075F5C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_Free(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075F5C: addiu       $sp, $sp, -0x18
@@ -1820,7 +1820,7 @@ RECOMP_FUNC void func_800762EC(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X4, ctx->r7) = ctx->r9;
 ;}
 
-RECOMP_FUNC void func_8007635C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_AllocGrid(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007635C: addiu       $sp, $sp, -0x18
@@ -1887,7 +1887,7 @@ RECOMP_FUNC void func_8007635C(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800763B4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_FreeGrid(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800763B4: addiu       $sp, $sp, -0x18
@@ -2068,7 +2068,7 @@ RECOMP_FUNC void func_800764A0(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X84, ctx->r4) = ctx->r15;
 ;}
 
-RECOMP_FUNC void func_800764B8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_LoadTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800764B8: addiu       $sp, $sp, -0x28
@@ -2412,7 +2412,7 @@ L_800766B8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_800766C8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_FreeTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800766C8: addiu       $sp, $sp, -0x20

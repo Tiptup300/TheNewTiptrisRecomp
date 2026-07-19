@@ -621,7 +621,7 @@ L_800508E4:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void FUN_800508ec_fifteen_liner_allocs_heap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Ids_CopyFrom(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800508EC: addiu       $sp, $sp, -0x38
@@ -4774,7 +4774,7 @@ RECOMP_FUNC void Game_80052090_calls_3_functions(uint8_t* rdram, recomp_context*
     // 0x800520A8: jal         0x80075F5C
     // 0x800520AC: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
-    func_80075F5C(rdram, ctx);
+    CubeTiles_Free(rdram, ctx);
         goto after_0;
     // 0x800520AC: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
@@ -4835,7 +4835,7 @@ RECOMP_FUNC void Game_800520d0_calls_cubetiles_init(uint8_t* rdram, recomp_conte
     // 0x800520F4: jal         0x80075EB0
     // 0x800520F8: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
-    FUN_03C130_80075EB0_nineliner_allocs_heap(rdram, ctx);
+    CubeTiles_Alloc(rdram, ctx);
         goto after_1;
     // 0x800520F8: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
@@ -5188,7 +5188,7 @@ L_800522D0:
     // 0x800522F0: jal         0x80075EB0
     // 0x800522F4: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
-    FUN_03C130_80075EB0_nineliner_allocs_heap(rdram, ctx);
+    CubeTiles_Alloc(rdram, ctx);
         goto after_8;
     // 0x800522F4: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
@@ -5206,7 +5206,7 @@ L_800522D0:
     // 0x80052304: jal         0x8007635C
     // 0x80052308: nop
 
-    func_8007635C(rdram, ctx);
+    CubeTiles_AllocGrid(rdram, ctx);
         goto after_10;
     // 0x80052308: nop
 
@@ -5398,7 +5398,7 @@ L_800522D0:
     // 0x8005242C: jal         0x8007C5CC
     // 0x80052430: nop
 
-    func_8007C5CC(rdram, ctx);
+    SaveData_Save(rdram, ctx);
         goto after_19;
     // 0x80052430: nop
 
@@ -5957,7 +5957,7 @@ L_80052718:
     // 0x80052728: jal         0x800763B4
     // 0x8005272C: nop
 
-    func_800763B4(rdram, ctx);
+    CubeTiles_FreeGrid(rdram, ctx);
         goto after_17;
     // 0x8005272C: nop
 
@@ -5993,7 +5993,7 @@ L_80052718:
     // 0x80052750: jal         0x80075F5C
     // 0x80052754: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
-    func_80075F5C(rdram, ctx);
+    CubeTiles_Free(rdram, ctx);
         goto after_21;
     // 0x80052754: addu        $a0, $s0, $at
     ctx->r4 = ADD32(ctx->r16, ctx->r1);
