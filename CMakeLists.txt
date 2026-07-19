@@ -72,13 +72,14 @@ target_compile_options(RecompiledFuncs PRIVATE
     -Wno-implicit-function-declaration
 )
 target_include_directories(RecompiledFuncs PRIVATE
+    ${CMAKE_SOURCE_DIR}/RecompiledFuncs
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/ultramodern/include
     ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/librecomp/include
     ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/N64Recomp/include
 )
-file(GLOB FUNC_C_SOURCES ${CMAKE_SOURCE_DIR}/RecompiledFuncs/*.c)
-file(GLOB FUNC_CXX_SOURCES ${CMAKE_SOURCE_DIR}/RecompiledFuncs/*.cpp)
+file(GLOB_RECURSE FUNC_C_SOURCES ${CMAKE_SOURCE_DIR}/RecompiledFuncs/*.c)
+file(GLOB_RECURSE FUNC_CXX_SOURCES ${CMAKE_SOURCE_DIR}/RecompiledFuncs/*.cpp)
 target_sources(RecompiledFuncs PRIVATE ${FUNC_C_SOURCES} ${FUNC_CXX_SOURCES})
 
 # DXC (HLSL->SPIR-V) — recompui compiles its own InterfaceVS/PS.hlsl using rt64's

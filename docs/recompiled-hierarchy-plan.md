@@ -1,7 +1,16 @@
 # Plan: reorganize `RecompiledFuncs/` into a subsystem hierarchy
 
-**Status:** ready to execute in a fresh session. Self-contained — everything a cold
-start needs is below. No behavior change; this is a pure, mechanical file
+**Status: EXECUTED** (2026-07-19) — Layout A, via `tools/reorganize_recompiled.py`.
+1430 functions re-bucketed into 54 subsystem files; symbol set verified identical;
+clean build; boot smoke test passed. Deviations from the plan as written:
+small subsystems (< 3 named functions, e.g. one-off camelCase names like
+`getLineCount`) fold into their vram-adjacent subsystem just like unlabeled
+functions; `al*`/`_*` library internals go to `_libultra`; case-variant
+subsystem names merge (Windows filesystems are case-insensitive); and
+`RecompiledFuncs/` was added to the target's include dirs since subdirectory
+files no longer find `funcs.h` by quote-include. Kept below for reference.
+
+Original plan follows. No behavior change; this is a pure, mechanical file
 reorganization of already-committed generated code.
 
 ## Goal

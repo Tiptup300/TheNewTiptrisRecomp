@@ -49,3 +49,4 @@ imgui.ini
 
 # --- Local config / saves (config dir may hold a stored copy of the ROM) ---
 /config/
+__pycache__/
