@@ -808,7 +808,7 @@ L_80077E10:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void Font_80077e18_fifteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Font_GetScaledTextWidth(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80077E18: lw          $t6, 0x0($a0)
@@ -947,7 +947,7 @@ L_80077ED8:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void Font_8007802c_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Font_GetCharWidthUpper(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007802C: andi        $a1, $a1, 0xFF
@@ -1027,7 +1027,7 @@ L_8007806C:
 
 ;}
 
-RECOMP_FUNC void Font_800781a8_elevenliner_loops_arg2_t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Font_MeasureChars(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800781A8: addiu       $sp, $sp, -0x28
@@ -1087,7 +1087,7 @@ L_800781F0:
     // 0x800781FC: jal         0x8007802C
     // 0x80078200: nop
 
-    Font_8007802c_fiveliner(rdram, ctx);
+    Font_GetCharWidthUpper(rdram, ctx);
         goto after_0;
     // 0x80078200: nop
 

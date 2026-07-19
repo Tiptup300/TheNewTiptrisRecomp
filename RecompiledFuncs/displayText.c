@@ -1194,7 +1194,7 @@ L_8007826C:
     // 0x800782B4: jal         0x8007802C
     // 0x800782B8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    Font_8007802c_fiveliner(rdram, ctx);
+    Font_GetCharWidthUpper(rdram, ctx);
         goto after_1;
     // 0x800782B8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -4761,7 +4761,7 @@ L_8007992C:
     // 0x80079934: jal         0x80046388
     // 0x80079938: nop
 
-    wonders2_80046388_fiveliner(rdram, ctx);
+    wonders2_GetLinesRemainingToWonder(rdram, ctx);
         goto after_0;
     // 0x80079938: nop
 

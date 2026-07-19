@@ -1242,7 +1242,7 @@ L_80054624:
     // 0x8005462C: jal         0x80053F40
     // 0x80054630: addiu       $a0, $a0, 0x6840
     ctx->r4 = ADD32(ctx->r4, 0X6840);
-    FrameAct_80053F40_oneliner(rdram, ctx);
+    FrameAct_SetTimer(rdram, ctx);
         goto after_2;
     // 0x80054630: addiu       $a0, $a0, 0x6840
     ctx->r4 = ADD32(ctx->r4, 0X6840);
@@ -1384,7 +1384,7 @@ L_800546E8:
     // 0x800546F0: jal         0x80053F40
     // 0x800546F4: addiu       $a0, $a0, 0x6840
     ctx->r4 = ADD32(ctx->r4, 0X6840);
-    FrameAct_80053F40_oneliner(rdram, ctx);
+    FrameAct_SetTimer(rdram, ctx);
         goto after_2;
     // 0x800546F4: addiu       $a0, $a0, 0x6840
     ctx->r4 = ADD32(ctx->r4, 0X6840);
@@ -1440,7 +1440,7 @@ RECOMP_FUNC void Tetris_SetUltraHandicap(uint8_t* rdram, recomp_context* ctx) {
     // 0x80054748: jal         0x80053F40
     // 0x8005474C: addiu       $a0, $a0, 0x6840
     ctx->r4 = ADD32(ctx->r4, 0X6840);
-    FrameAct_80053F40_oneliner(rdram, ctx);
+    FrameAct_SetTimer(rdram, ctx);
         goto after_0;
     // 0x8005474C: addiu       $a0, $a0, 0x6840
     ctx->r4 = ADD32(ctx->r4, 0X6840);
@@ -2088,7 +2088,7 @@ L_80054ACC:
     // 0x80054AD4: jal         0x80053670
     // 0x80054AD8: sw          $zero, 0x6818($t3)
     MEM_W(0X6818, ctx->r11) = 0;
-    FrameAct_set_state(rdram, ctx);
+    FrameAct_SetState(rdram, ctx);
         goto after_23;
     // 0x80054AD8: sw          $zero, 0x6818($t3)
     MEM_W(0X6818, ctx->r11) = 0;

@@ -1548,7 +1548,7 @@ L_80068A70:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_80068a84_calls_Bag63_GetNextPiece(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_Advance(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068A84: addiu       $sp, $sp, -0x28
@@ -1650,7 +1650,7 @@ L_80068AFC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_80068b18_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_PopNext(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068B18: addiu       $sp, $sp, -0x28
@@ -1690,7 +1690,7 @@ RECOMP_FUNC void NextPieces_80068b18_threeliner(uint8_t* rdram, recomp_context* 
     // 0x80068B5C: jal         0x80068A84
     // 0x80068B60: nop
 
-    NextPieces_80068a84_calls_Bag63_GetNextPiece(rdram, ctx);
+    NextPieces_Advance(rdram, ctx);
         goto after_0;
     // 0x80068B60: nop
 

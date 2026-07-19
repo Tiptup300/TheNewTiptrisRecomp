@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void FrameAct_set_state(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void FrameAct_SetState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80053670: lui         $t6, 0x8012
@@ -861,7 +861,7 @@ L_80053AE4:
     // 0x80053B24: jal         0x80068B18
     // 0x80053B28: sb          $zero, 0x2($t0)
     MEM_B(0X2, ctx->r8) = 0;
-    NextPieces_80068b18_threeliner(rdram, ctx);
+    NextPieces_PopNext(rdram, ctx);
         goto after_1;
     // 0x80053B28: sb          $zero, 0x2($t0)
     MEM_B(0X2, ctx->r8) = 0;
@@ -1507,7 +1507,7 @@ RECOMP_FUNC void FrameAct_Deinit(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void FrameAct_80053EA0_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void FrameAct_TimerExpired(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80053EA0: lw          $t6, 0x0($a0)
@@ -1539,7 +1539,7 @@ L_80053EB8:
 
 ;}
 
-RECOMP_FUNC void FrameAct_80053EC4_tenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void FrameAct_TimerTick(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80053EC4: addiu       $sp, $sp, -0x18
@@ -1593,7 +1593,7 @@ L_80053F10:
     // 0x80053F14: jal         0x80053EA0
     // 0x80053F18: nop
 
-    FrameAct_80053EA0_threeliner(rdram, ctx);
+    FrameAct_TimerExpired(rdram, ctx);
         goto after_0;
     // 0x80053F18: nop
 
@@ -1628,7 +1628,7 @@ L_80053F30:
 
 ;}
 
-RECOMP_FUNC void FrameAct_80053F40_oneliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void FrameAct_SetTimer(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80053F40: jr          $ra

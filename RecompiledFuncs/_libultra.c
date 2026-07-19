@@ -23271,7 +23271,7 @@ L_8009104C:
     // 0x80091078: jal         0x80045BDC
     // 0x8009107C: sb          $t1, 0x3D9C($at)
     MEM_B(0X3D9C, ctx->r1) = ctx->r9;
-    wonders1_anim_related(rdram, ctx);
+    wonders1_Init(rdram, ctx);
         goto after_20;
     // 0x8009107C: sb          $t1, 0x3D9C($at)
     MEM_B(0X3D9C, ctx->r1) = ctx->r9;

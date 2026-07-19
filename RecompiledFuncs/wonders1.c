@@ -204,7 +204,7 @@ L_8004391C:
     // 0x8004394C: jal         0x80046218
     // 0x80043950: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_1;
     // 0x80043950: nop
 
@@ -528,7 +528,7 @@ L_80043B3C:
     // 0x80043B48: jal         0x80046218
     // 0x80043B4C: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_8;
     // 0x80043B4C: nop
 
@@ -569,7 +569,7 @@ L_80043B74:
     // 0x80043B80: jal         0x80046218
     // 0x80043B84: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_9;
     // 0x80043B84: nop
 
@@ -757,7 +757,7 @@ RECOMP_FUNC void wonders1_80043c7c_thirtyliner_loop(uint8_t* rdram, recomp_conte
     // 0x80043CA0: jal         0x80046218
     // 0x80043CA4: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_1;
     // 0x80043CA4: nop
 
@@ -791,7 +791,7 @@ RECOMP_FUNC void wonders1_80043c7c_thirtyliner_loop(uint8_t* rdram, recomp_conte
     // 0x80043CDC: jal         0x80046218
     // 0x80043CE0: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_2;
     // 0x80043CE0: nop
 
@@ -1071,7 +1071,7 @@ L_80043E98:
     // 0x80043EA4: jal         0x80046218
     // 0x80043EA8: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_8;
     // 0x80043EA8: nop
 
@@ -1128,7 +1128,7 @@ RECOMP_FUNC void wonders1_80043ed8_thirtyliner_loop(uint8_t* rdram, recomp_conte
     // 0x80043EF8: jal         0x80046218
     // 0x80043EFC: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_0;
     // 0x80043EFC: nop
 
@@ -1428,7 +1428,7 @@ L_800440D8:
     // 0x800440E4: jal         0x80046218
     // 0x800440E8: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_6;
     // 0x800440E8: nop
 
@@ -1848,7 +1848,7 @@ L_8004434C:
     // 0x80044368: jal         0x8004624C
     // 0x8004436C: addiu       $a0, $t1, -0x1
     ctx->r4 = ADD32(ctx->r9, -0X1);
-    wonders2_8004624c_mult_7_add_6_etc(rdram, ctx);
+    wonders2_WonderIndexToLastColumn(rdram, ctx);
         goto after_1;
     // 0x8004436C: addiu       $a0, $t1, -0x1
     ctx->r4 = ADD32(ctx->r9, -0X1);
@@ -1905,7 +1905,7 @@ L_800443B0:
     // 0x800443BC: jal         0x8004619C
     // 0x800443C0: nop
 
-    wonders2_8004619c_sixliner_crazy_if(rdram, ctx);
+    wonders2_IsLastColumnOfWonder(rdram, ctx);
         goto after_4;
     // 0x800443C0: nop
 
@@ -2746,7 +2746,7 @@ L_800447F4:
     // 0x8004481C: jal         0x80046218
     // 0x80044820: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_1;
     // 0x80044820: nop
 
@@ -2775,7 +2775,7 @@ L_80044838:
     // 0x8004483C: jal         0x80046218
     // 0x80044840: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_2;
     // 0x80044840: nop
 
@@ -3045,7 +3045,7 @@ L_80044938:
     // 0x800449D4: jal         0x80046218
     // 0x800449D8: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_4;
     // 0x800449D8: nop
 
@@ -3186,7 +3186,7 @@ L_80044A3C:
     // 0x80044A9C: jal         0x80046218
     // 0x80044AA0: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_9;
     // 0x80044AA0: nop
 
@@ -3215,7 +3215,7 @@ L_80044AB8:
     // 0x80044ABC: jal         0x80046218
     // 0x80044AC0: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_10;
     // 0x80044AC0: nop
 
@@ -3347,7 +3347,7 @@ L_80044B60:
     // 0x80044B80: jal         0x8004619C
     // 0x80044B84: nop
 
-    wonders2_8004619c_sixliner_crazy_if(rdram, ctx);
+    wonders2_IsLastColumnOfWonder(rdram, ctx);
         goto after_15;
     // 0x80044B84: nop
 
@@ -3365,7 +3365,7 @@ L_80044B60:
     // 0x80044B94: jal         0x80046218
     // 0x80044B98: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_16;
     // 0x80044B98: nop
 
@@ -3452,7 +3452,7 @@ L_80044C0C:
     // 0x80044C10: jal         0x80046218
     // 0x80044C14: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_19;
     // 0x80044C14: nop
 
@@ -3464,7 +3464,7 @@ L_80044C0C:
     // 0x80044C20: jal         0x80046388
     // 0x80044C24: nop
 
-    wonders2_80046388_fiveliner(rdram, ctx);
+    wonders2_GetLinesRemainingToWonder(rdram, ctx);
         goto after_20;
     // 0x80044C24: nop
 
@@ -4485,7 +4485,7 @@ L_80045240:
     // 0x80045244: jal         0x80046218
     // 0x80045248: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_2;
     // 0x80045248: nop
 
@@ -5845,7 +5845,7 @@ L_80045A1C:
     // 0x80045A40: jal         0x80046218
     // 0x80045A44: sb          $t1, 0x0($s0)
     MEM_B(0X0, ctx->r16) = ctx->r9;
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_7;
     // 0x80045A44: sb          $t1, 0x0($s0)
     MEM_B(0X0, ctx->r16) = ctx->r9;
@@ -6126,7 +6126,7 @@ L_80045B80:
     // 0x80045BA0: jal         0x8004619C
     // 0x80045BA4: nop
 
-    wonders2_8004619c_sixliner_crazy_if(rdram, ctx);
+    wonders2_IsLastColumnOfWonder(rdram, ctx);
         goto after_21;
     // 0x80045BA4: nop
 
@@ -6177,7 +6177,7 @@ L_80045BC8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void wonders1_anim_related(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80045BDC: addiu       $sp, $sp, -0x28
@@ -6405,7 +6405,7 @@ RECOMP_FUNC void wonders1_calls_music_400x300_magic(uint8_t* rdram, recomp_conte
     // 0x80045D18: jal         0x80046218
     // 0x80045D1C: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_5;
     // 0x80045D1C: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;

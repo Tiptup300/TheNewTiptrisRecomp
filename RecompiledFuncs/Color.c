@@ -2382,7 +2382,7 @@ L_80055A7C:
     // 0x80055A9C: jal         0x80045BDC
     // 0x80055AA0: sb          $t2, -0x118($at)
     MEM_B(-0X118, ctx->r1) = ctx->r10;
-    wonders1_anim_related(rdram, ctx);
+    wonders1_Init(rdram, ctx);
         goto after_9;
     // 0x80055AA0: sb          $t2, -0x118($at)
     MEM_B(-0X118, ctx->r1) = ctx->r10;

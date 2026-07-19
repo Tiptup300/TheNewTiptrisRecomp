@@ -115,7 +115,7 @@ L_8007FE48:
 
 ;}
 
-RECOMP_FUNC void EndScroller_8007fe54_twoliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_DrawLine(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007FE54: addiu       $sp, $sp, -0x30
@@ -269,7 +269,7 @@ RECOMP_FUNC void EndScroller_font_size_scrolltext(uint8_t* rdram, recomp_context
     // 0x8007FF4C: jal         0x800781A8
     // 0x8007FF50: nop
 
-    Font_800781a8_elevenliner_loops_arg2_t(rdram, ctx);
+    Font_MeasureChars(rdram, ctx);
         goto after_1;
     // 0x8007FF50: nop
 
@@ -1200,7 +1200,7 @@ L_800804A8:
     // 0x800804A8: jal         0x8007FE54
     // 0x800804AC: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    EndScroller_8007fe54_twoliner(rdram, ctx);
+    EndScroller_DrawLine(rdram, ctx);
         goto after_3;
     // 0x800804AC: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;

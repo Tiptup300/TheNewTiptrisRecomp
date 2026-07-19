@@ -107,7 +107,7 @@ RECOMP_FUNC void wonders3_80046400_twentyliner(uint8_t* rdram, recomp_context* c
     // 0x80046498: jal         0x80046218
     // 0x8004649C: or          $a0, $t3, $zero
     ctx->r4 = ctx->r11 | 0;
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_0;
     // 0x8004649C: or          $a0, $t3, $zero
     ctx->r4 = ctx->r11 | 0;
@@ -1383,7 +1383,7 @@ RECOMP_FUNC void wonders3_display_wonders_hall_text(uint8_t* rdram, recomp_conte
     // 0x80046BD4: jal         0x80046218
     // 0x80046BD8: nop
 
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_3;
     // 0x80046BD8: nop
 
@@ -1406,7 +1406,7 @@ L_80046BEC:
     // 0x80046BF0: jal         0x8004624C
     // 0x80046BF4: nop
 
-    wonders2_8004624c_mult_7_add_6_etc(rdram, ctx);
+    wonders2_WonderIndexToLastColumn(rdram, ctx);
         goto after_4;
     // 0x80046BF4: nop
 
@@ -1454,7 +1454,7 @@ L_80046C14:
     // 0x80046C30: jal         0x80046218
     // 0x80046C34: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_5;
     // 0x80046C34: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -1468,7 +1468,7 @@ L_80046C14:
     // 0x80046C44: jal         0x80046388
     // 0x80046C48: or          $a0, $s7, $zero
     ctx->r4 = ctx->r23 | 0;
-    wonders2_80046388_fiveliner(rdram, ctx);
+    wonders2_GetLinesRemainingToWonder(rdram, ctx);
         goto after_6;
     // 0x80046C48: or          $a0, $s7, $zero
     ctx->r4 = ctx->r23 | 0;
@@ -1492,7 +1492,7 @@ L_80046C14:
     // 0x80046C64: jal         0x80046218
     // 0x80046C68: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    wonders2_divide_by_seven(rdram, ctx);
+    wonders2_ColumnToWonderIndex(rdram, ctx);
         goto after_7;
     // 0x80046C68: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -3019,7 +3019,7 @@ L_800474FC:
     // 0x8004756C: jal         0x8004624C
     // 0x80047570: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    wonders2_8004624c_mult_7_add_6_etc(rdram, ctx);
+    wonders2_WonderIndexToLastColumn(rdram, ctx);
         goto after_11;
     // 0x80047570: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -3033,7 +3033,7 @@ L_800474FC:
     // 0x80047580: jal         0x80045BDC
     // 0x80047584: or          $a0, $s3, $zero
     ctx->r4 = ctx->r19 | 0;
-    wonders1_anim_related(rdram, ctx);
+    wonders1_Init(rdram, ctx);
         goto after_12;
     // 0x80047584: or          $a0, $s3, $zero
     ctx->r4 = ctx->r19 | 0;
@@ -3070,7 +3070,7 @@ L_80047590:
     // 0x800475AC: jal         0x80045BDC
     // 0x800475B0: addiu       $a0, $zero, 0x31
     ctx->r4 = ADD32(0, 0X31);
-    wonders1_anim_related(rdram, ctx);
+    wonders1_Init(rdram, ctx);
         goto after_13;
     // 0x800475B0: addiu       $a0, $zero, 0x31
     ctx->r4 = ADD32(0, 0X31);
@@ -3089,7 +3089,7 @@ L_800475BC:
     // 0x800475C4: jal         0x80045BDC
     // 0x800475C8: nop
 
-    wonders1_anim_related(rdram, ctx);
+    wonders1_Init(rdram, ctx);
         goto after_14;
     // 0x800475C8: nop
 

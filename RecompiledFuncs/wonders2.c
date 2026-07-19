@@ -556,7 +556,7 @@ L_80046184:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void wonders2_8004619c_sixliner_crazy_if(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders2_IsLastColumnOfWonder(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004619C: sll         $a0, $a0, 24
@@ -650,7 +650,7 @@ L_8004620C:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void wonders2_divide_by_seven(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders2_ColumnToWonderIndex(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80046218: sll         $a0, $a0, 24
@@ -683,7 +683,7 @@ RECOMP_FUNC void wonders2_divide_by_seven(uint8_t* rdram, recomp_context* ctx) {
     ctx->r2 = ctx->r5 | 0;
 ;}
 
-RECOMP_FUNC void wonders2_8004624c_mult_7_add_6_etc(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders2_WonderIndexToLastColumn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004624C: sll         $a0, $a0, 24
@@ -716,7 +716,7 @@ RECOMP_FUNC void wonders2_8004624c_mult_7_add_6_etc(uint8_t* rdram, recomp_conte
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void wonders2_80046280_tenliner_trap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders2_GetWonderProgressPercent(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80046280: addiu       $sp, $sp, -0x38
@@ -887,7 +887,7 @@ L_80046368:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void wonders2_80046388_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders2_GetLinesRemainingToWonder(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80046388: addiu       $sp, $sp, -0x38
