@@ -752,7 +752,7 @@ L_80047B34:
     // 0x80047B38: jal         0x80077D88
     // 0x80047B3C: addiu       $a1, $sp, 0x48
     ctx->r5 = ADD32(ctx->r29, 0X48);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_19;
     // 0x80047B3C: addiu       $a1, $sp, 0x48
     ctx->r5 = ADD32(ctx->r29, 0X48);

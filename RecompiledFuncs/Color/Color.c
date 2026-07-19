@@ -3424,7 +3424,7 @@ L_80055F34:
     // 0x8005611C: jal         0x80077D88
     // 0x80056120: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_39;
     // 0x80056120: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
@@ -3486,7 +3486,7 @@ L_80055F34:
     // 0x80056188: jal         0x80077D88
     // 0x8005618C: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_41;
     // 0x8005618C: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
@@ -3594,7 +3594,7 @@ L_80055F34:
     // 0x80056248: jal         0x80077D88
     // 0x8005624C: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_44;
     // 0x8005624C: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
@@ -3656,7 +3656,7 @@ L_80055F34:
     // 0x800562B4: jal         0x80077D88
     // 0x800562B8: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_46;
     // 0x800562B8: addiu       $a0, $a0, -0x70D8
     ctx->r4 = ADD32(ctx->r4, -0X70D8);
@@ -4124,7 +4124,7 @@ L_800563B4:
     // 0x800565F0: jal         0x80077D88
     // 0x800565F4: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_56;
     // 0x800565F4: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
@@ -4186,7 +4186,7 @@ L_800563B4:
     // 0x8005665C: jal         0x80077D88
     // 0x80056660: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_58;
     // 0x80056660: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
@@ -4294,7 +4294,7 @@ L_800563B4:
     // 0x8005671C: jal         0x80077D88
     // 0x80056720: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_61;
     // 0x80056720: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
@@ -4356,7 +4356,7 @@ L_800563B4:
     // 0x80056788: jal         0x80077D88
     // 0x8005678C: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_63;
     // 0x8005678C: addiu       $a0, $a0, -0x7060
     ctx->r4 = ADD32(ctx->r4, -0X7060);
@@ -4848,7 +4848,7 @@ L_80056A74:
     // 0x80056ABC: jal         0x80077D88
     // 0x80056AC0: addiu       $a1, $sp, 0xB8
     ctx->r5 = ADD32(ctx->r29, 0XB8);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_73;
     // 0x80056AC0: addiu       $a1, $sp, 0xB8
     ctx->r5 = ADD32(ctx->r29, 0XB8);
@@ -5005,7 +5005,7 @@ L_80056B8C:
     // 0x80056BB8: jal         0x80077D88
     // 0x80056BBC: addiu       $a1, $sp, 0xB8
     ctx->r5 = ADD32(ctx->r29, 0XB8);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_76;
     // 0x80056BBC: addiu       $a1, $sp, 0xB8
     ctx->r5 = ADD32(ctx->r29, 0XB8);

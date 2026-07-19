@@ -751,7 +751,7 @@ RECOMP_FUNC void main_infinite_loop_at_end_3(uint8_t* rdram, recomp_context* ctx
     // 0x8004A0D0: jal         0x8007C0EC
     // 0x8004A0D4: or          $a0, $zero, $zero
     ctx->r4 = 0 | 0;
-    load_from_sram(rdram, ctx);
+    SaveData_Load(rdram, ctx);
         goto after_3;
     // 0x8004A0D4: or          $a0, $zero, $zero
     ctx->r4 = 0 | 0;

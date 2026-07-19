@@ -19,7 +19,7 @@ RECOMP_FUNC void wonders2_80045e50_sets_num_won_compl_q(uint8_t* rdram, recomp_c
     // 0x80045E68: jal         0x8007BCB4
     // 0x80045E6C: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_0;
     // 0x80045E6C: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -297,7 +297,7 @@ L_80046008:
     // 0x80046010: jal         0x8007BCB4
     // 0x80046014: nop
 
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_0;
     // 0x80046014: nop
 
@@ -738,7 +738,7 @@ RECOMP_FUNC void wonders2_80046280_tenliner_trap(uint8_t* rdram, recomp_context*
     // 0x800462A0: jal         0x8007BCB4
     // 0x800462A4: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_0;
     // 0x800462A4: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -907,7 +907,7 @@ RECOMP_FUNC void wonders2_80046388_fiveliner(uint8_t* rdram, recomp_context* ctx
     // 0x800463A4: jal         0x8007BCB4
     // 0x800463A8: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_0;
     // 0x800463A8: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;

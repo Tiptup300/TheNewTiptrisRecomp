@@ -46,6 +46,18 @@ LIBULTRA_RE = re.compile(
 )
 NO_SPLIT_RE = re.compile(r"^(n64Heap|h2o)")  # camelCase families kept whole
 
+# Generic verb prefixes are NOT subsystems: get_board_size (Board) and
+# get_char_width (Font) share only the verb. A name whose prefix-before-the-
+# first-underscore is one of these folds by vram adjacency like an unlabeled
+# function, instead of spawning a junk bucket. Real subsystems are PascalCase
+# or a known camelCase family (Board, Minos, displayText, n64Heap), so a
+# lowercase verb prefix is an unambiguous signal. The right long-term fix for
+# such a function is to rename it Subsystem_Verb in tnt.syms.toml.
+GENERIC_VERB_PREFIXES = {
+    "get", "set", "has", "is", "can", "check", "load", "save", "add",
+    "remove", "update", "do", "init", "inits", "gets", "create", "calls",
+}
+
 # Special buckets get a leading underscore so they sort first and cannot
 # collide with a real subsystem prefix from the game.
 LIBULTRA_BUCKET = "_libultra"
@@ -99,7 +111,12 @@ def subsystem_of(name: str) -> str:
     m = NO_SPLIT_RE.match(name)
     if m:
         return m.group(1)
-    return name.split("_", 1)[0] if "_" in name else name
+    if "_" in name:
+        prefix = name.split("_", 1)[0]
+        if prefix in GENERIC_VERB_PREFIXES:
+            return UNLABELED_BUCKET  # fold by adjacency, don't make a verb bucket
+        return prefix
+    return name
 
 
 def main():

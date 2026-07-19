@@ -656,6 +656,158 @@ L_80077808:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
+RECOMP_FUNC void Font_GetCharWidth(uint8_t* rdram, recomp_context* ctx) {
+    uint64_t hi = 0, lo = 0, result = 0;
+    int c1cs = 0;
+    // 0x80077D38: lw          $t6, 0x0($a0)
+    ctx->r14 = MEM_W(ctx->r4, 0X0);
+    // 0x80077D3C: addiu       $sp, $sp, -0x8
+    ctx->r29 = ADD32(ctx->r29, -0X8);
+    // 0x80077D40: bne         $t6, $zero, L_80077D50
+    if (ctx->r14 != 0) {
+        // 0x80077D44: andi        $a1, $a1, 0xFF
+        ctx->r5 = ctx->r5 & 0XFF;
+            goto L_80077D50;
+    }
+    // 0x80077D44: andi        $a1, $a1, 0xFF
+    ctx->r5 = ctx->r5 & 0XFF;
+    // 0x80077D48: b           L_80077D80
+    // 0x80077D4C: or          $v0, $zero, $zero
+    ctx->r2 = 0 | 0;
+        goto L_80077D80;
+    // 0x80077D4C: or          $v0, $zero, $zero
+    ctx->r2 = 0 | 0;
+L_80077D50:
+    // 0x80077D50: lui         $t7, 0x800D
+    ctx->r15 = S32(0X800D << 16);
+    // 0x80077D54: addu        $t7, $t7, $a1
+    ctx->r15 = ADD32(ctx->r15, ctx->r5);
+    // 0x80077D58: lbu         $t7, 0x2CD0($t7)
+    ctx->r15 = MEM_BU(ctx->r15, 0X2CD0);
+    // 0x80077D5C: sw          $zero, 0x4($sp)
+    MEM_W(0X4, ctx->r29) = 0;
+    // 0x80077D60: sll         $t8, $t7, 1
+    ctx->r24 = S32(ctx->r15 << 1);
+    // 0x80077D64: sw          $zero, 0x0($sp)
+    MEM_W(0X0, ctx->r29) = 0;
+    // 0x80077D68: addu        $t9, $a0, $t8
+    ctx->r25 = ADD32(ctx->r4, ctx->r24);
+    // 0x80077D6C: lh          $t0, 0x4($t9)
+    ctx->r8 = MEM_H(ctx->r25, 0X4);
+    // 0x80077D70: addiu       $t1, $zero, 0x1
+    ctx->r9 = ADD32(0, 0X1);
+    // 0x80077D74: sw          $t1, 0x4($sp)
+    MEM_W(0X4, ctx->r29) = ctx->r9;
+    // 0x80077D78: sw          $t0, 0x0($sp)
+    MEM_W(0X0, ctx->r29) = ctx->r8;
+    // 0x80077D7C: or          $v0, $t0, $zero
+    ctx->r2 = ctx->r8 | 0;
+L_80077D80:
+    // 0x80077D80: jr          $ra
+    // 0x80077D84: addiu       $sp, $sp, 0x8
+    ctx->r29 = ADD32(ctx->r29, 0X8);
+    return;
+    // 0x80077D84: addiu       $sp, $sp, 0x8
+    ctx->r29 = ADD32(ctx->r29, 0X8);
+;}
+
+RECOMP_FUNC void Font_GetTextWidth(uint8_t* rdram, recomp_context* ctx) {
+    uint64_t hi = 0, lo = 0, result = 0;
+    int c1cs = 0;
+    // 0x80077D88: lw          $t6, 0x0($a0)
+    ctx->r14 = MEM_W(ctx->r4, 0X0);
+    // 0x80077D8C: addiu       $sp, $sp, -0x8
+    ctx->r29 = ADD32(ctx->r29, -0X8);
+    // 0x80077D90: bne         $t6, $zero, L_80077DA0
+    if (ctx->r14 != 0) {
+        // 0x80077D94: nop
+    
+            goto L_80077DA0;
+    }
+    // 0x80077D94: nop
+
+    // 0x80077D98: b           L_80077E10
+    // 0x80077D9C: or          $v0, $zero, $zero
+    ctx->r2 = 0 | 0;
+        goto L_80077E10;
+    // 0x80077D9C: or          $v0, $zero, $zero
+    ctx->r2 = 0 | 0;
+L_80077DA0:
+    // 0x80077DA0: sw          $zero, 0x4($sp)
+    MEM_W(0X4, ctx->r29) = 0;
+    // 0x80077DA4: sw          $zero, 0x0($sp)
+    MEM_W(0X0, ctx->r29) = 0;
+    // 0x80077DA8: lbu         $t7, 0x0($a1)
+    ctx->r15 = MEM_BU(ctx->r5, 0X0);
+    // 0x80077DAC: nop
+
+    // 0x80077DB0: beq         $t7, $zero, L_80077E08
+    if (ctx->r15 == 0) {
+        // 0x80077DB4: nop
+    
+            goto L_80077E08;
+    }
+    // 0x80077DB4: nop
+
+L_80077DB8:
+    // 0x80077DB8: lw          $t9, 0x4($sp)
+    ctx->r25 = MEM_W(ctx->r29, 0X4);
+    // 0x80077DBC: lui         $t2, 0x800D
+    ctx->r10 = S32(0X800D << 16);
+    // 0x80077DC0: addu        $t0, $a1, $t9
+    ctx->r8 = ADD32(ctx->r5, ctx->r25);
+    // 0x80077DC4: lbu         $t1, 0x0($t0)
+    ctx->r9 = MEM_BU(ctx->r8, 0X0);
+    // 0x80077DC8: addiu       $t7, $t9, 0x1
+    ctx->r15 = ADD32(ctx->r25, 0X1);
+    // 0x80077DCC: addu        $t2, $t2, $t1
+    ctx->r10 = ADD32(ctx->r10, ctx->r9);
+    // 0x80077DD0: lbu         $t2, 0x2CD0($t2)
+    ctx->r10 = MEM_BU(ctx->r10, 0X2CD0);
+    // 0x80077DD4: lw          $t8, 0x0($sp)
+    ctx->r24 = MEM_W(ctx->r29, 0X0);
+    // 0x80077DD8: sll         $t3, $t2, 1
+    ctx->r11 = S32(ctx->r10 << 1);
+    // 0x80077DDC: addu        $t4, $a0, $t3
+    ctx->r12 = ADD32(ctx->r4, ctx->r11);
+    // 0x80077DE0: lh          $t5, 0x4($t4)
+    ctx->r13 = MEM_H(ctx->r12, 0X4);
+    // 0x80077DE4: sw          $t7, 0x4($sp)
+    MEM_W(0X4, ctx->r29) = ctx->r15;
+    // 0x80077DE8: lw          $t0, 0x4($sp)
+    ctx->r8 = MEM_W(ctx->r29, 0X4);
+    // 0x80077DEC: addu        $t6, $t8, $t5
+    ctx->r14 = ADD32(ctx->r24, ctx->r13);
+    // 0x80077DF0: sw          $t6, 0x0($sp)
+    MEM_W(0X0, ctx->r29) = ctx->r14;
+    // 0x80077DF4: addu        $t1, $a1, $t0
+    ctx->r9 = ADD32(ctx->r5, ctx->r8);
+    // 0x80077DF8: lbu         $t2, 0x0($t1)
+    ctx->r10 = MEM_BU(ctx->r9, 0X0);
+    // 0x80077DFC: nop
+
+    // 0x80077E00: bne         $t2, $zero, L_80077DB8
+    if (ctx->r10 != 0) {
+        // 0x80077E04: nop
+    
+            goto L_80077DB8;
+    }
+    // 0x80077E04: nop
+
+L_80077E08:
+    // 0x80077E08: lw          $v0, 0x0($sp)
+    ctx->r2 = MEM_W(ctx->r29, 0X0);
+    // 0x80077E0C: nop
+
+L_80077E10:
+    // 0x80077E10: jr          $ra
+    // 0x80077E14: addiu       $sp, $sp, 0x8
+    ctx->r29 = ADD32(ctx->r29, 0X8);
+    return;
+    // 0x80077E14: addiu       $sp, $sp, 0x8
+    ctx->r29 = ADD32(ctx->r29, 0X8);
+;}
+
 RECOMP_FUNC void Font_80077e18_fifteenliner(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;

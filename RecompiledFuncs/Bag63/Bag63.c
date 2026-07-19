@@ -782,7 +782,7 @@ L_800716C8:
     // 0x800716CC: jal         0x80077D88
     // 0x800716D0: addiu       $a1, $sp, 0x44
     ctx->r5 = ADD32(ctx->r29, 0X44);
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_3;
     // 0x800716D0: addiu       $a1, $sp, 0x44
     ctx->r5 = ADD32(ctx->r29, 0X44);
@@ -873,7 +873,7 @@ RECOMP_FUNC void func_80071730(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071764: jal         0x80077D88
     // 0x80071768: nop
 
-    get_text_width(rdram, ctx);
+    Font_GetTextWidth(rdram, ctx);
         goto after_0;
     // 0x80071768: nop
 

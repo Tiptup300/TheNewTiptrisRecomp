@@ -4797,7 +4797,7 @@ L_8007992C:
     // 0x8007996C: jal         0x8007BCB4
     // 0x80079970: sw          $t0, 0xA8($sp)
     MEM_W(0XA8, ctx->r29) = ctx->r8;
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_1;
     // 0x80079970: sw          $t0, 0xA8($sp)
     MEM_W(0XA8, ctx->r29) = ctx->r8;
@@ -4815,7 +4815,7 @@ L_8007992C:
     // 0x80079988: jal         0x8007BC90
     // 0x8007998C: addu        $a1, $s0, $t1
     ctx->r5 = ADD32(ctx->r16, ctx->r9);
-    set_total_wonder_lines(rdram, ctx);
+    SaveData_SetTotalWonderLines(rdram, ctx);
         goto after_2;
     // 0x8007998C: addu        $a1, $s0, $t1
     ctx->r5 = ADD32(ctx->r16, ctx->r9);
@@ -5530,7 +5530,7 @@ L_80079E88:
     // 0x80079E90: jal         0x8007BCB4
     // 0x80079E94: nop
 
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_6;
     // 0x80079E94: nop
 
@@ -5546,7 +5546,7 @@ L_80079E88:
     // 0x80079EA8: jal         0x8007BC90
     // 0x80079EAC: addu        $a1, $s0, $t7
     ctx->r5 = ADD32(ctx->r16, ctx->r15);
-    set_total_wonder_lines(rdram, ctx);
+    SaveData_SetTotalWonderLines(rdram, ctx);
         goto after_7;
     // 0x80079EAC: addu        $a1, $s0, $t7
     ctx->r5 = ADD32(ctx->r16, ctx->r15);
@@ -5654,7 +5654,7 @@ L_80079F3C:
     // 0x80079F44: jal         0x8007BCB4
     // 0x80079F48: nop
 
-    get_total_wonder_lines(rdram, ctx);
+    SaveData_GetTotalWonderLines(rdram, ctx);
         goto after_11;
     // 0x80079F48: nop
 
@@ -5670,7 +5670,7 @@ L_80079F3C:
     // 0x80079F5C: jal         0x8007BC90
     // 0x80079F60: addu        $a1, $s0, $t8
     ctx->r5 = ADD32(ctx->r16, ctx->r24);
-    set_total_wonder_lines(rdram, ctx);
+    SaveData_SetTotalWonderLines(rdram, ctx);
         goto after_12;
     // 0x80079F60: addu        $a1, $s0, $t8
     ctx->r5 = ADD32(ctx->r16, ctx->r24);
@@ -10371,29 +10371,4 @@ L_8007BC80:
     return;
     // 0x8007BC8C: nop
 
-;}
-
-RECOMP_FUNC void set_total_wonder_lines(uint8_t* rdram, recomp_context* ctx) {
-    uint64_t hi = 0, lo = 0, result = 0;
-    int c1cs = 0;
-    // 0x8007BC90: lui         $at, 0xAAAA
-    ctx->r1 = S32(0XAAAA << 16);
-    // 0x8007BC94: ori         $at, $at, 0xAAAA
-    ctx->r1 = ctx->r1 | 0XAAAA;
-    // 0x8007BC98: and         $t6, $a1, $at
-    ctx->r14 = ctx->r5 & ctx->r1;
-    // 0x8007BC9C: lui         $at, 0x5555
-    ctx->r1 = S32(0X5555 << 16);
-    // 0x8007BCA0: ori         $at, $at, 0x5555
-    ctx->r1 = ctx->r1 | 0X5555;
-    // 0x8007BCA4: and         $t7, $a1, $at
-    ctx->r15 = ctx->r5 & ctx->r1;
-    // 0x8007BCA8: sw          $t6, 0xF04($a0)
-    MEM_W(0XF04, ctx->r4) = ctx->r14;
-    // 0x8007BCAC: jr          $ra
-    // 0x8007BCB0: sw          $t7, 0xF08($a0)
-    MEM_W(0XF08, ctx->r4) = ctx->r15;
-    return;
-    // 0x8007BCB0: sw          $t7, 0xF08($a0)
-    MEM_W(0XF08, ctx->r4) = ctx->r15;
 ;}

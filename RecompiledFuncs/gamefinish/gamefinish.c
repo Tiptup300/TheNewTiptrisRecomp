@@ -1568,7 +1568,7 @@ RECOMP_FUNC void gamefinish_80053390_fiveliner(uint8_t* rdram, recomp_context* c
     // 0x800533A4: jal         0x8006D344
     // 0x800533A8: addiu       $a0, $sp, 0x1C
     ctx->r4 = ADD32(ctx->r29, 0X1C);
-    get_board_center(rdram, ctx);
+    Board_GetCenter(rdram, ctx);
         goto after_0;
     // 0x800533A8: addiu       $a0, $sp, 0x1C
     ctx->r4 = ADD32(ctx->r29, 0X1C);
