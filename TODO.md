@@ -88,6 +88,9 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 - [ ] **Back / Close buttons show no icon** — they're meant to display an icon
   glyph but nothing renders (missing icon/promptfont glyph; same root cause as
   above). Ship/register the proper icon font.
+- [ ] **Controls screen has an unlabeled slider** (seems related to menu inputs /
+  possibly a deadzone or sensitivity control) — identify what it actually does and
+  give it a proper label (or remove it if not applicable to this game).
 - [ ] Register a **bold** font face for headers — `primary.ttf` is single-weight,
   so the theme's bold/weight requests don't render as bold.
 - [ ] Real **promptfont** for controller glyphs (currently an Ubuntu placeholder),
