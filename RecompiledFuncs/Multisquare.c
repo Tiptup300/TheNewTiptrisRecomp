@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void Multisquare_8006a050_extralarge_manyloops_interesting(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_Spawn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A050: addiu       $sp, $sp, -0x88
@@ -588,7 +588,7 @@ L_8006A3BC:
     ctx->r29 = ADD32(ctx->r29, 0X88);
 ;}
 
-RECOMP_FUNC void Multisquare_8006a3ec_twoliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_Free(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A3EC: sb          $zero, 0x0($a0)
@@ -669,7 +669,7 @@ RECOMP_FUNC void Multisquare_8006a410_fourliner(uint8_t* rdram, recomp_context* 
     // 0x8006A464: jal         0x8006A3EC
     // 0x8006A468: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
-    Multisquare_8006a3ec_twoliner(rdram, ctx);
+    Multisquare_Free(rdram, ctx);
         goto after_0;
     // 0x8006A468: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
@@ -772,7 +772,7 @@ L_8006A4DC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Multisquare_8006a6bc_oneliner_calls_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_TestCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A6BC: addiu       $sp, $sp, -0x18
@@ -870,7 +870,7 @@ L_8006A728:
 
 ;}
 
-RECOMP_FUNC void Multisquare_8006a740_thirtyfiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_ScanNearPiece(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A740: addiu       $sp, $sp, -0x40
@@ -1108,7 +1108,7 @@ L_8006A880:
     // 0x8006A898: jal         0x8006A050
     // 0x8006A89C: addiu       $a2, $zero, 0x2
     ctx->r6 = ADD32(0, 0X2);
-    Multisquare_8006a050_extralarge_manyloops_interesting(rdram, ctx);
+    Multisquare_Spawn(rdram, ctx);
         goto after_2;
     // 0x8006A89C: addiu       $a2, $zero, 0x2
     ctx->r6 = ADD32(0, 0X2);
@@ -1261,7 +1261,7 @@ L_8006A954:
     // 0x8006A96C: jal         0x8006A050
     // 0x8006A970: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    Multisquare_8006a050_extralarge_manyloops_interesting(rdram, ctx);
+    Multisquare_Spawn(rdram, ctx);
         goto after_5;
     // 0x8006A970: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -1449,7 +1449,7 @@ L_8006AA28:
     // 0x8006AA70: jal         0x8006A6BC
     // 0x8006AA74: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    Multisquare_8006a6bc_oneliner_calls_fun(rdram, ctx);
+    Multisquare_TestCell(rdram, ctx);
         goto after_0;
     // 0x8006AA74: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1471,7 +1471,7 @@ L_8006AA28:
     // 0x8006AA8C: jal         0x8006A050
     // 0x8006AA90: addiu       $a2, $zero, 0x2
     ctx->r6 = ADD32(0, 0X2);
-    Multisquare_8006a050_extralarge_manyloops_interesting(rdram, ctx);
+    Multisquare_Spawn(rdram, ctx);
         goto after_1;
     // 0x8006AA90: addiu       $a2, $zero, 0x2
     ctx->r6 = ADD32(0, 0X2);
@@ -1576,7 +1576,7 @@ L_8006AAD4:
     // 0x8006AB1C: jal         0x8006A6BC
     // 0x8006AB20: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    Multisquare_8006a6bc_oneliner_calls_fun(rdram, ctx);
+    Multisquare_TestCell(rdram, ctx);
         goto after_2;
     // 0x8006AB20: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1598,7 +1598,7 @@ L_8006AAD4:
     // 0x8006AB38: jal         0x8006A050
     // 0x8006AB3C: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    Multisquare_8006a050_extralarge_manyloops_interesting(rdram, ctx);
+    Multisquare_Spawn(rdram, ctx);
         goto after_3;
     // 0x8006AB3C: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -1652,7 +1652,7 @@ L_8006AB60:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void Multisquare_isArg0_lessthan_44(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_IsValidIndex(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006AB84: sltiu       $at, $a0, 0x2C
@@ -1744,7 +1744,7 @@ L_8006ABE8:
     ctx->r29 = ADD32(ctx->r29, 0X10);
 ;}
 
-RECOMP_FUNC void Multisquare_8006abf4_loops_44_times_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_ClearFlags(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006ABF4: lui         $a0, 0x8012
@@ -1811,7 +1811,7 @@ RECOMP_FUNC void Multisquare_8006ac2c_loops_10_times(uint8_t* rdram, recomp_cont
     // 0x8006AC4C: jal         0x8006ABF4
     // 0x8006AC50: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    Multisquare_8006abf4_loops_44_times_2(rdram, ctx);
+    Multisquare_ClearFlags(rdram, ctx);
         goto after_0;
     // 0x8006AC50: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -1854,7 +1854,7 @@ L_8006AC84:
     // 0x8006AC90: jal         0x8006AB84
     // 0x8006AC94: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
-    Multisquare_isArg0_lessthan_44(rdram, ctx);
+    Multisquare_IsValidIndex(rdram, ctx);
         goto after_1;
     // 0x8006AC94: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
@@ -1939,7 +1939,7 @@ L_8006ACE4:
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void Multisquare_8006ad0c_checks_1_2_3_4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006AD0C: addiu       $sp, $sp, -0x28
@@ -2000,7 +2000,7 @@ L_8006AD54:
     // 0x8006AD54: jal         0x8006A740
     // 0x8006AD58: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    Multisquare_8006a740_thirtyfiveliner(rdram, ctx);
+    Multisquare_ScanNearPiece(rdram, ctx);
         goto after_0;
     // 0x8006AD58: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2067,7 +2067,7 @@ L_8006AD8C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Multisquare_8006ada4_Init(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006ADA4: lui         $a0, 0x8012

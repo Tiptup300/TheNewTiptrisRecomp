@@ -375,7 +375,7 @@ L_8006AE18:
     // 0x8006AE2C: jal         0x8006AF00
     // 0x8006AE30: addiu       $a0, $s0, 0x4
     ctx->r4 = ADD32(ctx->r16, 0X4);
-    MultisquareGlow_8006af00_eightliner(rdram, ctx);
+    MultisquareGlow_Update(rdram, ctx);
         goto after_0;
     // 0x8006AE30: addiu       $a0, $s0, 0x4
     ctx->r4 = ADD32(ctx->r16, 0X4);
@@ -451,7 +451,7 @@ L_8006AE80:
     // 0x8006AE90: jal         0x8006AF70
     // 0x8006AE94: addiu       $a0, $s0, 0x4
     ctx->r4 = ADD32(ctx->r16, 0X4);
-    MultisquareGlow_8006af70_nineliner(rdram, ctx);
+    MultisquareGlow_Draw(rdram, ctx);
         goto after_0;
     // 0x8006AE94: addiu       $a0, $s0, 0x4
     ctx->r4 = ADD32(ctx->r16, 0X4);

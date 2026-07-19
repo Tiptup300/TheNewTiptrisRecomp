@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void MultisquareGlow_8006af00_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MultisquareGlow_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006AF00: lbu         $t6, 0x0($a0)
@@ -79,7 +79,7 @@ L_8006AF68:
 
 ;}
 
-RECOMP_FUNC void MultisquareGlow_8006af70_nineliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MultisquareGlow_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006AF70: addiu       $sp, $sp, -0x40
@@ -761,7 +761,7 @@ L_8006B370:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MultisquareGlow_8006b384_oneliner_calls_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MultisquareGlow_FreeStaticMembers(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B384: addiu       $sp, $sp, -0x18

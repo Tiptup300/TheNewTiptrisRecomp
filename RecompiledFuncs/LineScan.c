@@ -120,7 +120,7 @@ L_800698C8:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void LineScan_800698e0_largeliner_loops_20_times_plays_sfx(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineScan_ExecuteLineClears(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800698E0: addiu       $sp, $sp, -0x58
@@ -851,7 +851,7 @@ L_80069CA0:
     ctx->r29 = ADD32(ctx->r29, 0X58);
 ;}
 
-RECOMP_FUNC void LineScan_80069cf0_eighliner_loops_10_times_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineScan_IsRowFull(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069CF0: sll         $t7, $a1, 2
@@ -932,7 +932,7 @@ L_80069D58:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void LineScan_80069d60_fifteenliner_loops_20_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineScan_DetectFullLines(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069D60: addiu       $sp, $sp, -0x38
@@ -999,7 +999,7 @@ L_80069D90:
     // 0x80069DC0: jal         0x80069CF0
     // 0x80069DC4: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    LineScan_80069cf0_eighliner_loops_10_times_retbool(rdram, ctx);
+    LineScan_IsRowFull(rdram, ctx);
         goto after_0;
     // 0x80069DC4: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -1083,7 +1083,7 @@ RECOMP_FUNC void LineScan_80069e2c_fiveliner(uint8_t* rdram, recomp_context* ctx
     // 0x80069E3C: jal         0x80069D60
     // 0x80069E40: nop
 
-    LineScan_80069d60_fifteenliner_loops_20_times(rdram, ctx);
+    LineScan_DetectFullLines(rdram, ctx);
         goto after_0;
     // 0x80069E40: nop
 
@@ -1132,7 +1132,7 @@ L_80069E74:
 
 ;}
 
-RECOMP_FUNC void LineScan_80069e84_sevenliner_loops_20_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineScan_MarkAllRowsDirty(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069E84: lui         $a0, 0x8012
@@ -1236,7 +1236,7 @@ L_80069F08:
     ctx->r29 = ADD32(ctx->r29, 0X10);
 ;}
 
-RECOMP_FUNC void LineScan_80069f10_threeliner_lowestscanableline(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineScan_SetScanLimit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069F10: addiu       $sp, $sp, -0x18
@@ -1353,7 +1353,7 @@ L_80069FB0:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void LineScan_80069fb8_elevenliner_case_and_loop_interesting(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineScan_ProcessLineClears(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069FB8: addiu       $sp, $sp, -0x28
@@ -1428,7 +1428,7 @@ L_8006A014:
     // 0x8006A014: jal         0x800698E0
     // 0x8006A018: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    LineScan_800698e0_largeliner_loops_20_times_plays_sfx(rdram, ctx);
+    LineScan_ExecuteLineClears(rdram, ctx);
         goto after_1;
     // 0x8006A018: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;

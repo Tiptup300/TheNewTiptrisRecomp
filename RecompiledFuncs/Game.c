@@ -4790,7 +4790,7 @@ RECOMP_FUNC void Game_80052090_calls_3_functions(uint8_t* rdram, recomp_context*
     // 0x800520B8: jal         0x8006B384
     // 0x800520BC: nop
 
-    MultisquareGlow_8006b384_oneliner_calls_fun(rdram, ctx);
+    MultisquareGlow_FreeStaticMembers(rdram, ctx);
         goto after_2;
     // 0x800520BC: nop
 
@@ -5949,7 +5949,7 @@ L_80052718:
     // 0x80052720: jal         0x8006B384
     // 0x80052724: nop
 
-    MultisquareGlow_8006b384_oneliner_calls_fun(rdram, ctx);
+    MultisquareGlow_FreeStaticMembers(rdram, ctx);
         goto after_16;
     // 0x80052724: nop
 

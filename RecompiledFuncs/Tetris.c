@@ -1166,7 +1166,7 @@ RECOMP_FUNC void Tetris_SetMarathonHandicap(uint8_t* rdram, recomp_context* ctx)
     // 0x800545CC: jal         0x80069F10
     // 0x800545D0: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    LineScan_80069f10_threeliner_lowestscanableline(rdram, ctx);
+    LineScan_SetScanLimit(rdram, ctx);
         goto after_0;
     // 0x800545D0: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1308,7 +1308,7 @@ RECOMP_FUNC void Tetris_SetSprintHandicap(uint8_t* rdram, recomp_context* ctx) {
     // 0x80054690: jal         0x80069F10
     // 0x80054694: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    LineScan_80069f10_threeliner_lowestscanableline(rdram, ctx);
+    LineScan_SetScanLimit(rdram, ctx);
         goto after_0;
     // 0x80054694: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1696,7 +1696,7 @@ RECOMP_FUNC void Tetris_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x800548B8: jal         0x8006ADA4
     // 0x800548BC: nop
 
-    Multisquare_8006ada4_Init(rdram, ctx);
+    Multisquare_Init(rdram, ctx);
         goto after_5;
     // 0x800548BC: nop
 

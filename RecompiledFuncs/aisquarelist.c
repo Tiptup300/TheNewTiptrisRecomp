@@ -8238,7 +8238,7 @@ L_800411F8:
     // 0x800411FC: jal         0x8006AB84
     // 0x80041200: nop
 
-    Multisquare_isArg0_lessthan_44(rdram, ctx);
+    Multisquare_IsValidIndex(rdram, ctx);
         goto after_0;
     // 0x80041200: nop
 

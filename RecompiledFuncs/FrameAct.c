@@ -183,7 +183,7 @@ RECOMP_FUNC void FrameAct_80053760_mediumliner(uint8_t* rdram, recomp_context* c
     // 0x80053770: jal         0x8006AD0C
     // 0x80053774: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    Multisquare_8006ad0c_checks_1_2_3_4(rdram, ctx);
+    Multisquare_Update(rdram, ctx);
         goto after_0;
     // 0x80053774: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -458,7 +458,7 @@ L_800538EC:
     // 0x800538FC: jal         0x80069E84
     // 0x80053900: sb          $zero, 0x2($t4)
     MEM_B(0X2, ctx->r12) = 0;
-    LineScan_80069e84_sevenliner_loops_20_times(rdram, ctx);
+    LineScan_MarkAllRowsDirty(rdram, ctx);
         goto after_2;
     // 0x80053900: sb          $zero, 0x2($t4)
     MEM_B(0X2, ctx->r12) = 0;
@@ -504,7 +504,7 @@ RECOMP_FUNC void FrameAct_80053934_tenliner(uint8_t* rdram, recomp_context* ctx)
     // 0x80053940: jal         0x80069FB8
     // 0x80053944: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    LineScan_80069fb8_elevenliner_case_and_loop_interesting(rdram, ctx);
+    LineScan_ProcessLineClears(rdram, ctx);
         goto after_0;
     // 0x80053944: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;

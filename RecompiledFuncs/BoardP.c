@@ -19,7 +19,7 @@ RECOMP_FUNC void BoardP_8006d3c0_fourliner(uint8_t* rdram, recomp_context* ctx) 
     // 0x8006D3D8: jal         0x8006AB84
     // 0x8006D3DC: nop
 
-    Multisquare_isArg0_lessthan_44(rdram, ctx);
+    Multisquare_IsValidIndex(rdram, ctx);
         goto after_0;
     // 0x8006D3DC: nop
 
@@ -354,7 +354,7 @@ RECOMP_FUNC void BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(uint8_t* rd
     // 0x8006D5DC: jal         0x8006AB84
     // 0x8006D5E0: nop
 
-    Multisquare_isArg0_lessthan_44(rdram, ctx);
+    Multisquare_IsValidIndex(rdram, ctx);
         goto after_0;
     // 0x8006D5E0: nop
 
