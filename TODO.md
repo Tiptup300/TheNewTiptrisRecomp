@@ -49,6 +49,10 @@ Backlog of improvements toward a polished release. The game is **fully playable*
   menu options** — Controller/Game-Pak transfer features that don't apply to the
   PC port; hide them from the data/options menu.
 - [ ] Included (but **off by default**) mod: **unlock all levels at start**.
+- [ ] Included (but **off by default**) mod: **rebalance the WONDERS line
+  requirements** to more reasonable values.
+  - Current (too extreme): 2499, 7499, 19999, 49999, 99999, 249999, 499999
+  - Proposed: 2499, 9300, 20061, 34611, 52838, 74657, 99999
 
 ## 🟠 Audio
 
