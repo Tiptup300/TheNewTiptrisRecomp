@@ -65,6 +65,15 @@
       you CAN rename/regroup/comment, you CANNOT rewrite the register-level bodies
       (that's full decompilation); point at FUNCTION_INDEX.md + the categorizer rules
 
+## RE tooling
+- [ ] call-graph tool (tools/callgraph.py): given a function name, list its
+      callees (grep its body for `\w+\(rdram, ctx\);`) and its callers (grep all
+      bodies for that name), and print a caller/callee tree to N levels. All edges
+      are extractable statically from the RecompiledFuncs/*.c bodies (no ROM
+      needed); a one-time manifest {func: {callers[], callees[]}} can be built
+      once and queried. Would make mapping subsystems + prioritizing naming much
+      easier. (FUNCTION_INDEX.md already has out-degree = callee count.)
+
 ## Code cleanup / release hygiene
 - [ ] strip TRACE() / stray fprintf diagnostics from src/main.cpp
 - [ ] review the n_aspMain_safe RSP wrapper (belt-and-suspenders) — keep or trim
