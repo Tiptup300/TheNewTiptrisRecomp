@@ -4742,7 +4742,7 @@ RECOMP_FUNC void func_8007D6A8(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007D870: jal         0x800B04BC
     // 0x8007D874: nop
 
-    func_800B04BC(rdram, ctx);
+    mtx4_from_euler(rdram, ctx);
         goto after_1;
     // 0x8007D874: nop
 

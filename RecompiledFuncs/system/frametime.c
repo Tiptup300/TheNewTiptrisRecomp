@@ -523,7 +523,7 @@ RECOMP_FUNC void func_800A3BF8(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3C18: jal         0x800B036C
     // 0x800A3C1C: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
-    func_800B036C(rdram, ctx);
+    mtx4_rotate_euler(rdram, ctx);
         goto after_0;
     // 0x800A3C1C: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
@@ -562,7 +562,7 @@ RECOMP_FUNC void func_800A3C30(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3C50: jal         0x800B04BC
     // 0x800A3C54: addiu       $a0, $sp, 0x60
     ctx->r4 = ADD32(ctx->r29, 0X60);
-    func_800B04BC(rdram, ctx);
+    mtx4_from_euler(rdram, ctx);
         goto after_0;
     // 0x800A3C54: addiu       $a0, $sp, 0x60
     ctx->r4 = ADD32(ctx->r29, 0X60);
@@ -640,7 +640,7 @@ RECOMP_FUNC void func_800A3CB4(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3CC4: jal         0x800B0140
     // 0x800A3CC8: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
-    func_800B0140(rdram, ctx);
+    mtx4_rotate_axis(rdram, ctx);
         goto after_0;
     // 0x800A3CC8: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
@@ -673,7 +673,7 @@ RECOMP_FUNC void func_800A3CDC(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3CF0: jal         0x800B0140
     // 0x800A3CF4: addiu       $a0, $sp, 0x60
     ctx->r4 = ADD32(ctx->r29, 0X60);
-    func_800B0140(rdram, ctx);
+    mtx4_rotate_axis(rdram, ctx);
         goto after_0;
     // 0x800A3CF4: addiu       $a0, $sp, 0x60
     ctx->r4 = ADD32(ctx->r29, 0X60);
@@ -807,7 +807,7 @@ RECOMP_FUNC void func_800A3D54(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3DBC: jal         0x800B051C
     // 0x800A3DC0: lw          $a3, 0x2C($sp)
     ctx->r7 = MEM_W(ctx->r29, 0X2C);
-    func_800B051C(rdram, ctx);
+    mtx4_scale(rdram, ctx);
         goto after_3;
     // 0x800A3DC0: lw          $a3, 0x2C($sp)
     ctx->r7 = MEM_W(ctx->r29, 0X2C);
@@ -846,7 +846,7 @@ RECOMP_FUNC void func_800A3DD4(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3DF4: jal         0x800B051C
     // 0x800A3DF8: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
-    func_800B051C(rdram, ctx);
+    mtx4_scale(rdram, ctx);
         goto after_0;
     // 0x800A3DF8: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
@@ -1199,7 +1199,7 @@ RECOMP_FUNC void func_800A3F98(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3FB8: jal         0x800B036C
     // 0x800A3FBC: addiu       $a0, $a0, 0x4C
     ctx->r4 = ADD32(ctx->r4, 0X4C);
-    func_800B036C(rdram, ctx);
+    mtx4_rotate_euler(rdram, ctx);
         goto after_0;
     // 0x800A3FBC: addiu       $a0, $a0, 0x4C
     ctx->r4 = ADD32(ctx->r4, 0X4C);
@@ -1238,7 +1238,7 @@ RECOMP_FUNC void func_800A3FD0(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A3FF0: jal         0x800B04BC
     // 0x800A3FF4: addiu       $a0, $sp, 0x60
     ctx->r4 = ADD32(ctx->r29, 0X60);
-    func_800B04BC(rdram, ctx);
+    mtx4_from_euler(rdram, ctx);
         goto after_0;
     // 0x800A3FF4: addiu       $a0, $sp, 0x60
     ctx->r4 = ADD32(ctx->r29, 0X60);

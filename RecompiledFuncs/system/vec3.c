@@ -238,7 +238,7 @@ RECOMP_FUNC void vec3_length(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800AFFF0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void vec3_sub(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800AFFF0: addiu       $sp, $sp, -0x18
@@ -407,7 +407,7 @@ L_800B00AC:
 
 ;}
 
-RECOMP_FUNC void func_800B00BC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void vec3_normalize_len(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B00BC: addiu       $sp, $sp, -0x18
@@ -521,7 +521,7 @@ L_800B0130:
 
 ;}
 
-RECOMP_FUNC void func_800B0140(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_rotate_axis(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B0140: addiu       $sp, $sp, -0xC8
@@ -916,7 +916,7 @@ RECOMP_FUNC void func_800B0140(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800B02F0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_from_axis(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B02F0: addiu       $sp, $sp, -0x28
@@ -954,7 +954,7 @@ RECOMP_FUNC void func_800B02F0(uint8_t* rdram, recomp_context* ctx) {
     // 0x800B0328: jal         0x800B0140
     // 0x800B032C: addiu       $a1, $sp, 0x1C
     ctx->r5 = ADD32(ctx->r29, 0X1C);
-    func_800B0140(rdram, ctx);
+    mtx4_rotate_axis(rdram, ctx);
         goto after_1;
     // 0x800B032C: addiu       $a1, $sp, 0x1C
     ctx->r5 = ADD32(ctx->r29, 0X1C);
@@ -993,7 +993,7 @@ RECOMP_FUNC void func_800B02F0(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800B036C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_rotate_euler(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B036C: mtc1        $a1, $f12
@@ -1312,7 +1312,7 @@ RECOMP_FUNC void func_800B036C(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void func_800B04BC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_from_euler(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B04BC: mtc1        $a1, $f12
@@ -1332,7 +1332,7 @@ RECOMP_FUNC void func_800B04BC(uint8_t* rdram, recomp_context* ctx) {
     // 0x800B04D8: jal         0x800B036C
     // 0x800B04DC: sw          $a0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r4;
-    func_800B036C(rdram, ctx);
+    mtx4_rotate_euler(rdram, ctx);
         goto after_0;
     // 0x800B04DC: sw          $a0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r4;
@@ -1371,7 +1371,7 @@ RECOMP_FUNC void func_800B04BC(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800B051C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_scale(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B051C: sw          $a3, 0xC($sp)
@@ -2125,7 +2125,7 @@ RECOMP_FUNC void func_800B0700(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800B0890(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx3_mult(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B0890: mtc1        $zero, $f2
@@ -2227,7 +2227,7 @@ L_800B08B0:
 
 ;}
 
-RECOMP_FUNC void func_800B0914(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx3_mult_vec3(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B0914: lwc1        $f4, 0x0($a1)
@@ -2368,7 +2368,7 @@ RECOMP_FUNC void func_800B0914(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X8, ctx->r4) = ctx->f4.u32l;
 ;}
 
-RECOMP_FUNC void func_800B09A8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void vec3_project(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B09A8: lwc1        $f4, 0x4($a0)
@@ -2487,7 +2487,7 @@ RECOMP_FUNC void func_800B09A8(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X8, ctx->r7) = ctx->f8.u32l;
 ;}
 
-RECOMP_FUNC void func_800B0A2C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void vec3_reject(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B0A2C: addiu       $sp, $sp, -0x18
@@ -2747,7 +2747,7 @@ RECOMP_FUNC void func_800B0A98(uint8_t* rdram, recomp_context* ctx) {
     // 0x800B0B94: jal         0x800B0890
     // 0x800B0B98: swc1        $f18, 0xB0($sp)
     MEM_W(0XB0, ctx->r29) = ctx->f18.u32l;
-    func_800B0890(rdram, ctx);
+    mtx3_mult(rdram, ctx);
         goto after_0;
     // 0x800B0B98: swc1        $f18, 0xB0($sp)
     MEM_W(0XB0, ctx->r29) = ctx->f18.u32l;
@@ -3197,7 +3197,7 @@ L_800B0BA8:
     ctx->r29 = ADD32(ctx->r29, 0XD8);
 ;}
 
-RECOMP_FUNC void func_800B0D9C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_from_vectors(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B0D9C: addiu       $sp, $sp, -0x38
@@ -3525,7 +3525,7 @@ RECOMP_FUNC void func_800B0F08(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X30, ctx->r4) = ctx->f14.u32l;
 ;}
 
-RECOMP_FUNC void func_800B0F74(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void mtx4_mult_vec4(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B0F74: lwc1        $f4, 0x0($a1)
@@ -5342,7 +5342,7 @@ L_800B16CC:
     MEM_W(0XC, ctx->r4) = ctx->f10.u32l;
 ;}
 
-RECOMP_FUNC void func_800B16D8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void vec4_lerp(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800B16D8: mtc1        $a3, $f12
