@@ -6,15 +6,43 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 
 ## 🔴 High priority (bugs / blockers)
 
-- [~] **Windows: no audio output.** Likely cause: `src/main.cpp` forces
+- [x] **Windows: no audio output.** Cause: `src/main.cpp` forced
   `SDL_AUDIODRIVER=pulseaudio` on every platform; Windows has no PulseAudio, so
-  SDL audio init fails. Fix: only force pulseaudio on Linux; let SDL pick the
-  default (WASAPI) on Windows. → being fixed.
+  SDL audio init failed. Fixed — guarded to Linux (Windows uses WASAPI). *Verify
+  on Windows.*
+- [ ] **Controls config screen is broken** — can't actually set/rebind any keys.
+  The rebind flow (`recompui` controls page → capture keypress → save mapping)
+  isn't working. Investigate `ui_config_page_controls` binding capture + our
+  keyboard-player setup.
+- [ ] **Flashing garbage pixels along the RIGHT edge of the screen** (always
+  visible). Likely uninitialized/overscan framebuffer area or a scissor/viewport
+  issue in the F3DEX2 HLE. Options: crop the right overscan columns, add a
+  scissor/letterbox, or fix the framebuffer clear. Investigate RT64 + the game's
+  VI/framebuffer setup.
+- [ ] **Multiplayer doesn't work** — add the ability to configure multiple
+  controllers (player 2–4 assignment). Currently single-player keyboard only;
+  `recompinput` supports multiple players but assignment/UI needs wiring.
 - [ ] **Confirm audio buzz fix** across all music/SFX on Linux (device buffer now
   256 < queue floor; verify no residual crackle on varied tracks).
 - [ ] **Windows runtime pass**: verify controller input, ROM picker (native Win32
-  dialog), saves, and full gameplay actually work — only "it launches + renders"
-  is confirmed so far.
+  dialog), saves, and full gameplay actually work — only "it launches + renders +
+  audio" is expected so far.
+
+## 🔵 Boot / intro flow
+
+- [ ] Skip the **N64 boot logo** screen at startup with any button press.
+- [ ] Skip the **H2O credits** screen (immediately after the logo) with any
+  button press.
+- [ ] (Nice-to-have) a single "skip intros" that fast-forwards straight to the
+  main menu.
+
+## 🟣 Mods
+
+- [ ] The **"Mods" launcher button currently just opens Settings** — wire it to a
+  real mods screen/flow.
+- [ ] **Implement mod support** — load/enable/manage mods. The N64Recomp stack has
+  a mod framework (`RecompModTool`, `OfflineModRecomp`, librecomp mod loading);
+  integrate it and expose a mods UI.
 
 ## 🟠 Audio
 
@@ -60,6 +88,10 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 
 ## 🟡 Input
 
+- [ ] **Adopt the standard modern control scheme** for this falling-block genre as
+  the defaults (as used in current official PC releases): e.g. Left/Right move,
+  Down soft-drop, Up/Space hard-drop, Z/X or Ctrl rotate CCW/CW, Shift/C hold,
+  plus sensible DAS/ARR feel. Research the common layout and map our inputs to it.
 - [ ] Curate **gamepad** default mappings to game actions (we set keyboard
   defaults; verify controller defaults are sensible: rotate/hold/move/start).
 - [ ] Confirm rotate CW vs CCW direction matches the game (mapping was inferred).
