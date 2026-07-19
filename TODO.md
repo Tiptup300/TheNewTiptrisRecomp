@@ -48,6 +48,7 @@ Backlog of improvements toward a polished release. The game is **fully playable*
 - [ ] Default mod: **hide the "Transfer Name" and "Dump Lines to Game Pak" data
   menu options** — Controller/Game-Pak transfer features that don't apply to the
   PC port; hide them from the data/options menu.
+- [ ] Included (but **off by default**) mod: **unlock all levels at start**.
 
 ## 🟠 Audio
 
