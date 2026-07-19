@@ -255,11 +255,15 @@ int main(int argc, char** argv) {
 #endif
     recompui::programconfig::set_program_name("The New Tiptris : Recompiled");
     SDL_SetHint(SDL_HINT_JOYSTICK_THREAD, "1");
-    // WSLg / most desktops route audio through PulseAudio; ALSA's "default"
-    // device frequently fails there, so prefer PulseAudio/PipeWire before ALSA.
+#ifdef __linux__
+    // On Linux (incl. WSLg), most desktops route audio through PulseAudio and
+    // ALSA's "default" device frequently fails there, so prefer PulseAudio before
+    // ALSA. Do NOT force this on Windows/macOS — there is no "pulseaudio" driver
+    // (forcing it made SDL audio init fail -> no sound on Windows).
     if (SDL_getenv("SDL_AUDIODRIVER") == nullptr) {
         SDL_setenv("SDL_AUDIODRIVER", "pulseaudio", 1);
     }
+#endif
     SDL_Init(SDL_INIT_AUDIO);
     NFD_Init();
     fprintf(stderr, "[tnt] audio driver: %s\n", SDL_GetCurrentAudioDriver() ? SDL_GetCurrentAudioDriver() : "(none)");
