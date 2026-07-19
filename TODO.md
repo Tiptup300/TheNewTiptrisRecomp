@@ -15,7 +15,6 @@
 
 ## Controls / input
 - [ ] multiplayer is not working, allow to configure mutilple controllers
-- [ ] look up official modern pc release controls and set those as the defaults
 - [ ] the control config screen seems completely broken, i cant actually set any keys
 - [ ] in the controls screen there is an unlabeled slider, what does this do, it seems like it shows the menu controllers, but it's unlabeled
 - [ ] curate sensible gamepad default mappings to the game actions (not just keyboard)
@@ -23,10 +22,8 @@
 - [ ] rumble / haptics if the game uses the Rumble Pak
 
 ## UI / fonts
-- [ ] in the menu event log there are a load of missing fonts errors, also there appears to be a bunch of buttons that just dont appear, if you hover over them they allow you to click
-- [ ] back and close are meant to show an icon but no icon shows
-- [ ] likely shared root cause for the font/icon issues: placeholder/incomplete fonts (primary.ttf is single-weight; promptfont.ttf is an Ubuntu placeholder; no real icon/emoji faces) — register the font at all requested weights and ship real promptfont / icon / emoji fonts
-- [ ] register a bold font face for headers (theme requests bold weights the single-weight font can't provide)
+- [ ] replace the placeholder primary UI font (primary.ttf is a renamed Ubuntu placeholder) with a real display face; add a bold weight for headers (theme requests bold the single-weight font can't provide)
+- [ ] ship a real icon/emoji face if needed (NotoEmoji is the only real extra face; promptfont is now the real controller-glyph font)
 - [ ] auto-start the game if a valid ROM is already stored (skip the launcher click)
 - [ ] custom window title / app branding pass
 
