@@ -152,7 +152,7 @@ L_8006F018:
     // 0x8006F030: jal         0x800709D8
     // 0x8006F034: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
-    Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(rdram, ctx);
+    Minos_Mino_SetBrightness(rdram, ctx);
         goto after_0;
     // 0x8006F034: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
@@ -250,7 +250,7 @@ L_8006F0A0:
     // 0x8006F0B8: jal         0x800709D8
     // 0x8006F0BC: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
-    Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(rdram, ctx);
+    Minos_Mino_SetBrightness(rdram, ctx);
         goto after_0;
     // 0x8006F0BC: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);

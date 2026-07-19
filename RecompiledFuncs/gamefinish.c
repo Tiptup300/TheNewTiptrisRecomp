@@ -203,7 +203,7 @@ RECOMP_FUNC void gamefinish_80052B30_tenliner(uint8_t* rdram, recomp_context* ct
 
 ;}
 
-RECOMP_FUNC void gamefinish_c_line_127(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void gamefinish_InitResultSprite(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80052BE4: addiu       $sp, $sp, -0x28
@@ -698,7 +698,7 @@ L_80052E94:
     // 0x80052EBC: jal         0x800709EC
     // 0x80052EC0: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
-    Minos_800709EC(rdram, ctx);
+    Minos_Mino_FadeBrightness(rdram, ctx);
         goto after_1;
     // 0x80052EC0: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
@@ -963,7 +963,7 @@ L_80053030:
 
 ;}
 
-RECOMP_FUNC void gamefinish_c_line_383(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void gamefinish_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80053040: addiu       $sp, $sp, -0x28
@@ -1443,7 +1443,7 @@ RECOMP_FUNC void gamefinish_800532DC_nevercalled(uint8_t* rdram, recomp_context*
     MEM_B(0X38, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void gamefinish_something2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void gamefinish_Start(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800532E4: addiu       $sp, $sp, -0x18
@@ -1463,7 +1463,7 @@ RECOMP_FUNC void gamefinish_something2(uint8_t* rdram, recomp_context* ctx) {
     // 0x80053300: jal         0x80052BE4
     // 0x80053304: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    gamefinish_c_line_127(rdram, ctx);
+    gamefinish_InitResultSprite(rdram, ctx);
         goto after_0;
     // 0x80053304: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
@@ -1672,7 +1672,7 @@ RECOMP_FUNC void gamefinish_80053400_fiveliner(uint8_t* rdram, recomp_context* c
 
 ;}
 
-RECOMP_FUNC void gamefinish_8005344C_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void gamefinish_LoadResultImages(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8005344C: addiu       $sp, $sp, -0x18
@@ -1735,7 +1735,7 @@ RECOMP_FUNC void gamefinish_8005344C_fiveliner(uint8_t* rdram, recomp_context* c
 
 ;}
 
-RECOMP_FUNC void gamefinish_800534A4_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void gamefinish_FreeResultImages(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800534A4: addiu       $sp, $sp, -0x18

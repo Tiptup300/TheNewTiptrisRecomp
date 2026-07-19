@@ -994,7 +994,7 @@ RECOMP_FUNC void FrameAct_calls_gamefinish_something2(uint8_t* rdram, recomp_con
     // 0x80053BE0: jal         0x800532E4
     // 0x80053BE4: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
-    gamefinish_something2(rdram, ctx);
+    gamefinish_Start(rdram, ctx);
         goto after_0;
     // 0x80053BE4: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
@@ -1015,7 +1015,7 @@ L_80053BF0:
     // 0x80053BFC: jal         0x800532E4
     // 0x80053C00: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
-    gamefinish_something2(rdram, ctx);
+    gamefinish_Start(rdram, ctx);
         goto after_1;
     // 0x80053C00: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
@@ -1053,7 +1053,7 @@ RECOMP_FUNC void FrameAct_calls_gamefinish_something(uint8_t* rdram, recomp_cont
     // 0x80053C30: jal         0x80053040
     // 0x80053C34: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
-    gamefinish_c_line_383(rdram, ctx);
+    gamefinish_Update(rdram, ctx);
         goto after_0;
     // 0x80053C34: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);

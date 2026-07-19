@@ -5226,7 +5226,7 @@ L_800522D0:
     // 0x8005231C: jal         0x8005344C
     // 0x80052320: nop
 
-    gamefinish_8005344C_fiveliner(rdram, ctx);
+    gamefinish_LoadResultImages(rdram, ctx);
         goto after_12;
     // 0x80052320: nop
 
@@ -5941,7 +5941,7 @@ L_80052718:
     // 0x80052718: jal         0x800534A4
     // 0x8005271C: nop
 
-    gamefinish_800534A4_fiveliner(rdram, ctx);
+    gamefinish_FreeResultImages(rdram, ctx);
         goto after_15;
     // 0x8005271C: nop
 

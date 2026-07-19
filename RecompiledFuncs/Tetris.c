@@ -1204,7 +1204,7 @@ L_800545F4:
     // 0x800545FC: jal         0x8006DE40
     // 0x80054600: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
-    BoardP_8006de40_nineliner(rdram, ctx);
+    BoardP_SetCubeAt(rdram, ctx);
         goto after_1;
     // 0x80054600: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
@@ -1346,7 +1346,7 @@ L_800546B8:
     // 0x800546C0: jal         0x8006DE40
     // 0x800546C4: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
-    BoardP_8006de40_nineliner(rdram, ctx);
+    BoardP_SetCubeAt(rdram, ctx);
         goto after_1;
     // 0x800546C4: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);

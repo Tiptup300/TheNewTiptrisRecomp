@@ -1127,7 +1127,7 @@ L_800729C4:
     // 0x800729D0: jal         0x80073BA4
     // 0x800729D4: nop
 
-    func_80073BA4(rdram, ctx);
+    Garbage_FreeTexture(rdram, ctx);
         goto after_1;
     // 0x800729D4: nop
 
@@ -1152,7 +1152,7 @@ L_800729E0:
     // 0x800729EC: jal         0x80073BA4
     // 0x800729F0: nop
 
-    func_80073BA4(rdram, ctx);
+    Garbage_FreeTexture(rdram, ctx);
         goto after_3;
     // 0x800729F0: nop
 
@@ -1187,7 +1187,7 @@ L_80072A08:
     // 0x80072A14: jal         0x80073BA4
     // 0x80072A18: nop
 
-    func_80073BA4(rdram, ctx);
+    Garbage_FreeTexture(rdram, ctx);
         goto after_6;
     // 0x80072A18: nop
 
@@ -1609,7 +1609,7 @@ L_80072C24:
     // 0x80072C5C: jal         0x8006DE40
     // 0x80072C60: nop
 
-    BoardP_8006de40_nineliner(rdram, ctx);
+    BoardP_SetCubeAt(rdram, ctx);
         goto after_2;
     // 0x80072C60: nop
 

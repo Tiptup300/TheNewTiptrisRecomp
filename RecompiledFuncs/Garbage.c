@@ -238,7 +238,7 @@ L_80072E7C:
     // 0x80072E7C: jal         0x8006DD64
     // 0x80072E80: or          $a0, $zero, $zero
     ctx->r4 = 0 | 0;
-    BoardP_8006dd64_check_for_nonempty_cell_downwards(rdram, ctx);
+    BoardP_RowHasCube(rdram, ctx);
         goto after_1;
     // 0x80072E80: or          $a0, $zero, $zero
     ctx->r4 = 0 | 0;
@@ -459,7 +459,7 @@ L_80072FA0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80072FB0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_GetState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072FB0: lui         $a0, 0x8012
@@ -2404,7 +2404,7 @@ RECOMP_FUNC void func_80073B48(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80073BA4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_FreeTexture(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073BA4: addiu       $sp, $sp, -0x18

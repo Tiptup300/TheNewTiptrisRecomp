@@ -935,7 +935,7 @@ L_80065280:
     // 0x800652BC: jal         0x80070398
     // 0x800652C0: addiu       $a0, $a0, 0x18
     ctx->r4 = ADD32(ctx->r4, 0X18);
-    Minos_80070398_fourteenliner(rdram, ctx);
+    Minos_Mino_Copy(rdram, ctx);
         goto after_1;
     // 0x800652C0: addiu       $a0, $a0, 0x18
     ctx->r4 = ADD32(ctx->r4, 0X18);

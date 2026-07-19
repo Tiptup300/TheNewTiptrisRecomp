@@ -213,7 +213,7 @@ RECOMP_FUNC void Minos_8006f300_eightliner_calls_80076458_4_times(uint8_t* rdram
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_8006F39C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_TransformVtx_Flat(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006F39C: lui         $t6, 0x8012
@@ -360,7 +360,7 @@ RECOMP_FUNC void func_8006F39C(uint8_t* rdram, recomp_context* ctx) {
     MEM_H(0X26, ctx->r5) = ctx->r14;
 ;}
 
-RECOMP_FUNC void Minos_8006f4b4_thirtyliner_interesting(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_TransformVtx_Rotate(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006F4B4: addiu       $sp, $sp, -0x60
@@ -785,7 +785,7 @@ RECOMP_FUNC void Minos_8006f4b4_thirtyliner_interesting(uint8_t* rdram, recomp_c
     ctx->r29 = ADD32(ctx->r29, 0X60);
 ;}
 
-RECOMP_FUNC void func_8006F7E8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_TransformVtx_None(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006F7E8: jr          $ra
@@ -2428,7 +2428,7 @@ RECOMP_FUNC void Minos_800702e4_nineliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x80070304: jal         0x80070818
     // 0x80070308: nop
 
-    Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(rdram, ctx);
+    Minos_Mino_SetGraphicHandle(rdram, ctx);
         goto after_0;
     // 0x80070308: nop
 
@@ -2511,7 +2511,7 @@ RECOMP_FUNC void Minos_800702e4_nineliner(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void Minos_80070398_fourteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_Mino_Copy(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80070398: addiu       $sp, $sp, -0x18
@@ -2841,7 +2841,7 @@ L_80070590:
     // 0x800705BC: jal         0x80070818
     // 0x800705C0: nop
 
-    Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(rdram, ctx);
+    Minos_Mino_SetGraphicHandle(rdram, ctx);
         goto after_2;
     // 0x800705C0: nop
 
@@ -3200,7 +3200,7 @@ L_80070804:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_Mino_SetGraphicHandle(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80070818: jr          $ra
@@ -3529,7 +3529,7 @@ L_800709C8:
 
 ;}
 
-RECOMP_FUNC void Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_Mino_SetBrightness(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800709D8: andi        $a1, $a1, 0xFF
@@ -3546,7 +3546,7 @@ RECOMP_FUNC void Minos_800709d8_threeliner_sets_arg0_1c_1e_1d(uint8_t* rdram, re
     MEM_B(0X1D, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void Minos_800709EC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_Mino_FadeBrightness(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800709EC: lbu         $t6, 0x1C($a0)

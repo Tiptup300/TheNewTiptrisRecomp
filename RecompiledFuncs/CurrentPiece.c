@@ -670,7 +670,7 @@ L_80066D2C:
     // 0x80066D40: jal         0x8006E5E0
     // 0x80066D44: nop
 
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_1;
     // 0x80066D44: nop
 

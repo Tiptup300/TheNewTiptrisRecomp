@@ -429,7 +429,7 @@ L_8006A2C4:
     // 0x8006A2F8: jal         0x8006E64C
     // 0x8006A2FC: or          $a1, $t5, $zero
     ctx->r5 = ctx->r13 | 0;
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_5;
     // 0x8006A2FC: or          $a1, $t5, $zero
     ctx->r5 = ctx->r13 | 0;

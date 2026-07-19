@@ -435,7 +435,7 @@ L_8006D628:
     // 0x8006D654: jal         0x8006E64C
     // 0x8006D658: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_4;
     // 0x8006D658: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -616,7 +616,7 @@ RECOMP_FUNC void BoardP_8006d728_checkAndSetSurroundingCells(uint8_t* rdram, rec
     // 0x8006D770: jal         0x8006E5E0
     // 0x8006D774: addiu       $a1, $s2, -0x1
     ctx->r5 = ADD32(ctx->r18, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_0;
     // 0x8006D774: addiu       $a1, $s2, -0x1
     ctx->r5 = ADD32(ctx->r18, -0X1);
@@ -647,7 +647,7 @@ L_8006D798:
     // 0x8006D79C: jal         0x8006E5E0
     // 0x8006D7A0: addiu       $a1, $s2, -0x1
     ctx->r5 = ADD32(ctx->r18, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_1;
     // 0x8006D7A0: addiu       $a1, $s2, -0x1
     ctx->r5 = ADD32(ctx->r18, -0X1);
@@ -678,7 +678,7 @@ L_8006D7C4:
     // 0x8006D7C8: jal         0x8006E5E0
     // 0x8006D7CC: addiu       $a1, $s2, -0x1
     ctx->r5 = ADD32(ctx->r18, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_2;
     // 0x8006D7CC: addiu       $a1, $s2, -0x1
     ctx->r5 = ADD32(ctx->r18, -0X1);
@@ -709,7 +709,7 @@ L_8006D7F0:
     // 0x8006D7F4: jal         0x8006E5E0
     // 0x8006D7F8: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_3;
     // 0x8006D7F8: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -740,7 +740,7 @@ L_8006D81C:
     // 0x8006D820: jal         0x8006E5E0
     // 0x8006D824: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_4;
     // 0x8006D824: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -771,7 +771,7 @@ L_8006D848:
     // 0x8006D84C: jal         0x8006E5E0
     // 0x8006D850: addiu       $a1, $s2, 0x1
     ctx->r5 = ADD32(ctx->r18, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_5;
     // 0x8006D850: addiu       $a1, $s2, 0x1
     ctx->r5 = ADD32(ctx->r18, 0X1);
@@ -802,7 +802,7 @@ L_8006D874:
     // 0x8006D878: jal         0x8006E5E0
     // 0x8006D87C: addiu       $a1, $s2, 0x1
     ctx->r5 = ADD32(ctx->r18, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_6;
     // 0x8006D87C: addiu       $a1, $s2, 0x1
     ctx->r5 = ADD32(ctx->r18, 0X1);
@@ -833,7 +833,7 @@ L_8006D8A0:
     // 0x8006D8A4: jal         0x8006E5E0
     // 0x8006D8A8: addiu       $a1, $s2, 0x1
     ctx->r5 = ADD32(ctx->r18, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_7;
     // 0x8006D8A8: addiu       $a1, $s2, 0x1
     ctx->r5 = ADD32(ctx->r18, 0X1);
@@ -878,7 +878,7 @@ L_8006D8CC:
     // 0x8006D8EC: jal         0x80070818
     // 0x8006D8F0: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
-    Minos_80070818_oneliner_sets_arg0_0x130_to_arg1(rdram, ctx);
+    Minos_Mino_SetGraphicHandle(rdram, ctx);
         goto after_8;
     // 0x8006D8F0: addiu       $a0, $a0, 0x28
     ctx->r4 = ADD32(ctx->r4, 0X28);
@@ -1091,7 +1091,7 @@ L_8006DA0C:
     // 0x8006DA20: jal         0x8006E5E0
     // 0x8006DA24: addu        $a1, $s3, $t8
     ctx->r5 = ADD32(ctx->r19, ctx->r24);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_0;
     // 0x8006DA24: addu        $a1, $s3, $t8
     ctx->r5 = ADD32(ctx->r19, ctx->r24);
@@ -1361,7 +1361,7 @@ L_8006DBA8:
 
 ;}
 
-RECOMP_FUNC void BoardP_8006dbb8_eightliner_calls_UPDQueueEntry_Update_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_UpdateQueue_ProcessAll(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DBB8: addiu       $sp, $sp, -0x28
@@ -1530,7 +1530,7 @@ L_8006DC60:
 
 ;}
 
-RECOMP_FUNC void BoardP_8006dcc0_twoliner_sets_to_600_0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_UpdateQueue_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DCC0: addiu       $t6, $zero, 0x258
@@ -1560,7 +1560,7 @@ L_8006DCE0:
     // 0x8006DCE0: jal         0x8006DD64
     // 0x8006DCE4: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    BoardP_8006dd64_check_for_nonempty_cell_downwards(rdram, ctx);
+    BoardP_RowHasCube(rdram, ctx);
         goto after_0;
     // 0x8006DCE4: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1622,7 +1622,7 @@ L_8006DD2C:
     // 0x8006DD2C: jal         0x8006DD64
     // 0x8006DD30: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    BoardP_8006dd64_check_for_nonempty_cell_downwards(rdram, ctx);
+    BoardP_RowHasCube(rdram, ctx);
         goto after_0;
     // 0x8006DD30: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1667,7 +1667,7 @@ L_8006DD54:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006dd64_check_for_nonempty_cell_downwards(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_RowHasCube(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DD64: sll         $t7, $a0, 2
@@ -1829,7 +1829,7 @@ L_8006DE38:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void BoardP_8006de40_nineliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_SetCubeAt(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DE40: addiu       $sp, $sp, -0x28
@@ -1975,7 +1975,7 @@ RECOMP_FUNC void BoardP_8006de40_nineliner(uint8_t* rdram, recomp_context* ctx) 
     // 0x8006DF20: jal         0x8006E64C
     // 0x8006DF24: nop
 
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_3;
     // 0x8006DF24: nop
 
@@ -2148,7 +2148,7 @@ L_8006E00C:
     // 0x8006E01C: jal         0x8006DE40
     // 0x8006E020: nop
 
-    BoardP_8006de40_nineliner(rdram, ctx);
+    BoardP_SetCubeAt(rdram, ctx);
         goto after_0;
     // 0x8006E020: nop
 
@@ -2315,7 +2315,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2B4: jal         0x8006E64C
     // 0x8006E2B8: addiu       $a1, $s1, -0x1
     ctx->r5 = ADD32(ctx->r17, -0X1);
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_1;
     // 0x8006E2B8: addiu       $a1, $s1, -0x1
     ctx->r5 = ADD32(ctx->r17, -0X1);
@@ -2325,7 +2325,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2C0: jal         0x8006E64C
     // 0x8006E2C4: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_2;
     // 0x8006E2C4: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
@@ -2335,7 +2335,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2CC: jal         0x8006E64C
     // 0x8006E2D0: addiu       $a1, $s1, 0x1
     ctx->r5 = ADD32(ctx->r17, 0X1);
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_3;
     // 0x8006E2D0: addiu       $a1, $s1, 0x1
     ctx->r5 = ADD32(ctx->r17, 0X1);
@@ -2345,7 +2345,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2D8: jal         0x8006E64C
     // 0x8006E2DC: addiu       $a1, $s1, -0x1
     ctx->r5 = ADD32(ctx->r17, -0X1);
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_4;
     // 0x8006E2DC: addiu       $a1, $s1, -0x1
     ctx->r5 = ADD32(ctx->r17, -0X1);
@@ -2355,7 +2355,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2E4: jal         0x8006E64C
     // 0x8006E2E8: addiu       $a1, $s1, 0x1
     ctx->r5 = ADD32(ctx->r17, 0X1);
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_5;
     // 0x8006E2E8: addiu       $a1, $s1, 0x1
     ctx->r5 = ADD32(ctx->r17, 0X1);
@@ -2365,7 +2365,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2F0: jal         0x8006E64C
     // 0x8006E2F4: addiu       $a1, $s1, -0x1
     ctx->r5 = ADD32(ctx->r17, -0X1);
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_6;
     // 0x8006E2F4: addiu       $a1, $s1, -0x1
     ctx->r5 = ADD32(ctx->r17, -0X1);
@@ -2375,7 +2375,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2FC: jal         0x8006E64C
     // 0x8006E300: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_7;
     // 0x8006E300: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
@@ -2385,7 +2385,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E308: jal         0x8006E64C
     // 0x8006E30C: addiu       $a1, $s1, 0x1
     ctx->r5 = ADD32(ctx->r17, 0X1);
-    BoardP_8006e64c_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_QueueCellUpdate(rdram, ctx);
         goto after_8;
     // 0x8006E30C: addiu       $a1, $s1, 0x1
     ctx->r5 = ADD32(ctx->r17, 0X1);
@@ -2456,7 +2456,7 @@ RECOMP_FUNC void BoardP_IsPositionEmpty(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006E4B0: jal         0x8006E5E0
     // 0x8006E4B4: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_0;
     // 0x8006E4B4: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -2685,7 +2685,7 @@ L_8006E5D0:
 
 ;}
 
-RECOMP_FUNC void BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_PlayfieldXYToLogicCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006E5E0: lui         $a2, 0x8012
@@ -2770,7 +2770,7 @@ L_8006E644:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void BoardP_8006e64c_calls_UpdateQueue_AddEntry(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_QueueCellUpdate(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006E64C: addiu       $sp, $sp, -0x28

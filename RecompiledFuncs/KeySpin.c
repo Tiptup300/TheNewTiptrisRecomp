@@ -3309,7 +3309,7 @@ L_8006C754:
     // 0x8006C77C: jal         0x8006E5E0
     // 0x8006C780: addiu       $a0, $a0, -0x1
     ctx->r4 = ADD32(ctx->r4, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_0;
     // 0x8006C780: addiu       $a0, $a0, -0x1
     ctx->r4 = ADD32(ctx->r4, -0X1);
@@ -3331,7 +3331,7 @@ L_8006C754:
     // 0x8006C7A0: jal         0x8006E5E0
     // 0x8006C7A4: addiu       $a1, $a1, -0x1
     ctx->r5 = ADD32(ctx->r5, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_1;
     // 0x8006C7A4: addiu       $a1, $a1, -0x1
     ctx->r5 = ADD32(ctx->r5, -0X1);
@@ -3353,7 +3353,7 @@ L_8006C754:
     // 0x8006C7C4: jal         0x8006E5E0
     // 0x8006C7C8: addiu       $a0, $a0, 0x1
     ctx->r4 = ADD32(ctx->r4, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_2;
     // 0x8006C7C8: addiu       $a0, $a0, 0x1
     ctx->r4 = ADD32(ctx->r4, 0X1);
@@ -3375,7 +3375,7 @@ L_8006C754:
     // 0x8006C7E8: jal         0x8006E5E0
     // 0x8006C7EC: addiu       $a1, $a1, 0x1
     ctx->r5 = ADD32(ctx->r5, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_3;
     // 0x8006C7EC: addiu       $a1, $a1, 0x1
     ctx->r5 = ADD32(ctx->r5, 0X1);
@@ -3461,7 +3461,7 @@ L_8006C850:
     // 0x8006C878: jal         0x8006E5E0
     // 0x8006C87C: addiu       $a0, $a0, -0x1
     ctx->r4 = ADD32(ctx->r4, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_4;
     // 0x8006C87C: addiu       $a0, $a0, -0x1
     ctx->r4 = ADD32(ctx->r4, -0X1);
@@ -3510,7 +3510,7 @@ L_8006C8B8:
     // 0x8006C8C0: jal         0x8006E5E0
     // 0x8006C8C4: addiu       $a1, $a1, -0x1
     ctx->r5 = ADD32(ctx->r5, -0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_5;
     // 0x8006C8C4: addiu       $a1, $a1, -0x1
     ctx->r5 = ADD32(ctx->r5, -0X1);
@@ -3559,7 +3559,7 @@ L_8006C900:
     // 0x8006C908: jal         0x8006E5E0
     // 0x8006C90C: addiu       $a0, $a0, 0x1
     ctx->r4 = ADD32(ctx->r4, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_6;
     // 0x8006C90C: addiu       $a0, $a0, 0x1
     ctx->r4 = ADD32(ctx->r4, 0X1);
@@ -3608,7 +3608,7 @@ L_8006C948:
     // 0x8006C950: jal         0x8006E5E0
     // 0x8006C954: addiu       $a1, $a1, 0x1
     ctx->r5 = ADD32(ctx->r5, 0X1);
-    BoardP_playfield_xy_to_logic_cell_struct_8006e5e0(rdram, ctx);
+    BoardP_PlayfieldXYToLogicCell(rdram, ctx);
         goto after_7;
     // 0x8006C954: addiu       $a1, $a1, 0x1
     ctx->r5 = ADD32(ctx->r5, 0X1);
