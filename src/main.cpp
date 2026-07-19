@@ -16,6 +16,9 @@
 #endif
 
 #include "SDL.h"
+#ifdef _WIN32
+#include <SDL_syswm.h>   // SDL_GetWindowWMInfo -> native HWND for the D3D12 renderer
+#endif
 
 #include "librecomp/game.hpp"
 #include "librecomp/rsp.hpp"
@@ -62,12 +65,27 @@ static ultramodern::gfx_callbacks_t::gfx_data_t create_gfx() {
 }
 
 static ultramodern::renderer::WindowHandle create_window(ultramodern::gfx_callbacks_t::gfx_data_t) {
+#if defined(_WIN32)
+    // Windows uses the D3D12 renderer, which wants the native HWND (not a Vulkan
+    // SDL window). WindowHandle is { HWND, thread_id }.
+    window = SDL_CreateWindow(
+        "The New Tiptris : Recompiled",
+        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+        1280, 960,
+        SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+    SDL_SysWMinfo wm_info;
+    SDL_VERSION(&wm_info.version);
+    SDL_GetWindowWMInfo(window, &wm_info);
+    return ultramodern::renderer::WindowHandle{ wm_info.info.win.window, GetCurrentThreadId() };
+#else
+    // Linux: WindowHandle is just the SDL_Window* (SDL-Vulkan path).
     window = SDL_CreateWindow(
         "The New Tiptris : Recompiled",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         1280, 960,
         SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
     return window;
+#endif
 }
 
 static void update_gfx(ultramodern::gfx_callbacks_t::gfx_data_t) {
