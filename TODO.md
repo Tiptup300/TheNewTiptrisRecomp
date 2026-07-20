@@ -59,11 +59,6 @@
 - [ ] optional: AppImage for Linux (single-file), alongside the tar.gz
 - [ ] macOS build (deferred)
 - [ ] README: Windows download/run instructions + per-OS requirements
-- [ ] README: add a "How to Improve the Game Source Code" guide — tnt-splat was a
-      one-time bootstrap (not a live dep); tnt.syms.toml is the source of truth;
-      workflow = edit syms -> regenerate (needs ROM) -> tools/reorganize_recompiled.py;
-      you CAN rename/regroup/comment, you CANNOT rewrite the register-level bodies
-      (that's full decompilation); point at FUNCTION_INDEX.md + the categorizer rules
 
 ## Code cleanup / release hygiene
 - [ ] strip TRACE() / stray fprintf diagnostics from src/main.cpp
