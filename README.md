@@ -98,15 +98,6 @@ cmake --build build-cmake -j
 ```
 Run `build-cmake/TntRecompiled` and point the launcher at your ROM.
 
-## WSL2 note (GPU + audio)
-RT64 needs a Vulkan GPU. On WSL2 the default is the CPU rasterizer (`llvmpipe`),
-which is slow. To use your real GPU, extract Mesa's **Dozen** (Vulkan-on-D3D12)
-driver from the `kisak-mesa` PPA `mesa-vulkan-drivers` package and launch with:
-```bash
-VK_ICD_FILENAMES=/path/to/dzn_icd.json ./build-cmake/TntRecompiled
-```
-Audio uses PulseAudio; if it won't connect, `wsl --shutdown` from Windows and reopen.
-
 ## Improving the game source code
 
 The recompiled game code lives in `RecompiledFuncs/`, organized by domain and
