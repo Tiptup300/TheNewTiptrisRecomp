@@ -213,7 +213,7 @@ RECOMP_FUNC void func_80072E3C(uint8_t* rdram, recomp_context* ctx) {
     // 0x80072E60: jal         0x8006DDD0
     // 0x80072E64: addiu       $a0, $zero, 0x3
     ctx->r4 = ADD32(0, 0X3);
-    BoardP_8006ddd0_check_for_nonempty_cell_upwards(rdram, ctx);
+    BoardP_AnyCubeInRowsUpTo(rdram, ctx);
         goto after_0;
     // 0x80072E64: addiu       $a0, $zero, 0x3
     ctx->r4 = ADD32(0, 0X3);

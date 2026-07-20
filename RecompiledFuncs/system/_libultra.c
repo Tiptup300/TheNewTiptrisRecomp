@@ -7506,7 +7506,7 @@ L_8003DC50:
     // 0x8003DC60: jal         0x80066D8C
     // 0x8003DC64: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_0;
     // 0x8003DC64: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -7551,7 +7551,7 @@ L_8003DC80:
     // 0x8003DC98: jal         0x80066D8C
     // 0x8003DC9C: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_1;
     // 0x8003DC9C: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -7575,7 +7575,7 @@ L_8003DC80:
     // 0x8003DCB8: jal         0x80066D8C
     // 0x8003DCBC: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_2;
     // 0x8003DCBC: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -7599,7 +7599,7 @@ L_8003DC80:
     // 0x8003DCD8: jal         0x80066D8C
     // 0x8003DCDC: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_3;
     // 0x8003DCDC: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -7623,7 +7623,7 @@ L_8003DC80:
     // 0x8003DCF8: jal         0x80066D8C
     // 0x8003DCFC: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_4;
     // 0x8003DCFC: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -7647,7 +7647,7 @@ L_8003DC80:
     // 0x8003DD18: jal         0x80066D8C
     // 0x8003DD1C: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_5;
     // 0x8003DD1C: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;

@@ -835,7 +835,7 @@ L_80042CA8:
     // 0x80042D00: jal         0x80067DD8
     // 0x80042D04: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_2;
     // 0x80042D04: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
@@ -857,7 +857,7 @@ L_80042CA8:
     // 0x80042D1C: jal         0x80067DD8
     // 0x80042D20: nop
 
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_4;
     // 0x80042D20: nop
 
@@ -964,7 +964,7 @@ L_80042D94:
     // 0x80042DB0: jal         0x80067DD8
     // 0x80042DB4: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_7;
     // 0x80042DB4: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
@@ -1041,7 +1041,7 @@ L_80042E18:
     // 0x80042E1C: jal         0x80067DD8
     // 0x80042E20: nop
 
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_10;
     // 0x80042E20: nop
 
@@ -1058,7 +1058,7 @@ L_80042E2C:
     // 0x80042E30: jal         0x80067DD8
     // 0x80042E34: nop
 
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_11;
     // 0x80042E34: nop
 
@@ -1130,7 +1130,7 @@ L_80042E48:
     // 0x80042E8C: jal         0x80067DD8
     // 0x80042E90: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_14;
     // 0x80042E90: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
@@ -1199,7 +1199,7 @@ L_80042EEC:
     // 0x80042EF0: jal         0x80067DD8
     // 0x80042EF4: nop
 
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_17;
     // 0x80042EF4: nop
 
@@ -1502,7 +1502,7 @@ L_80043050:
     // 0x800430B0: jal         0x80067DD8
     // 0x800430B4: nop
 
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_25;
     // 0x800430B4: nop
 
@@ -1955,7 +1955,7 @@ L_80043358:
     // 0x80043360: jal         0x800676AC
     // 0x80043364: nop
 
-    CurrentPiece_800676ac_fourliner_looper(rdram, ctx);
+    CurrentPiece_HardDrop(rdram, ctx);
         goto after_4;
     // 0x80043364: nop
 
@@ -2256,7 +2256,7 @@ L_8004351C:
     // 0x80043530: jal         0x80067254
     // 0x80043534: nop
 
-    CurrentPiece_80067254_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveRight(rdram, ctx);
         goto after_5;
     // 0x80043534: nop
 
@@ -2268,7 +2268,7 @@ L_8004351C:
     // 0x80043540: jal         0x80067254
     // 0x80043544: nop
 
-    CurrentPiece_80067254_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveRight(rdram, ctx);
         goto after_6;
     // 0x80043544: nop
 
@@ -2295,7 +2295,7 @@ L_80043550:
     // 0x80043560: jal         0x80067254
     // 0x80043564: nop
 
-    CurrentPiece_80067254_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveRight(rdram, ctx);
         goto after_7;
     // 0x80043564: nop
 
@@ -2390,7 +2390,7 @@ L_800435DC:
     // 0x800435F0: jal         0x8006715C
     // 0x800435F4: nop
 
-    CurrentPiece_8006715c_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveLeft(rdram, ctx);
         goto after_8;
     // 0x800435F4: nop
 
@@ -2402,7 +2402,7 @@ L_800435DC:
     // 0x80043600: jal         0x8006715C
     // 0x80043604: nop
 
-    CurrentPiece_8006715c_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveLeft(rdram, ctx);
         goto after_9;
     // 0x80043604: nop
 
@@ -2429,7 +2429,7 @@ L_80043610:
     // 0x80043620: jal         0x8006715C
     // 0x80043624: nop
 
-    CurrentPiece_8006715c_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveLeft(rdram, ctx);
         goto after_10;
     // 0x80043624: nop
 
@@ -2483,7 +2483,7 @@ L_80043650:
     // 0x80043670: jal         0x8006734C
     // 0x80043674: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    CurrentPiece_8006734c_thirtyliner_looks_interesting(rdram, ctx);
+    CurrentPiece_TryRotate(rdram, ctx);
         goto after_11;
     // 0x80043674: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -2537,7 +2537,7 @@ L_800436A0:
     // 0x800436C0: jal         0x8006734C
     // 0x800436C4: addiu       $a1, $zero, -0x1
     ctx->r5 = ADD32(0, -0X1);
-    CurrentPiece_8006734c_thirtyliner_looks_interesting(rdram, ctx);
+    CurrentPiece_TryRotate(rdram, ctx);
         goto after_12;
     // 0x800436C4: addiu       $a1, $zero, -0x1
     ctx->r5 = ADD32(0, -0X1);

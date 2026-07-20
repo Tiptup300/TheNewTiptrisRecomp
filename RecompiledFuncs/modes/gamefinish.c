@@ -708,7 +708,7 @@ L_80052E94:
     // 0x80052EC8: jal         0x8006D5BC
     // 0x80052ECC: nop
 
-    BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_SeparateCell(rdram, ctx);
         goto after_2;
     // 0x80052ECC: nop
 

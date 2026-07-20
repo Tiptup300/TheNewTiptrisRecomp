@@ -41,7 +41,7 @@ RECOMP_FUNC void LineEffect_State2_SpawnColumnCubes(uint8_t* rdram, recomp_conte
     // 0x8006902C: jal         0x8006D674
     // 0x80069030: nop
 
-    BoardP_8006d674_tenliner_alloc_fallingcubes(rdram, ctx);
+    BoardP_ConvertCellToFalling(rdram, ctx);
         goto after_0;
     // 0x80069030: nop
 
@@ -63,7 +63,7 @@ RECOMP_FUNC void LineEffect_State2_SpawnColumnCubes(uint8_t* rdram, recomp_conte
     // 0x80069050: jal         0x8006D674
     // 0x80069054: nop
 
-    BoardP_8006d674_tenliner_alloc_fallingcubes(rdram, ctx);
+    BoardP_ConvertCellToFalling(rdram, ctx);
         goto after_1;
     // 0x80069054: nop
 
@@ -189,7 +189,7 @@ L_80069104:
     // 0x80069114: jal         0x8006E288
     // 0x80069118: nop
 
-    BoardP_8006e288_adds_8_entries_and_swaps_cubes(rdram, ctx);
+    BoardP_RemoveCubeAndCollapseColumn(rdram, ctx);
         goto after_0;
     // 0x80069118: nop
 
@@ -362,7 +362,7 @@ L_80069198:
     // 0x80069220: jal         0x8006D674
     // 0x80069224: nop
 
-    BoardP_8006d674_tenliner_alloc_fallingcubes(rdram, ctx);
+    BoardP_ConvertCellToFalling(rdram, ctx);
         goto after_3;
     // 0x80069224: nop
 
@@ -384,7 +384,7 @@ L_80069198:
     // 0x80069244: jal         0x8006D674
     // 0x80069248: nop
 
-    BoardP_8006d674_tenliner_alloc_fallingcubes(rdram, ctx);
+    BoardP_ConvertCellToFalling(rdram, ctx);
         goto after_4;
     // 0x80069248: nop
 
@@ -408,7 +408,7 @@ L_80069198:
     // 0x8006926C: jal         0x8006E288
     // 0x80069270: nop
 
-    BoardP_8006e288_adds_8_entries_and_swaps_cubes(rdram, ctx);
+    BoardP_RemoveCubeAndCollapseColumn(rdram, ctx);
         goto after_5;
     // 0x80069270: nop
 
@@ -430,7 +430,7 @@ L_80069198:
     // 0x80069290: jal         0x8006E288
     // 0x80069294: nop
 
-    BoardP_8006e288_adds_8_entries_and_swaps_cubes(rdram, ctx);
+    BoardP_RemoveCubeAndCollapseColumn(rdram, ctx);
         goto after_6;
     // 0x80069294: nop
 
@@ -523,7 +523,7 @@ RECOMP_FUNC void LineEffect_State5_SetupFade(uint8_t* rdram, recomp_context* ctx
     // 0x8006932C: jal         0x8006D5BC
     // 0x80069330: nop
 
-    BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_SeparateCell(rdram, ctx);
         goto after_0;
     // 0x80069330: nop
 
@@ -552,7 +552,7 @@ L_80069344:
     // 0x80069354: jal         0x8006D5BC
     // 0x80069358: nop
 
-    BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_SeparateCell(rdram, ctx);
         goto after_1;
     // 0x80069358: nop
 
@@ -570,7 +570,7 @@ L_80069344:
     // 0x80069370: jal         0x8006D450
     // 0x80069374: nop
 
-    BoardP_8006d450_fourteenliner_pf_logic_cell_loops(rdram, ctx);
+    BoardP_MergeGroups(rdram, ctx);
         goto after_2;
     // 0x80069374: nop
 
@@ -805,7 +805,7 @@ L_800694D0:
     // 0x800694E0: jal         0x8006E288
     // 0x800694E4: nop
 
-    BoardP_8006e288_adds_8_entries_and_swaps_cubes(rdram, ctx);
+    BoardP_RemoveCubeAndCollapseColumn(rdram, ctx);
         goto after_0;
     // 0x800694E4: nop
 

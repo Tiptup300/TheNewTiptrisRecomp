@@ -168,7 +168,7 @@ RECOMP_FUNC void MobilePiece_Minos_setUpdateFlag(uint8_t* rdram, recomp_context*
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void MobilePiece_80064e10_similar_to_Minos_setUpdFlag(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_GetCubeBoardPos(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80064E10: addiu       $sp, $sp, -0x48
@@ -345,7 +345,7 @@ RECOMP_FUNC void MobilePiece_80064e10_similar_to_Minos_setUpdFlag(uint8_t* rdram
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void MobilePiece_80064f54_fourliner_loops_4_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_MorphCubes(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80064F54: addiu       $sp, $sp, -0x28
@@ -682,7 +682,7 @@ L_80065110:
     ctx->r29 = ADD32(ctx->r29, 0X50);
 ;}
 
-RECOMP_FUNC void MobilePiece_80065154_sevenliner_loops_4_times_v1_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_AnyCubeAboveRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80065154: addiu       $sp, $sp, -0x28
@@ -713,7 +713,7 @@ L_80065174:
     // 0x8006517C: jal         0x80064E10
     // 0x80065180: addiu       $a2, $sp, 0x20
     ctx->r6 = ADD32(ctx->r29, 0X20);
-    MobilePiece_80064e10_similar_to_Minos_setUpdFlag(rdram, ctx);
+    MobilePiece_GetCubeBoardPos(rdram, ctx);
         goto after_0;
     // 0x80065180: addiu       $a2, $sp, 0x20
     ctx->r6 = ADD32(ctx->r29, 0X20);
@@ -798,7 +798,7 @@ L_800651E4:
     // 0x800651EC: jal         0x80064E10
     // 0x800651F0: addiu       $a2, $sp, 0x20
     ctx->r6 = ADD32(ctx->r29, 0X20);
-    MobilePiece_80064e10_similar_to_Minos_setUpdFlag(rdram, ctx);
+    MobilePiece_GetCubeBoardPos(rdram, ctx);
         goto after_0;
     // 0x800651F0: addiu       $a2, $sp, 0x20
     ctx->r6 = ADD32(ctx->r29, 0X20);
@@ -876,7 +876,7 @@ RECOMP_FUNC void MobilePiece_Copy(uint8_t* rdram, recomp_context* ctx) {
     // 0x80065250: jal         0x800652E4
     // 0x80065254: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    MobilePiece_800652e4_sets_arg0_struct_to_arg1_struct(rdram, ctx);
+    MobilePiece_CopyTransform(rdram, ctx);
         goto after_0;
     // 0x80065254: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -964,7 +964,7 @@ L_80065280:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MobilePiece_800652e4_sets_arg0_struct_to_arg1_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_CopyTransform(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800652E4: lhu         $t6, 0x8($a1)

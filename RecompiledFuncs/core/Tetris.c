@@ -365,7 +365,7 @@ L_80054164:
     // 0x80054178: jal         0x800676AC
     // 0x8005417C: or          $a0, $s3, $zero
     ctx->r4 = ctx->r19 | 0;
-    CurrentPiece_800676ac_fourliner_looper(rdram, ctx);
+    CurrentPiece_HardDrop(rdram, ctx);
         goto after_3;
     // 0x8005417C: or          $a0, $s3, $zero
     ctx->r4 = ctx->r19 | 0;

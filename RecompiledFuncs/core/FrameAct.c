@@ -79,7 +79,7 @@ RECOMP_FUNC void FrameAct_calls_increment_game_time_seconds2(uint8_t* rdram, rec
     // 0x800536DC: jal         0x800677B8
     // 0x800536E0: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    CurrentPiece_800677b8_twohundredliner_doit_last(rdram, ctx);
+    CurrentPiece_Update(rdram, ctx);
         goto after_0;
     // 0x800536E0: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -378,7 +378,7 @@ RECOMP_FUNC void FrameAct_80053868_twentyliner(uint8_t* rdram, recomp_context* c
     // 0x80053888: jal         0x8006CB10
     // 0x8005388C: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    KeySpin_8006cb10_switch_arg0_2_to_8_playsfx_35(rdram, ctx);
+    KeySpin_Process(rdram, ctx);
         goto after_0;
     // 0x8005388C: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -871,7 +871,7 @@ L_80053AE4:
     // 0x80053B30: jal         0x80067DD8
     // 0x80053B34: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_2;
     // 0x80053B34: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;

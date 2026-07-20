@@ -46,7 +46,7 @@ L_80066704:
     // 0x8006670C: jal         0x80064F54
     // 0x80066710: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    MobilePiece_80064f54_fourliner_loops_4_times(rdram, ctx);
+    MobilePiece_MorphCubes(rdram, ctx);
         goto after_1;
     // 0x80066710: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);

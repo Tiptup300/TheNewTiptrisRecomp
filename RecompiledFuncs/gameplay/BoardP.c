@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void BoardP_8006d3c0_fourliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_GetCellColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D3C0: addiu       $sp, $sp, -0x28
@@ -96,7 +96,7 @@ L_8006D440:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006d450_fourteenliner_pf_logic_cell_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_MergeGroups(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D450: addiu       $sp, $sp, -0x28
@@ -209,7 +209,7 @@ L_8006D4EC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006d500_tenliner_pf_logic_cells_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_SplitCellToNewGroup(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D500: addiu       $sp, $sp, -0x28
@@ -332,7 +332,7 @@ L_8006D5AC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_SeparateCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D5BC: addiu       $sp, $sp, -0x38
@@ -407,7 +407,7 @@ L_8006D628:
     // 0x8006D62C: jal         0x8006D998
     // 0x8006D630: nop
 
-    BoardP_8006d998_sixliner_loops(rdram, ctx);
+    BoardP_MarkRingCells(rdram, ctx);
         goto after_2;
     // 0x8006D630: nop
 
@@ -417,7 +417,7 @@ L_8006D628:
     // 0x8006D638: jal         0x8006D500
     // 0x8006D63C: nop
 
-    BoardP_8006d500_tenliner_pf_logic_cells_loops(rdram, ctx);
+    BoardP_SplitCellToNewGroup(rdram, ctx);
         goto after_3;
     // 0x8006D63C: nop
 
@@ -456,7 +456,7 @@ L_8006D628:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void BoardP_8006d674_tenliner_alloc_fallingcubes(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_ConvertCellToFalling(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D674: addiu       $sp, $sp, -0x28
@@ -486,7 +486,7 @@ RECOMP_FUNC void BoardP_8006d674_tenliner_alloc_fallingcubes(uint8_t* rdram, rec
     // 0x8006D69C: jal         0x8006D5BC
     // 0x8006D6A0: nop
 
-    BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_SeparateCell(rdram, ctx);
         goto after_0;
     // 0x8006D6A0: nop
 
@@ -570,7 +570,7 @@ L_8006D718:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006d728_checkAndSetSurroundingCells(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_UpdateCellAutotile(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D728: addiu       $sp, $sp, -0x38
@@ -902,7 +902,7 @@ L_8006D8F4:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void BoardP_8006d910_sevenliner_loopThroughConnectedMinos(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_RefreshGroupTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D910: addiu       $sp, $sp, -0x28
@@ -965,7 +965,7 @@ L_8006D968:
     // 0x8006D968: jal         0x8006D728
     // 0x8006D96C: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    BoardP_8006d728_checkAndSetSurroundingCells(rdram, ctx);
+    BoardP_UpdateCellAutotile(rdram, ctx);
         goto after_2;
     // 0x8006D96C: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -999,7 +999,7 @@ L_8006D984:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006d998_sixliner_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_MarkRingCells(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D998: lbu         $t6, 0x0($a0)
@@ -1048,7 +1048,7 @@ L_8006D9D0:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void BoardP_8006d9d8_calls_pf_xy_to_logic_cell_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_CanGroupMove(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006D9D8: addiu       $sp, $sp, -0x48
@@ -1166,7 +1166,7 @@ L_8006DA6C:
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void BoardP_8006da8c_sixliner_sets_stuff_9(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_InitCellType9(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DA8C: addiu       $sp, $sp, -0x18
@@ -1227,7 +1227,7 @@ RECOMP_FUNC void BoardP_8006da8c_sixliner_sets_stuff_9(uint8_t* rdram, recomp_co
 
 ;}
 
-RECOMP_FUNC void BoardP_8006daf0_sixliner_sets_stuff_7(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_InitEmptyCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DAF0: addiu       $sp, $sp, -0x18
@@ -1322,7 +1322,7 @@ RECOMP_FUNC void BoardP_UpdateQueueEntry_Update(uint8_t* rdram, recomp_context* 
     // 0x8006DB84: jal         0x8006D728
     // 0x8006DB88: nop
 
-    BoardP_8006d728_checkAndSetSurroundingCells(rdram, ctx);
+    BoardP_UpdateCellAutotile(rdram, ctx);
         goto after_0;
     // 0x8006DB88: nop
 
@@ -1545,7 +1545,7 @@ RECOMP_FUNC void BoardP_UpdateQueue_Init(uint8_t* rdram, recomp_context* ctx) {
     MEM_H(0X12C2, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void BoardP_8006dcd0_eightliner_loops_upto_19_times_increment(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_FindFirstOccupiedRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DCD0: addiu       $sp, $sp, -0x28
@@ -1607,7 +1607,7 @@ L_8006DD0C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006dd1c_eightliner_loops_upto_19_times_decrement(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_FindLastOccupiedRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DD1C: addiu       $sp, $sp, -0x28
@@ -1746,7 +1746,7 @@ L_8006DDC8:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void BoardP_8006ddd0_check_for_nonempty_cell_upwards(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_AnyCubeInRowsUpTo(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DDD0: bgtz        $a0, L_8006DDE0
@@ -1993,7 +1993,7 @@ L_8006DF28:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void BoardP_8006df38_twentyfiveliner_3_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_PlaceMultisquareCubes(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006DF38: addiu       $sp, $sp, -0x48
@@ -2238,7 +2238,7 @@ L_8006E07C:
     // 0x8006E0AC: jal         0x8006D450
     // 0x8006E0B0: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    BoardP_8006d450_fourteenliner_pf_logic_cell_loops(rdram, ctx);
+    BoardP_MergeGroups(rdram, ctx);
         goto after_1;
     // 0x8006E0B0: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -2257,7 +2257,7 @@ L_8006E0C0:
     // 0x8006E0C0: jal         0x8006D910
     // 0x8006E0C4: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
-    BoardP_8006d910_sevenliner_loopThroughConnectedMinos(rdram, ctx);
+    BoardP_RefreshGroupTiles(rdram, ctx);
         goto after_2;
     // 0x8006E0C4: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
@@ -2283,7 +2283,7 @@ L_8006E0C8:
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void BoardP_RemoveCubeAndCollapseColumn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006E288: addiu       $sp, $sp, -0x28
@@ -2305,7 +2305,7 @@ RECOMP_FUNC void BoardP_8006e288_adds_8_entries_and_swaps_cubes(uint8_t* rdram, 
     // 0x8006E2A8: jal         0x8006D674
     // 0x8006E2AC: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    BoardP_8006d674_tenliner_alloc_fallingcubes(rdram, ctx);
+    BoardP_ConvertCellToFalling(rdram, ctx);
         goto after_0;
     // 0x8006E2AC: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;

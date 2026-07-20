@@ -137,7 +137,7 @@ RECOMP_FUNC void Board_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006D254: jal         0x80068090
     // 0x8006D258: nop
 
-    CurrentPiece_80068090_oneliner_sets_0x538_to_1(rdram, ctx);
+    CurrentPiece_EnableGhost(rdram, ctx);
         goto after_4;
     // 0x8006D258: nop
 

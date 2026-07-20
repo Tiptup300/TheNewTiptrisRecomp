@@ -320,7 +320,7 @@ RECOMP_FUNC void PieceHoldPiece_FinishSwap(uint8_t* rdram, recomp_context* ctx) 
     // 0x800659E8: jal         0x80067DD8
     // 0x800659EC: nop
 
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_0;
     // 0x800659EC: nop
 
@@ -427,7 +427,7 @@ L_80065B30:
     // 0x80065B48: jal         0x80064F54
     // 0x80065B4C: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    MobilePiece_80064f54_fourliner_loops_4_times(rdram, ctx);
+    MobilePiece_MorphCubes(rdram, ctx);
         goto after_2;
     // 0x80065B4C: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
@@ -470,7 +470,7 @@ L_80065B68:
     // 0x80065B80: jal         0x80064F54
     // 0x80065B84: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    MobilePiece_80064f54_fourliner_loops_4_times(rdram, ctx);
+    MobilePiece_MorphCubes(rdram, ctx);
         goto after_5;
     // 0x80065B84: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);

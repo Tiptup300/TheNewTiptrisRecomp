@@ -401,7 +401,7 @@ L_8006A2C4:
     // 0x8006A2C8: jal         0x8006D450
     // 0x8006A2CC: or          $a0, $s6, $zero
     ctx->r4 = ctx->r22 | 0;
-    BoardP_8006d450_fourteenliner_pf_logic_cell_loops(rdram, ctx);
+    BoardP_MergeGroups(rdram, ctx);
         goto after_4;
     // 0x8006A2CC: or          $a0, $s6, $zero
     ctx->r4 = ctx->r22 | 0;
@@ -886,7 +886,7 @@ RECOMP_FUNC void Multisquare_ScanNearPiece(uint8_t* rdram, recomp_context* ctx) 
     // 0x8006A754: jal         0x80067C1C
     // 0x8006A758: addiu       $a1, $sp, 0x30
     ctx->r5 = ADD32(ctx->r29, 0X30);
-    CurrentPiece_80067c1c_fifteenliner_loops3times(rdram, ctx);
+    CurrentPiece_GetMinoBounds(rdram, ctx);
         goto after_0;
     // 0x8006A758: addiu       $a1, $sp, 0x30
     ctx->r5 = ADD32(ctx->r29, 0X30);

@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void CurrentPiece_80066920_sixteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_UpdateGhost(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80066920: addiu       $sp, $sp, -0x38
@@ -196,7 +196,7 @@ L_80066A48:
     // 0x80066A50: jal         0x80065154
     // 0x80066A54: addiu       $a0, $a0, 0x548
     ctx->r4 = ADD32(ctx->r4, 0X548);
-    MobilePiece_80065154_sevenliner_loops_4_times_v1_retbool(rdram, ctx);
+    MobilePiece_AnyCubeAboveRow(rdram, ctx);
         goto after_5;
     // 0x80066A54: addiu       $a0, $a0, 0x548
     ctx->r4 = ADD32(ctx->r4, 0X548);
@@ -584,7 +584,7 @@ RECOMP_FUNC void rotate_and_translate_mino(uint8_t* rdram, recomp_context* ctx) 
     MEM_B(0X1, ctx->r5) = ctx->r13;
 ;}
 
-RECOMP_FUNC void CurrentPiece_80066cc8_fourliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_WriteMinosToBoard(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80066CC8: addiu       $sp, $sp, -0x30
@@ -612,7 +612,7 @@ RECOMP_FUNC void CurrentPiece_80066cc8_fourliner(uint8_t* rdram, recomp_context*
     // 0x80066CF4: jal         0x8006DF38
     // 0x80066CF8: sb          $t6, 0x28($sp)
     MEM_B(0X28, ctx->r29) = ctx->r14;
-    BoardP_8006df38_twentyfiveliner_3_loops(rdram, ctx);
+    BoardP_PlaceMultisquareCubes(rdram, ctx);
         goto after_0;
     // 0x80066CF8: sb          $t6, 0x28($sp)
     MEM_B(0X28, ctx->r29) = ctx->r14;
@@ -629,7 +629,7 @@ RECOMP_FUNC void CurrentPiece_80066cc8_fourliner(uint8_t* rdram, recomp_context*
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80066d0c_calls_pf_xy_2_struct_loops4times_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_CanPlace(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80066D0C: addiu       $sp, $sp, -0x30
@@ -726,7 +726,7 @@ L_80066D78:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80066d8c_maybeRotCkw_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_TestTransform(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80066D8C: addiu       $sp, $sp, -0x28
@@ -820,7 +820,7 @@ RECOMP_FUNC void CurrentPiece_80066d8c_maybeRotCkw_retbool(uint8_t* rdram, recom
     // 0x80066E3C: jal         0x80066D0C
     // 0x80066E40: nop
 
-    CurrentPiece_80066d0c_calls_pf_xy_2_struct_loops4times_retbool(rdram, ctx);
+    CurrentPiece_CanPlace(rdram, ctx);
         goto after_0;
     // 0x80066E40: nop
 
@@ -901,7 +901,7 @@ RECOMP_FUNC void CurrentPiece_80066d8c_maybeRotCkw_retbool(uint8_t* rdram, recom
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80066ed4_maybeRotCCkw_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_TryTransform(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80066ED4: addiu       $sp, $sp, -0x28
@@ -993,7 +993,7 @@ RECOMP_FUNC void CurrentPiece_80066ed4_maybeRotCCkw_retbool(uint8_t* rdram, reco
     // 0x80066F80: jal         0x80066D0C
     // 0x80066F84: nop
 
-    CurrentPiece_80066d0c_calls_pf_xy_2_struct_loops4times_retbool(rdram, ctx);
+    CurrentPiece_CanPlace(rdram, ctx);
         goto after_0;
     // 0x80066F84: nop
 
@@ -1086,7 +1086,7 @@ L_80067010:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067020_twoliner_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_IsAtLanding(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067020: lb          $t6, 0x11($a0)
@@ -1135,7 +1135,7 @@ L_80067050:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_8006705c_twoliner_setstuff_0x30_0x04(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_AdvanceFall(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006705C: lh          $t6, 0x30($a0)
@@ -1156,7 +1156,7 @@ RECOMP_FUNC void CurrentPiece_8006705c_twoliner_setstuff_0x30_0x04(uint8_t* rdra
     MEM_B(0X4, ctx->r4) = ctx->r25;
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067078_twelveliner_retbool(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_TryStepDown(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067078: addiu       $sp, $sp, -0x18
@@ -1190,7 +1190,7 @@ RECOMP_FUNC void CurrentPiece_80067078_twelveliner_retbool(uint8_t* rdram, recom
     // 0x800670A8: jal         0x80066ED4
     // 0x800670AC: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_0;
     // 0x800670AC: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1231,7 +1231,7 @@ L_800670B8:
     // 0x800670E4: jal         0x80066D8C
     // 0x800670E8: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_1;
     // 0x800670E8: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1253,7 +1253,7 @@ L_800670B8:
     // 0x80067100: jal         0x80066ED4
     // 0x80067104: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_2;
     // 0x80067104: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1274,7 +1274,7 @@ L_80067110:
     // 0x8006711C: jal         0x80066D8C
     // 0x80067120: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_3;
     // 0x80067120: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1296,7 +1296,7 @@ L_80067110:
     // 0x80067138: jal         0x80066ED4
     // 0x8006713C: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_4;
     // 0x8006713C: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1323,7 +1323,7 @@ L_8006714C:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_8006715c_twelveliner_plays_SFX(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_MoveLeft(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006715C: addiu       $sp, $sp, -0x18
@@ -1341,7 +1341,7 @@ RECOMP_FUNC void CurrentPiece_8006715c_twelveliner_plays_SFX(uint8_t* rdram, rec
     // 0x80067174: jal         0x80066D8C
     // 0x80067178: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_0;
     // 0x80067178: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1363,7 +1363,7 @@ RECOMP_FUNC void CurrentPiece_8006715c_twelveliner_plays_SFX(uint8_t* rdram, rec
     // 0x80067190: jal         0x80066D8C
     // 0x80067194: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_1;
     // 0x80067194: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1486,7 +1486,7 @@ L_80067244:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067254_twelveliner_plays_SFX(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_MoveRight(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067254: addiu       $sp, $sp, -0x18
@@ -1504,7 +1504,7 @@ RECOMP_FUNC void CurrentPiece_80067254_twelveliner_plays_SFX(uint8_t* rdram, rec
     // 0x8006726C: jal         0x80066D8C
     // 0x80067270: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_0;
     // 0x80067270: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1526,7 +1526,7 @@ RECOMP_FUNC void CurrentPiece_80067254_twelveliner_plays_SFX(uint8_t* rdram, rec
     // 0x80067288: jal         0x80066D8C
     // 0x8006728C: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    CurrentPiece_80066d8c_maybeRotCkw_retbool(rdram, ctx);
+    CurrentPiece_TestTransform(rdram, ctx);
         goto after_1;
     // 0x8006728C: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -1649,7 +1649,7 @@ L_8006733C:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_8006734c_thirtyliner_looks_interesting(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_TryRotate(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006734C: addiu       $sp, $sp, -0x28
@@ -1687,7 +1687,7 @@ RECOMP_FUNC void CurrentPiece_8006734c_thirtyliner_looks_interesting(uint8_t* rd
     // 0x80067384: jal         0x80066ED4
     // 0x80067388: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_0;
     // 0x80067388: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -1721,7 +1721,7 @@ RECOMP_FUNC void CurrentPiece_8006734c_thirtyliner_looks_interesting(uint8_t* rd
     // 0x800673B0: jal         0x80066ED4
     // 0x800673B4: or          $a3, $t8, $zero
     ctx->r7 = ctx->r24 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_1;
     // 0x800673B4: or          $a3, $t8, $zero
     ctx->r7 = ctx->r24 | 0;
@@ -1752,7 +1752,7 @@ L_800673C8:
     // 0x800673DC: jal         0x80066ED4
     // 0x800673E0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_2;
     // 0x800673E0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -1783,7 +1783,7 @@ L_800673F4:
     // 0x80067408: jal         0x80066ED4
     // 0x8006740C: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_3;
     // 0x8006740C: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -1814,7 +1814,7 @@ L_80067420:
     // 0x80067434: jal         0x80066ED4
     // 0x80067438: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_4;
     // 0x80067438: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
@@ -1849,7 +1849,7 @@ L_80067450:
     // 0x80067464: jal         0x80066ED4
     // 0x80067468: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_5;
     // 0x80067468: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -1880,7 +1880,7 @@ L_8006747C:
     // 0x80067490: jal         0x80066ED4
     // 0x80067494: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_6;
     // 0x80067494: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -1911,7 +1911,7 @@ L_800674A8:
     // 0x800674BC: jal         0x80066ED4
     // 0x800674C0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_7;
     // 0x800674C0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -1942,7 +1942,7 @@ L_800674D4:
     // 0x800674E8: jal         0x80066ED4
     // 0x800674EC: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
-    CurrentPiece_80066ed4_maybeRotCCkw_retbool(rdram, ctx);
+    CurrentPiece_TryTransform(rdram, ctx);
         goto after_8;
     // 0x800674EC: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
@@ -2061,7 +2061,7 @@ L_80067594:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void CurrentPiece_800675a8_fiveliner_loops4times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_UpdateMinoCells(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800675A8: addiu       $sp, $sp, -0x28
@@ -2128,7 +2128,7 @@ L_800675F0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067604_fourteenliner_loops4times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_Lock(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067604: addiu       $sp, $sp, -0x28
@@ -2162,7 +2162,7 @@ RECOMP_FUNC void CurrentPiece_80067604_fourteenliner_loops4times(uint8_t* rdram,
     // 0x80067634: jal         0x800675A8
     // 0x80067638: nop
 
-    CurrentPiece_800675a8_fiveliner_loops4times(rdram, ctx);
+    CurrentPiece_UpdateMinoCells(rdram, ctx);
         goto after_1;
     // 0x80067638: nop
 
@@ -2170,7 +2170,7 @@ RECOMP_FUNC void CurrentPiece_80067604_fourteenliner_loops4times(uint8_t* rdram,
     // 0x8006763C: jal         0x80066CC8
     // 0x80067640: nop
 
-    CurrentPiece_80066cc8_fourliner(rdram, ctx);
+    CurrentPiece_WriteMinosToBoard(rdram, ctx);
         goto after_2;
     // 0x80067640: nop
 
@@ -2249,7 +2249,7 @@ L_80067698:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void CurrentPiece_800676ac_fourliner_looper(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_HardDrop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800676AC: addiu       $sp, $sp, -0x18
@@ -2263,7 +2263,7 @@ RECOMP_FUNC void CurrentPiece_800676ac_fourliner_looper(uint8_t* rdram, recomp_c
     // 0x800676BC: jal         0x80067078
     // 0x800676C0: nop
 
-    CurrentPiece_80067078_twelveliner_retbool(rdram, ctx);
+    CurrentPiece_TryStepDown(rdram, ctx);
         goto after_0;
     // 0x800676C0: nop
 
@@ -2282,7 +2282,7 @@ L_800676CC:
     // 0x800676D0: jal         0x80067078
     // 0x800676D4: nop
 
-    CurrentPiece_80067078_twelveliner_retbool(rdram, ctx);
+    CurrentPiece_TryStepDown(rdram, ctx);
         goto after_1;
     // 0x800676D4: nop
 
@@ -2320,7 +2320,7 @@ L_800676E0:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067708_eightliner_interesting_1_2_8_10(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_HandleInput(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067708: addiu       $sp, $sp, -0x18
@@ -2348,7 +2348,7 @@ RECOMP_FUNC void CurrentPiece_80067708_eightliner_interesting_1_2_8_10(uint8_t* 
     // 0x8006772C: jal         0x8006715C
     // 0x80067730: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    CurrentPiece_8006715c_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveLeft(rdram, ctx);
         goto after_0;
     // 0x80067730: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
@@ -2375,7 +2375,7 @@ L_80067734:
     // 0x80067750: jal         0x80067254
     // 0x80067754: or          $a0, $t9, $zero
     ctx->r4 = ctx->r25 | 0;
-    CurrentPiece_80067254_twelveliner_plays_SFX(rdram, ctx);
+    CurrentPiece_MoveRight(rdram, ctx);
         goto after_1;
     // 0x80067754: or          $a0, $t9, $zero
     ctx->r4 = ctx->r25 | 0;
@@ -2404,7 +2404,7 @@ L_80067758:
     // 0x80067778: jal         0x8006734C
     // 0x8006777C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    CurrentPiece_8006734c_thirtyliner_looks_interesting(rdram, ctx);
+    CurrentPiece_TryRotate(rdram, ctx);
         goto after_2;
     // 0x8006777C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -2433,7 +2433,7 @@ L_80067780:
     // 0x800677A0: jal         0x8006734C
     // 0x800677A4: addiu       $a1, $zero, -0x1
     ctx->r5 = ADD32(0, -0X1);
-    CurrentPiece_8006734c_thirtyliner_looks_interesting(rdram, ctx);
+    CurrentPiece_TryRotate(rdram, ctx);
         goto after_3;
     // 0x800677A4: addiu       $a1, $zero, -0x1
     ctx->r5 = ADD32(0, -0X1);
@@ -2451,7 +2451,7 @@ L_800677A8:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_800677b8_twohundredliner_doit_last(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800677B8: addiu       $sp, $sp, -0x40
@@ -2493,7 +2493,7 @@ RECOMP_FUNC void CurrentPiece_800677b8_twohundredliner_doit_last(uint8_t* rdram,
     // 0x800677F8: jal         0x80064F54
     // 0x800677FC: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    MobilePiece_80064f54_fourliner_loops_4_times(rdram, ctx);
+    MobilePiece_MorphCubes(rdram, ctx);
         goto after_1;
     // 0x800677FC: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
@@ -2556,7 +2556,7 @@ L_80067810:
     // 0x8006785C: jal         0x80067708
     // 0x80067860: nop
 
-    CurrentPiece_80067708_eightliner_interesting_1_2_8_10(rdram, ctx);
+    CurrentPiece_HandleInput(rdram, ctx);
         goto after_2;
     // 0x80067860: nop
 
@@ -2939,7 +2939,7 @@ L_80067A98:
     // 0x80067AB0: jal         0x8006705C
     // 0x80067AB4: or          $a0, $t2, $zero
     ctx->r4 = ctx->r10 | 0;
-    CurrentPiece_8006705c_twoliner_setstuff_0x30_0x04(rdram, ctx);
+    CurrentPiece_AdvanceFall(rdram, ctx);
         goto after_3;
     // 0x80067AB4: or          $a0, $t2, $zero
     ctx->r4 = ctx->r10 | 0;
@@ -2956,7 +2956,7 @@ L_80067AC0:
     // 0x80067AC4: jal         0x80067078
     // 0x80067AC8: nop
 
-    CurrentPiece_80067078_twelveliner_retbool(rdram, ctx);
+    CurrentPiece_TryStepDown(rdram, ctx);
         goto after_4;
     // 0x80067AC8: nop
 
@@ -2974,7 +2974,7 @@ L_80067AC0:
     // 0x80067AD8: jal         0x8006705C
     // 0x80067ADC: nop
 
-    CurrentPiece_8006705c_twoliner_setstuff_0x30_0x04(rdram, ctx);
+    CurrentPiece_AdvanceFall(rdram, ctx);
         goto after_5;
     // 0x80067ADC: nop
 
@@ -3004,7 +3004,7 @@ L_80067B00:
     // 0x80067B04: jal         0x80067020
     // 0x80067B08: nop
 
-    CurrentPiece_80067020_twoliner_retbool(rdram, ctx);
+    CurrentPiece_IsAtLanding(rdram, ctx);
         goto after_6;
     // 0x80067B08: nop
 
@@ -3036,7 +3036,7 @@ L_80067B00:
     // 0x80067B2C: jal         0x80067604
     // 0x80067B30: nop
 
-    CurrentPiece_80067604_fourteenliner_loops4times(rdram, ctx);
+    CurrentPiece_Lock(rdram, ctx);
         goto after_7;
     // 0x80067B30: nop
 
@@ -3103,7 +3103,7 @@ L_80067B74:
     // 0x80067B90: jal         0x80066920
     // 0x80067B94: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    CurrentPiece_80066920_sixteenliner(rdram, ctx);
+    CurrentPiece_UpdateGhost(rdram, ctx);
         goto after_8;
     // 0x80067B94: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -3133,7 +3133,7 @@ L_80067B98:
     ctx->r29 = ADD32(ctx->r29, 0X40);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067bc0_sixliner_loops4times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_GetTopMinoRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067BC0: or          $a2, $zero, $zero
@@ -3201,7 +3201,7 @@ L_80067C10:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067c1c_fifteenliner_loops3times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_GetMinoBounds(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067C1C: addiu       $sp, $sp, -0x38
@@ -3370,7 +3370,7 @@ L_80067D04:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067d1c_twoliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_GetHeight(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067D1C: addiu       $sp, $sp, -0x20
@@ -3384,7 +3384,7 @@ RECOMP_FUNC void CurrentPiece_80067d1c_twoliner(uint8_t* rdram, recomp_context* 
     // 0x80067D2C: jal         0x80067C1C
     // 0x80067D30: addiu       $a1, $sp, 0x18
     ctx->r5 = ADD32(ctx->r29, 0X18);
-    CurrentPiece_80067c1c_fifteenliner_loops3times(rdram, ctx);
+    CurrentPiece_GetMinoBounds(rdram, ctx);
         goto after_0;
     // 0x80067D30: addiu       $a1, $sp, 0x18
     ctx->r5 = ADD32(ctx->r29, 0X18);
@@ -3499,7 +3499,7 @@ L_80067DC8:
 
 ;}
 
-RECOMP_FUNC void CurrentPiece_80067dd8_big_fiftyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_Spawn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80067DD8: addiu       $sp, $sp, -0x68
@@ -3924,7 +3924,7 @@ L_80068070:
     ctx->r29 = ADD32(ctx->r29, 0X68);
 ;}
 
-RECOMP_FUNC void CurrentPiece_80068090_oneliner_sets_0x538_to_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CurrentPiece_EnableGhost(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068090: addiu       $t6, $zero, 0x1

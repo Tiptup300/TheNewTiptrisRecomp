@@ -1072,7 +1072,7 @@ L_8003E7E8:
     // 0x8003E7F4: jal         0x80067DD8
     // 0x8003E7F8: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_0;
     // 0x8003E7F8: or          $a0, $s2, $zero
     ctx->r4 = ctx->r18 | 0;
@@ -1640,7 +1640,7 @@ L_8003EB0C:
     // 0x8003EB20: jal         0x80067DD8
     // 0x8003EB24: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_8;
     // 0x8003EB24: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -1812,7 +1812,7 @@ L_8003EBF8:
     // 0x8003EC0C: jal         0x80067DD8
     // 0x8003EC10: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_12;
     // 0x8003EC10: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -1996,7 +1996,7 @@ L_8003ED04:
     // 0x8003ED0C: jal         0x80067DD8
     // 0x8003ED10: sh          $zero, 0x0($t0)
     MEM_H(0X0, ctx->r8) = 0;
-    CurrentPiece_80067dd8_big_fiftyliner(rdram, ctx);
+    CurrentPiece_Spawn(rdram, ctx);
         goto after_16;
     // 0x8003ED10: sh          $zero, 0x0($t0)
     MEM_H(0X0, ctx->r8) = 0;

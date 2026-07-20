@@ -224,7 +224,7 @@ L_80050AF8:
     // 0x80050B08: jal         0x8006DDD0
     // 0x80050B0C: addiu       $a0, $zero, 0x7
     ctx->r4 = ADD32(0, 0X7);
-    BoardP_8006ddd0_check_for_nonempty_cell_upwards(rdram, ctx);
+    BoardP_AnyCubeInRowsUpTo(rdram, ctx);
         goto after_2;
     // 0x80050B0C: addiu       $a0, $zero, 0x7
     ctx->r4 = ADD32(0, 0X7);

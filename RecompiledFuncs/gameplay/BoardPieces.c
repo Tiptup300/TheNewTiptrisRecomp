@@ -349,7 +349,7 @@ L_8006E3B8:
     // 0x8006E3BC: jal         0x8006D674
     // 0x8006E3C0: nop
 
-    BoardP_8006d674_tenliner_alloc_fallingcubes(rdram, ctx);
+    BoardP_ConvertCellToFalling(rdram, ctx);
         goto after_1;
     // 0x8006E3C0: nop
 
@@ -663,7 +663,7 @@ L_8006E7C4:
     // 0x8006E7C4: jal         0x8006DAF0
     // 0x8006E7C8: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    BoardP_8006daf0_sixliner_sets_stuff_7(rdram, ctx);
+    BoardP_InitEmptyCell(rdram, ctx);
         goto after_4;
     // 0x8006E7C8: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -684,7 +684,7 @@ L_8006E7D8:
     // 0x8006E7DC: jal         0x8006DA8C
     // 0x8006E7E0: addiu       $a0, $a0, 0x324
     ctx->r4 = ADD32(ctx->r4, 0X324);
-    BoardP_8006da8c_sixliner_sets_stuff_9(rdram, ctx);
+    BoardP_InitCellType9(rdram, ctx);
         goto after_5;
     // 0x8006E7E0: addiu       $a0, $a0, 0x324
     ctx->r4 = ADD32(ctx->r4, 0X324);
@@ -712,7 +712,7 @@ L_8006E7D8:
     // 0x8006E80C: jal         0x8006DA8C
     // 0x8006E810: addiu       $a0, $a0, 0x334
     ctx->r4 = ADD32(ctx->r4, 0X334);
-    BoardP_8006da8c_sixliner_sets_stuff_9(rdram, ctx);
+    BoardP_InitCellType9(rdram, ctx);
         goto after_6;
     // 0x8006E810: addiu       $a0, $a0, 0x334
     ctx->r4 = ADD32(ctx->r4, 0X334);

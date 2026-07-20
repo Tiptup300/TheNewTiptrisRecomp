@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void KeySpin_8006b3b0_tenliner_nested_loop_10t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_SettleColumns(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B3B0: addiu       $sp, $sp, -0x38
@@ -127,7 +127,7 @@ L_8006B440:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006b454_fourliner_sets_arg0_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_InitDrop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B454: lb          $t7, 0x5($a0)
@@ -152,7 +152,7 @@ RECOMP_FUNC void KeySpin_8006b454_fourliner_sets_arg0_struct(uint8_t* rdram, rec
     MEM_B(0X2, ctx->r4) = ctx->r24;
 ;}
 
-RECOMP_FUNC void KeySpin_8006b478_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepDrop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B478: addiu       $sp, $sp, -0x18
@@ -262,7 +262,7 @@ L_8006B520:
     // 0x8006B524: jal         0x8006B3B0
     // 0x8006B528: nop
 
-    KeySpin_8006b3b0_tenliner_nested_loop_10t(rdram, ctx);
+    KeySpin_SettleColumns(rdram, ctx);
         goto after_0;
     // 0x8006B528: nop
 
@@ -280,7 +280,7 @@ L_8006B52C:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_LaunchColumnCells(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B53C: addiu       $sp, $sp, -0x38
@@ -343,7 +343,7 @@ L_8006B584:
     // 0x8006B59C: jal         0x8006D5BC
     // 0x8006B5A0: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(rdram, ctx);
+    BoardP_SeparateCell(rdram, ctx);
         goto after_0;
     // 0x8006B5A0: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -417,7 +417,7 @@ L_8006B5F0:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006b608_uses_pf_logic_cell_loops_10t_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_RefreshColumnCells(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B608: addiu       $sp, $sp, -0x38
@@ -482,7 +482,7 @@ L_8006B654:
     // 0x8006B66C: jal         0x8006D3C0
     // 0x8006B670: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    BoardP_8006d3c0_fourliner(rdram, ctx);
+    BoardP_GetCellColor(rdram, ctx);
         goto after_0;
     // 0x8006B670: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -533,7 +533,7 @@ L_8006B698:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006b6b4_twelveliner_ifs_elses_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepSlideX(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B6B4: addiu       $sp, $sp, -0x18
@@ -655,7 +655,7 @@ L_8006B754:
     // 0x8006B770: jal         0x8006B53C
     // 0x8006B774: or          $a1, $t4, $zero
     ctx->r5 = ctx->r12 | 0;
-    KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1(rdram, ctx);
+    KeySpin_LaunchColumnCells(rdram, ctx);
         goto after_0;
     // 0x8006B774: or          $a1, $t4, $zero
     ctx->r5 = ctx->r12 | 0;
@@ -686,7 +686,7 @@ L_8006B778:
     // 0x8006B79C: jal         0x8006B608
     // 0x8006B7A0: or          $a1, $t9, $zero
     ctx->r5 = ctx->r25 | 0;
-    KeySpin_8006b608_uses_pf_logic_cell_loops_10t_2(rdram, ctx);
+    KeySpin_RefreshColumnCells(rdram, ctx);
         goto after_1;
     // 0x8006B7A0: or          $a1, $t9, $zero
     ctx->r5 = ctx->r25 | 0;
@@ -704,7 +704,7 @@ L_8006B7A4:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006b7b4_twelveliner_ifs_elses_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepSlideY(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B7B4: addiu       $sp, $sp, -0x18
@@ -828,7 +828,7 @@ L_8006B854:
     // 0x8006B874: jal         0x8006B53C
     // 0x8006B878: or          $a1, $t4, $zero
     ctx->r5 = ctx->r12 | 0;
-    KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1(rdram, ctx);
+    KeySpin_LaunchColumnCells(rdram, ctx);
         goto after_0;
     // 0x8006B878: or          $a1, $t4, $zero
     ctx->r5 = ctx->r12 | 0;
@@ -859,7 +859,7 @@ L_8006B87C:
     // 0x8006B8A0: jal         0x8006B608
     // 0x8006B8A4: or          $a1, $t9, $zero
     ctx->r5 = ctx->r25 | 0;
-    KeySpin_8006b608_uses_pf_logic_cell_loops_10t_2(rdram, ctx);
+    KeySpin_RefreshColumnCells(rdram, ctx);
         goto after_1;
     // 0x8006B8A4: or          $a1, $t9, $zero
     ctx->r5 = ctx->r25 | 0;
@@ -877,7 +877,7 @@ L_8006B8A8:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006b8b8_fiveliner_calls_b6b4_b7b4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepSlide(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B8B8: addiu       $sp, $sp, -0x18
@@ -909,7 +909,7 @@ RECOMP_FUNC void KeySpin_8006b8b8_fiveliner_calls_b6b4_b7b4(uint8_t* rdram, reco
     // 0x8006B8E4: jal         0x8006B6B4
     // 0x8006B8E8: nop
 
-    KeySpin_8006b6b4_twelveliner_ifs_elses_1(rdram, ctx);
+    KeySpin_StepSlideX(rdram, ctx);
         goto after_0;
     // 0x8006B8E8: nop
 
@@ -921,7 +921,7 @@ RECOMP_FUNC void KeySpin_8006b8b8_fiveliner_calls_b6b4_b7b4(uint8_t* rdram, reco
     // 0x8006B8F4: jal         0x8006B7B4
     // 0x8006B8F8: nop
 
-    KeySpin_8006b7b4_twelveliner_ifs_elses_2(rdram, ctx);
+    KeySpin_StepSlideY(rdram, ctx);
         goto after_1;
     // 0x8006B8F8: nop
 
@@ -969,7 +969,7 @@ L_8006B928:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006b938_thirteenliner_sets_arg0_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_InitVPulseState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006B938: addiu       $sp, $sp, -0x18
@@ -1069,7 +1069,7 @@ RECOMP_FUNC void KeySpin_8006b938_thirteenliner_sets_arg0_struct(uint8_t* rdram,
     // 0x8006B9EC: jal         0x8006B53C
     // 0x8006B9F0: nop
 
-    KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1(rdram, ctx);
+    KeySpin_LaunchColumnCells(rdram, ctx);
         goto after_0;
     // 0x8006B9F0: nop
 
@@ -1094,7 +1094,7 @@ L_8006B9F4:
     // 0x8006BA0C: jal         0x8006B53C
     // 0x8006BA10: nop
 
-    KeySpin_8006b53c_uses_pf_logic_cell_loops_10t_1(rdram, ctx);
+    KeySpin_LaunchColumnCells(rdram, ctx);
         goto after_1;
     // 0x8006BA10: nop
 
@@ -1112,7 +1112,7 @@ L_8006BA14:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006ba24_thirtysixliner_sets_arg0_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_InitCellPulse(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006BA24: addiu       $sp, $sp, -0x38
@@ -1469,7 +1469,7 @@ L_8006BC74:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006bc8c_twelveliner_uses_pf_logic_cell_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepCellPulseX(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006BC8C: addiu       $sp, $sp, -0x38
@@ -1635,7 +1635,7 @@ L_8006BD80:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006bd94_twelveliner_uses_pf_logic_cell_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepCellPulseY(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006BD94: addiu       $sp, $sp, -0x38
@@ -1801,7 +1801,7 @@ L_8006BE88:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006be9c_fifteenliner_uses_pflcell_loopts_10t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_FinishCellPulses(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006BE9C: addiu       $sp, $sp, -0x38
@@ -1900,7 +1900,7 @@ L_8006BF2C:
     // 0x8006BF44: jal         0x8006D3C0
     // 0x8006BF48: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    BoardP_8006d3c0_fourliner(rdram, ctx);
+    BoardP_GetCellColor(rdram, ctx);
         goto after_0;
     // 0x8006BF48: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -1953,7 +1953,7 @@ L_8006BF74:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void KeySpin_8006BF90(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepCellPulse(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006BF90: addiu       $sp, $sp, -0x18
@@ -1985,7 +1985,7 @@ RECOMP_FUNC void KeySpin_8006BF90(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006BFBC: jal         0x8006BC8C
     // 0x8006BFC0: nop
 
-    KeySpin_8006bc8c_twelveliner_uses_pf_logic_cell_1(rdram, ctx);
+    KeySpin_StepCellPulseX(rdram, ctx);
         goto after_0;
     // 0x8006BFC0: nop
 
@@ -1997,7 +1997,7 @@ RECOMP_FUNC void KeySpin_8006BF90(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006BFCC: jal         0x8006BD94
     // 0x8006BFD0: nop
 
-    KeySpin_8006bd94_twelveliner_uses_pf_logic_cell_2(rdram, ctx);
+    KeySpin_StepCellPulseY(rdram, ctx);
         goto after_1;
     // 0x8006BFD0: nop
 
@@ -2065,7 +2065,7 @@ L_8006C024:
     // 0x8006C028: jal         0x8006BE9C
     // 0x8006C02C: nop
 
-    KeySpin_8006be9c_fifteenliner_uses_pflcell_loopts_10t(rdram, ctx);
+    KeySpin_FinishCellPulses(rdram, ctx);
         goto after_2;
     // 0x8006C02C: nop
 
@@ -2146,7 +2146,7 @@ L_8006C08C:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006c09c_tenliner_loops_lcv_arg0_unk58(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_InitPulseAll(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006C09C: addiu       $sp, $sp, -0x28
@@ -2166,7 +2166,7 @@ RECOMP_FUNC void KeySpin_8006c09c_tenliner_loops_lcv_arg0_unk58(uint8_t* rdram, 
     // 0x8006C0B8: jal         0x80067BC0
     // 0x8006C0BC: nop
 
-    CurrentPiece_80067bc0_sixliner_loops4times(rdram, ctx);
+    CurrentPiece_GetTopMinoRow(rdram, ctx);
         goto after_0;
     // 0x8006C0BC: nop
 
@@ -2213,7 +2213,7 @@ L_8006C0E8:
     // 0x8006C104: jal         0x8006BA24
     // 0x8006C108: addu        $a1, $s1, $s0
     ctx->r5 = ADD32(ctx->r17, ctx->r16);
-    KeySpin_8006ba24_thirtysixliner_sets_arg0_struct(rdram, ctx);
+    KeySpin_InitCellPulse(rdram, ctx);
         goto after_1;
     // 0x8006C108: addu        $a1, $s1, $s0
     ctx->r5 = ADD32(ctx->r17, ctx->r16);
@@ -2269,7 +2269,7 @@ L_8006C128:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void KeySpin_8006c160_twentyfiveliner_loops_lcv_arg0_unk58(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepPulseAll(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006C160: addiu       $sp, $sp, -0x38
@@ -2318,7 +2318,7 @@ L_8006C194:
     // 0x8006C1AC: jal         0x8006BF90
     // 0x8006C1B0: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    KeySpin_8006BF90(rdram, ctx);
+    KeySpin_StepCellPulse(rdram, ctx);
         goto after_0;
     // 0x8006C1B0: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -2585,7 +2585,7 @@ RECOMP_FUNC void KeySpin_InitVPulse(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006C348: jal         0x80067D1C
     // 0x8006C34C: nop
 
-    CurrentPiece_80067d1c_twoliner(rdram, ctx);
+    CurrentPiece_GetHeight(rdram, ctx);
         goto after_0;
     // 0x8006C34C: nop
 
@@ -2599,7 +2599,7 @@ RECOMP_FUNC void KeySpin_InitVPulse(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006C35C: jal         0x80067BC0
     // 0x8006C360: nop
 
-    CurrentPiece_80067bc0_sixliner_loops4times(rdram, ctx);
+    CurrentPiece_GetTopMinoRow(rdram, ctx);
         goto after_1;
     // 0x8006C360: nop
 
@@ -2891,7 +2891,7 @@ L_8006C4EC:
     // 0x8006C500: jal         0x8006B938
     // 0x8006C504: addiu       $a0, $a0, 0x59
     ctx->r4 = ADD32(ctx->r4, 0X59);
-    KeySpin_8006b938_thirteenliner_sets_arg0_struct(rdram, ctx);
+    KeySpin_InitVPulseState(rdram, ctx);
         goto after_3;
     // 0x8006C504: addiu       $a0, $a0, 0x59
     ctx->r4 = ADD32(ctx->r4, 0X59);
@@ -2915,7 +2915,7 @@ L_8006C4EC:
     // 0x8006C518: jal         0x8006DCD0
     // 0x8006C51C: nop
 
-    BoardP_8006dcd0_eightliner_loops_upto_19_times_increment(rdram, ctx);
+    BoardP_FindFirstOccupiedRow(rdram, ctx);
         goto after_4;
     // 0x8006C51C: nop
 
@@ -2925,7 +2925,7 @@ L_8006C4EC:
     // 0x8006C524: jal         0x8006DD1C
     // 0x8006C528: sb          $v0, 0x66($t6)
     MEM_B(0X66, ctx->r14) = ctx->r2;
-    BoardP_8006dd1c_eightliner_loops_upto_19_times_decrement(rdram, ctx);
+    BoardP_FindLastOccupiedRow(rdram, ctx);
         goto after_5;
     // 0x8006C528: sb          $v0, 0x66($t6)
     MEM_B(0X66, ctx->r14) = ctx->r2;
@@ -2950,7 +2950,7 @@ L_8006C538:
     // 0x8006C540: jal         0x8006DCD0
     // 0x8006C544: nop
 
-    BoardP_8006dcd0_eightliner_loops_upto_19_times_increment(rdram, ctx);
+    BoardP_FindFirstOccupiedRow(rdram, ctx);
         goto after_6;
     // 0x8006C544: nop
 
@@ -2975,7 +2975,7 @@ L_8006C560:
     // 0x8006C564: jal         0x8006DD1C
     // 0x8006C568: sb          $s5, 0x66($t0)
     MEM_B(0X66, ctx->r8) = ctx->r21;
-    BoardP_8006dd1c_eightliner_loops_upto_19_times_decrement(rdram, ctx);
+    BoardP_FindLastOccupiedRow(rdram, ctx);
         goto after_7;
     // 0x8006C568: sb          $s5, 0x66($t0)
     MEM_B(0X66, ctx->r8) = ctx->r21;
@@ -3029,7 +3029,7 @@ L_8006C578:
     ctx->r29 = ADD32(ctx->r29, 0X60);
 ;}
 
-RECOMP_FUNC void KeySpin_8006c5c4_sevenliner_sets_arg0_struct_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_StepSlideState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006C5C4: addiu       $sp, $sp, -0x18
@@ -3047,7 +3047,7 @@ RECOMP_FUNC void KeySpin_8006c5c4_sevenliner_sets_arg0_struct_1(uint8_t* rdram, 
     // 0x8006C5DC: jal         0x8006B8B8
     // 0x8006C5E0: addiu       $a0, $a0, 0x59
     ctx->r4 = ADD32(ctx->r4, 0X59);
-    KeySpin_8006b8b8_fiveliner_calls_b6b4_b7b4(rdram, ctx);
+    KeySpin_StepSlide(rdram, ctx);
         goto after_0;
     // 0x8006C5E0: addiu       $a0, $a0, 0x59
     ctx->r4 = ADD32(ctx->r4, 0X59);
@@ -3112,7 +3112,7 @@ L_8006C634:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006c644_fourliner_sets_arg0_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_EnterDrop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006C644: addiu       $sp, $sp, -0x18
@@ -3126,7 +3126,7 @@ RECOMP_FUNC void KeySpin_8006c644_fourliner_sets_arg0_struct(uint8_t* rdram, rec
     // 0x8006C654: jal         0x8006B454
     // 0x8006C658: addiu       $a0, $a0, 0x62
     ctx->r4 = ADD32(ctx->r4, 0X62);
-    KeySpin_8006b454_fourliner_sets_arg0_struct(rdram, ctx);
+    KeySpin_InitDrop(rdram, ctx);
         goto after_0;
     // 0x8006C658: addiu       $a0, $a0, 0x62
     ctx->r4 = ADD32(ctx->r4, 0X62);
@@ -3161,7 +3161,7 @@ RECOMP_FUNC void KeySpin_8006c644_fourliner_sets_arg0_struct(uint8_t* rdram, rec
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006c690_sevenliner_sets_arg0_struct_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_UpdateDrop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006C690: addiu       $sp, $sp, -0x18
@@ -3179,7 +3179,7 @@ RECOMP_FUNC void KeySpin_8006c690_sevenliner_sets_arg0_struct_2(uint8_t* rdram, 
     // 0x8006C6A8: jal         0x8006B478
     // 0x8006C6AC: addiu       $a0, $a0, 0x62
     ctx->r4 = ADD32(ctx->r4, 0X62);
-    KeySpin_8006b478_eightliner(rdram, ctx);
+    KeySpin_StepDrop(rdram, ctx);
         goto after_0;
     // 0x8006C6AC: addiu       $a0, $a0, 0x62
     ctx->r4 = ADD32(ctx->r4, 0X62);
@@ -3244,7 +3244,7 @@ L_8006C700:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006c710_medliner_interesting_calls_pf_xy_to_lgc(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_CheckCellsMatched(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006C710: addiu       $sp, $sp, -0x60
@@ -3709,7 +3709,7 @@ L_8006C9B4:
     // 0x8006C9E8: jal         0x8006D9D8
     // 0x8006C9EC: or          $a0, $s7, $zero
     ctx->r4 = ctx->r23 | 0;
-    BoardP_8006d9d8_calls_pf_xy_to_logic_cell_loops(rdram, ctx);
+    BoardP_CanGroupMove(rdram, ctx);
         goto after_8;
     // 0x8006C9EC: or          $a0, $s7, $zero
     ctx->r4 = ctx->r23 | 0;
@@ -3736,7 +3736,7 @@ L_8006CA00:
     // 0x8006CA08: jal         0x8006D9D8
     // 0x8006CA0C: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    BoardP_8006d9d8_calls_pf_xy_to_logic_cell_loops(rdram, ctx);
+    BoardP_CanGroupMove(rdram, ctx);
         goto after_9;
     // 0x8006CA0C: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -3763,7 +3763,7 @@ L_8006CA20:
     // 0x8006CA28: jal         0x8006D9D8
     // 0x8006CA2C: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
-    BoardP_8006d9d8_calls_pf_xy_to_logic_cell_loops(rdram, ctx);
+    BoardP_CanGroupMove(rdram, ctx);
         goto after_10;
     // 0x8006CA2C: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
@@ -3790,7 +3790,7 @@ L_8006CA40:
     // 0x8006CA48: jal         0x8006D9D8
     // 0x8006CA4C: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    BoardP_8006d9d8_calls_pf_xy_to_logic_cell_loops(rdram, ctx);
+    BoardP_CanGroupMove(rdram, ctx);
         goto after_11;
     // 0x8006CA4C: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -3839,7 +3839,7 @@ L_8006CA64:
     ctx->r29 = ADD32(ctx->r29, 0X60);
 ;}
 
-RECOMP_FUNC void KeySpin_8006ca90_nineliner_sets_arg0_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_EvalSpin(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006CA90: addiu       $sp, $sp, -0x18
@@ -3853,7 +3853,7 @@ RECOMP_FUNC void KeySpin_8006ca90_nineliner_sets_arg0_struct(uint8_t* rdram, rec
     // 0x8006CAA0: jal         0x8006C710
     // 0x8006CAA4: nop
 
-    KeySpin_8006c710_medliner_interesting_calls_pf_xy_to_lgc(rdram, ctx);
+    KeySpin_CheckCellsMatched(rdram, ctx);
         goto after_0;
     // 0x8006CAA4: nop
 
@@ -3922,7 +3922,7 @@ L_8006CB00:
 
 ;}
 
-RECOMP_FUNC void KeySpin_8006cb10_switch_arg0_2_to_8_playsfx_35(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void KeySpin_Process(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006CB10: addiu       $sp, $sp, -0x18
@@ -3986,7 +3986,7 @@ L_8006CB5C:
     // 0x8006CB60: jal         0x8006CA90
     // 0x8006CB64: nop
 
-    KeySpin_8006ca90_nineliner_sets_arg0_struct(rdram, ctx);
+    KeySpin_EvalSpin(rdram, ctx);
         goto after_0;
     // 0x8006CB64: nop
 
@@ -4003,7 +4003,7 @@ L_8006CB70:
     // 0x8006CB74: jal         0x8006C09C
     // 0x8006CB78: nop
 
-    KeySpin_8006c09c_tenliner_loops_lcv_arg0_unk58(rdram, ctx);
+    KeySpin_InitPulseAll(rdram, ctx);
         goto after_1;
     // 0x8006CB78: nop
 
@@ -4054,7 +4054,7 @@ L_8006CBB4:
     // 0x8006CBBC: jal         0x8006C160
     // 0x8006CBC0: nop
 
-    KeySpin_8006c160_twentyfiveliner_loops_lcv_arg0_unk58(rdram, ctx);
+    KeySpin_StepPulseAll(rdram, ctx);
         goto after_4;
     // 0x8006CBC0: nop
 
@@ -4122,7 +4122,7 @@ L_8006CC10:
     // 0x8006CC18: jal         0x8006C5C4
     // 0x8006CC1C: nop
 
-    KeySpin_8006c5c4_sevenliner_sets_arg0_struct_1(rdram, ctx);
+    KeySpin_StepSlideState(rdram, ctx);
         goto after_8;
     // 0x8006CC1C: nop
 
@@ -4139,7 +4139,7 @@ L_8006CC28:
     // 0x8006CC2C: jal         0x8006C644
     // 0x8006CC30: nop
 
-    KeySpin_8006c644_fourliner_sets_arg0_struct(rdram, ctx);
+    KeySpin_EnterDrop(rdram, ctx);
         goto after_9;
     // 0x8006CC30: nop
 
@@ -4158,7 +4158,7 @@ L_8006CC3C:
     // 0x8006CC44: jal         0x8006C690
     // 0x8006CC48: nop
 
-    KeySpin_8006c690_sevenliner_sets_arg0_struct_2(rdram, ctx);
+    KeySpin_UpdateDrop(rdram, ctx);
         goto after_10;
     // 0x8006CC48: nop
 
