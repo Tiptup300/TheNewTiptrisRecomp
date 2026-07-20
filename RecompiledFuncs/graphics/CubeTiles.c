@@ -1084,7 +1084,7 @@ RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075ED0: jal         0x80075700
     // 0x80075ED4: addiu       $a0, $a0, 0x14
     ctx->r4 = ADD32(ctx->r4, 0X14);
-    func_80075700(rdram, ctx);
+    ImageRect_SetDims(rdram, ctx);
         goto after_0;
     // 0x80075ED4: addiu       $a0, $a0, 0x14
     ctx->r4 = ADD32(ctx->r4, 0X14);
@@ -1104,7 +1104,7 @@ RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075EE8: jal         0x80074888
     // 0x80075EEC: addiu       $a1, $zero, 0x6
     ctx->r5 = ADD32(0, 0X6);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_2;
     // 0x80075EEC: addiu       $a1, $zero, 0x6
     ctx->r5 = ADD32(0, 0X6);
@@ -1134,7 +1134,7 @@ RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075F14: jal         0x800746C0
     // 0x80075F18: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_4;
     // 0x80075F18: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
@@ -1144,7 +1144,7 @@ RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075F20: jal         0x80075830
     // 0x80075F24: nop
 
-    func_80075830(rdram, ctx);
+    ImageRect_Init(rdram, ctx);
         goto after_5;
     // 0x80075F24: nop
 
@@ -1154,7 +1154,7 @@ RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075F2C: jal         0x80075760
     // 0x80075F30: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
-    func_80075760(rdram, ctx);
+    ImageRect_SetMode(rdram, ctx);
         goto after_6;
     // 0x80075F30: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
@@ -1170,7 +1170,7 @@ RECOMP_FUNC void CubeTiles_Alloc(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075F44: jal         0x800757BC
     // 0x80075F48: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
-    func_800757BC(rdram, ctx);
+    ImageRect_SetSource(rdram, ctx);
         goto after_7;
     // 0x80075F48: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
@@ -1201,7 +1201,7 @@ RECOMP_FUNC void CubeTiles_Free(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075F6C: jal         0x80075870
     // 0x80075F70: nop
 
-    func_80075870(rdram, ctx);
+    ImageRect_Reset(rdram, ctx);
         goto after_0;
     // 0x80075F70: nop
 
@@ -2165,7 +2165,7 @@ L_80076534:
     // 0x8007654C: jal         0x80074888
     // 0x80076550: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_3;
     // 0x80076550: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
@@ -2215,7 +2215,7 @@ L_80076534:
     // 0x800765A0: jal         0x800746C0
     // 0x800765A4: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_5;
     // 0x800765A4: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
@@ -2247,7 +2247,7 @@ L_80076534:
     // 0x800765D0: jal         0x80074888
     // 0x800765D4: or          $a1, $t6, $zero
     ctx->r5 = ctx->r14 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_6;
     // 0x800765D4: or          $a1, $t6, $zero
     ctx->r5 = ctx->r14 | 0;
@@ -2297,7 +2297,7 @@ L_80076534:
     // 0x80076624: jal         0x800746C0
     // 0x80076628: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_8;
     // 0x80076628: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);

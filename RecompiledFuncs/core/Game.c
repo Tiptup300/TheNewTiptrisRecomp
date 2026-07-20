@@ -3634,7 +3634,7 @@ L_80051E74:
     // 0x80051EA8: jal         0x8004311C
     // 0x80051EAC: nop
 
-    aiplayer_Update(rdram, ctx);
+    OpponentPlayer_Update(rdram, ctx);
         goto after_6;
     // 0x80051EAC: nop
 
@@ -5081,7 +5081,7 @@ L_80052684:
     // 0x80052698: jal         0x80042B3C
     // 0x8005269C: nop
 
-    aiplayer_Deinit(rdram, ctx);
+    OpponentPlayer_Deinit(rdram, ctx);
         goto after_10;
     // 0x8005269C: nop
 

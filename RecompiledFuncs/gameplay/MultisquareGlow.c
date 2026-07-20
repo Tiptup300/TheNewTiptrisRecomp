@@ -592,7 +592,7 @@ L_8006B290:
     // 0x8006B298: jal         0x80074888
     // 0x8006B29C: addiu       $a1, $zero, 0x7F
     ctx->r5 = ADD32(0, 0X7F);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x8006B29C: addiu       $a1, $zero, 0x7F
     ctx->r5 = ADD32(0, 0X7F);
@@ -622,7 +622,7 @@ L_8006B290:
     // 0x8006B2C4: jal         0x800746C0
     // 0x8006B2C8: addiu       $a2, $zero, 0x7F
     ctx->r6 = ADD32(0, 0X7F);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x8006B2C8: addiu       $a2, $zero, 0x7F
     ctx->r6 = ADD32(0, 0X7F);
@@ -641,7 +641,7 @@ L_8006B2D4:
     // 0x8006B2DC: jal         0x80074888
     // 0x8006B2E0: addiu       $a1, $zero, 0x80
     ctx->r5 = ADD32(0, 0X80);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_4;
     // 0x8006B2E0: addiu       $a1, $zero, 0x80
     ctx->r5 = ADD32(0, 0X80);
@@ -671,7 +671,7 @@ L_8006B2D4:
     // 0x8006B308: jal         0x800746C0
     // 0x8006B30C: addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_6;
     // 0x8006B30C: addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
@@ -690,7 +690,7 @@ L_8006B318:
     // 0x8006B320: jal         0x80074888
     // 0x8006B324: addiu       $a1, $zero, 0x81
     ctx->r5 = ADD32(0, 0X81);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_7;
     // 0x8006B324: addiu       $a1, $zero, 0x81
     ctx->r5 = ADD32(0, 0X81);
@@ -720,7 +720,7 @@ L_8006B318:
     // 0x8006B34C: jal         0x800746C0
     // 0x8006B350: addiu       $a2, $zero, 0x81
     ctx->r6 = ADD32(0, 0X81);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_9;
     // 0x8006B350: addiu       $a2, $zero, 0x81
     ctx->r6 = ADD32(0, 0X81);

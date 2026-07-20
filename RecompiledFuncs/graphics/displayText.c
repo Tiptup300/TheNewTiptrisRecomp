@@ -5708,7 +5708,7 @@ RECOMP_FUNC void displayText_GetEntry(uint8_t* rdram, recomp_context* ctx) {
     ctx->r2 = ADD32(ctx->r2, 0X1074);
 ;}
 
-RECOMP_FUNC void func_80079F90(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_AddEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80079F90: addiu       $sp, $sp, -0x20
@@ -6445,7 +6445,7 @@ L_8007A34C:
     // 0x8007A40C: jal         0x8007AF88
     // 0x8007A410: addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
-    func_8007AF88(rdram, ctx);
+    displayText_EncodeEntry(rdram, ctx);
         goto after_9;
     // 0x8007A410: addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
@@ -7409,7 +7409,7 @@ L_8007A91C:
     // 0x8007AA38: jal         0x80079F90
     // 0x8007AA3C: nop
 
-    func_80079F90(rdram, ctx);
+    displayText_AddEntry(rdram, ctx);
         goto after_6;
     // 0x8007AA3C: nop
 
@@ -8222,7 +8222,7 @@ L_8007AF78:
 
 ;}
 
-RECOMP_FUNC void func_8007AF88(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_EncodeEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007AF88: addiu       $sp, $sp, -0x30
@@ -9021,7 +9021,7 @@ RECOMP_FUNC void func_8007B420(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007B430(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_DecodeEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007B430: addiu       $sp, $sp, -0x20

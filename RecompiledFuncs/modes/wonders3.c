@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void wonders3_80046400_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders3_UpdateBlockState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80046400: addiu       $sp, $sp, -0x28
@@ -368,7 +368,7 @@ L_80046600:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void wonders3_80046610_fifteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders3_CreateBlockTile(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80046610: addiu       $sp, $sp, -0x18
@@ -617,7 +617,7 @@ L_80046788:
 
 ;}
 
-RECOMP_FUNC void wonders3_80046798_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders3_FreeBlockTile(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80046798: addiu       $sp, $sp, -0x18
@@ -685,7 +685,7 @@ L_800467E8:
 
 ;}
 
-RECOMP_FUNC void wonders3_800467f8_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders3_ReloadBlockTile(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800467F8: addiu       $sp, $sp, -0x18
@@ -699,7 +699,7 @@ RECOMP_FUNC void wonders3_800467f8_threeliner(uint8_t* rdram, recomp_context* ct
     // 0x80046808: jal         0x80046798
     // 0x8004680C: nop
 
-    wonders3_80046798_threeliner(rdram, ctx);
+    wonders3_FreeBlockTile(rdram, ctx);
         goto after_0;
     // 0x8004680C: nop
 
@@ -719,7 +719,7 @@ RECOMP_FUNC void wonders3_800467f8_threeliner(uint8_t* rdram, recomp_context* ct
     // 0x80046828: jal         0x80046610
     // 0x8004682C: nop
 
-    wonders3_80046610_fifteenliner(rdram, ctx);
+    wonders3_CreateBlockTile(rdram, ctx);
         goto after_1;
     // 0x8004682C: nop
 
@@ -1131,7 +1131,7 @@ L_80046A80:
     // 0x80046A80: jal         0x80046400
     // 0x80046A84: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders3_80046400_twentyliner(rdram, ctx);
+    wonders3_UpdateBlockState(rdram, ctx);
         goto after_0;
     // 0x80046A84: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1223,7 +1223,7 @@ L_80046AF0:
     // 0x80046AF0: jal         0x80046610
     // 0x80046AF4: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders3_80046610_fifteenliner(rdram, ctx);
+    wonders3_CreateBlockTile(rdram, ctx);
         goto after_5;
     // 0x80046AF4: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1238,7 +1238,7 @@ L_80046B00:
     // 0x80046B00: jal         0x800467F8
     // 0x80046B04: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders3_800467f8_threeliner(rdram, ctx);
+    wonders3_ReloadBlockTile(rdram, ctx);
         goto after_6;
     // 0x80046B04: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -1253,7 +1253,7 @@ L_80046B10:
     // 0x80046B10: jal         0x8004745C
     // 0x80046B14: nop
 
-    wonders3_8004745c_medium_liner_has_audio(rdram, ctx);
+    wonders3_Deinit(rdram, ctx);
         goto after_7;
     // 0x80046B14: nop
 
@@ -2699,7 +2699,7 @@ L_80047348:
     // 0x800473B8: jal         0x80074888
     // 0x800473BC: addiu       $a1, $zero, 0x3
     ctx->r5 = ADD32(0, 0X3);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_6;
     // 0x800473BC: addiu       $a1, $zero, 0x3
     ctx->r5 = ADD32(0, 0X3);
@@ -2729,7 +2729,7 @@ L_80047348:
     // 0x800473E4: jal         0x800746C0
     // 0x800473E8: addiu       $a2, $zero, 0x3
     ctx->r6 = ADD32(0, 0X3);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_8;
     // 0x800473E8: addiu       $a2, $zero, 0x3
     ctx->r6 = ADD32(0, 0X3);
@@ -2741,7 +2741,7 @@ L_80047348:
     // 0x800473F4: jal         0x80074888
     // 0x800473F8: addiu       $a1, $zero, 0x4
     ctx->r5 = ADD32(0, 0X4);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_9;
     // 0x800473F8: addiu       $a1, $zero, 0x4
     ctx->r5 = ADD32(0, 0X4);
@@ -2771,7 +2771,7 @@ L_80047348:
     // 0x80047420: jal         0x800746C0
     // 0x80047424: addiu       $a2, $zero, 0x4
     ctx->r6 = ADD32(0, 0X4);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_11;
     // 0x80047424: addiu       $a2, $zero, 0x4
     ctx->r6 = ADD32(0, 0X4);
@@ -2810,7 +2810,7 @@ L_80047348:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void wonders3_8004745c_medium_liner_has_audio(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders3_Deinit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004745C: addiu       $sp, $sp, -0x30
@@ -2832,7 +2832,7 @@ RECOMP_FUNC void wonders3_8004745c_medium_liner_has_audio(uint8_t* rdram, recomp
     // 0x8004747C: jal         0x80046798
     // 0x80047480: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders3_80046798_threeliner(rdram, ctx);
+    wonders3_FreeBlockTile(rdram, ctx);
         goto after_0;
     // 0x80047480: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;

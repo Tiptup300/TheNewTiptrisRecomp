@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void EndScroller_8007fdb0_returns_0_1_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_AdvanceLineScroll(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007FDB0: lw          $t6, 0x18($a0)
@@ -335,7 +335,7 @@ RECOMP_FUNC void EndScroller_8007ffb0_doesnothing(uint8_t* rdram, recomp_context
     MEM_W(0X0, ctx->r29) = ctx->r4;
 ;}
 
-RECOMP_FUNC void EndScroller_8007ffb8_oneliner_if(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_CheckSkipInput(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007FFB8: lui         $t6, 0x8012
@@ -389,7 +389,7 @@ RECOMP_FUNC void EndScroller_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x80080000: jal         0x800804F0
     // 0x80080004: addiu       $a0, $a0, 0x104
     ctx->r4 = ADD32(ctx->r4, 0X104);
-    FUN_046770_800804f0_many_heapallocs_for_arg0_elems(rdram, ctx);
+    EndScroller_InitBackground(rdram, ctx);
         goto after_0;
     // 0x80080004: addiu       $a0, $a0, 0x104
     ctx->r4 = ADD32(ctx->r4, 0X104);
@@ -743,7 +743,7 @@ L_800801DC:
     // 0x8008020C: jal         0x8008074C
     // 0x80080210: addiu       $a0, $a0, 0x104
     ctx->r4 = ADD32(ctx->r4, 0X104);
-    FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(rdram, ctx);
+    EndScroller_DeinitBackground(rdram, ctx);
         goto after_5;
     // 0x80080210: addiu       $a0, $a0, 0x104
     ctx->r4 = ADD32(ctx->r4, 0X104);
@@ -776,7 +776,7 @@ L_800801DC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void EndScroller_8008023c_line_452(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008023C: addiu       $sp, $sp, -0x40
@@ -833,7 +833,7 @@ L_8008028C:
     // 0x80080290: jal         0x8007FFB8
     // 0x80080294: nop
 
-    EndScroller_8007ffb8_oneliner_if(rdram, ctx);
+    EndScroller_CheckSkipInput(rdram, ctx);
         goto after_1;
     // 0x80080294: nop
 
@@ -870,7 +870,7 @@ L_800802B8:
     // 0x800802C4: jal         0x8008080C
     // 0x800802C8: addiu       $a1, $a1, 0x1
     ctx->r5 = ADD32(ctx->r5, 0X1);
-    FUN_046770_8008080c_threeliner_sets_arg0(rdram, ctx);
+    EndScroller_AdvanceBackgroundRotation(rdram, ctx);
         goto after_2;
     // 0x800802C8: addiu       $a1, $a1, 0x1
     ctx->r5 = ADD32(ctx->r5, 0X1);
@@ -924,7 +924,7 @@ L_80080310:
     // 0x80080314: jal         0x8007FDB0
     // 0x80080318: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    EndScroller_8007fdb0_returns_0_1_2(rdram, ctx);
+    EndScroller_AdvanceLineScroll(rdram, ctx);
         goto after_3;
     // 0x80080318: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -1084,7 +1084,7 @@ L_800803E4:
     ctx->r29 = ADD32(ctx->r29, 0X40);
 ;}
 
-RECOMP_FUNC void EndScroller_80080400_line_502(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80080400: addiu       $sp, $sp, -0x28
@@ -1149,7 +1149,7 @@ L_80080440:
     // 0x8008045C: jal         0x8008085C
     // 0x80080460: addiu       $a0, $a0, 0x104
     ctx->r4 = ADD32(ctx->r4, 0X104);
-    FUN_046770_magic_150_is_it_ultra_related(rdram, ctx);
+    EndScroller_DrawBackground(rdram, ctx);
         goto after_1;
     // 0x80080460: addiu       $a0, $a0, 0x104
     ctx->r4 = ADD32(ctx->r4, 0X104);
@@ -1251,7 +1251,7 @@ L_800804D8:
 
 ;}
 
-RECOMP_FUNC void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_InitBackground(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800804F0: addiu       $sp, $sp, -0x50
@@ -1379,7 +1379,7 @@ RECOMP_FUNC void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(uint8_t* rdr
     // 0x8008059C: jal         0x800746C0
     // 0x800805A0: addiu       $a2, $zero, 0x43
     ctx->r6 = ADD32(0, 0X43);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_9;
     // 0x800805A0: addiu       $a2, $zero, 0x43
     ctx->r6 = ADD32(0, 0X43);
@@ -1395,7 +1395,7 @@ RECOMP_FUNC void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(uint8_t* rdr
     // 0x800805B4: jal         0x800746C0
     // 0x800805B8: addiu       $a2, $zero, 0x44
     ctx->r6 = ADD32(0, 0X44);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_10;
     // 0x800805B8: addiu       $a2, $zero, 0x44
     ctx->r6 = ADD32(0, 0X44);
@@ -1409,7 +1409,7 @@ RECOMP_FUNC void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(uint8_t* rdr
     // 0x800805C8: jal         0x800746C0
     // 0x800805CC: addiu       $a2, $zero, 0x45
     ctx->r6 = ADD32(0, 0X45);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_11;
     // 0x800805CC: addiu       $a2, $zero, 0x45
     ctx->r6 = ADD32(0, 0X45);
@@ -1425,7 +1425,7 @@ RECOMP_FUNC void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(uint8_t* rdr
     // 0x800805E0: jal         0x800746C0
     // 0x800805E4: addiu       $a2, $zero, 0x46
     ctx->r6 = ADD32(0, 0X46);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_12;
     // 0x800805E4: addiu       $a2, $zero, 0x46
     ctx->r6 = ADD32(0, 0X46);
@@ -1441,7 +1441,7 @@ RECOMP_FUNC void FUN_046770_800804f0_many_heapallocs_for_arg0_elems(uint8_t* rdr
     // 0x800805F8: jal         0x800746C0
     // 0x800805FC: addiu       $a2, $zero, 0x47
     ctx->r6 = ADD32(0, 0X47);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_13;
     // 0x800805FC: addiu       $a2, $zero, 0x47
     ctx->r6 = ADD32(0, 0X47);
@@ -1577,7 +1577,7 @@ L_8008067C:
     // 0x800806D0: jal         0x80075480
     // 0x800806D4: addiu       $a0, $a0, 0x24
     ctx->r4 = ADD32(ctx->r4, 0X24);
-    func_80075480(rdram, ctx);
+    GarbageImg_BlendRGB565(rdram, ctx);
         goto after_15;
     // 0x800806D4: addiu       $a0, $a0, 0x24
     ctx->r4 = ADD32(ctx->r4, 0X24);
@@ -1587,7 +1587,7 @@ L_8008067C:
     // 0x800806DC: jal         0x80075830
     // 0x800806E0: addiu       $a0, $a0, 0x1C
     ctx->r4 = ADD32(ctx->r4, 0X1C);
-    func_80075830(rdram, ctx);
+    ImageRect_Init(rdram, ctx);
         goto after_16;
     // 0x800806E0: addiu       $a0, $a0, 0x1C
     ctx->r4 = ADD32(ctx->r4, 0X1C);
@@ -1599,7 +1599,7 @@ L_8008067C:
     // 0x800806EC: jal         0x80075760
     // 0x800806F0: addiu       $a0, $a0, 0x1C
     ctx->r4 = ADD32(ctx->r4, 0X1C);
-    func_80075760(rdram, ctx);
+    ImageRect_SetMode(rdram, ctx);
         goto after_17;
     // 0x800806F0: addiu       $a0, $a0, 0x1C
     ctx->r4 = ADD32(ctx->r4, 0X1C);
@@ -1615,7 +1615,7 @@ L_8008067C:
     // 0x80080704: jal         0x800757BC
     // 0x80080708: addiu       $a0, $t1, 0x1C
     ctx->r4 = ADD32(ctx->r9, 0X1C);
-    func_800757BC(rdram, ctx);
+    ImageRect_SetSource(rdram, ctx);
         goto after_18;
     // 0x80080708: addiu       $a0, $t1, 0x1C
     ctx->r4 = ADD32(ctx->r9, 0X1C);
@@ -1656,7 +1656,7 @@ L_8008067C:
     ctx->r29 = ADD32(ctx->r29, 0X50);
 ;}
 
-RECOMP_FUNC void FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_DeinitBackground(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008074C: addiu       $sp, $sp, -0x18
@@ -1670,7 +1670,7 @@ RECOMP_FUNC void FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(uint8_t*
     // 0x8008075C: jal         0x800756A8
     // 0x80080760: addiu       $a0, $a0, 0x24
     ctx->r4 = ADD32(ctx->r4, 0X24);
-    func_800756A8(rdram, ctx);
+    GarbageImg_FreeBlend(rdram, ctx);
         goto after_0;
     // 0x80080760: addiu       $a0, $a0, 0x24
     ctx->r4 = ADD32(ctx->r4, 0X24);
@@ -1778,7 +1778,7 @@ RECOMP_FUNC void FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(uint8_t*
     // 0x800807F4: jal         0x80075870
     // 0x800807F8: addiu       $a0, $a0, 0x1C
     ctx->r4 = ADD32(ctx->r4, 0X1C);
-    func_80075870(rdram, ctx);
+    ImageRect_Reset(rdram, ctx);
         goto after_8;
     // 0x800807F8: addiu       $a0, $a0, 0x1C
     ctx->r4 = ADD32(ctx->r4, 0X1C);
@@ -1795,7 +1795,7 @@ RECOMP_FUNC void FUN_046770_8008074c_nineliner_calls_9funcs_warg0_elems(uint8_t*
 
 ;}
 
-RECOMP_FUNC void FUN_046770_8008080c_threeliner_sets_arg0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_AdvanceBackgroundRotation(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008080C: sll         $t0, $a1, 2
@@ -1842,7 +1842,7 @@ RECOMP_FUNC void FUN_046770_8008080c_threeliner_sets_arg0(uint8_t* rdram, recomp
     MEM_H(0X80, ctx->r4) = ctx->r12;
 ;}
 
-RECOMP_FUNC void FUN_046770_magic_150_is_it_ultra_related(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void EndScroller_DrawBackground(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008085C: addiu       $sp, $sp, -0x60
@@ -1997,7 +1997,7 @@ L_80080950:
     // 0x80080964: jal         0x80075700
     // 0x80080968: addiu       $a3, $zero, 0x2
     ctx->r7 = ADD32(0, 0X2);
-    func_80075700(rdram, ctx);
+    ImageRect_SetDims(rdram, ctx);
         goto after_3;
     // 0x80080968: addiu       $a3, $zero, 0x2
     ctx->r7 = ADD32(0, 0X2);

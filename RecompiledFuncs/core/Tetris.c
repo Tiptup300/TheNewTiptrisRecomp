@@ -1873,7 +1873,7 @@ L_800549AC:
     // 0x800549B4: jal         0x80072E2C
     // 0x800549B8: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    Garbage_80072e2c_set_arg0p_to_arg1(rdram, ctx);
+    Garbage_SetActive(rdram, ctx);
         goto after_14;
     // 0x800549B8: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -1892,7 +1892,7 @@ L_800549C4:
     // 0x800549CC: jal         0x80072E2C
     // 0x800549D0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    Garbage_80072e2c_set_arg0p_to_arg1(rdram, ctx);
+    Garbage_SetActive(rdram, ctx);
         goto after_15;
     // 0x800549D0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -2034,7 +2034,7 @@ L_80054A80:
     // 0x80054A88: jal         0x80072E2C
     // 0x80054A8C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    Garbage_80072e2c_set_arg0p_to_arg1(rdram, ctx);
+    Garbage_SetActive(rdram, ctx);
         goto after_20;
     // 0x80054A8C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);

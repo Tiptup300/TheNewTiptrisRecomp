@@ -53,7 +53,7 @@ RECOMP_FUNC void Landfill_SetCell(uint8_t* rdram, recomp_context* ctx) {
     // 0x800723F4: jal         0x80073690
     // 0x800723F8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073690(rdram, ctx);
+    GarbageFx_SetBlockCell(rdram, ctx);
         goto after_1;
     // 0x800723F8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -118,7 +118,7 @@ RECOMP_FUNC void Landfill_8007240c_fiveliner(uint8_t* rdram, recomp_context* ctx
     // 0x80072458: jal         0x80072E34
     // 0x8007245C: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    func_80072E34(rdram, ctx);
+    Garbage_SetColor(rdram, ctx);
         goto after_0;
     // 0x8007245C: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -589,7 +589,7 @@ RECOMP_FUNC void func_800726A4(uint8_t* rdram, recomp_context* ctx) {
     // 0x800726E4: jal         0x80072E2C
     // 0x800726E8: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    Garbage_80072e2c_set_arg0p_to_arg1(rdram, ctx);
+    Garbage_SetActive(rdram, ctx);
         goto after_0;
     // 0x800726E8: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -667,7 +667,7 @@ L_80072750:
     // 0x8007275C: jal         0x800736E0
     // 0x80072760: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_800736E0(rdram, ctx);
+    GarbageFx_ConfigBlocks(rdram, ctx);
         goto after_2;
     // 0x80072760: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -943,7 +943,7 @@ L_800728F0:
     // 0x800728F0: jal         0x80073B48
     // 0x800728F4: nop
 
-    func_80073B48(rdram, ctx);
+    Garbage_LoadTexture(rdram, ctx);
         goto after_1;
     // 0x800728F4: nop
 
@@ -953,7 +953,7 @@ L_800728F0:
     // 0x800728FC: jal         0x80073940
     // 0x80072900: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073940(rdram, ctx);
+    GarbageFx_Alloc(rdram, ctx);
         goto after_2;
     // 0x80072900: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -965,7 +965,7 @@ L_800728F0:
     // 0x8007290C: jal         0x80073784
     // 0x80072910: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073784(rdram, ctx);
+    GarbageFx_FillAllBlocks(rdram, ctx);
         goto after_3;
     // 0x80072910: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -980,7 +980,7 @@ L_8007291C:
     // 0x8007291C: jal         0x80073B48
     // 0x80072920: nop
 
-    func_80073B48(rdram, ctx);
+    Garbage_LoadTexture(rdram, ctx);
         goto after_4;
     // 0x80072920: nop
 
@@ -990,7 +990,7 @@ L_8007291C:
     // 0x80072928: jal         0x80073940
     // 0x8007292C: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073940(rdram, ctx);
+    GarbageFx_Alloc(rdram, ctx);
         goto after_5;
     // 0x8007292C: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -1000,7 +1000,7 @@ L_8007291C:
     // 0x80072934: jal         0x800743F8
     // 0x80072938: addiu       $a0, $a0, 0x30
     ctx->r4 = ADD32(ctx->r4, 0X30);
-    func_800743F8(rdram, ctx);
+    GarbageFx_InitIndicator(rdram, ctx);
         goto after_6;
     // 0x80072938: addiu       $a0, $a0, 0x30
     ctx->r4 = ADD32(ctx->r4, 0X30);
@@ -1015,7 +1015,7 @@ L_80072944:
     // 0x80072944: jal         0x80073B48
     // 0x80072948: nop
 
-    func_80073B48(rdram, ctx);
+    Garbage_LoadTexture(rdram, ctx);
         goto after_7;
     // 0x80072948: nop
 
@@ -1025,7 +1025,7 @@ L_80072944:
     // 0x80072950: jal         0x80073940
     // 0x80072954: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073940(rdram, ctx);
+    GarbageFx_Alloc(rdram, ctx);
         goto after_8;
     // 0x80072954: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -1119,7 +1119,7 @@ L_800729C4:
     // 0x800729C8: jal         0x80073AC4
     // 0x800729CC: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073AC4(rdram, ctx);
+    GarbageFx_Free(rdram, ctx);
         goto after_0;
     // 0x800729CC: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -1144,7 +1144,7 @@ L_800729E0:
     // 0x800729E4: jal         0x80073AC4
     // 0x800729E8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073AC4(rdram, ctx);
+    GarbageFx_Free(rdram, ctx);
         goto after_2;
     // 0x800729E8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -1179,7 +1179,7 @@ L_80072A08:
     // 0x80072A0C: jal         0x80073AC4
     // 0x80072A10: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    func_80073AC4(rdram, ctx);
+    GarbageFx_Free(rdram, ctx);
         goto after_5;
     // 0x80072A10: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -1313,7 +1313,7 @@ L_80072AC4:
     // 0x80072AC4: jal         0x800735D8
     // 0x80072AC8: addiu       $a0, $s0, 0x8
     ctx->r4 = ADD32(ctx->r16, 0X8);
-    func_800735D8(rdram, ctx);
+    GarbageFx_DrawBlocks(rdram, ctx);
         goto after_0;
     // 0x80072AC8: addiu       $a0, $s0, 0x8
     ctx->r4 = ADD32(ctx->r16, 0X8);
@@ -1328,7 +1328,7 @@ L_80072AD4:
     // 0x80072AD4: jal         0x8007434C
     // 0x80072AD8: addiu       $a0, $s0, 0x30
     ctx->r4 = ADD32(ctx->r16, 0X30);
-    func_8007434C(rdram, ctx);
+    GarbageFx_Draw(rdram, ctx);
         goto after_1;
     // 0x80072AD8: addiu       $a0, $s0, 0x30
     ctx->r4 = ADD32(ctx->r16, 0X30);
@@ -1336,7 +1336,7 @@ L_80072AD4:
     // 0x80072ADC: jal         0x800735D8
     // 0x80072AE0: addiu       $a0, $s0, 0x8
     ctx->r4 = ADD32(ctx->r16, 0X8);
-    func_800735D8(rdram, ctx);
+    GarbageFx_DrawBlocks(rdram, ctx);
         goto after_2;
     // 0x80072AE0: addiu       $a0, $s0, 0x8
     ctx->r4 = ADD32(ctx->r16, 0X8);
@@ -1351,7 +1351,7 @@ L_80072AEC:
     // 0x80072AEC: jal         0x800735D8
     // 0x80072AF0: addiu       $a0, $s0, 0x8
     ctx->r4 = ADD32(ctx->r16, 0X8);
-    func_800735D8(rdram, ctx);
+    GarbageFx_DrawBlocks(rdram, ctx);
         goto after_3;
     // 0x80072AF0: addiu       $a0, $s0, 0x8
     ctx->r4 = ADD32(ctx->r16, 0X8);

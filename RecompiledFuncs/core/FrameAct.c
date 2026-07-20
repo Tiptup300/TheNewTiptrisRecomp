@@ -336,7 +336,7 @@ L_80053844:
     // 0x8005384C: jal         0x80072FC4
     // 0x80053850: sb          $t3, 0x0($t4)
     MEM_B(0X0, ctx->r12) = ctx->r11;
-    func_80072FC4(rdram, ctx);
+    Garbage_UpdatePending(rdram, ctx);
         goto after_2;
     // 0x80053850: sb          $t3, 0x0($t4)
     MEM_B(0X0, ctx->r12) = ctx->r11;
@@ -578,7 +578,7 @@ L_80053998:
     // 0x800539A8: jal         0x80072FC4
     // 0x800539AC: sb          $zero, 0x2($t2)
     MEM_B(0X2, ctx->r10) = 0;
-    func_80072FC4(rdram, ctx);
+    Garbage_UpdatePending(rdram, ctx);
         goto after_1;
     // 0x800539AC: sb          $zero, 0x2($t2)
     MEM_B(0X2, ctx->r10) = 0;
@@ -635,7 +635,7 @@ RECOMP_FUNC void FrameAct_line_253(uint8_t* rdram, recomp_context* ctx) {
     // 0x800539FC: jal         0x80072F1C
     // 0x80053A00: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    func_80072F1C(rdram, ctx);
+    Garbage_Update(rdram, ctx);
         goto after_0;
     // 0x80053A00: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -709,7 +709,7 @@ L_80053A54:
     // 0x80053A54: jal         0x8004376C
     // 0x80053A58: nop
 
-    aiplayer_UpdateTarget(rdram, ctx);
+    OpponentPlayer_UpdateTarget(rdram, ctx);
         goto after_2;
     // 0x80053A58: nop
 
@@ -893,7 +893,7 @@ L_80053AE4:
     // 0x80053B4C: jal         0x8004370C
     // 0x80053B50: nop
 
-    aiplayer_RequestDecision(rdram, ctx);
+    OpponentPlayer_RequestDecision(rdram, ctx);
         goto after_4;
     // 0x80053B50: nop
 

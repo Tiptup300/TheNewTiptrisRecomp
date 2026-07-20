@@ -96,6 +96,9 @@ DOMAINS = {
     "vec4": "system", "mtx4": "system", "mtx3": "system",  # math split out of vec3
     "Bitstream": "system",  # bit-packing for save data
     "NextPiece": "gameplay", "NextPieceShadow": "gameplay",
+    "OpponentPlayer": "ai",
+    "GarbageFx": "gameplay", "Smoke": "graphics", "Particle": "graphics",
+    "GarbageImg": "graphics", "ImageRect": "graphics",
 }
 DEFAULT_DOMAIN = "misc"
 

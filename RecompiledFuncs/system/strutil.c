@@ -350,7 +350,7 @@ L_80080C10:
     // 0x80080C34: jal         0x80074888
     // 0x80080C38: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_4;
     // 0x80080C38: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -390,7 +390,7 @@ L_80080C10:
     // 0x80080C74: jal         0x800746C0
     // 0x80080C78: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_6;
     // 0x80080C78: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -424,7 +424,7 @@ L_80080C10:
     // 0x80080CA8: jal         0x80074888
     // 0x80080CAC: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_7;
     // 0x80080CAC: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
@@ -464,7 +464,7 @@ L_80080C10:
     // 0x80080CE8: jal         0x800746C0
     // 0x80080CEC: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_9;
     // 0x80080CEC: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);

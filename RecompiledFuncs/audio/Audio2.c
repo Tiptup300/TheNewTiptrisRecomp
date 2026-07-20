@@ -3067,7 +3067,7 @@ RECOMP_FUNC void Audio2_80087478_oneliner_calls_fun(uint8_t* rdram, recomp_conte
     // 0x80087494: jal         0x800746C0
     // 0x80087498: addiu       $a0, $a0, 0x1960
     ctx->r4 = ADD32(ctx->r4, 0X1960);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_0;
     // 0x80087498: addiu       $a0, $a0, 0x1960
     ctx->r4 = ADD32(ctx->r4, 0X1960);

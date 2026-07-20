@@ -18416,7 +18416,7 @@ L_8008F2B8:
     // 0x8008F2C0: jal         0x80074888
     // 0x8008F2C4: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_0;
     // 0x8008F2C4: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -18446,7 +18446,7 @@ L_8008F2B8:
     // 0x8008F2EC: jal         0x800746C0
     // 0x8008F2F0: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_2;
     // 0x8008F2F0: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -18656,7 +18656,7 @@ L_8008F3E8:
     // 0x8008F444: jal         0x80074888
     // 0x8008F448: or          $a1, $t6, $zero
     ctx->r5 = ctx->r14 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x8008F448: or          $a1, $t6, $zero
     ctx->r5 = ctx->r14 | 0;
@@ -18690,7 +18690,7 @@ L_8008F3E8:
     // 0x8008F478: jal         0x800746C0
     // 0x8008F47C: nop
 
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x8008F47C: nop
 
@@ -18708,7 +18708,7 @@ L_8008F3E8:
     // 0x8008F494: jal         0x80074888
     // 0x8008F498: nop
 
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_4;
     // 0x8008F498: nop
 
@@ -18742,7 +18742,7 @@ L_8008F3E8:
     // 0x8008F4C8: jal         0x800746C0
     // 0x8008F4CC: nop
 
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_6;
     // 0x8008F4CC: nop
 
@@ -18882,7 +18882,7 @@ L_8008F578:
     // 0x8008F5A8: jal         0x80074888
     // 0x8008F5AC: or          $a1, $t3, $zero
     ctx->r5 = ctx->r11 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_7;
     // 0x8008F5AC: or          $a1, $t3, $zero
     ctx->r5 = ctx->r11 | 0;
@@ -18944,7 +18944,7 @@ L_8008F578:
     // 0x8008F614: jal         0x800746C0
     // 0x8008F618: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_9;
     // 0x8008F618: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -18980,7 +18980,7 @@ L_8008F578:
     // 0x8008F64C: jal         0x80074888
     // 0x8008F650: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_10;
     // 0x8008F650: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
@@ -19042,7 +19042,7 @@ L_8008F578:
     // 0x8008F6B8: jal         0x800746C0
     // 0x8008F6BC: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_12;
     // 0x8008F6BC: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -19110,7 +19110,7 @@ L_8008F6E4:
     // 0x8008F724: jal         0x80074888
     // 0x8008F728: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_13;
     // 0x8008F728: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -19142,7 +19142,7 @@ L_8008F6E4:
     // 0x8008F754: jal         0x800746C0
     // 0x8008F758: nop
 
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_15;
     // 0x8008F758: nop
 
@@ -19203,7 +19203,7 @@ L_8008F75C:
     // 0x8008F7B4: jal         0x80074888
     // 0x8008F7B8: or          $a1, $t5, $zero
     ctx->r5 = ctx->r13 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_16;
     // 0x8008F7B8: or          $a1, $t5, $zero
     ctx->r5 = ctx->r13 | 0;
@@ -19265,7 +19265,7 @@ L_8008F75C:
     // 0x8008F820: jal         0x800746C0
     // 0x8008F824: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_18;
     // 0x8008F824: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -19299,7 +19299,7 @@ L_8008F75C:
     // 0x8008F854: jal         0x80074888
     // 0x8008F858: or          $a1, $t3, $zero
     ctx->r5 = ctx->r11 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_19;
     // 0x8008F858: or          $a1, $t3, $zero
     ctx->r5 = ctx->r11 | 0;
@@ -19361,7 +19361,7 @@ L_8008F75C:
     // 0x8008F8C0: jal         0x800746C0
     // 0x8008F8C4: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_21;
     // 0x8008F8C4: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -20255,7 +20255,7 @@ L_8008FE6C:
     // 0x8008FE88: jal         0x80074888
     // 0x8008FE8C: addiu       $a1, $zero, 0x9D
     ctx->r5 = ADD32(0, 0X9D);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_25;
     // 0x8008FE8C: addiu       $a1, $zero, 0x9D
     ctx->r5 = ADD32(0, 0X9D);
@@ -20285,7 +20285,7 @@ L_8008FE6C:
     // 0x8008FEB4: jal         0x800746C0
     // 0x8008FEB8: addiu       $a2, $zero, 0x9D
     ctx->r6 = ADD32(0, 0X9D);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_27;
     // 0x8008FEB8: addiu       $a2, $zero, 0x9D
     ctx->r6 = ADD32(0, 0X9D);
@@ -20312,7 +20312,7 @@ L_8008FEBC:
     // 0x8008FED8: jal         0x80074888
     // 0x8008FEDC: addiu       $a1, $zero, 0x9E
     ctx->r5 = ADD32(0, 0X9E);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_28;
     // 0x8008FEDC: addiu       $a1, $zero, 0x9E
     ctx->r5 = ADD32(0, 0X9E);
@@ -20342,7 +20342,7 @@ L_8008FEBC:
     // 0x8008FF04: jal         0x800746C0
     // 0x8008FF08: addiu       $a2, $zero, 0x9E
     ctx->r6 = ADD32(0, 0X9E);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_30;
     // 0x8008FF08: addiu       $a2, $zero, 0x9E
     ctx->r6 = ADD32(0, 0X9E);
@@ -20369,7 +20369,7 @@ L_8008FF0C:
     // 0x8008FF28: jal         0x80074888
     // 0x8008FF2C: addiu       $a1, $zero, 0x9C
     ctx->r5 = ADD32(0, 0X9C);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_31;
     // 0x8008FF2C: addiu       $a1, $zero, 0x9C
     ctx->r5 = ADD32(0, 0X9C);
@@ -20399,7 +20399,7 @@ L_8008FF0C:
     // 0x8008FF54: jal         0x800746C0
     // 0x8008FF58: addiu       $a2, $zero, 0x9C
     ctx->r6 = ADD32(0, 0X9C);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_33;
     // 0x8008FF58: addiu       $a2, $zero, 0x9C
     ctx->r6 = ADD32(0, 0X9C);
@@ -21285,7 +21285,7 @@ L_80090374:
     // 0x800904BC: jal         0x80074888
     // 0x800904C0: addiu       $a1, $zero, 0x99
     ctx->r5 = ADD32(0, 0X99);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_7;
     // 0x800904C0: addiu       $a1, $zero, 0x99
     ctx->r5 = ADD32(0, 0X99);
@@ -21315,7 +21315,7 @@ L_80090374:
     // 0x800904E8: jal         0x800746C0
     // 0x800904EC: addiu       $a2, $zero, 0x99
     ctx->r6 = ADD32(0, 0X99);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_9;
     // 0x800904EC: addiu       $a2, $zero, 0x99
     ctx->r6 = ADD32(0, 0X99);
@@ -21859,7 +21859,7 @@ L_8009085C:
     // 0x8009086C: jal         0x80074888
     // 0x80090870: addiu       $a1, $zero, 0x99
     ctx->r5 = ADD32(0, 0X99);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_12;
     // 0x80090870: addiu       $a1, $zero, 0x99
     ctx->r5 = ADD32(0, 0X99);
@@ -21889,7 +21889,7 @@ L_8009085C:
     // 0x80090898: jal         0x800746C0
     // 0x8009089C: addiu       $a2, $zero, 0x99
     ctx->r6 = ADD32(0, 0X99);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_14;
     // 0x8009089C: addiu       $a2, $zero, 0x99
     ctx->r6 = ADD32(0, 0X99);
@@ -23142,7 +23142,7 @@ L_80090F88:
     // 0x80090FBC: jal         0x80042800
     // 0x80090FC0: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
-    aiplayer_Init(rdram, ctx);
+    OpponentPlayer_Init(rdram, ctx);
         goto after_16;
     // 0x80090FC0: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
@@ -25495,7 +25495,7 @@ L_80091E1C:
     // 0x80091E78: jal         0x8007B430
     // 0x80091E7C: addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
-    func_8007B430(rdram, ctx);
+    displayText_DecodeEntry(rdram, ctx);
         goto after_3;
     // 0x80091E7C: addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
@@ -25521,7 +25521,7 @@ L_80091E1C:
     // 0x80091E9C: jal         0x80079F90
     // 0x80091EA0: nop
 
-    func_80079F90(rdram, ctx);
+    displayText_AddEntry(rdram, ctx);
         goto after_5;
     // 0x80091EA0: nop
 
@@ -26313,7 +26313,7 @@ L_800922EC:
     // 0x80092320: jal         0x8007B430
     // 0x80092324: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    func_8007B430(rdram, ctx);
+    displayText_DecodeEntry(rdram, ctx);
         goto after_32;
     // 0x80092324: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -26363,7 +26363,7 @@ L_800922EC:
     // 0x80092374: jal         0x80079F90
     // 0x80092378: nop
 
-    func_80079F90(rdram, ctx);
+    displayText_AddEntry(rdram, ctx);
         goto after_34;
     // 0x80092378: nop
 
@@ -26755,7 +26755,7 @@ L_80092598:
     // 0x800925E0: jal         0x80079F90
     // 0x800925E4: nop
 
-    func_80079F90(rdram, ctx);
+    displayText_AddEntry(rdram, ctx);
         goto after_41;
     // 0x800925E4: nop
 
@@ -38070,7 +38070,7 @@ L_80096FE0:
     // 0x80097024: jal         0x8007AF88
     // 0x80097028: nop
 
-    func_8007AF88(rdram, ctx);
+    displayText_EncodeEntry(rdram, ctx);
         goto after_256;
     // 0x80097028: nop
 
@@ -39418,7 +39418,7 @@ L_800977F4:
     // 0x80097848: jal         0x8007AF88
     // 0x8009784C: addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
-    func_8007AF88(rdram, ctx);
+    displayText_EncodeEntry(rdram, ctx);
         goto after_292;
     // 0x8009784C: addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
@@ -66639,7 +66639,7 @@ L_800A2958:
     // 0x800A29A4: jal         0x80042800
     // 0x800A29A8: addiu       $a2, $a2, -0x1
     ctx->r6 = ADD32(ctx->r6, -0X1);
-    aiplayer_Init(rdram, ctx);
+    OpponentPlayer_Init(rdram, ctx);
         goto after_2;
     // 0x800A29A8: addiu       $a2, $a2, -0x1
     ctx->r6 = ADD32(ctx->r6, -0X1);

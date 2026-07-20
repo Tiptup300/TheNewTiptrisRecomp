@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void wonders4_800476f0_thirtyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders4_SetupWonderTextBox(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800476F0: addiu       $sp, $sp, -0x38

@@ -23,7 +23,7 @@ RECOMP_FUNC void Garbage_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x80072D58: jal         0x80072E2C
     // 0x80072D5C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    Garbage_80072e2c_set_arg0p_to_arg1(rdram, ctx);
+    Garbage_SetActive(rdram, ctx);
         goto after_0;
     // 0x80072D5C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -163,7 +163,7 @@ RECOMP_FUNC void Garbage_Deinit(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X1, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void Garbage_80072e2c_set_arg0p_to_arg1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_SetActive(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072E2C: jr          $ra
@@ -174,7 +174,7 @@ RECOMP_FUNC void Garbage_80072e2c_set_arg0p_to_arg1(uint8_t* rdram, recomp_conte
     MEM_B(0X0, ctx->r4) = ctx->r5;
 ;}
 
-RECOMP_FUNC void func_80072E34(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_SetColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072E34: jr          $ra
@@ -185,7 +185,7 @@ RECOMP_FUNC void func_80072E34(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X1D, ctx->r4) = ctx->r5;
 ;}
 
-RECOMP_FUNC void func_80072E3C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_StepDrop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072E3C: addiu       $sp, $sp, -0x28
@@ -351,7 +351,7 @@ L_80072F0C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80072F1C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072F1C: addiu       $sp, $sp, -0x28
@@ -419,7 +419,7 @@ L_80072F68:
     // 0x80072F78: jal         0x80072E3C
     // 0x80072F7C: nop
 
-    func_80072E3C(rdram, ctx);
+    Garbage_StepDrop(rdram, ctx);
         goto after_0;
     // 0x80072F7C: nop
 
@@ -476,7 +476,7 @@ RECOMP_FUNC void Garbage_GetState(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_80072FC4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_UpdatePending(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072FC4: lui         $a0, 0x8012
@@ -536,7 +536,7 @@ L_8007300C:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_80073014(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_AddRowOffset(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073014: lbu         $t6, 0x1C($a0)
@@ -557,7 +557,7 @@ RECOMP_FUNC void func_80073014(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X8, ctx->r4) = ctx->r25;
 ;}
 
-RECOMP_FUNC void func_80073030(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_ApplyIncoming(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073030: addiu       $sp, $sp, -0x28
@@ -703,7 +703,7 @@ L_800730DC:
     // 0x80073110: jal         0x80073014
     // 0x80073114: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
-    func_80073014(rdram, ctx);
+    Garbage_AddRowOffset(rdram, ctx);
         goto after_0;
     // 0x80073114: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
@@ -725,7 +725,7 @@ L_80073118:
 
 ;}
 
-RECOMP_FUNC void func_80073130(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_InitBlock(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073130: or          $a2, $zero, $zero
@@ -785,7 +785,7 @@ RECOMP_FUNC void func_80073170(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X0, ctx->r29) = ctx->r4;
 ;}
 
-RECOMP_FUNC void func_80073178(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_SetCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073178: andi        $a1, $a1, 0xFF
@@ -802,7 +802,7 @@ RECOMP_FUNC void func_80073178(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X1, ctx->r14) = ctx->r6;
 ;}
 
-RECOMP_FUNC void func_8007318C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_FillBlock(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007318C: addiu       $sp, $sp, -0x28
@@ -833,7 +833,7 @@ L_800731AC:
     // 0x800731B4: jal         0x80073178
     // 0x800731B8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    func_80073178(rdram, ctx);
+    GarbageFx_SetCell(rdram, ctx);
         goto after_0;
     // 0x800731B8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -871,7 +871,7 @@ L_800731CC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_800731EC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_DrawBlock(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800731EC: addiu       $sp, $sp, -0x58
@@ -1425,7 +1425,7 @@ L_800735AC:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void func_800735D8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_DrawBlocks(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800735D8: addiu       $sp, $sp, -0x28
@@ -1504,7 +1504,7 @@ L_80073634:
     // 0x80073648: jal         0x800731EC
     // 0x8007364C: addu        $a0, $t1, $t2
     ctx->r4 = ADD32(ctx->r9, ctx->r10);
-    func_800731EC(rdram, ctx);
+    GarbageFx_DrawBlock(rdram, ctx);
         goto after_2;
     // 0x8007364C: addu        $a0, $t1, $t2
     ctx->r4 = ADD32(ctx->r9, ctx->r10);
@@ -1562,7 +1562,7 @@ RECOMP_FUNC void func_80073688(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X0, ctx->r29) = ctx->r4;
 ;}
 
-RECOMP_FUNC void func_80073690(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_SetBlockCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073690: addiu       $sp, $sp, -0x18
@@ -1596,7 +1596,7 @@ RECOMP_FUNC void func_80073690(uint8_t* rdram, recomp_context* ctx) {
     // 0x800736C8: jal         0x80073178
     // 0x800736CC: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    func_80073178(rdram, ctx);
+    GarbageFx_SetCell(rdram, ctx);
         goto after_0;
     // 0x800736CC: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -1613,7 +1613,7 @@ RECOMP_FUNC void func_80073690(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800736E0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_ConfigBlocks(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800736E0: addiu       $sp, $sp, -0x28
@@ -1662,7 +1662,7 @@ L_80073710:
     // 0x8007372C: jal         0x80073178
     // 0x80073730: addu        $a0, $t9, $t0
     ctx->r4 = ADD32(ctx->r25, ctx->r8);
-    func_80073178(rdram, ctx);
+    GarbageFx_SetCell(rdram, ctx);
         goto after_0;
     // 0x80073730: addu        $a0, $t9, $t0
     ctx->r4 = ADD32(ctx->r25, ctx->r8);
@@ -1703,7 +1703,7 @@ L_80073750:
     // 0x8007376C: jal         0x8007318C
     // 0x80073770: addu        $a0, $t4, $t6
     ctx->r4 = ADD32(ctx->r12, ctx->r14);
-    func_8007318C(rdram, ctx);
+    GarbageFx_FillBlock(rdram, ctx);
         goto after_1;
     // 0x80073770: addu        $a0, $t4, $t6
     ctx->r4 = ADD32(ctx->r12, ctx->r14);
@@ -1720,7 +1720,7 @@ L_80073750:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80073784(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_FillAllBlocks(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073784: addiu       $sp, $sp, -0x28
@@ -1765,7 +1765,7 @@ L_800737B0:
     // 0x800737C8: jal         0x8007318C
     // 0x800737CC: addu        $a0, $t9, $t0
     ctx->r4 = ADD32(ctx->r25, ctx->r8);
-    func_8007318C(rdram, ctx);
+    GarbageFx_FillBlock(rdram, ctx);
         goto after_0;
     // 0x800737CC: addu        $a0, $t9, $t0
     ctx->r4 = ADD32(ctx->r25, ctx->r8);
@@ -1801,7 +1801,7 @@ L_800737EC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_800737FC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_InitGeometry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800737FC: lw          $t7, 0x0($a0)
@@ -1970,7 +1970,7 @@ RECOMP_FUNC void func_800737FC(uint8_t* rdram, recomp_context* ctx) {
     MEM_H(0X22, ctx->r4) = ctx->r24;
 ;}
 
-RECOMP_FUNC void func_80073940(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_Alloc(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073940: lui         $t6, 0x8012
@@ -2077,7 +2077,7 @@ L_800739D0:
     // 0x800739E8: jal         0x80073130
     // 0x800739EC: addu        $a0, $t6, $t7
     ctx->r4 = ADD32(ctx->r14, ctx->r15);
-    func_80073130(rdram, ctx);
+    GarbageFx_InitBlock(rdram, ctx);
         goto after_1;
     // 0x800739EC: addu        $a0, $t6, $t7
     ctx->r4 = ADD32(ctx->r14, ctx->r15);
@@ -2176,7 +2176,7 @@ L_80073A64:
     // 0x80073A68: jal         0x800737FC
     // 0x80073A6C: nop
 
-    func_800737FC(rdram, ctx);
+    GarbageFx_InitGeometry(rdram, ctx);
         goto after_3;
     // 0x80073A6C: nop
 
@@ -2222,7 +2222,7 @@ L_80073A90:
     // 0x80073AA4: jal         0x800736E0
     // 0x80073AA8: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    func_800736E0(rdram, ctx);
+    GarbageFx_ConfigBlocks(rdram, ctx);
         goto after_5;
     // 0x80073AA8: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -2244,7 +2244,7 @@ L_80073AAC:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void func_80073AC4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_Free(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073AC4: addiu       $sp, $sp, -0x28
@@ -2335,7 +2335,7 @@ L_80073B24:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80073B48(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Garbage_LoadTexture(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073B48: addiu       $sp, $sp, -0x28
@@ -2357,7 +2357,7 @@ RECOMP_FUNC void func_80073B48(uint8_t* rdram, recomp_context* ctx) {
     // 0x80073B60: jal         0x80074888
     // 0x80073B64: addiu       $a1, $zero, 0x50
     ctx->r5 = ADD32(0, 0X50);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x80073B64: addiu       $a1, $zero, 0x50
     ctx->r5 = ADD32(0, 0X50);
@@ -2387,7 +2387,7 @@ RECOMP_FUNC void func_80073B48(uint8_t* rdram, recomp_context* ctx) {
     // 0x80073B8C: jal         0x800746C0
     // 0x80073B90: addiu       $a2, $zero, 0x50
     ctx->r6 = ADD32(0, 0X50);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x80073B90: addiu       $a2, $zero, 0x50
     ctx->r6 = ADD32(0, 0X50);
@@ -2437,7 +2437,7 @@ RECOMP_FUNC void Garbage_FreeTexture(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80073BD0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_CycleColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073BD0: lui         $a2, 0x8012
@@ -2540,7 +2540,7 @@ L_80073C58:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_80073C60(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_ChooseColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80073C60: addiu       $sp, $sp, -0x48
@@ -2590,7 +2590,7 @@ RECOMP_FUNC void func_80073C60(uint8_t* rdram, recomp_context* ctx) {
     // 0x80073CA0: jal         0x80073BD0
     // 0x80073CA4: nop
 
-    func_80073BD0(rdram, ctx);
+    GarbageFx_CycleColor(rdram, ctx);
         goto after_1;
     // 0x80073CA4: nop
 
@@ -2651,7 +2651,7 @@ L_80073CE4:
     // 0x80073CE8: jal         0x80073BD0
     // 0x80073CEC: nop
 
-    func_80073BD0(rdram, ctx);
+    GarbageFx_CycleColor(rdram, ctx);
         goto after_4;
     // 0x80073CEC: nop
 
@@ -3516,7 +3516,7 @@ RECOMP_FUNC void func_80074024(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X58);
 ;}
 
-RECOMP_FUNC void func_8007434C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007434C: addiu       $sp, $sp, -0x28
@@ -3544,7 +3544,7 @@ RECOMP_FUNC void func_8007434C(uint8_t* rdram, recomp_context* ctx) {
     // 0x80074370: jal         0x80073C60
     // 0x80074374: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    func_80073C60(rdram, ctx);
+    GarbageFx_ChooseColor(rdram, ctx);
         goto after_0;
     // 0x80074374: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
@@ -3656,7 +3656,7 @@ L_800743E8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_800743F8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageFx_InitIndicator(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800743F8: addiu       $sp, $sp, -0x18
@@ -3787,7 +3787,7 @@ RECOMP_FUNC void func_800744C0(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800744D0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageImg_ExtractSprite(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800744D0: addiu       $sp, $sp, -0x38
@@ -3966,7 +3966,7 @@ L_8007452C:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void func_800745DC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageImg_GetSpriteSize(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800745DC: lui         $t6, 0x800D
@@ -4117,7 +4117,7 @@ L_80074634:
     ctx->r2 = SUB32(ctx->r8, ctx->r9);
 ;}
 
-RECOMP_FUNC void FUN_03A750_800746c0_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageImg_DecodeSprite(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800746C0: addiu       $sp, $sp, -0x50
@@ -4418,7 +4418,7 @@ L_8007485C:
     ctx->r29 = ADD32(ctx->r29, 0X50);
 ;}
 
-RECOMP_FUNC void FUN_03A750_80074888_twelveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageImg_GetDecodedSize(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074888: lui         $t6, 0x800D
@@ -4603,7 +4603,7 @@ L_800748E0:
 
 ;}
 
-RECOMP_FUNC void func_800749A0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Particle_Spawn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800749A0: addiu       $sp, $sp, -0x28
@@ -4930,7 +4930,7 @@ L_80074B4C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80074B80(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Particle_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074B80: addiu       $sp, $sp, -0x18
@@ -5045,7 +5045,7 @@ L_80074BA0:
     // 0x80074C48: jal         0x800749A0
     // 0x80074C4C: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
-    func_800749A0(rdram, ctx);
+    Particle_Spawn(rdram, ctx);
         goto after_0;
     // 0x80074C4C: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
@@ -5084,7 +5084,7 @@ L_80074C70:
 
 ;}
 
-RECOMP_FUNC void func_80074C80(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Particle_Render(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074C80: addiu       $sp, $sp, -0x28
@@ -5247,7 +5247,7 @@ L_80074D68:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80074D7C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_Diffuse(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074D7C: lui         $t6, 0x800E
@@ -5375,7 +5375,7 @@ L_80074E34:
     ctx->r29 = ADD32(ctx->r29, 0X18);
 ;}
 
-RECOMP_FUNC void func_80074E3C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_SeedRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074E3C: addiu       $sp, $sp, -0x28
@@ -5464,7 +5464,7 @@ L_80074EB0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80074EC4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074EC4: addiu       $sp, $sp, -0x20
@@ -5478,7 +5478,7 @@ RECOMP_FUNC void func_80074EC4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80074ED4: jal         0x80074D7C
     // 0x80074ED8: nop
 
-    func_80074D7C(rdram, ctx);
+    Smoke_Diffuse(rdram, ctx);
         goto after_0;
     // 0x80074ED8: nop
 
@@ -5498,7 +5498,7 @@ RECOMP_FUNC void func_80074EC4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80074EF4: jal         0x80074B80
     // 0x80074EF8: nop
 
-    func_80074B80(rdram, ctx);
+    Particle_Update(rdram, ctx);
         goto after_1;
     // 0x80074EF8: nop
 
@@ -5526,7 +5526,7 @@ RECOMP_FUNC void func_80074EC4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80074F24: jal         0x80074C80
     // 0x80074F28: sw          $t1, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r9;
-    func_80074C80(rdram, ctx);
+    Particle_Render(rdram, ctx);
         goto after_2;
     // 0x80074F28: sw          $t1, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r9;
@@ -5543,7 +5543,7 @@ RECOMP_FUNC void func_80074EC4(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80074F3C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80074F3C: lui         $a1, 0x800E
@@ -5930,7 +5930,7 @@ RECOMP_FUNC void func_800751C0(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X10);
 ;}
 
-RECOMP_FUNC void func_80075218(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_SetOrigin(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075218: lbu         $t6, 0x14($a0)
@@ -5955,7 +5955,7 @@ RECOMP_FUNC void func_80075218(uint8_t* rdram, recomp_context* ctx) {
     MEM_H(0X2, ctx->r4) = ctx->r9;
 ;}
 
-RECOMP_FUNC void func_8007523C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007523C: addiu       $sp, $sp, -0x28
@@ -6185,7 +6185,7 @@ L_800753AC:
     // 0x800753BC: jal         0x800749A0
     // 0x800753C0: nop
 
-    func_800749A0(rdram, ctx);
+    Particle_Spawn(rdram, ctx);
         goto after_5;
     // 0x800753C0: nop
 
@@ -6212,7 +6212,7 @@ L_800753D0:
     // 0x800753E0: jal         0x80075218
     // 0x800753E4: nop
 
-    func_80075218(rdram, ctx);
+    Smoke_SetOrigin(rdram, ctx);
         goto after_6;
     // 0x800753E4: nop
 
@@ -6234,7 +6234,7 @@ L_800753EC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80075400(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Smoke_Free(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075400: addiu       $sp, $sp, -0x18
@@ -6317,7 +6317,7 @@ RECOMP_FUNC void func_80075400(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80075480(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageImg_BlendRGB565(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075480: addiu       $sp, $sp, -0x60
@@ -6624,7 +6624,7 @@ L_80075678:
     ctx->r2 = 0 | 0;
 ;}
 
-RECOMP_FUNC void func_800756A8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GarbageImg_FreeBlend(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800756A8: addiu       $sp, $sp, -0x18
@@ -6686,7 +6686,7 @@ RECOMP_FUNC void func_800756E0(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X68);
 ;}
 
-RECOMP_FUNC void func_80075700(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void ImageRect_SetDims(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075700: lui         $t6, 0x1
@@ -6751,7 +6751,7 @@ L_80075740:
 
 ;}
 
-RECOMP_FUNC void func_80075760(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void ImageRect_SetMode(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075760: andi        $a1, $a1, 0xFF
@@ -6826,7 +6826,7 @@ L_800757B4:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_800757BC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void ImageRect_SetSource(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800757BC: lbu         $t0, 0x5C($a0)
@@ -6931,7 +6931,7 @@ L_80075828:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_80075830(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void ImageRect_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075830: addiu       $sp, $sp, -0x18
@@ -6951,7 +6951,7 @@ RECOMP_FUNC void func_80075830(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075844: jal         0x80075760
     // 0x80075848: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    func_80075760(rdram, ctx);
+    ImageRect_SetMode(rdram, ctx);
         goto after_1;
     // 0x80075848: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -6965,7 +6965,7 @@ RECOMP_FUNC void func_80075830(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075858: jal         0x800757BC
     // 0x8007585C: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    func_800757BC(rdram, ctx);
+    ImageRect_SetSource(rdram, ctx);
         goto after_2;
     // 0x8007585C: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -6982,7 +6982,7 @@ RECOMP_FUNC void func_80075830(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80075870(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void ImageRect_Reset(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075870: addiu       $sp, $sp, -0x18
@@ -6996,7 +6996,7 @@ RECOMP_FUNC void func_80075870(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075880: jal         0x80075760
     // 0x80075884: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    func_80075760(rdram, ctx);
+    ImageRect_SetMode(rdram, ctx);
         goto after_0;
     // 0x80075884: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -7010,7 +7010,7 @@ RECOMP_FUNC void func_80075870(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075894: jal         0x800757BC
     // 0x80075898: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    func_800757BC(rdram, ctx);
+    ImageRect_SetSource(rdram, ctx);
         goto after_1;
     // 0x80075898: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;

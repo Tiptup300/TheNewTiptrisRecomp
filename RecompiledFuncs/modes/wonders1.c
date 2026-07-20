@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void wonders1_80043810_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_HandleButtonInput(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80043810: addiu       $sp, $sp, -0x28
@@ -107,7 +107,7 @@ L_80043898:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void wonders1_800438a8_mediumliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_AnimateWonderTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800438A8: addiu       $sp, $sp, -0x28
@@ -729,7 +729,7 @@ L_80043C6C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void wonders1_80043c7c_thirtyliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_BuildWonderDisplay(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80043C7C: addiu       $sp, $sp, -0x28
@@ -1087,7 +1087,7 @@ L_80043E98:
     // 0x80043EBC: jal         0x800476F0
     // 0x80043EC0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    wonders4_800476f0_thirtyliner(rdram, ctx);
+    wonders4_SetupWonderTextBox(rdram, ctx);
         goto after_9;
     // 0x80043EC0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -1444,7 +1444,7 @@ L_800440D8:
     // 0x800440FC: jal         0x800476F0
     // 0x80044100: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
-    wonders4_800476f0_thirtyliner(rdram, ctx);
+    wonders4_SetupWonderTextBox(rdram, ctx);
         goto after_7;
     // 0x80044100: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
@@ -1465,7 +1465,7 @@ L_800440D8:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void wonders1_8004411c_tenliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_CreateColumnTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004411C: addiu       $sp, $sp, -0x28
@@ -1616,7 +1616,7 @@ L_80044208:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void wonders1_80044218_tenliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_FreeColumnTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80044218: addiu       $sp, $sp, -0x28
@@ -1809,7 +1809,7 @@ RECOMP_FUNC void wonders1_checks_num_wonders_completed_q(uint8_t* rdram, recomp_
     // 0x80044330: jal         0x800438A8
     // 0x80044334: nop
 
-    wonders1_800438a8_mediumliner_loop(rdram, ctx);
+    wonders1_AnimateWonderTiles(rdram, ctx);
         goto after_0;
     // 0x80044334: nop
 
@@ -1940,7 +1940,7 @@ L_800443E0:
     // 0x800443E4: jal         0x800438A8
     // 0x800443E8: nop
 
-    wonders1_800438a8_mediumliner_loop(rdram, ctx);
+    wonders1_AnimateWonderTiles(rdram, ctx);
         goto after_6;
     // 0x800443E8: nop
 
@@ -2000,7 +2000,7 @@ RECOMP_FUNC void wonders1_80044424_threeliner(uint8_t* rdram, recomp_context* ct
     // 0x80044434: jal         0x80043C7C
     // 0x80044438: nop
 
-    wonders1_80043c7c_thirtyliner_loop(rdram, ctx);
+    wonders1_BuildWonderDisplay(rdram, ctx);
         goto after_0;
     // 0x80044438: nop
 
@@ -2043,7 +2043,7 @@ RECOMP_FUNC void wonders1_80044464_threeliner(uint8_t* rdram, recomp_context* ct
     // 0x80044474: jal         0x8004411C
     // 0x80044478: nop
 
-    wonders1_8004411c_tenliner_loop(rdram, ctx);
+    wonders1_CreateColumnTiles(rdram, ctx);
         goto after_0;
     // 0x80044478: nop
 
@@ -2146,7 +2146,7 @@ L_800444F0:
     // 0x800444F0: jal         0x80043810
     // 0x800444F4: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders1_80043810_eightliner(rdram, ctx);
+    wonders1_HandleButtonInput(rdram, ctx);
         goto after_0;
     // 0x800444F4: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2205,7 +2205,7 @@ L_80044534:
     // 0x80044534: jal         0x80044218
     // 0x80044538: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders1_80044218_tenliner_loop(rdram, ctx);
+    wonders1_FreeColumnTiles(rdram, ctx);
         goto after_3;
     // 0x80044538: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2228,7 +2228,7 @@ L_8004454C:
     // 0x8004454C: jal         0x80044218
     // 0x80044550: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders1_80044218_tenliner_loop(rdram, ctx);
+    wonders1_FreeColumnTiles(rdram, ctx);
         goto after_5;
     // 0x80044550: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2277,7 +2277,7 @@ L_80044564:
     // 0x80044590: jal         0x80044218
     // 0x80044594: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders1_80044218_tenliner_loop(rdram, ctx);
+    wonders1_FreeColumnTiles(rdram, ctx);
         goto after_7;
     // 0x80044594: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2302,7 +2302,7 @@ L_800445AC:
     // 0x800445AC: jal         0x80044218
     // 0x800445B0: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders1_80044218_tenliner_loop(rdram, ctx);
+    wonders1_FreeColumnTiles(rdram, ctx);
         goto after_9;
     // 0x800445B0: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2497,7 +2497,7 @@ L_80044688:
 
 ;}
 
-RECOMP_FUNC void wonders1_800446ac_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_UpdatePulseAlpha(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800446AC: andi        $a0, $a0, 0xFF
@@ -3494,7 +3494,7 @@ L_80044C0C:
     // 0x80044C44: jal         0x800446AC
     // 0x80044C48: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
-    wonders1_800446ac_eightliner(rdram, ctx);
+    wonders1_UpdatePulseAlpha(rdram, ctx);
         goto after_22;
     // 0x80044C48: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
@@ -4242,7 +4242,7 @@ L_800450C8:
     // 0x800450D8: jal         0x800446AC
     // 0x800450DC: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
-    wonders1_800446ac_eightliner(rdram, ctx);
+    wonders1_UpdatePulseAlpha(rdram, ctx);
         goto after_5;
     // 0x800450DC: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
@@ -5071,7 +5071,7 @@ L_80045598:
     ctx->r29 = ADD32(ctx->r29, 0X70);
 ;}
 
-RECOMP_FUNC void wonders1_800455bc_inc_won_compl_q(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void wonders1_RenderWonderStats(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800455BC: addiu       $sp, $sp, -0x68
@@ -6046,7 +6046,7 @@ L_80045B3C:
     // 0x80045B3C: jal         0x800455BC
     // 0x80045B40: nop
 
-    wonders1_800455bc_inc_won_compl_q(rdram, ctx);
+    wonders1_RenderWonderStats(rdram, ctx);
         goto after_18;
     // 0x80045B40: nop
 
@@ -6091,7 +6091,7 @@ L_80045B5C:
     // 0x80045B70: jal         0x800455BC
     // 0x80045B74: nop
 
-    wonders1_800455bc_inc_won_compl_q(rdram, ctx);
+    wonders1_RenderWonderStats(rdram, ctx);
         goto after_20;
     // 0x80045B74: nop
 
@@ -6351,7 +6351,7 @@ RECOMP_FUNC void wonders1_calls_music_400x300_magic(uint8_t* rdram, recomp_conte
     // 0x80045CCC: jal         0x80044218
     // 0x80045CD0: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    wonders1_80044218_tenliner_loop(rdram, ctx);
+    wonders1_FreeColumnTiles(rdram, ctx);
         goto after_2;
     // 0x80045CD0: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;

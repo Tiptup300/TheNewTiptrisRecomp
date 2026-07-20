@@ -289,7 +289,7 @@ L_800834BC:
     // 0x800834CC: jal         0x8008023C
     // 0x800834D0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    EndScroller_8008023c_line_452(rdram, ctx);
+    EndScroller_Update(rdram, ctx);
         goto after_2;
     // 0x800834D0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -320,7 +320,7 @@ L_800834F0:
     // 0x800834F4: jal         0x80080400
     // 0x800834F8: addiu       $a0, $a0, 0x248
     ctx->r4 = ADD32(ctx->r4, 0X248);
-    EndScroller_80080400_line_502(rdram, ctx);
+    EndScroller_Draw(rdram, ctx);
         goto after_3;
     // 0x800834F8: addiu       $a0, $a0, 0x248
     ctx->r4 = ADD32(ctx->r4, 0X248);

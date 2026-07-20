@@ -76,7 +76,7 @@ RECOMP_FUNC void Font_Init46Char(uint8_t* rdram, recomp_context* ctx) {
     // 0x80077434: jal         0x80074888
     // 0x80077438: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x80077438: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -106,7 +106,7 @@ RECOMP_FUNC void Font_Init46Char(uint8_t* rdram, recomp_context* ctx) {
     // 0x80077460: jal         0x800746C0
     // 0x80077464: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x80077464: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -384,7 +384,7 @@ RECOMP_FUNC void Font_Init51Char(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007763C: jal         0x80074888
     // 0x80077640: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x80077640: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -414,7 +414,7 @@ RECOMP_FUNC void Font_Init51Char(uint8_t* rdram, recomp_context* ctx) {
     // 0x80077668: jal         0x800746C0
     // 0x8007766C: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x8007766C: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);

@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void aiplayer_Init(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void OpponentPlayer_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80042800: addiu       $sp, $sp, -0x38
@@ -532,7 +532,7 @@ L_80042B28:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void aiplayer_Deinit(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void OpponentPlayer_Deinit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80042B3C: lui         $t6, 0x800C
@@ -594,7 +594,7 @@ L_80042B78:
 
 ;}
 
-RECOMP_FUNC void aiplayer_DecideMove(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void OpponentPlayer_DecideMove(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80042B88: addiu       $sp, $sp, -0x60
@@ -1562,7 +1562,7 @@ L_800430F0:
     ctx->r29 = ADD32(ctx->r29, 0X60);
 ;}
 
-RECOMP_FUNC void aiplayer_Update(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void OpponentPlayer_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004311C: addiu       $sp, $sp, -0x48
@@ -1676,7 +1676,7 @@ RECOMP_FUNC void aiplayer_Update(uint8_t* rdram, recomp_context* ctx) {
     // 0x800431CC: jal         0x80042B88
     // 0x800431D0: nop
 
-    aiplayer_DecideMove(rdram, ctx);
+    OpponentPlayer_DecideMove(rdram, ctx);
         goto after_0;
     // 0x800431D0: nop
 
@@ -2584,7 +2584,7 @@ L_800436EC:
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void aiplayer_RequestDecision(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void OpponentPlayer_RequestDecision(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004370C: lui         $t6, 0x800C
@@ -2648,7 +2648,7 @@ L_80043764:
 
 ;}
 
-RECOMP_FUNC void aiplayer_UpdateTarget(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void OpponentPlayer_UpdateTarget(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004376C: lui         $t6, 0x800C

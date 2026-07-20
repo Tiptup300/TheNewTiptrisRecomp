@@ -285,7 +285,7 @@ RECOMP_FUNC void Audio_InitAudio(uint8_t* rdram, recomp_context* ctx) {
     // 0x800848E4: jal         0x80074888
     // 0x800848E8: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_9;
     // 0x800848E8: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -311,7 +311,7 @@ RECOMP_FUNC void Audio_InitAudio(uint8_t* rdram, recomp_context* ctx) {
     // 0x80084908: jal         0x80074888
     // 0x8008490C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_11;
     // 0x8008490C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -325,7 +325,7 @@ RECOMP_FUNC void Audio_InitAudio(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008491C: jal         0x80074888
     // 0x80084920: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_12;
     // 0x80084920: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -377,7 +377,7 @@ RECOMP_FUNC void Audio_InitAudio(uint8_t* rdram, recomp_context* ctx) {
     // 0x8008496C: jal         0x800746C0
     // 0x80084970: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_15;
     // 0x80084970: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -638,7 +638,7 @@ RECOMP_FUNC void Audio_ChangeSong(uint8_t* rdram, recomp_context* ctx) {
     // 0x80084AF4: jal         0x80074888
     // 0x80084AF8: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x80084AF8: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
@@ -662,7 +662,7 @@ RECOMP_FUNC void Audio_ChangeSong(uint8_t* rdram, recomp_context* ctx) {
     // 0x80084B14: jal         0x80074888
     // 0x80084B18: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_3;
     // 0x80084B18: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
@@ -676,7 +676,7 @@ RECOMP_FUNC void Audio_ChangeSong(uint8_t* rdram, recomp_context* ctx) {
     // 0x80084B28: jal         0x80074888
     // 0x80084B2C: or          $s2, $v0, $zero
     ctx->r18 = ctx->r2 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_4;
     // 0x80084B2C: or          $s2, $v0, $zero
     ctx->r18 = ctx->r2 | 0;
@@ -724,7 +724,7 @@ RECOMP_FUNC void Audio_ChangeSong(uint8_t* rdram, recomp_context* ctx) {
     // 0x80084B70: jal         0x800746C0
     // 0x80084B74: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_7;
     // 0x80084B74: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
@@ -1311,7 +1311,7 @@ L_80084E74:
     // 0x80084EF0: jal         0x800746C0
     // 0x80084EF4: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x80084EF4: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
@@ -1913,7 +1913,7 @@ L_80085260:
     // 0x80085268: jal         0x80074888
     // 0x8008526C: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_15;
     // 0x8008526C: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
@@ -1937,7 +1937,7 @@ L_80085260:
     // 0x80085288: jal         0x80074888
     // 0x8008528C: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_17;
     // 0x8008528C: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
@@ -1951,7 +1951,7 @@ L_80085260:
     // 0x8008529C: jal         0x80074888
     // 0x800852A0: or          $s2, $v0, $zero
     ctx->r18 = ctx->r2 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_18;
     // 0x800852A0: or          $s2, $v0, $zero
     ctx->r18 = ctx->r2 | 0;
@@ -1999,7 +1999,7 @@ L_80085260:
     // 0x800852E4: jal         0x800746C0
     // 0x800852E8: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_21;
     // 0x800852E8: addiu       $a0, $a0, -0x6550
     ctx->r4 = ADD32(ctx->r4, -0X6550);

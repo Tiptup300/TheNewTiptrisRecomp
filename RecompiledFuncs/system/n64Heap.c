@@ -4164,7 +4164,7 @@ L_8007F830:
     // 0x8007F868: jal         0x80074888
     // 0x8007F86C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_21;
     // 0x8007F86C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -4194,7 +4194,7 @@ L_8007F830:
     // 0x8007F894: jal         0x800746C0
     // 0x8007F898: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_23;
     // 0x8007F898: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -4206,7 +4206,7 @@ L_8007F830:
     // 0x8007F8A4: jal         0x80074888
     // 0x8007F8A8: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_24;
     // 0x8007F8A8: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -4236,7 +4236,7 @@ L_8007F830:
     // 0x8007F8D0: jal         0x800746C0
     // 0x8007F8D4: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_26;
     // 0x8007F8D4: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -4766,7 +4766,7 @@ RECOMP_FUNC void func_8007FBB0(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007FBD0: jal         0x80074888
     // 0x8007FBD4: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_80074888_twelveliner(rdram, ctx);
+    GarbageImg_GetDecodedSize(rdram, ctx);
         goto after_1;
     // 0x8007FBD4: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
@@ -4796,7 +4796,7 @@ RECOMP_FUNC void func_8007FBB0(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007FBFC: jal         0x800746C0
     // 0x8007FC00: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);
-    FUN_03A750_800746c0_twentyliner(rdram, ctx);
+    GarbageImg_DecodeSprite(rdram, ctx);
         goto after_3;
     // 0x8007FC00: addiu       $a0, $a0, 0x3A00
     ctx->r4 = ADD32(ctx->r4, 0X3A00);

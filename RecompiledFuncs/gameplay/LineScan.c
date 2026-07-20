@@ -230,7 +230,7 @@ L_8006995C:
     // 0x80069980: jal         0x80073030
     // 0x80069984: addiu       $a0, $t1, -0x1
     ctx->r4 = ADD32(ctx->r9, -0X1);
-    func_80073030(rdram, ctx);
+    Garbage_ApplyIncoming(rdram, ctx);
         goto after_1;
     // 0x80069984: addiu       $a0, $t1, -0x1
     ctx->r4 = ADD32(ctx->r9, -0X1);
@@ -251,7 +251,7 @@ L_80069990:
     // 0x8006999C: jal         0x80073030
     // 0x800699A0: nop
 
-    func_80073030(rdram, ctx);
+    Garbage_ApplyIncoming(rdram, ctx);
         goto after_2;
     // 0x800699A0: nop
 
@@ -406,7 +406,7 @@ L_80069A60:
     // 0x80069A74: jal         0x80073030
     // 0x80069A78: addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
-    func_80073030(rdram, ctx);
+    Garbage_ApplyIncoming(rdram, ctx);
         goto after_9;
     // 0x80069A78: addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
