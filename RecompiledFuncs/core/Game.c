@@ -3600,7 +3600,7 @@ L_80051E74:
     // 0x80051E7C: jal         0x800763EC
     // 0x80051E80: nop
 
-    func_800763EC(rdram, ctx);
+    CubeTiles_UpdateGrid(rdram, ctx);
         goto after_4;
     // 0x80051E80: nop
 
@@ -3816,7 +3816,7 @@ L_80051F6C:
     // 0x80051F9C: jal         0x80072A84
     // 0x80051FA0: sw          $t1, -0x390($at)
     MEM_W(-0X390, ctx->r1) = ctx->r9;
-    func_80072A84(rdram, ctx);
+    Landfill_Update(rdram, ctx);
         goto after_2;
     // 0x80051FA0: sw          $t1, -0x390($at)
     MEM_W(-0X390, ctx->r1) = ctx->r9;

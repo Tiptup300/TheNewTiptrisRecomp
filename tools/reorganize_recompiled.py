@@ -78,7 +78,7 @@ DOMAINS = {
     "Cube": "gameplay", "LineScan": "gameplay", "LineEffect": "gameplay",
     "Landfill": "gameplay", "Garbage": "gameplay", "Multisquare": "gameplay",
     "MultisquareGlow": "gameplay", "Multisquares": "gameplay", "GameStats": "gameplay",
-    "KeySpin": "gameplay", "Ids": "gameplay",
+    "KeySpin": "gameplay", "Ids": "gameplay", "PauseMenu": "gameplay", "PV": "gameplay",
     # graphics / rendering
     "Minos": "graphics", "PFGFX": "graphics", "CubeTiles": "graphics",
     "displayText": "graphics", "Font": "graphics", "Color": "graphics",

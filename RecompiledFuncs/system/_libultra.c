@@ -54163,7 +54163,7 @@ RECOMP_FUNC void func_8009D5E4(uint8_t* rdram, recomp_context* ctx) {
     // 0x8009D650: jal         0x80084E20
     // 0x8009D654: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    Audio_80084e20_twentyliner(rdram, ctx);
+    Audio_StartSong(rdram, ctx);
         goto after_4;
     // 0x8009D654: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -61714,7 +61714,7 @@ RECOMP_FUNC void func_800A097C(uint8_t* rdram, recomp_context* ctx) {
     // 0x800A09B0: jal         0x80087618
     // 0x800A09B4: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
-    Audio2_80087618_fourteenliner_loops_256t(rdram, ctx);
+    Audio2_BuildVolumeTable(rdram, ctx);
         goto after_0;
     // 0x800A09B4: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;

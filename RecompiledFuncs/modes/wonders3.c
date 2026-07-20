@@ -543,7 +543,7 @@ L_80046714:
     // 0x80046720: jal         0x80076EC0
     // 0x80046724: nop
 
-    func_80076EC0(rdram, ctx);
+    CubeTiles_ObjCreate(rdram, ctx);
         goto after_0;
     // 0x80046724: nop
 
@@ -593,7 +593,7 @@ L_80046714:
     // 0x80046774: jal         0x800773A4
     // 0x80046778: nop
 
-    func_800773A4(rdram, ctx);
+    CubeTiles_ObjSetAnimating(rdram, ctx);
         goto after_2;
     // 0x80046778: nop
 
@@ -661,7 +661,7 @@ RECOMP_FUNC void wonders3_80046798_threeliner(uint8_t* rdram, recomp_context* ct
     // 0x800467D4: jal         0x80077028
     // 0x800467D8: nop
 
-    func_80077028(rdram, ctx);
+    CubeTiles_ObjFree(rdram, ctx);
         goto after_0;
     // 0x800467D8: nop
 
@@ -2130,7 +2130,7 @@ RECOMP_FUNC void wonders3_RenderWondersHall(uint8_t* rdram, recomp_context* ctx)
     // 0x8004704C: jal         0x80077098
     // 0x80047050: nop
 
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_1;
     // 0x80047050: nop
 

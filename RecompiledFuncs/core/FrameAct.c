@@ -1383,7 +1383,7 @@ RECOMP_FUNC void FrameAct_Render(uint8_t* rdram, recomp_context* ctx) {
     // 0x80053DE0: jal         0x80053280
     // 0x80053DE4: addiu       $a0, $t6, 0x10
     ctx->r4 = ADD32(ctx->r14, 0X10);
-    gamefinish_80053280_twoliner(rdram, ctx);
+    gamefinish_Draw(rdram, ctx);
         goto after_0;
     // 0x80053DE4: addiu       $a0, $t6, 0x10
     ctx->r4 = ADD32(ctx->r14, 0X10);
@@ -1455,7 +1455,7 @@ RECOMP_FUNC void FrameAct_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x80053E58: jal         0x80053390
     // 0x80053E5C: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
-    gamefinish_80053390_fiveliner(rdram, ctx);
+    gamefinish_StopAtBoardCenter(rdram, ctx);
         goto after_0;
     // 0x80053E5C: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
@@ -1490,7 +1490,7 @@ RECOMP_FUNC void FrameAct_Deinit(uint8_t* rdram, recomp_context* ctx) {
     // 0x80053E88: jal         0x80053400
     // 0x80053E8C: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);
-    gamefinish_80053400_fiveliner(rdram, ctx);
+    gamefinish_Stop(rdram, ctx);
         goto after_0;
     // 0x80053E8C: addiu       $a0, $a0, 0x10
     ctx->r4 = ADD32(ctx->r4, 0X10);

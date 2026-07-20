@@ -291,7 +291,7 @@ L_80075A60:
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void CubeTiles_80075a84_thirteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ApplyEdgeMask(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075A84: addiu       $sp, $sp, -0x18
@@ -781,7 +781,7 @@ L_80075D34:
     // 0x80075D4C: jal         0x80075A84
     // 0x80075D50: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    CubeTiles_80075a84_thirteenliner(rdram, ctx);
+    CubeTiles_ApplyEdgeMask(rdram, ctx);
         goto after_0;
     // 0x80075D50: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -864,7 +864,7 @@ RECOMP_FUNC void CubeTiles_Deinit(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X0, ctx->r29) = ctx->r4;
 ;}
 
-RECOMP_FUNC void func_80075DBC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_Expand4bitColors(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075DBC: or          $a1, $zero, $zero
@@ -909,7 +909,7 @@ L_80075DEC:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_InitColorTables(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075DF4: addiu       $sp, $sp, -0x18
@@ -921,7 +921,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E00: jal         0x80075DBC
     // 0x80075E04: addiu       $a0, $a0, 0x690
     ctx->r4 = ADD32(ctx->r4, 0X690);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_0;
     // 0x80075E04: addiu       $a0, $a0, 0x690
     ctx->r4 = ADD32(ctx->r4, 0X690);
@@ -931,7 +931,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E0C: jal         0x80075DBC
     // 0x80075E10: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_1;
     // 0x80075E10: addiu       $a0, $a0, 0x6B0
     ctx->r4 = ADD32(ctx->r4, 0X6B0);
@@ -941,7 +941,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E18: jal         0x80075DBC
     // 0x80075E1C: addiu       $a0, $a0, 0x6F0
     ctx->r4 = ADD32(ctx->r4, 0X6F0);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_2;
     // 0x80075E1C: addiu       $a0, $a0, 0x6F0
     ctx->r4 = ADD32(ctx->r4, 0X6F0);
@@ -951,7 +951,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E24: jal         0x80075DBC
     // 0x80075E28: addiu       $a0, $a0, 0x6D0
     ctx->r4 = ADD32(ctx->r4, 0X6D0);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_3;
     // 0x80075E28: addiu       $a0, $a0, 0x6D0
     ctx->r4 = ADD32(ctx->r4, 0X6D0);
@@ -961,7 +961,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E30: jal         0x80075DBC
     // 0x80075E34: addiu       $a0, $a0, 0x710
     ctx->r4 = ADD32(ctx->r4, 0X710);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_4;
     // 0x80075E34: addiu       $a0, $a0, 0x710
     ctx->r4 = ADD32(ctx->r4, 0X710);
@@ -971,7 +971,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E3C: jal         0x80075DBC
     // 0x80075E40: addiu       $a0, $a0, 0x730
     ctx->r4 = ADD32(ctx->r4, 0X730);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_5;
     // 0x80075E40: addiu       $a0, $a0, 0x730
     ctx->r4 = ADD32(ctx->r4, 0X730);
@@ -981,7 +981,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E48: jal         0x80075DBC
     // 0x80075E4C: addiu       $a0, $a0, 0x750
     ctx->r4 = ADD32(ctx->r4, 0X750);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_6;
     // 0x80075E4C: addiu       $a0, $a0, 0x750
     ctx->r4 = ADD32(ctx->r4, 0X750);
@@ -991,7 +991,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E54: jal         0x80075DBC
     // 0x80075E58: addiu       $a0, $a0, 0x770
     ctx->r4 = ADD32(ctx->r4, 0X770);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_7;
     // 0x80075E58: addiu       $a0, $a0, 0x770
     ctx->r4 = ADD32(ctx->r4, 0X770);
@@ -1001,7 +1001,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E60: jal         0x80075DBC
     // 0x80075E64: addiu       $a0, $a0, 0x790
     ctx->r4 = ADD32(ctx->r4, 0X790);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_8;
     // 0x80075E64: addiu       $a0, $a0, 0x790
     ctx->r4 = ADD32(ctx->r4, 0X790);
@@ -1011,7 +1011,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E6C: jal         0x80075DBC
     // 0x80075E70: addiu       $a0, $a0, 0x7F0
     ctx->r4 = ADD32(ctx->r4, 0X7F0);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_9;
     // 0x80075E70: addiu       $a0, $a0, 0x7F0
     ctx->r4 = ADD32(ctx->r4, 0X7F0);
@@ -1021,7 +1021,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E78: jal         0x80075DBC
     // 0x80075E7C: addiu       $a0, $a0, 0x810
     ctx->r4 = ADD32(ctx->r4, 0X810);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_10;
     // 0x80075E7C: addiu       $a0, $a0, 0x810
     ctx->r4 = ADD32(ctx->r4, 0X810);
@@ -1031,7 +1031,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E84: jal         0x80075DBC
     // 0x80075E88: addiu       $a0, $a0, 0x7B0
     ctx->r4 = ADD32(ctx->r4, 0X7B0);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_11;
     // 0x80075E88: addiu       $a0, $a0, 0x7B0
     ctx->r4 = ADD32(ctx->r4, 0X7B0);
@@ -1041,7 +1041,7 @@ RECOMP_FUNC void func_80075DF4(uint8_t* rdram, recomp_context* ctx) {
     // 0x80075E90: jal         0x80075DBC
     // 0x80075E94: addiu       $a0, $a0, 0x7D0
     ctx->r4 = ADD32(ctx->r4, 0X7D0);
-    func_80075DBC(rdram, ctx);
+    CubeTiles_Expand4bitColors(rdram, ctx);
         goto after_12;
     // 0x80075E94: addiu       $a0, $a0, 0x7D0
     ctx->r4 = ADD32(ctx->r4, 0X7D0);
@@ -1236,7 +1236,7 @@ RECOMP_FUNC void CubeTiles_Free(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80075FA0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ResetGridOffset(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075FA0: sh          $zero, 0x0($a0)
@@ -1249,7 +1249,7 @@ RECOMP_FUNC void func_80075FA0(uint8_t* rdram, recomp_context* ctx) {
     MEM_H(0X2, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void func_80075FAC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_RandomizeField(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80075FAC: addiu       $sp, $sp, -0x28
@@ -1448,7 +1448,7 @@ L_800760B0:
 
 ;}
 
-RECOMP_FUNC void func_800760F4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_InitField(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800760F4: addiu       $sp, $sp, -0x20
@@ -1556,7 +1556,7 @@ L_80076108:
     // 0x800761AC: jal         0x80075FAC
     // 0x800761B0: nop
 
-    func_80075FAC(rdram, ctx);
+    CubeTiles_RandomizeField(rdram, ctx);
         goto after_0;
     // 0x800761B0: nop
 
@@ -1579,7 +1579,7 @@ L_80076108:
 
 ;}
 
-RECOMP_FUNC void func_800761D0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_AdvanceField(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800761D0: addiu       $sp, $sp, -0x28
@@ -1718,7 +1718,7 @@ L_800761F4:
     // 0x800762B4: jal         0x80075FAC
     // 0x800762B8: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    func_80075FAC(rdram, ctx);
+    CubeTiles_RandomizeField(rdram, ctx);
         goto after_0;
     // 0x800762B8: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
@@ -1757,7 +1757,7 @@ L_800762DC:
 
 ;}
 
-RECOMP_FUNC void func_800762EC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_SampleField(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800762EC: sll         $a2, $a2, 16
@@ -1846,7 +1846,7 @@ RECOMP_FUNC void CubeTiles_AllocGrid(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007637C: jal         0x80075FA0
     // 0x80076380: nop
 
-    func_80075FA0(rdram, ctx);
+    CubeTiles_ResetGridOffset(rdram, ctx);
         goto after_1;
     // 0x80076380: nop
 
@@ -1870,7 +1870,7 @@ RECOMP_FUNC void CubeTiles_AllocGrid(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007639C: jal         0x800760F4
     // 0x800763A0: nop
 
-    func_800760F4(rdram, ctx);
+    CubeTiles_InitField(rdram, ctx);
         goto after_3;
     // 0x800763A0: nop
 
@@ -1930,7 +1930,7 @@ RECOMP_FUNC void CubeTiles_FreeGrid(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_800763EC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_UpdateGrid(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800763EC: addiu       $sp, $sp, -0x18
@@ -1948,7 +1948,7 @@ RECOMP_FUNC void func_800763EC(uint8_t* rdram, recomp_context* ctx) {
     // 0x80076404: jal         0x800761D0
     // 0x80076408: nop
 
-    func_800761D0(rdram, ctx);
+    CubeTiles_AdvanceField(rdram, ctx);
         goto after_0;
     // 0x80076408: nop
 
@@ -1965,7 +1965,7 @@ RECOMP_FUNC void func_800763EC(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_8007641C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_TileCoordsToPos(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007641C: lh          $t6, 0x0($a0)
@@ -2002,7 +2002,7 @@ RECOMP_FUNC void func_8007641C(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X4, ctx->r5) = ctx->r9;
 ;}
 
-RECOMP_FUNC void func_80076458(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_SampleTile(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80076458: addiu       $sp, $sp, -0x38
@@ -2032,7 +2032,7 @@ RECOMP_FUNC void func_80076458(uint8_t* rdram, recomp_context* ctx) {
     // 0x80076488: jal         0x800762EC
     // 0x8007648C: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    func_800762EC(rdram, ctx);
+    CubeTiles_SampleField(rdram, ctx);
         goto after_0;
     // 0x8007648C: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
@@ -2049,7 +2049,7 @@ RECOMP_FUNC void func_80076458(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void func_800764A0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_CopyTileBuffers(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800764A0: lw          $t6, 0x80($a1)
@@ -2593,7 +2593,7 @@ L_800767B0:
 
 ;}
 
-RECOMP_FUNC void func_800767C0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_UpdateAnim(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800767C0: addiu       $sp, $sp, -0x30
@@ -3837,7 +3837,7 @@ RECOMP_FUNC void func_80076EA8(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80076EC0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ObjCreate(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80076EC0: addiu       $sp, $sp, -0x18
@@ -3851,7 +3851,7 @@ RECOMP_FUNC void func_80076EC0(uint8_t* rdram, recomp_context* ctx) {
     // 0x80076ED0: jal         0x80076F20
     // 0x80076ED4: sw          $a1, 0x1C($sp)
     MEM_W(0X1C, ctx->r29) = ctx->r5;
-    func_80076F20(rdram, ctx);
+    CubeTiles_ObjInit(rdram, ctx);
         goto after_0;
     // 0x80076ED4: sw          $a1, 0x1C($sp)
     MEM_W(0X1C, ctx->r29) = ctx->r5;
@@ -3909,7 +3909,7 @@ L_80076F10:
 
 ;}
 
-RECOMP_FUNC void func_80076F20(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ObjInit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80076F20: addiu       $sp, $sp, -0x18
@@ -4092,7 +4092,7 @@ L_80076FF0:
 
 ;}
 
-RECOMP_FUNC void func_80077028(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ObjFree(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80077028: addiu       $sp, $sp, -0x18
@@ -4173,7 +4173,7 @@ L_80077088:
 
 ;}
 
-RECOMP_FUNC void func_80077098(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ObjDraw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80077098: addiu       $sp, $sp, -0x40
@@ -4649,7 +4649,7 @@ L_80077394:
     ctx->r29 = ADD32(ctx->r29, 0X40);
 ;}
 
-RECOMP_FUNC void func_800773A4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ObjSetAnimating(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800773A4: lbu         $t6, 0x20($a0)
@@ -4666,7 +4666,7 @@ RECOMP_FUNC void func_800773A4(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X20, ctx->r4) = ctx->r15;
 ;}
 
-RECOMP_FUNC void func_800773B8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void CubeTiles_ObjClearAnimating(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800773B8: lbu         $t6, 0x20($a0)

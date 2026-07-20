@@ -3615,7 +3615,7 @@ L_8008A99C:
     // 0x8008A9B4: jal         0x8008A61C
     // 0x8008A9B8: nop
 
-    Audio2_8008a61c_twelveliner(rdram, ctx);
+    Audio2_UpdateScheduledSFX(rdram, ctx);
         goto after_4;
     // 0x8008A9B8: nop
 

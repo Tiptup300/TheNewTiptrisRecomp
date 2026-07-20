@@ -190,7 +190,7 @@ L_8004391C:
     // 0x80043938: jal         0x80076EC0
     // 0x8004393C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    func_80076EC0(rdram, ctx);
+    CubeTiles_ObjCreate(rdram, ctx);
         goto after_0;
     // 0x8004393C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -677,7 +677,7 @@ L_80043C0C:
     // 0x80043C28: jal         0x800773B8
     // 0x80043C2C: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_11;
     // 0x80043C2C: nop
 
@@ -854,7 +854,7 @@ L_80043D30:
     // 0x80043D48: jal         0x80076EC0
     // 0x80043D4C: nop
 
-    func_80076EC0(rdram, ctx);
+    CubeTiles_ObjCreate(rdram, ctx);
         goto after_3;
     // 0x80043D4C: nop
 
@@ -1030,7 +1030,7 @@ L_80043E4C:
     // 0x80043E64: jal         0x800773B8
     // 0x80043E68: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_7;
     // 0x80043E68: nop
 
@@ -1203,7 +1203,7 @@ L_80043F64:
     // 0x80043F7C: jal         0x80076EC0
     // 0x80043F80: nop
 
-    func_80076EC0(rdram, ctx);
+    CubeTiles_ObjCreate(rdram, ctx);
         goto after_1;
     // 0x80043F80: nop
 
@@ -1548,7 +1548,7 @@ L_80044194:
     // 0x800441AC: jal         0x80076EC0
     // 0x800441B0: nop
 
-    func_80076EC0(rdram, ctx);
+    CubeTiles_ObjCreate(rdram, ctx);
         goto after_0;
     // 0x800441B0: nop
 
@@ -1716,7 +1716,7 @@ L_80044290:
     // 0x800442A8: jal         0x80077028
     // 0x800442AC: nop
 
-    func_80077028(rdram, ctx);
+    CubeTiles_ObjFree(rdram, ctx);
         goto after_1;
     // 0x800442AC: nop
 
@@ -3013,7 +3013,7 @@ L_80044938:
     // 0x800449A0: jal         0x800773A4
     // 0x800449A4: nop
 
-    func_800773A4(rdram, ctx);
+    CubeTiles_ObjSetAnimating(rdram, ctx);
         goto after_3;
     // 0x800449A4: nop
 
@@ -3113,7 +3113,7 @@ L_80044938:
     // 0x80044A34: jal         0x800773B8
     // 0x80044A38: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_7;
     // 0x80044A38: nop
 
@@ -3176,7 +3176,7 @@ L_80044A3C:
     // 0x80044A90: jal         0x800773B8
     // 0x80044A94: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_8;
     // 0x80044A94: nop
 
@@ -3417,7 +3417,7 @@ L_80044BCC:
     // 0x80044BDC: jal         0x80077098
     // 0x80044BE0: nop
 
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_18;
     // 0x80044BE0: nop
 
@@ -4095,7 +4095,7 @@ L_80044F50:
     // 0x80044FFC: jal         0x800773A4
     // 0x80045000: nop
 
-    func_800773A4(rdram, ctx);
+    CubeTiles_ObjSetAnimating(rdram, ctx);
         goto after_1;
     // 0x80045000: nop
 
@@ -4180,7 +4180,7 @@ L_8004502C:
     // 0x80045080: jal         0x800773B8
     // 0x80045084: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_2;
     // 0x80045084: nop
 
@@ -4197,7 +4197,7 @@ L_80045088:
     // 0x80045098: jal         0x80077098
     // 0x8004509C: nop
 
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_3;
     // 0x8004509C: nop
 
@@ -4430,7 +4430,7 @@ RECOMP_FUNC void wonders1_finale_or_hall(uint8_t* rdram, recomp_context* ctx) {
     // 0x800451F8: jal         0x800773A4
     // 0x800451FC: nop
 
-    func_800773A4(rdram, ctx);
+    CubeTiles_ObjSetAnimating(rdram, ctx);
         goto after_0;
     // 0x800451FC: nop
 
@@ -4609,7 +4609,7 @@ L_800452F4:
     // 0x80045300: jal         0x800773B8
     // 0x80045304: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_3;
     // 0x80045304: nop
 
@@ -4667,7 +4667,7 @@ L_80045344:
     // 0x80045350: jal         0x80077098
     // 0x80045354: nop
 
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_4;
     // 0x80045354: nop
 
@@ -5135,7 +5135,7 @@ RECOMP_FUNC void wonders1_800455bc_inc_won_compl_q(uint8_t* rdram, recomp_contex
     // 0x80045620: jal         0x800773A4
     // 0x80045624: nop
 
-    func_800773A4(rdram, ctx);
+    CubeTiles_ObjSetAnimating(rdram, ctx);
         goto after_0;
     // 0x80045624: nop
 
@@ -5238,7 +5238,7 @@ L_80045668:
     // 0x800456BC: jal         0x800773B8
     // 0x800456C0: nop
 
-    func_800773B8(rdram, ctx);
+    CubeTiles_ObjClearAnimating(rdram, ctx);
         goto after_2;
     // 0x800456C0: nop
 
@@ -5289,7 +5289,7 @@ L_800456FC:
     // 0x80045708: jal         0x80077098
     // 0x8004570C: nop
 
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_3;
     // 0x8004570C: nop
 

@@ -949,7 +949,7 @@ L_8007C168:
     // 0x8007C280: jal         0x80087618
     // 0x8007C284: nop
 
-    Audio2_80087618_fourteenliner_loops_256t(rdram, ctx);
+    Audio2_BuildVolumeTable(rdram, ctx);
         goto after_12;
     // 0x8007C284: nop
 
@@ -1332,7 +1332,7 @@ L_8007C2DC:
     // 0x8007C4E0: jal         0x80087618
     // 0x8007C4E4: nop
 
-    Audio2_80087618_fourteenliner_loops_256t(rdram, ctx);
+    Audio2_BuildVolumeTable(rdram, ctx);
         goto after_28;
     // 0x8007C4E4: nop
 
@@ -1405,7 +1405,7 @@ L_8007C538:
     // 0x8007C558: jal         0x80087618
     // 0x8007C55C: nop
 
-    Audio2_80087618_fourteenliner_loops_256t(rdram, ctx);
+    Audio2_BuildVolumeTable(rdram, ctx);
         goto after_31;
     // 0x8007C55C: nop
 

@@ -275,7 +275,7 @@ L_80072E98:
     // 0x80072EA8: jal         0x80072BAC
     // 0x80072EAC: addiu       $a0, $s0, 0x14
     ctx->r4 = ADD32(ctx->r16, 0X14);
-    func_80072BAC(rdram, ctx);
+    Landfill_ScrollUp(rdram, ctx);
         goto after_2;
     // 0x80072EAC: addiu       $a0, $s0, 0x14
     ctx->r4 = ADD32(ctx->r16, 0X14);

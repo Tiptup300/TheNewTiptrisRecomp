@@ -3181,7 +3181,7 @@ RECOMP_FUNC void func_8007F2C0(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007F2DC: jal         0x80076EC0
     // 0x8007F2E0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    func_80076EC0(rdram, ctx);
+    CubeTiles_ObjCreate(rdram, ctx);
         goto after_0;
     // 0x8007F2E0: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -3244,7 +3244,7 @@ RECOMP_FUNC void func_8007F320(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007F32C: jal         0x80077028
     // 0x8007F330: addiu       $a0, $a0, 0x31A0
     ctx->r4 = ADD32(ctx->r4, 0X31A0);
-    func_80077028(rdram, ctx);
+    CubeTiles_ObjFree(rdram, ctx);
         goto after_0;
     // 0x8007F330: addiu       $a0, $a0, 0x31A0
     ctx->r4 = ADD32(ctx->r4, 0X31A0);
@@ -4018,7 +4018,7 @@ L_8007F7A8:
     // 0x8007F7AC: jal         0x80077098
     // 0x8007F7B0: addiu       $a0, $a0, 0x31A0
     ctx->r4 = ADD32(ctx->r4, 0X31A0);
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_15;
     // 0x8007F7B0: addiu       $a0, $a0, 0x31A0
     ctx->r4 = ADD32(ctx->r4, 0X31A0);
@@ -4064,7 +4064,7 @@ L_8007F7E4:
     // 0x8007F7E8: jal         0x80077098
     // 0x8007F7EC: addiu       $a0, $a0, 0x31A0
     ctx->r4 = ADD32(ctx->r4, 0X31A0);
-    func_80077098(rdram, ctx);
+    CubeTiles_ObjDraw(rdram, ctx);
         goto after_16;
     // 0x8007F7EC: addiu       $a0, $a0, 0x31A0
     ctx->r4 = ADD32(ctx->r4, 0X31A0);

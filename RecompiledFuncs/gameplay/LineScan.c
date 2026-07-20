@@ -285,7 +285,7 @@ L_800699B8:
     // 0x800699CC: jal         0x80069668
     // 0x800699D0: addiu       $a0, $a0, 0x2C
     ctx->r4 = ADD32(ctx->r4, 0X2C);
-    LineEffect_80069668_fourliner_sets_arg0_struct_v1(rdram, ctx);
+    LineEffect_ResetIdle(rdram, ctx);
         goto after_3;
     // 0x800699D0: addiu       $a0, $a0, 0x2C
     ctx->r4 = ADD32(ctx->r4, 0X2C);
@@ -321,7 +321,7 @@ L_800699B8:
     // 0x800699FC: jal         0x8006AC2C
     // 0x80069A00: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    Multisquare_8006ac2c_loops_10_times(rdram, ctx);
+    Multisquare_FlagMatches(rdram, ctx);
         goto after_5;
     // 0x80069A00: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -351,7 +351,7 @@ L_800699B8:
     // 0x80069A28: jal         0x8006AC2C
     // 0x80069A2C: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
-    Multisquare_8006ac2c_loops_10_times(rdram, ctx);
+    Multisquare_FlagMatches(rdram, ctx);
         goto after_7;
     // 0x80069A2C: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);

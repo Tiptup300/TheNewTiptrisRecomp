@@ -981,7 +981,7 @@ L_8004A20C:
     // 0x8004A224: jal         0x8008780C
     // 0x8004A228: addiu       $a0, $a0, 0x2010
     ctx->r4 = ADD32(ctx->r4, 0X2010);
-    Audio2_8008780c_sixliner_v1(rdram, ctx);
+    Audio2_GFXDone_SendSyncMessage(rdram, ctx);
         goto after_9;
     // 0x8004A228: addiu       $a0, $a0, 0x2010
     ctx->r4 = ADD32(ctx->r4, 0X2010);
@@ -991,7 +991,7 @@ L_8004A20C:
     // 0x8004A230: jal         0x8008780C
     // 0x8004A234: addiu       $a0, $a0, 0xA70
     ctx->r4 = ADD32(ctx->r4, 0XA70);
-    Audio2_8008780c_sixliner_v1(rdram, ctx);
+    Audio2_GFXDone_SendSyncMessage(rdram, ctx);
         goto after_10;
     // 0x8004A234: addiu       $a0, $a0, 0xA70
     ctx->r4 = ADD32(ctx->r4, 0XA70);
@@ -1154,7 +1154,7 @@ L_8004A2F8:
     // 0x8004A328: jal         0x8008780C
     // 0x8004A32C: addiu       $a0, $a0, 0x2010
     ctx->r4 = ADD32(ctx->r4, 0X2010);
-    Audio2_8008780c_sixliner_v1(rdram, ctx);
+    Audio2_GFXDone_SendSyncMessage(rdram, ctx);
         goto after_3;
     // 0x8004A32C: addiu       $a0, $a0, 0x2010
     ctx->r4 = ADD32(ctx->r4, 0X2010);
@@ -1164,7 +1164,7 @@ L_8004A2F8:
     // 0x8004A334: jal         0x8008780C
     // 0x8004A338: addiu       $a0, $a0, 0xA70
     ctx->r4 = ADD32(ctx->r4, 0XA70);
-    Audio2_8008780c_sixliner_v1(rdram, ctx);
+    Audio2_GFXDone_SendSyncMessage(rdram, ctx);
         goto after_4;
     // 0x8004A338: addiu       $a0, $a0, 0xA70
     ctx->r4 = ADD32(ctx->r4, 0XA70);
@@ -1381,7 +1381,7 @@ RECOMP_FUNC void main_another_but_diff_400x300(uint8_t* rdram, recomp_context* c
     // 0x8004A474: jal         0x80053538
     // 0x8004A478: nop
 
-    FUN_80053538_fiveliner(rdram, ctx);
+    PV_ClearAllPlayers(rdram, ctx);
         goto after_6;
     // 0x8004A478: nop
 
@@ -1389,7 +1389,7 @@ RECOMP_FUNC void main_another_but_diff_400x300(uint8_t* rdram, recomp_context* c
     // 0x8004A47C: jal         0x80053500
     // 0x8004A480: nop
 
-    FUN_80053500_fiveliner(rdram, ctx);
+    gamefinish_InitResultScreen(rdram, ctx);
         goto after_7;
     // 0x8004A480: nop
 

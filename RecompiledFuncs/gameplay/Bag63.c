@@ -841,7 +841,7 @@ L_800716C8:
 
 ;}
 
-RECOMP_FUNC void func_80071730(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_InitLabel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071730: addiu       $sp, $sp, -0x28
@@ -986,7 +986,7 @@ RECOMP_FUNC void func_80071730(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_8007183C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_UpdateLabelAnim(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007183C: lbu         $t6, 0x14($a0)
@@ -1361,7 +1361,7 @@ L_80071A38:
 
 ;}
 
-RECOMP_FUNC void func_80071A40(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_DrawLabel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071A40: lui         $t6, 0x800E
@@ -1472,7 +1472,7 @@ RECOMP_FUNC void func_80071A40(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80071B08(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_ActivateLabel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071B08: lui         $at, 0x3F80
@@ -1497,7 +1497,7 @@ RECOMP_FUNC void func_80071B08(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X10, ctx->r4) = ctx->f6.u32l;
 ;}
 
-RECOMP_FUNC void func_80071B2C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_ResetLabel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071B2C: addiu       $t6, $zero, 0xFF
@@ -1536,7 +1536,7 @@ RECOMP_FUNC void func_80071B44(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071B58: jal         0x80071DEC
     // 0x80071B5C: nop
 
-    func_80071DEC(rdram, ctx);
+    PauseMenu_Teardown(rdram, ctx);
         goto after_1;
     // 0x80071B5C: nop
 
@@ -1583,7 +1583,7 @@ RECOMP_FUNC void func_80071B88(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071B98: jal         0x80071DEC
     // 0x80071B9C: nop
 
-    func_80071DEC(rdram, ctx);
+    PauseMenu_Teardown(rdram, ctx);
         goto after_0;
     // 0x80071B9C: nop
 
@@ -1620,7 +1620,7 @@ RECOMP_FUNC void func_80071BBC(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071BCC: jal         0x80071DEC
     // 0x80071BD0: nop
 
-    func_80071DEC(rdram, ctx);
+    PauseMenu_Teardown(rdram, ctx);
         goto after_0;
     // 0x80071BD0: nop
 
@@ -1727,7 +1727,7 @@ RECOMP_FUNC void displayPausePopupMenu(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071C74: jal         0x80071730
     // 0x80071C78: addiu       $a1, $t1, 0x4
     ctx->r5 = ADD32(ctx->r9, 0X4);
-    func_80071730(rdram, ctx);
+    PauseMenu_InitLabel(rdram, ctx);
         goto after_3;
     // 0x80071C78: addiu       $a1, $t1, 0x4
     ctx->r5 = ADD32(ctx->r9, 0X4);
@@ -1751,7 +1751,7 @@ RECOMP_FUNC void displayPausePopupMenu(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071C9C: jal         0x80071730
     // 0x80071CA0: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
-    func_80071730(rdram, ctx);
+    PauseMenu_InitLabel(rdram, ctx);
         goto after_4;
     // 0x80071CA0: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
@@ -1775,7 +1775,7 @@ RECOMP_FUNC void displayPausePopupMenu(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071CC4: jal         0x80071730
     // 0x80071CC8: addiu       $a0, $a0, 0x68
     ctx->r4 = ADD32(ctx->r4, 0X68);
-    func_80071730(rdram, ctx);
+    PauseMenu_InitLabel(rdram, ctx);
         goto after_5;
     // 0x80071CC8: addiu       $a0, $a0, 0x68
     ctx->r4 = ADD32(ctx->r4, 0X68);
@@ -1897,7 +1897,7 @@ RECOMP_FUNC void displayPausePopupMenu(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071DB0: jal         0x80071B08
     // 0x80071DB4: nop
 
-    func_80071B08(rdram, ctx);
+    PauseMenu_ActivateLabel(rdram, ctx);
         goto after_6;
     // 0x80071DB4: nop
 
@@ -1907,7 +1907,7 @@ RECOMP_FUNC void displayPausePopupMenu(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071DBC: jal         0x800535B8
     // 0x80071DC0: addiu       $a0, $a0, -0x10D0
     ctx->r4 = ADD32(ctx->r4, -0X10D0);
-    FUN_800535B8_fiveliner(rdram, ctx);
+    PV_ResetPlayer(rdram, ctx);
         goto after_7;
     // 0x80071DC0: addiu       $a0, $a0, -0x10D0
     ctx->r4 = ADD32(ctx->r4, -0X10D0);
@@ -1936,7 +1936,7 @@ RECOMP_FUNC void displayPausePopupMenu(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80071DEC(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_Teardown(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071DEC: addiu       $sp, $sp, -0x18
@@ -1980,7 +1980,7 @@ RECOMP_FUNC void func_80071DEC(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071E20: jal         0x800535B8
     // 0x80071E24: addiu       $a0, $a0, -0x10D0
     ctx->r4 = ADD32(ctx->r4, -0X10D0);
-    FUN_800535B8_fiveliner(rdram, ctx);
+    PV_ResetPlayer(rdram, ctx);
         goto after_3;
     // 0x80071E24: addiu       $a0, $a0, -0x10D0
     ctx->r4 = ADD32(ctx->r4, -0X10D0);
@@ -2021,7 +2021,7 @@ RECOMP_FUNC void func_80071DEC(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80071E58(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_HandleInput(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071E58: addiu       $sp, $sp, -0x28
@@ -2083,7 +2083,7 @@ RECOMP_FUNC void func_80071E58(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071EB8: jal         0x80071B2C
     // 0x80071EBC: or          $a0, $t0, $zero
     ctx->r4 = ctx->r8 | 0;
-    func_80071B2C(rdram, ctx);
+    PauseMenu_ResetLabel(rdram, ctx);
         goto after_0;
     // 0x80071EBC: or          $a0, $t0, $zero
     ctx->r4 = ctx->r8 | 0;
@@ -2111,7 +2111,7 @@ RECOMP_FUNC void func_80071E58(uint8_t* rdram, recomp_context* ctx) {
     // 0x80071EE8: jal         0x80071B08
     // 0x80071EEC: nop
 
-    func_80071B08(rdram, ctx);
+    PauseMenu_ActivateLabel(rdram, ctx);
         goto after_1;
     // 0x80071EEC: nop
 
@@ -2166,7 +2166,7 @@ L_80071F08:
     // 0x80071F34: jal         0x80071B2C
     // 0x80071F38: or          $a0, $t9, $zero
     ctx->r4 = ctx->r25 | 0;
-    func_80071B2C(rdram, ctx);
+    PauseMenu_ResetLabel(rdram, ctx);
         goto after_3;
     // 0x80071F38: or          $a0, $t9, $zero
     ctx->r4 = ctx->r25 | 0;
@@ -2194,7 +2194,7 @@ L_80071F08:
     // 0x80071F64: jal         0x80071B08
     // 0x80071F68: nop
 
-    func_80071B08(rdram, ctx);
+    PauseMenu_ActivateLabel(rdram, ctx);
         goto after_4;
     // 0x80071F68: nop
 
@@ -2249,7 +2249,7 @@ L_80071F84:
     // 0x80071FB0: jal         0x80071B2C
     // 0x80071FB4: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
-    func_80071B2C(rdram, ctx);
+    PauseMenu_ResetLabel(rdram, ctx);
         goto after_6;
     // 0x80071FB4: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
@@ -2277,7 +2277,7 @@ L_80071F84:
     // 0x80071FE0: jal         0x80071B08
     // 0x80071FE4: nop
 
-    func_80071B08(rdram, ctx);
+    PauseMenu_ActivateLabel(rdram, ctx);
         goto after_7;
     // 0x80071FE4: nop
 
@@ -2316,7 +2316,7 @@ L_80071FE8:
     // 0x80072014: jal         0x80071B2C
     // 0x80072018: or          $a0, $t2, $zero
     ctx->r4 = ctx->r10 | 0;
-    func_80071B2C(rdram, ctx);
+    PauseMenu_ResetLabel(rdram, ctx);
         goto after_8;
     // 0x80072018: or          $a0, $t2, $zero
     ctx->r4 = ctx->r10 | 0;
@@ -2344,7 +2344,7 @@ L_80071FE8:
     // 0x80072044: jal         0x80071B08
     // 0x80072048: nop
 
-    func_80071B08(rdram, ctx);
+    PauseMenu_ActivateLabel(rdram, ctx);
         goto after_9;
     // 0x80072048: nop
 
@@ -2429,7 +2429,7 @@ L_800720B0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_800720C0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800720C0: addiu       $sp, $sp, -0x28
@@ -2470,7 +2470,7 @@ L_800720FC:
     // 0x800720FC: jal         0x8007183C
     // 0x80072100: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    func_8007183C(rdram, ctx);
+    PauseMenu_UpdateLabelAnim(rdram, ctx);
         goto after_0;
     // 0x80072100: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2499,7 +2499,7 @@ L_80072120:
     // 0x80072124: jal         0x80071E58
     // 0x80072128: nop
 
-    func_80071E58(rdram, ctx);
+    PauseMenu_HandleInput(rdram, ctx);
         goto after_1;
     // 0x80072128: nop
 
@@ -2518,7 +2518,7 @@ L_80072120:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80072140(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_Create(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072140: addiu       $sp, $sp, -0x28
@@ -2587,7 +2587,7 @@ L_80072194:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_800721A4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_Destroy(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800721A4: addiu       $sp, $sp, -0x18
@@ -2628,7 +2628,7 @@ RECOMP_FUNC void func_800721A4(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X18);
 ;}
 
-RECOMP_FUNC void func_800721D8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_Process(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800721D8: addiu       $sp, $sp, -0x28
@@ -2694,7 +2694,7 @@ L_80072224:
     // 0x80072224: jal         0x800720C0
     // 0x80072228: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    func_800720C0(rdram, ctx);
+    PauseMenu_Update(rdram, ctx);
         goto after_1;
     // 0x80072228: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2719,7 +2719,7 @@ L_80072234:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void func_80072248(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PauseMenu_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072248: addiu       $sp, $sp, -0x38
@@ -2784,7 +2784,7 @@ L_8007229C:
     // 0x8007229C: jal         0x80071A40
     // 0x800722A0: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    func_80071A40(rdram, ctx);
+    PauseMenu_DrawLabel(rdram, ctx);
         goto after_1;
     // 0x800722A0: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;

@@ -21,7 +21,7 @@ RECOMP_FUNC void Audio2_AllocDcmHeader(uint8_t* rdram, recomp_context* ctx) {
     // 0x80085FA8: jal         0x8008BF58
     // 0x80085FAC: addiu       $a1, $a1, 0x418
     ctx->r5 = ADD32(ctx->r5, 0X418);
-    Audio2_8008bf58_eightliner(rdram, ctx);
+    Audio2_ParseSFXHeader(rdram, ctx);
         goto after_0;
     // 0x80085FAC: addiu       $a1, $a1, 0x418
     ctx->r5 = ADD32(ctx->r5, 0X418);
@@ -452,7 +452,7 @@ L_80086254:
     // 0x8008625C: jal         0x8008BF58
     // 0x80086260: addiu       $a1, $a1, 0x418
     ctx->r5 = ADD32(ctx->r5, 0X418);
-    Audio2_8008bf58_eightliner(rdram, ctx);
+    Audio2_ParseSFXHeader(rdram, ctx);
         goto after_5;
     // 0x80086260: addiu       $a1, $a1, 0x418
     ctx->r5 = ADD32(ctx->r5, 0X418);
@@ -731,7 +731,7 @@ L_80086430:
     // 0x80086444: jal         0x8008C014
     // 0x80086448: addiu       $a1, $a1, 0x18
     ctx->r5 = ADD32(ctx->r5, 0X18);
-    Audio2_8008c014_tenliner(rdram, ctx);
+    Audio2_ParseSoundRecord(rdram, ctx);
         goto after_10;
     // 0x80086448: addiu       $a1, $a1, 0x18
     ctx->r5 = ADD32(ctx->r5, 0X18);
@@ -3324,7 +3324,7 @@ RECOMP_FUNC void func_80087600(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X158C, ctx->r5) = ctx->r14;
 ;}
 
-RECOMP_FUNC void Audio2_80087618_fourteenliner_loops_256t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_BuildVolumeTable(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80087618: addiu       $sp, $sp, -0x20
@@ -3578,7 +3578,7 @@ L_80087730:
 
 ;}
 
-RECOMP_FUNC void Audio2_80087770_oneliner_turn_on(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_SetBusyFlag(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80087770: addiu       $t6, $zero, 0x1
@@ -3591,7 +3591,7 @@ RECOMP_FUNC void Audio2_80087770_oneliner_turn_on(uint8_t* rdram, recomp_context
     MEM_B(0X1599, ctx->r4) = ctx->r14;
 ;}
 
-RECOMP_FUNC void Audio2_8008777c_oneliner_turn_off(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ClearBusyFlag(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008777C: jr          $ra
@@ -3698,7 +3698,7 @@ L_800877FC:
 
 ;}
 
-RECOMP_FUNC void Audio2_8008780c_sixliner_v1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_GFXDone_SendSyncMessage(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008780C: addiu       $sp, $sp, -0x28
@@ -3712,7 +3712,7 @@ RECOMP_FUNC void Audio2_8008780c_sixliner_v1(uint8_t* rdram, recomp_context* ctx
     // 0x8008781C: jal         0x80087770
     // 0x80087820: nop
 
-    Audio2_80087770_oneliner_turn_on(rdram, ctx);
+    Audio2_SetBusyFlag(rdram, ctx);
         goto after_0;
     // 0x80087820: nop
 
@@ -3760,7 +3760,7 @@ RECOMP_FUNC void Audio2_8008780c_sixliner_v1(uint8_t* rdram, recomp_context* ctx
     // 0x80087864: jal         0x8008777C
     // 0x80087868: nop
 
-    Audio2_8008777c_oneliner_turn_off(rdram, ctx);
+    Audio2_ClearBusyFlag(rdram, ctx);
         goto after_3;
     // 0x80087868: nop
 
@@ -3777,7 +3777,7 @@ RECOMP_FUNC void Audio2_8008780c_sixliner_v1(uint8_t* rdram, recomp_context* ctx
 
 ;}
 
-RECOMP_FUNC void Audio2_8008787c_sixliner_v2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_GFXDone_SendCmd4Message(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008787C: addiu       $sp, $sp, -0x20
@@ -3791,7 +3791,7 @@ RECOMP_FUNC void Audio2_8008787c_sixliner_v2(uint8_t* rdram, recomp_context* ctx
     // 0x8008788C: jal         0x8008780C
     // 0x80087890: nop
 
-    Audio2_8008780c_sixliner_v1(rdram, ctx);
+    Audio2_GFXDone_SendSyncMessage(rdram, ctx);
         goto after_0;
     // 0x80087890: nop
 
@@ -3801,7 +3801,7 @@ RECOMP_FUNC void Audio2_8008787c_sixliner_v2(uint8_t* rdram, recomp_context* ctx
     // 0x80087898: jal         0x8008777C
     // 0x8008789C: nop
 
-    Audio2_8008777c_oneliner_turn_off(rdram, ctx);
+    Audio2_ClearBusyFlag(rdram, ctx);
         goto after_1;
     // 0x8008789C: nop
 
@@ -3858,7 +3858,7 @@ RECOMP_FUNC void Audio2_8008787c_sixliner_v2(uint8_t* rdram, recomp_context* ctx
 
 ;}
 
-RECOMP_FUNC void Audio2_80088ba4_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_GFXDone_SendStartMessage(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80088BA4: addiu       $sp, $sp, -0x20
@@ -4013,7 +4013,7 @@ RECOMP_FUNC void Audio2_GFXDone_SendStopMessage(uint8_t* rdram, recomp_context* 
 
 ;}
 
-RECOMP_FUNC void Audio2_80088c84_largeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_InitSFXPlayer(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80088C84: addiu       $sp, $sp, -0x28
@@ -4556,7 +4556,7 @@ L_80089008:
 
 ;}
 
-RECOMP_FUNC void Audio2_80089030_hugeliner_SFX_Channel(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_SetupSFXChannel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80089030: addiu       $sp, $sp, -0x70
@@ -4584,7 +4584,7 @@ RECOMP_FUNC void Audio2_80089030_hugeliner_SFX_Channel(uint8_t* rdram, recomp_co
     // 0x8008905C: jal         0x8008BF58
     // 0x80089060: sh          $t7, 0x2E($sp)
     MEM_H(0X2E, ctx->r29) = ctx->r15;
-    Audio2_8008bf58_eightliner(rdram, ctx);
+    Audio2_ParseSFXHeader(rdram, ctx);
         goto after_0;
     // 0x80089060: sh          $t7, 0x2E($sp)
     MEM_H(0X2E, ctx->r29) = ctx->r15;
@@ -4828,7 +4828,7 @@ L_80089208:
     // 0x8008920C: jal         0x8008C014
     // 0x80089210: addiu       $a1, $sp, 0x50
     ctx->r5 = ADD32(ctx->r29, 0X50);
-    Audio2_8008c014_tenliner(rdram, ctx);
+    Audio2_ParseSoundRecord(rdram, ctx);
         goto after_2;
     // 0x80089210: addiu       $a1, $sp, 0x50
     ctx->r5 = ADD32(ctx->r29, 0X50);
@@ -6446,7 +6446,7 @@ L_80089D30:
     ctx->r29 = ADD32(ctx->r29, 0X70);
 ;}
 
-RECOMP_FUNC void Audio2_80089d5c_twentyfourliner_sendstop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_StopAllSFX(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80089D5C: addiu       $sp, $sp, -0x28
@@ -6468,7 +6468,7 @@ RECOMP_FUNC void Audio2_80089d5c_twentyfourliner_sendstop(uint8_t* rdram, recomp
     // 0x80089D74: jal         0x8008A7C0
     // 0x80089D78: nop
 
-    Audio2_8008a7c0_fiveliner(rdram, ctx);
+    Audio2_ClearScheduledSFX(rdram, ctx);
         goto after_1;
     // 0x80089D78: nop
 
@@ -6669,7 +6669,7 @@ L_80089EC0:
     // 0x80089EC4: jal         0x80088BA4
     // 0x80089EC8: nop
 
-    Audio2_80088ba4_fiveliner(rdram, ctx);
+    Audio2_GFXDone_SendStartMessage(rdram, ctx);
         goto after_3;
     // 0x80089EC8: nop
 
@@ -7798,7 +7798,7 @@ L_8008A60C:
 
 ;}
 
-RECOMP_FUNC void Audio2_8008a61c_twelveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_UpdateScheduledSFX(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008A61C: addiu       $sp, $sp, -0x20
@@ -7927,7 +7927,7 @@ L_8008A6BC:
 
 ;}
 
-RECOMP_FUNC void Audio2_8008a6ec_nineliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ScheduleDelayedSFX(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008A6EC: addiu       $sp, $sp, -0x8
@@ -8050,7 +8050,7 @@ L_8008A748:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void Audio2_8008a7c0_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ClearScheduledSFX(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008A7C0: addiu       $sp, $sp, -0x8
@@ -8100,7 +8100,7 @@ L_8008A7C8:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void Audio2_8008bf58_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ParseSFXHeader(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008BF58: addiu       $sp, $sp, -0x18
@@ -8213,7 +8213,7 @@ RECOMP_FUNC void Audio2_8008bf58_eightliner(uint8_t* rdram, recomp_context* ctx)
     ctx->r29 = ADD32(ctx->r29, 0X18);
 ;}
 
-RECOMP_FUNC void Audio2_8008c014_tenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Audio2_ParseSoundRecord(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8008C014: addiu       $sp, $sp, -0x18

@@ -241,7 +241,7 @@ L_8004A664:
     // 0x8004A6FC: jal         0x80084E20
     // 0x8004A700: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    Audio_80084e20_twentyliner(rdram, ctx);
+    Audio_StartSong(rdram, ctx);
         goto after_5;
     // 0x8004A700: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);

@@ -613,7 +613,7 @@ RECOMP_FUNC void Multisquare_Free(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X3, ctx->r14) = ctx->r24;
 ;}
 
-RECOMP_FUNC void Multisquare_8006a410_fourliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_TickLifetime(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A410: addiu       $sp, $sp, -0x18
@@ -809,7 +809,7 @@ RECOMP_FUNC void Multisquare_TestCell(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void Multisquare_8006a6f0_threeliner_sets_arg0_stuff(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_BeginState2(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A6F0: addiu       $t6, $zero, 0x2D
@@ -828,7 +828,7 @@ RECOMP_FUNC void Multisquare_8006a6f0_threeliner_sets_arg0_stuff(uint8_t* rdram,
     MEM_B(0X1, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void Multisquare_8006a708_fiveliner_sets_arg0_stuff(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_UpdateState2(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A708: lbu         $t6, 0x2($a0)
@@ -1118,7 +1118,7 @@ L_8006A880:
     // 0x8006A8A4: jal         0x8006A6F0
     // 0x8006A8A8: nop
 
-    Multisquare_8006a6f0_threeliner_sets_arg0_stuff(rdram, ctx);
+    Multisquare_BeginState2(rdram, ctx);
         goto after_3;
     // 0x8006A8A8: nop
 
@@ -1271,7 +1271,7 @@ L_8006A954:
     // 0x8006A978: jal         0x8006A6F0
     // 0x8006A97C: nop
 
-    Multisquare_8006a6f0_threeliner_sets_arg0_stuff(rdram, ctx);
+    Multisquare_BeginState2(rdram, ctx);
         goto after_6;
     // 0x8006A97C: nop
 
@@ -1302,7 +1302,7 @@ L_8006A994:
 
 ;}
 
-RECOMP_FUNC void func_8006A9A4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_BeginState4(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A9A4: addiu       $t6, $zero, 0x2D
@@ -1321,7 +1321,7 @@ RECOMP_FUNC void func_8006A9A4(uint8_t* rdram, recomp_context* ctx) {
     MEM_B(0X1, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void Multisquare_8006a9bc_fiveliner_sets_arg0_struct(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_UpdateState4(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A9BC: lbu         $t6, 0x2($a0)
@@ -1363,7 +1363,7 @@ L_8006A9DC:
 
 ;}
 
-RECOMP_FUNC void Multisquare_8006a9f4_twentyliner_loops_t7_t17(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_UpdateExpand(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006A9F4: addiu       $sp, $sp, -0x38
@@ -1682,7 +1682,7 @@ L_8006AB98:
 
 ;}
 
-RECOMP_FUNC void Multisquare_8006aba4_loops_44_times_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_CountMatched(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006ABA4: lui         $a0, 0x8012
@@ -1789,7 +1789,7 @@ L_8006AC24:
     ctx->r29 = ADD32(ctx->r29, 0X10);
 ;}
 
-RECOMP_FUNC void Multisquare_8006ac2c_loops_10_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Multisquare_FlagMatches(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006AC2C: addiu       $sp, $sp, -0x48
@@ -1914,7 +1914,7 @@ L_8006ACE4:
     // 0x8006ACE4: jal         0x8006ABA4
     // 0x8006ACE8: nop
 
-    Multisquare_8006aba4_loops_44_times_1(rdram, ctx);
+    Multisquare_CountMatched(rdram, ctx);
         goto after_2;
     // 0x8006ACE8: nop
 
@@ -2015,7 +2015,7 @@ L_8006AD64:
     // 0x8006AD64: jal         0x8006A708
     // 0x8006AD68: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    Multisquare_8006a708_fiveliner_sets_arg0_stuff(rdram, ctx);
+    Multisquare_UpdateState2(rdram, ctx);
         goto after_1;
     // 0x8006AD68: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2030,7 +2030,7 @@ L_8006AD74:
     // 0x8006AD74: jal         0x8006A9F4
     // 0x8006AD78: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    Multisquare_8006a9f4_twentyliner_loops_t7_t17(rdram, ctx);
+    Multisquare_UpdateExpand(rdram, ctx);
         goto after_2;
     // 0x8006AD78: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
@@ -2045,7 +2045,7 @@ L_8006AD84:
     // 0x8006AD84: jal         0x8006A9BC
     // 0x8006AD88: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    Multisquare_8006a9bc_fiveliner_sets_arg0_struct(rdram, ctx);
+    Multisquare_UpdateState4(rdram, ctx);
         goto after_3;
     // 0x8006AD88: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;

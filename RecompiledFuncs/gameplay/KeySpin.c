@@ -4210,7 +4210,7 @@ RECOMP_FUNC void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(uint8_t* rdra
     // 0x8006CC8C: jal         0x800721D8
     // 0x8006CC90: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    func_800721D8(rdram, ctx);
+    PauseMenu_Process(rdram, ctx);
         goto after_0;
     // 0x8006CC90: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -4250,7 +4250,7 @@ RECOMP_FUNC void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(uint8_t* rdra
     // 0x8006CCBC: jal         0x80072248
     // 0x8006CCC0: nop
 
-    func_80072248(rdram, ctx);
+    PauseMenu_Draw(rdram, ctx);
         goto after_4;
     // 0x8006CCC0: nop
 
@@ -4293,7 +4293,7 @@ L_8006CCEC:
     // 0x8006CCEC: jal         0x800721A4
     // 0x8006CCF0: nop
 
-    func_800721A4(rdram, ctx);
+    PauseMenu_Destroy(rdram, ctx);
         goto after_5;
     // 0x8006CCF0: nop
 
@@ -4336,7 +4336,7 @@ L_8006CD1C:
     // 0x8006CD2C: jal         0x800721A4
     // 0x8006CD30: nop
 
-    func_800721A4(rdram, ctx);
+    PauseMenu_Destroy(rdram, ctx);
         goto after_7;
     // 0x8006CD30: nop
 
@@ -4383,7 +4383,7 @@ L_8006CD74:
     // 0x8006CD74: jal         0x800721A4
     // 0x8006CD78: nop
 
-    func_800721A4(rdram, ctx);
+    PauseMenu_Destroy(rdram, ctx);
         goto after_9;
     // 0x8006CD78: nop
 
@@ -4494,7 +4494,7 @@ L_8006CDF4:
     // 0x8006CDFC: jal         0x80072140
     // 0x8006CE00: nop
 
-    func_80072140(rdram, ctx);
+    PauseMenu_Create(rdram, ctx);
         goto after_4;
     // 0x8006CE00: nop
 

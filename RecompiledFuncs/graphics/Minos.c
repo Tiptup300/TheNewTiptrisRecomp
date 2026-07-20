@@ -41,7 +41,7 @@ RECOMP_FUNC void Minos_8006f260_eightliner_calls_8007641c_4_times(uint8_t* rdram
     // 0x8006F2A4: jal         0x8007641C
     // 0x8006F2A8: sw          $t9, 0x4($s1)
     MEM_W(0X4, ctx->r17) = ctx->r25;
-    func_8007641C(rdram, ctx);
+    CubeTiles_TileCoordsToPos(rdram, ctx);
         goto after_0;
     // 0x8006F2A8: sw          $t9, 0x4($s1)
     MEM_W(0X4, ctx->r17) = ctx->r25;
@@ -51,7 +51,7 @@ RECOMP_FUNC void Minos_8006f260_eightliner_calls_8007641c_4_times(uint8_t* rdram
     // 0x8006F2B0: jal         0x8007641C
     // 0x8006F2B4: addiu       $a1, $s1, 0x2C
     ctx->r5 = ADD32(ctx->r17, 0X2C);
-    func_8007641C(rdram, ctx);
+    CubeTiles_TileCoordsToPos(rdram, ctx);
         goto after_1;
     // 0x8006F2B4: addiu       $a1, $s1, 0x2C
     ctx->r5 = ADD32(ctx->r17, 0X2C);
@@ -61,7 +61,7 @@ RECOMP_FUNC void Minos_8006f260_eightliner_calls_8007641c_4_times(uint8_t* rdram
     // 0x8006F2BC: jal         0x8007641C
     // 0x8006F2C0: addiu       $a1, $s1, 0x34
     ctx->r5 = ADD32(ctx->r17, 0X34);
-    func_8007641C(rdram, ctx);
+    CubeTiles_TileCoordsToPos(rdram, ctx);
         goto after_2;
     // 0x8006F2C0: addiu       $a1, $s1, 0x34
     ctx->r5 = ADD32(ctx->r17, 0X34);
@@ -71,7 +71,7 @@ RECOMP_FUNC void Minos_8006f260_eightliner_calls_8007641c_4_times(uint8_t* rdram
     // 0x8006F2C8: jal         0x8007641C
     // 0x8006F2CC: addiu       $a1, $s1, 0x3C
     ctx->r5 = ADD32(ctx->r17, 0X3C);
-    func_8007641C(rdram, ctx);
+    CubeTiles_TileCoordsToPos(rdram, ctx);
         goto after_3;
     // 0x8006F2CC: addiu       $a1, $s1, 0x3C
     ctx->r5 = ADD32(ctx->r17, 0X3C);
@@ -148,7 +148,7 @@ RECOMP_FUNC void Minos_8006f300_eightliner_calls_80076458_4_times(uint8_t* rdram
     // 0x8006F344: jal         0x80076458
     // 0x8006F348: sw          $t9, 0x4($s1)
     MEM_W(0X4, ctx->r17) = ctx->r25;
-    func_80076458(rdram, ctx);
+    CubeTiles_SampleTile(rdram, ctx);
         goto after_0;
     // 0x8006F348: sw          $t9, 0x4($s1)
     MEM_W(0X4, ctx->r17) = ctx->r25;
@@ -158,7 +158,7 @@ RECOMP_FUNC void Minos_8006f300_eightliner_calls_80076458_4_times(uint8_t* rdram
     // 0x8006F350: jal         0x80076458
     // 0x8006F354: addiu       $a1, $s1, 0x2C
     ctx->r5 = ADD32(ctx->r17, 0X2C);
-    func_80076458(rdram, ctx);
+    CubeTiles_SampleTile(rdram, ctx);
         goto after_1;
     // 0x8006F354: addiu       $a1, $s1, 0x2C
     ctx->r5 = ADD32(ctx->r17, 0X2C);
@@ -168,7 +168,7 @@ RECOMP_FUNC void Minos_8006f300_eightliner_calls_80076458_4_times(uint8_t* rdram
     // 0x8006F35C: jal         0x80076458
     // 0x8006F360: addiu       $a1, $s1, 0x34
     ctx->r5 = ADD32(ctx->r17, 0X34);
-    func_80076458(rdram, ctx);
+    CubeTiles_SampleTile(rdram, ctx);
         goto after_2;
     // 0x8006F360: addiu       $a1, $s1, 0x34
     ctx->r5 = ADD32(ctx->r17, 0X34);
@@ -178,7 +178,7 @@ RECOMP_FUNC void Minos_8006f300_eightliner_calls_80076458_4_times(uint8_t* rdram
     // 0x8006F368: jal         0x80076458
     // 0x8006F36C: addiu       $a1, $s1, 0x3C
     ctx->r5 = ADD32(ctx->r17, 0X3C);
-    func_80076458(rdram, ctx);
+    CubeTiles_SampleTile(rdram, ctx);
         goto after_3;
     // 0x8006F36C: addiu       $a1, $s1, 0x3C
     ctx->r5 = ADD32(ctx->r17, 0X3C);

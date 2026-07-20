@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void LineEffect_80068ff0_elevenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_State2_SpawnColumnCubes(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068FF0: addiu       $sp, $sp, -0x28
@@ -154,7 +154,7 @@ L_800690D4:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void LineEffect_800690e4_eightliner_loops_10_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_State3_SwapCubes(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800690E4: addiu       $sp, $sp, -0x28
@@ -237,7 +237,7 @@ L_8006912C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void LineEffect_80069160_seventeen_liner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_State4_DelayedClear(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069160: addiu       $sp, $sp, -0x28
@@ -493,7 +493,7 @@ L_800692EC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void LineEffect_800692fc_sixteenliner_loops_10_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_State5_SetupFade(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800692FC: addiu       $sp, $sp, -0x28
@@ -688,7 +688,7 @@ L_800693F4:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void LineEffect_8006942c_sixliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_State6_HoldCountdown(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006942C: addiu       $sp, $sp, -0x18
@@ -770,7 +770,7 @@ L_80069488:
 
 ;}
 
-RECOMP_FUNC void LineEffect_800694b0_sevenliner_loops_10_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_State7_SwapCubes(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800694B0: addiu       $sp, $sp, -0x28
@@ -939,7 +939,7 @@ L_80069598:
     // 0x800695A0: jal         0x80068FF0
     // 0x800695A4: nop
 
-    LineEffect_80068ff0_elevenliner(rdram, ctx);
+    LineEffect_State2_SpawnColumnCubes(rdram, ctx);
         goto after_0;
     // 0x800695A4: nop
 
@@ -958,7 +958,7 @@ L_800695B0:
     // 0x800695B8: jal         0x800690E4
     // 0x800695BC: nop
 
-    LineEffect_800690e4_eightliner_loops_10_times(rdram, ctx);
+    LineEffect_State3_SwapCubes(rdram, ctx);
         goto after_1;
     // 0x800695BC: nop
 
@@ -977,7 +977,7 @@ L_800695C8:
     // 0x800695D0: jal         0x80069160
     // 0x800695D4: nop
 
-    LineEffect_80069160_seventeen_liner(rdram, ctx);
+    LineEffect_State4_DelayedClear(rdram, ctx);
         goto after_2;
     // 0x800695D4: nop
 
@@ -996,7 +996,7 @@ L_800695E0:
     // 0x800695E8: jal         0x800692FC
     // 0x800695EC: nop
 
-    LineEffect_800692fc_sixteenliner_loops_10_times(rdram, ctx);
+    LineEffect_State5_SetupFade(rdram, ctx);
         goto after_3;
     // 0x800695EC: nop
 
@@ -1015,7 +1015,7 @@ L_800695F8:
     // 0x80069600: jal         0x8006942C
     // 0x80069604: nop
 
-    LineEffect_8006942c_sixliner(rdram, ctx);
+    LineEffect_State6_HoldCountdown(rdram, ctx);
         goto after_4;
     // 0x80069604: nop
 
@@ -1034,7 +1034,7 @@ L_80069610:
     // 0x80069618: jal         0x800694B0
     // 0x8006961C: nop
 
-    LineEffect_800694b0_sevenliner_loops_10_times(rdram, ctx);
+    LineEffect_State7_SwapCubes(rdram, ctx);
         goto after_5;
     // 0x8006961C: nop
 
@@ -1091,7 +1091,7 @@ L_8006963C:
     ctx->r29 = ADD32(ctx->r29, 0X18);
 ;}
 
-RECOMP_FUNC void LineEffect_80069668_fourliner_sets_arg0_struct_v1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_ResetIdle(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069668: addiu       $t6, $zero, 0x1
@@ -1112,7 +1112,7 @@ RECOMP_FUNC void LineEffect_80069668_fourliner_sets_arg0_struct_v1(uint8_t* rdra
     MEM_B(0X3, ctx->r4) = ctx->r15;
 ;}
 
-RECOMP_FUNC void LineEffect_80069684_threeliner_sets_arg0_struct_v2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_BeginState0(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80069684: addiu       $t6, $zero, 0x1
@@ -1131,7 +1131,7 @@ RECOMP_FUNC void LineEffect_80069684_threeliner_sets_arg0_struct_v2(uint8_t* rdr
     MEM_B(0X3, ctx->r4) = ctx->r15;
 ;}
 
-RECOMP_FUNC void LineEffect_8006969c_fourliner_sets_arg0_struct_v3(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_BeginState2(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006969C: sw          $a1, 0x4($sp)
@@ -1152,7 +1152,7 @@ RECOMP_FUNC void LineEffect_8006969c_fourliner_sets_arg0_struct_v3(uint8_t* rdra
     MEM_B(0X5, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void LineEffect_800696b8_fiveliner_sets_arg0_struct_v4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_BeginState4(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800696B8: sw          $a1, 0x4($sp)
@@ -1175,7 +1175,7 @@ RECOMP_FUNC void LineEffect_800696b8_fiveliner_sets_arg0_struct_v4(uint8_t* rdra
     MEM_B(0X4, ctx->r4) = 0;
 ;}
 
-RECOMP_FUNC void LineEffect_800696d8_fourliner_sets_arg0_struct_v5(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void LineEffect_BeginState5(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800696D8: sw          $a1, 0x4($sp)
@@ -1315,7 +1315,7 @@ L_800697A0:
     // 0x800697A4: jal         0x80069684
     // 0x800697A8: nop
 
-    LineEffect_80069684_threeliner_sets_arg0_struct_v2(rdram, ctx);
+    LineEffect_BeginState0(rdram, ctx);
         goto after_0;
     // 0x800697A8: nop
 
@@ -1334,7 +1334,7 @@ L_800697B4:
     // 0x800697BC: jal         0x8006969C
     // 0x800697C0: nop
 
-    LineEffect_8006969c_fourliner_sets_arg0_struct_v3(rdram, ctx);
+    LineEffect_BeginState2(rdram, ctx);
         goto after_1;
     // 0x800697C0: nop
 
@@ -1353,7 +1353,7 @@ L_800697CC:
     // 0x800697D4: jal         0x800696B8
     // 0x800697D8: nop
 
-    LineEffect_800696b8_fiveliner_sets_arg0_struct_v4(rdram, ctx);
+    LineEffect_BeginState4(rdram, ctx);
         goto after_2;
     // 0x800697D8: nop
 
@@ -1372,7 +1372,7 @@ L_800697E4:
     // 0x800697EC: jal         0x800696D8
     // 0x800697F0: nop
 
-    LineEffect_800696d8_fourliner_sets_arg0_struct_v5(rdram, ctx);
+    LineEffect_BeginState5(rdram, ctx);
         goto after_3;
     // 0x800697F0: nop
 

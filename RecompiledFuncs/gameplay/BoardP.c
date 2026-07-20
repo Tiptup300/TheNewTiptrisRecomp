@@ -390,7 +390,7 @@ RECOMP_FUNC void BoardP_8006d5bc_sixliner_calls_UpdateQueue_AddEntry(uint8_t* rd
     // 0x8006D614: jal         0x8006A410
     // 0x8006D618: addiu       $a1, $t8, 0x8
     ctx->r5 = ADD32(ctx->r24, 0X8);
-    Multisquare_8006a410_fourliner(rdram, ctx);
+    Multisquare_TickLifetime(rdram, ctx);
         goto after_1;
     // 0x8006D618: addiu       $a1, $t8, 0x8
     ctx->r5 = ADD32(ctx->r24, 0X8);
