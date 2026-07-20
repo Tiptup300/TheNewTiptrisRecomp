@@ -1175,7 +1175,7 @@ L_800552F4:
     // 0x80055388: jal         0x8007B420
     // 0x8005538C: nop
 
-    func_8007B420(rdram, ctx);
+    displayText_DeserializeTable(rdram, ctx);
         goto after_5;
     // 0x8005538C: nop
 
@@ -2540,7 +2540,7 @@ L_80055B2C:
     // 0x80055B8C: jal         0x8005BE40
     // 0x80055B90: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_14;
     // 0x80055B90: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -2944,7 +2944,7 @@ L_80055D2C:
     // 0x80055E00: jal         0x8007B420
     // 0x80055E04: nop
 
-    func_8007B420(rdram, ctx);
+    displayText_DeserializeTable(rdram, ctx);
         goto after_26;
     // 0x80055E04: nop
 
@@ -4519,7 +4519,7 @@ L_8005689C:
     // 0x800568A0: jal         0x8005BE40
     // 0x800568A4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_65;
     // 0x800568A4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -5755,7 +5755,7 @@ L_8005705C:
     // 0x80057060: jal         0x8005BE40
     // 0x80057064: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_89;
     // 0x80057064: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -5777,7 +5777,7 @@ L_80057068:
 
 ;}
 
-RECOMP_FUNC void FUN_01D300_80057080_nevercalled(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_InitWhite(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80057080: addiu       $t6, $zero, 0xFF
@@ -5808,7 +5808,7 @@ RECOMP_FUNC void FUN_01D300_80057080_nevercalled(uint8_t* rdram, recomp_context*
     MEM_B(0X8, ctx->r4) = ctx->r14;
 ;}
 
-RECOMP_FUNC void FUN_01D300_800570b0_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_LoadImage(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800570B0: addiu       $sp, $sp, -0x28
@@ -5881,7 +5881,7 @@ RECOMP_FUNC void FUN_01D300_800570b0_fiveliner(uint8_t* rdram, recomp_context* c
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_01D300_n64HeapUnalloc(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_FreeImage(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80057114: addiu       $sp, $sp, -0x18
@@ -5914,7 +5914,7 @@ RECOMP_FUNC void FUN_01D300_n64HeapUnalloc(uint8_t* rdram, recomp_context* ctx) 
 
 ;}
 
-RECOMP_FUNC void FUN_01D300_80057140_sixliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80057140: lui         $t6, 0x800E
@@ -5999,7 +5999,7 @@ RECOMP_FUNC void FUN_01D300_80057140_sixliner(uint8_t* rdram, recomp_context* ct
 
 ;}
 
-RECOMP_FUNC void FUN_01D300_800571d4_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_LoadImagePair(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800571D4: addiu       $sp, $sp, -0x38
@@ -6180,7 +6180,7 @@ RECOMP_FUNC void FUN_01D300_800571d4_twentyliner(uint8_t* rdram, recomp_context*
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void FUN_01D300_800572f8_twoliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_FreeImagePair(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800572F8: addiu       $sp, $sp, -0x18
@@ -6227,7 +6227,7 @@ RECOMP_FUNC void FUN_01D300_800572f8_twoliner(uint8_t* rdram, recomp_context* ct
 
 ;}
 
-RECOMP_FUNC void FUN_01D300_80057338_fifteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Sprite_DrawScaled(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80057338: lui         $t6, 0x800E
@@ -16502,7 +16502,7 @@ RECOMP_FUNC void func_8005BBFC(uint8_t* rdram, recomp_context* ctx) {
     MEM_H(0X164, ctx->r1) = ctx->r15;
 ;}
 
-RECOMP_FUNC void func_8005BE40(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Color_SetSpriteRenderMode(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8005BE40: lw          $t6, 0x0($a0)

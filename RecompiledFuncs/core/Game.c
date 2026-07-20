@@ -1383,7 +1383,7 @@ RECOMP_FUNC void Game_game_over_related(uint8_t* rdram, recomp_context* ctx) {
     // 0x800511C4: jal         0x800726A4
     // 0x800511C8: addu        $a0, $a0, $at
     ctx->r4 = ADD32(ctx->r4, ctx->r1);
-    func_800726A4(rdram, ctx);
+    Landfill_ClearColumn(rdram, ctx);
         goto after_1;
     // 0x800511C8: addu        $a0, $a0, $at
     ctx->r4 = ADD32(ctx->r4, ctx->r1);
@@ -5505,7 +5505,7 @@ RECOMP_FUNC void displayLineCount(uint8_t* rdram, recomp_context* ctx) {
     // 0x800528EC: jal         0x8005BE40
     // 0x800528F0: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_4;
     // 0x800528F0: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);

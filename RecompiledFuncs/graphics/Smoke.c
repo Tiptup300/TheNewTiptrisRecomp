@@ -184,7 +184,7 @@ L_80074E94:
     // 0x80074E94: jal         0x80060814
     // 0x80074E98: nop
 
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_0;
     // 0x80074E98: nop
 

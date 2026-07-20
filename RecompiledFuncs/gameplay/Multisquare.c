@@ -198,7 +198,7 @@ L_8006A158:
     // 0x8006A180: jal         0x80071100
     // 0x8006A184: addiu       $a1, $sp, 0x68
     ctx->r5 = ADD32(ctx->r29, 0X68);
-    Minos_80071100_fiveliner_nuts2(rdram, ctx);
+    Minos_TransformVecRot(rdram, ctx);
         goto after_1;
     // 0x8006A184: addiu       $a1, $sp, 0x68
     ctx->r5 = ADD32(ctx->r29, 0X68);

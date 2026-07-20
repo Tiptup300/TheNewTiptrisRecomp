@@ -23130,7 +23130,7 @@ L_80090F88:
     // 0x80090FAC: jal         0x8007A078
     // 0x80090FB0: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_15;
     // 0x80090FB0: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -25566,7 +25566,7 @@ L_80091ECC:
     // 0x80091ED0: jal         0x8007B420
     // 0x80091ED4: nop
 
-    func_8007B420(rdram, ctx);
+    displayText_DeserializeTable(rdram, ctx);
         goto after_8;
     // 0x80091ED4: nop
 
@@ -38052,7 +38052,7 @@ L_80096FE0:
     // 0x80097008: jal         0x8007B420
     // 0x8009700C: nop
 
-    func_8007B420(rdram, ctx);
+    displayText_DeserializeTable(rdram, ctx);
         goto after_255;
     // 0x8009700C: nop
 
@@ -39781,7 +39781,7 @@ L_80097A38:
     // 0x80097A48: jal         0x8007A738
     // 0x80097A4C: nop
 
-    func_8007A738(rdram, ctx);
+    displayText_AddTimestampedEntry(rdram, ctx);
         goto after_302;
     // 0x80097A4C: nop
 
@@ -43385,7 +43385,7 @@ L_800991E4:
     // 0x800991F0: jal         0x8007A078
     // 0x800991F4: nop
 
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_342;
     // 0x800991F4: nop
 
@@ -44755,7 +44755,7 @@ L_80099988:
     // 0x80099A48: jal         0x8005BE40
     // 0x80099A4C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_9;
     // 0x80099A4C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -44872,7 +44872,7 @@ L_80099A58:
     // 0x80099B1C: jal         0x8005BE40
     // 0x80099B20: sw          $zero, 0x3E34($at)
     MEM_W(0X3E34, ctx->r1) = 0;
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_10;
     // 0x80099B20: sw          $zero, 0x3E34($at)
     MEM_W(0X3E34, ctx->r1) = 0;
@@ -51347,7 +51347,7 @@ L_8009C424:
     // 0x8009C528: jal         0x8005BE40
     // 0x8009C52C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_62;
     // 0x8009C52C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -51496,7 +51496,7 @@ L_8009C53C:
     // 0x8009C624: jal         0x8005BE40
     // 0x8009C628: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_65;
     // 0x8009C628: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -52244,7 +52244,7 @@ L_8009CA90:
     // 0x8009CAC8: jal         0x8005BE40
     // 0x8009CACC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_74;
     // 0x8009CACC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -52350,7 +52350,7 @@ L_8009CB1C:
     // 0x8009CB6C: jal         0x8005BE40
     // 0x8009CB70: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_78;
     // 0x8009CB70: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -52456,7 +52456,7 @@ L_8009CBC0:
     // 0x8009CC10: jal         0x8005BE40
     // 0x8009CC14: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_82;
     // 0x8009CC14: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -53678,7 +53678,7 @@ L_8009D3D4:
     // 0x8009D3D8: jal         0x8005BE40
     // 0x8009D3DC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_97;
     // 0x8009D3DC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -54598,7 +54598,7 @@ L_8009D914:
     // 0x8009D918: jal         0x8005BE40
     // 0x8009D91C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_19;
     // 0x8009D91C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -66595,7 +66595,7 @@ L_800A2958:
     // 0x800A2964: jal         0x8007A078
     // 0x800A2968: nop
 
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_0;
     // 0x800A2968: nop
 
@@ -66621,7 +66621,7 @@ L_800A2958:
     // 0x800A2988: jal         0x8007A078
     // 0x800A298C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_1;
     // 0x800A298C: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -66877,7 +66877,7 @@ L_800A2AEC:
     // 0x800A2B18: jal         0x8007A078
     // 0x800A2B1C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_0;
     // 0x800A2B1C: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -66926,7 +66926,7 @@ L_800A2B38:
     // 0x800A2B64: jal         0x8007A078
     // 0x800A2B68: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_1;
     // 0x800A2B68: or          $a1, $zero, $zero
     ctx->r5 = 0 | 0;
@@ -67000,7 +67000,7 @@ L_800A2BA8:
     // 0x800A2BD4: jal         0x8007A078
     // 0x800A2BD8: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_2;
     // 0x800A2BD8: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -67049,7 +67049,7 @@ L_800A2BF4:
     // 0x800A2C20: jal         0x8007A078
     // 0x800A2C24: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_3;
     // 0x800A2C24: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -67123,7 +67123,7 @@ L_800A2C64:
     // 0x800A2C90: jal         0x8007A078
     // 0x800A2C94: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_4;
     // 0x800A2C94: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
@@ -67172,7 +67172,7 @@ L_800A2CB0:
     // 0x800A2CDC: jal         0x8007A078
     // 0x800A2CE0: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_5;
     // 0x800A2CE0: addiu       $a1, $zero, 0x2
     ctx->r5 = ADD32(0, 0X2);
@@ -67246,7 +67246,7 @@ L_800A2D20:
     // 0x800A2D4C: jal         0x8007A078
     // 0x800A2D50: addiu       $a1, $zero, 0x3
     ctx->r5 = ADD32(0, 0X3);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_6;
     // 0x800A2D50: addiu       $a1, $zero, 0x3
     ctx->r5 = ADD32(0, 0X3);
@@ -67295,7 +67295,7 @@ L_800A2D6C:
     // 0x800A2D98: jal         0x8007A078
     // 0x800A2D9C: addiu       $a1, $zero, 0x3
     ctx->r5 = ADD32(0, 0X3);
-    func_8007A078(rdram, ctx);
+    displayText_SaveSlot(rdram, ctx);
         goto after_7;
     // 0x800A2D9C: addiu       $a1, $zero, 0x3
     ctx->r5 = ADD32(0, 0X3);

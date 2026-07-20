@@ -115,7 +115,7 @@ L_8007126C:
     // 0x80071278: jal         0x8006089C
     // 0x8007127C: nop
 
-    FUN_026900_PRNG_2(rdram, ctx);
+    Rand_Hash(rdram, ctx);
         goto after_0;
     // 0x8007127C: nop
 

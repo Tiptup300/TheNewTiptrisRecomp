@@ -1063,7 +1063,7 @@ L_80065334:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MobilePiece_8006537c_fourliner_calls_fun_loops_4_times_v2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_SetCubesColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006537C: addiu       $sp, $sp, -0x28
@@ -1131,7 +1131,7 @@ L_80065398:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_Init(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800653E4: addiu       $sp, $sp, -0x28
@@ -1253,7 +1253,7 @@ L_80065458:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void MobilePiece_800654b0_sixliner_if_zero_if_one(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_ToggleAltColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800654B0: addiu       $sp, $sp, -0x28
@@ -1308,7 +1308,7 @@ L_800654E4:
     // 0x800654FC: jal         0x8006537C
     // 0x80065500: addiu       $a1, $t9, 0x2
     ctx->r5 = ADD32(ctx->r25, 0X2);
-    MobilePiece_8006537c_fourliner_calls_fun_loops_4_times_v2(rdram, ctx);
+    MobilePiece_SetCubesColor(rdram, ctx);
         goto after_0;
     // 0x80065500: addiu       $a1, $t9, 0x2
     ctx->r5 = ADD32(ctx->r25, 0X2);
@@ -1335,7 +1335,7 @@ L_8006550C:
     // 0x80065524: jal         0x8006537C
     // 0x80065528: addiu       $a1, $t1, 0xE
     ctx->r5 = ADD32(ctx->r9, 0XE);
-    MobilePiece_8006537c_fourliner_calls_fun_loops_4_times_v2(rdram, ctx);
+    MobilePiece_SetCubesColor(rdram, ctx);
         goto after_1;
     // 0x80065528: addiu       $a1, $t1, 0xE
     ctx->r5 = ADD32(ctx->r9, 0XE);
@@ -1428,7 +1428,7 @@ RECOMP_FUNC void MobilePiece_8006553c_nineliner_sets_arg0_struct(uint8_t* rdram,
     do_swr(rdram, 0XD, ctx->r4, ctx->r1);
 ;}
 
-RECOMP_FUNC void MobilePiece_800655c4_oneliner_if_calls_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_UpdateAltColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800655C4: addiu       $sp, $sp, -0x18
@@ -1476,7 +1476,7 @@ RECOMP_FUNC void MobilePiece_800655c4_oneliner_if_calls_fun(uint8_t* rdram, reco
     // 0x80065608: jal         0x800654B0
     // 0x8006560C: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
-    MobilePiece_800654b0_sixliner_if_zero_if_one(rdram, ctx);
+    MobilePiece_ToggleAltColor(rdram, ctx);
         goto after_0;
     // 0x8006560C: or          $a0, $t8, $zero
     ctx->r4 = ctx->r24 | 0;
@@ -1494,7 +1494,7 @@ L_80065610:
 
 ;}
 
-RECOMP_FUNC void MobilePiece_80065620_threeliner_if_zero_calls_fun_537c(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_EnableAltColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80065620: addiu       $sp, $sp, -0x18
@@ -1538,7 +1538,7 @@ RECOMP_FUNC void MobilePiece_80065620_threeliner_if_zero_calls_fun_537c(uint8_t*
     // 0x80065664: jal         0x8006537C
     // 0x80065668: addiu       $a1, $t2, 0x2
     ctx->r5 = ADD32(ctx->r10, 0X2);
-    MobilePiece_8006537c_fourliner_calls_fun_loops_4_times_v2(rdram, ctx);
+    MobilePiece_SetCubesColor(rdram, ctx);
         goto after_0;
     // 0x80065668: addiu       $a1, $t2, 0x2
     ctx->r5 = ADD32(ctx->r10, 0X2);
@@ -1556,7 +1556,7 @@ L_8006566C:
 
 ;}
 
-RECOMP_FUNC void MobilePiece_8006567c_threeliner_if_notzero_calls_fun_537c(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void MobilePiece_DisableAltColor(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006567C: addiu       $sp, $sp, -0x18
@@ -1594,7 +1594,7 @@ RECOMP_FUNC void MobilePiece_8006567c_threeliner_if_notzero_calls_fun_537c(uint8
     // 0x800656B4: jal         0x8006537C
     // 0x800656B8: addiu       $a1, $t9, 0xE
     ctx->r5 = ADD32(ctx->r25, 0XE);
-    MobilePiece_8006537c_fourliner_calls_fun_loops_4_times_v2(rdram, ctx);
+    MobilePiece_SetCubesColor(rdram, ctx);
         goto after_0;
     // 0x800656B8: addiu       $a1, $t9, 0xE
     ctx->r5 = ADD32(ctx->r25, 0XE);

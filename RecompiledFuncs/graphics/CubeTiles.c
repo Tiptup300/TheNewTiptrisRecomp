@@ -1267,7 +1267,7 @@ L_80075FC0:
     // 0x80075FC0: jal         0x80060814
     // 0x80075FC4: nop
 
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_0;
     // 0x80075FC4: nop
 
@@ -1336,7 +1336,7 @@ L_80076038:
     // 0x80076038: jal         0x80060814
     // 0x8007603C: sw          $t4, 0xC00($t0)
     MEM_W(0XC00, ctx->r8) = ctx->r12;
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_1;
     // 0x8007603C: sw          $t4, 0xC00($t0)
     MEM_W(0XC00, ctx->r8) = ctx->r12;
@@ -3536,7 +3536,7 @@ L_80076C94:
     // 0x80076D08: jal         0x8005BE40
     // 0x80076D0C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_2;
     // 0x80076D0C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -3787,7 +3787,7 @@ L_80076E10:
     // 0x80076E84: jal         0x8005BE40
     // 0x80076E88: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_5;
     // 0x80076E88: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);

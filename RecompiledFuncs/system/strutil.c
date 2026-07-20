@@ -278,7 +278,7 @@ L_80080B80:
     // 0x80080BD4: jal         0x8005BE40
     // 0x80080BD8: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_2;
     // 0x80080BD8: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);

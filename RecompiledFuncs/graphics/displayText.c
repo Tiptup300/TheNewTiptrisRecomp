@@ -765,7 +765,7 @@ L_80077D28:
 
 ;}
 
-RECOMP_FUNC void displayText_80077ee0_5(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_DrawString(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80077EE0: addiu       $sp, $sp, -0x40
@@ -956,7 +956,7 @@ L_8007801C:
 
 ;}
 
-RECOMP_FUNC void displayText_80078094_6(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_DrawChar(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80078094: addiu       $sp, $sp, -0x38
@@ -1123,7 +1123,7 @@ L_80078198:
 
 ;}
 
-RECOMP_FUNC void displayText_80078244_7(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_DrawStringN(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80078244: addiu       $sp, $sp, -0x40
@@ -1184,7 +1184,7 @@ L_8007826C:
     // 0x800782A8: jal         0x80078094
     // 0x800782AC: sw          $t2, 0x20($sp)
     MEM_W(0X20, ctx->r29) = ctx->r10;
-    displayText_80078094_6(rdram, ctx);
+    displayText_DrawChar(rdram, ctx);
         goto after_0;
     // 0x800782AC: sw          $t2, 0x20($sp)
     MEM_W(0X20, ctx->r29) = ctx->r10;
@@ -5773,7 +5773,7 @@ L_80079FB8:
     // 0x80079FEC: jal         0x8007B420
     // 0x80079FF0: nop
 
-    func_8007B420(rdram, ctx);
+    displayText_DeserializeTable(rdram, ctx);
         goto after_0;
     // 0x80079FF0: nop
 
@@ -5857,7 +5857,7 @@ L_8007A068:
 
 ;}
 
-RECOMP_FUNC void func_8007A078(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_SaveSlot(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A078: addiu       $sp, $sp, -0x30
@@ -6990,7 +6990,7 @@ L_8007A6D0:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007A738(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_AddTimestampedEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A738: addiu       $sp, $sp, -0x38
@@ -7426,7 +7426,7 @@ L_8007A91C:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void func_8007AA50(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_SerializeTable(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007AA50: sw          $a0, 0x0($sp)
@@ -9006,7 +9006,7 @@ RECOMP_FUNC void displayText_PrintEntry(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_8007B420(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_DeserializeTable(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007B420: addiu       $sp, $sp, -0x8

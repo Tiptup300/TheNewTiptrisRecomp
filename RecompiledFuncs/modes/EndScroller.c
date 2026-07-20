@@ -197,7 +197,7 @@ RECOMP_FUNC void EndScroller_DrawLine(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007FEDC: jal         0x80078244
     // 0x8007FEE0: sw          $t4, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r12;
-    displayText_80078244_7(rdram, ctx);
+    displayText_DrawStringN(rdram, ctx);
         goto after_0;
     // 0x8007FEE0: sw          $t4, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r12;
@@ -1229,7 +1229,7 @@ L_800804CC:
     // 0x800804D0: jal         0x8005BE40
     // 0x800804D4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_4;
     // 0x800804D4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -2125,7 +2125,7 @@ L_80080950:
     // 0x80080A44: jal         0x8005BE40
     // 0x80080A48: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_7;
     // 0x80080A48: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);

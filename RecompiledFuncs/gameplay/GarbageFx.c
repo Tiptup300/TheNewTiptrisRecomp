@@ -809,7 +809,7 @@ L_8007366C:
     // 0x80073670: jal         0x8005BE40
     // 0x80073674: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_3;
     // 0x80073674: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -1787,7 +1787,7 @@ L_80073CB0:
     // 0x80073CB8: jal         0x80060814
     // 0x80073CBC: addiu       $s1, $v0, -0x1
     ctx->r17 = ADD32(ctx->r2, -0X1);
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_3;
     // 0x80073CBC: addiu       $s1, $v0, -0x1
     ctx->r17 = ADD32(ctx->r2, -0X1);
@@ -2840,7 +2840,7 @@ RECOMP_FUNC void GarbageFx_InitIndicator(uint8_t* rdram, recomp_context* ctx) {
     // 0x80074400: jal         0x80060814
     // 0x80074404: sw          $a0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r4;
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_0;
     // 0x80074404: sw          $a0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r4;

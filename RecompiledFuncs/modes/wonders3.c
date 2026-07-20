@@ -780,7 +780,7 @@ RECOMP_FUNC void wonders3_init_tuples(uint8_t* rdram, recomp_context* ctx) {
     // 0x8004687C: jal         0x800571D4
     // 0x80046880: addiu       $a0, $a0, 0xD4
     ctx->r4 = ADD32(ctx->r4, 0XD4);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_2;
     // 0x80046880: addiu       $a0, $a0, 0xD4
     ctx->r4 = ADD32(ctx->r4, 0XD4);
@@ -808,7 +808,7 @@ RECOMP_FUNC void wonders3_init_tuples(uint8_t* rdram, recomp_context* ctx) {
     // 0x800468A4: jal         0x800571D4
     // 0x800468A8: addiu       $a2, $zero, 0x1D
     ctx->r6 = ADD32(0, 0X1D);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_3;
     // 0x800468A8: addiu       $a2, $zero, 0x1D
     ctx->r6 = ADD32(0, 0X1D);
@@ -822,7 +822,7 @@ RECOMP_FUNC void wonders3_init_tuples(uint8_t* rdram, recomp_context* ctx) {
     // 0x800468B8: jal         0x800571D4
     // 0x800468BC: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_4;
     // 0x800468BC: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
@@ -837,7 +837,7 @@ L_800468C0:
     // 0x800468CC: jal         0x800571D4
     // 0x800468D0: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_5;
     // 0x800468D0: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
@@ -851,7 +851,7 @@ L_800468C0:
     // 0x800468E0: jal         0x800571D4
     // 0x800468E4: addiu       $a0, $a0, 0x48
     ctx->r4 = ADD32(ctx->r4, 0X48);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_6;
     // 0x800468E4: addiu       $a0, $a0, 0x48
     ctx->r4 = ADD32(ctx->r4, 0X48);
@@ -865,7 +865,7 @@ L_800468C0:
     // 0x800468F4: jal         0x800571D4
     // 0x800468F8: addiu       $a0, $a0, 0x5C
     ctx->r4 = ADD32(ctx->r4, 0X5C);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_7;
     // 0x800468F8: addiu       $a0, $a0, 0x5C
     ctx->r4 = ADD32(ctx->r4, 0X5C);
@@ -879,7 +879,7 @@ L_800468C0:
     // 0x80046908: jal         0x800571D4
     // 0x8004690C: addiu       $a0, $a0, 0x70
     ctx->r4 = ADD32(ctx->r4, 0X70);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_8;
     // 0x8004690C: addiu       $a0, $a0, 0x70
     ctx->r4 = ADD32(ctx->r4, 0X70);
@@ -893,7 +893,7 @@ L_800468C0:
     // 0x8004691C: jal         0x800571D4
     // 0x80046920: addiu       $a0, $a0, 0x84
     ctx->r4 = ADD32(ctx->r4, 0X84);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_9;
     // 0x80046920: addiu       $a0, $a0, 0x84
     ctx->r4 = ADD32(ctx->r4, 0X84);
@@ -907,7 +907,7 @@ L_800468C0:
     // 0x80046930: jal         0x800571D4
     // 0x80046934: addiu       $a0, $a0, 0x98
     ctx->r4 = ADD32(ctx->r4, 0X98);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_10;
     // 0x80046934: addiu       $a0, $a0, 0x98
     ctx->r4 = ADD32(ctx->r4, 0X98);
@@ -921,7 +921,7 @@ L_800468C0:
     // 0x80046944: jal         0x800571D4
     // 0x80046948: addiu       $a0, $a0, 0xAC
     ctx->r4 = ADD32(ctx->r4, 0XAC);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_11;
     // 0x80046948: addiu       $a0, $a0, 0xAC
     ctx->r4 = ADD32(ctx->r4, 0XAC);
@@ -935,7 +935,7 @@ L_800468C0:
     // 0x80046958: jal         0x800571D4
     // 0x8004695C: addiu       $a0, $a0, 0xC0
     ctx->r4 = ADD32(ctx->r4, 0XC0);
-    FUN_01D300_800571d4_twentyliner(rdram, ctx);
+    Sprite_LoadImagePair(rdram, ctx);
         goto after_12;
     // 0x8004695C: addiu       $a0, $a0, 0xC0
     ctx->r4 = ADD32(ctx->r4, 0XC0);
@@ -1355,7 +1355,7 @@ RECOMP_FUNC void wonders3_display_wonders_hall_text(uint8_t* rdram, recomp_conte
     // 0x80046BAC: jal         0x80057338
     // 0x80046BB0: addiu       $a0, $s0, 0xD4
     ctx->r4 = ADD32(ctx->r16, 0XD4);
-    FUN_01D300_80057338_fifteenliner(rdram, ctx);
+    Sprite_DrawScaled(rdram, ctx);
         goto after_2;
     // 0x80046BB0: addiu       $a0, $s0, 0xD4
     ctx->r4 = ADD32(ctx->r16, 0XD4);
@@ -1541,7 +1541,7 @@ L_80046CA0:
     // 0x80046CB0: jal         0x80057338
     // 0x80046CB4: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
-    FUN_01D300_80057338_fifteenliner(rdram, ctx);
+    Sprite_DrawScaled(rdram, ctx);
         goto after_8;
     // 0x80046CB4: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
@@ -1644,7 +1644,7 @@ L_80046CE8:
     // 0x80046D4C: jal         0x80057338
     // 0x80046D50: addiu       $a0, $s0, 0xC
     ctx->r4 = ADD32(ctx->r16, 0XC);
-    FUN_01D300_80057338_fifteenliner(rdram, ctx);
+    Sprite_DrawScaled(rdram, ctx);
         goto after_12;
     // 0x80046D50: addiu       $a0, $s0, 0xC
     ctx->r4 = ADD32(ctx->r16, 0XC);
@@ -1652,7 +1652,7 @@ L_80046CE8:
     // 0x80046D54: jal         0x80057338
     // 0x80046D58: addiu       $a0, $s0, 0x20
     ctx->r4 = ADD32(ctx->r16, 0X20);
-    FUN_01D300_80057338_fifteenliner(rdram, ctx);
+    Sprite_DrawScaled(rdram, ctx);
         goto after_13;
     // 0x80046D58: addiu       $a0, $s0, 0x20
     ctx->r4 = ADD32(ctx->r16, 0X20);
@@ -2052,7 +2052,7 @@ L_80046F24:
     // 0x80046FE0: jal         0x8005BE40
     // 0x80046FE4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_28;
     // 0x80046FE4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -2360,7 +2360,7 @@ RECOMP_FUNC void wonders3_no_idea_menu_img_button(uint8_t* rdram, recomp_context
     // 0x800471E0: jal         0x8005BE40
     // 0x800471E4: sw          $t6, 0x4($t7)
     MEM_W(0X4, ctx->r15) = ctx->r14;
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_3;
     // 0x800471E4: sw          $t6, 0x4($t7)
     MEM_W(0X4, ctx->r15) = ctx->r14;
@@ -2531,7 +2531,7 @@ L_80047274:
     // 0x800472C8: jal         0x8005BE40
     // 0x800472CC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_4;
     // 0x800472CC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -2856,7 +2856,7 @@ RECOMP_FUNC void wonders3_Deinit(uint8_t* rdram, recomp_context* ctx) {
     // 0x80047494: jal         0x800572F8
     // 0x80047498: addiu       $a0, $s0, 0xD4
     ctx->r4 = ADD32(ctx->r16, 0XD4);
-    FUN_01D300_800572f8_twoliner(rdram, ctx);
+    Sprite_FreeImagePair(rdram, ctx);
         goto after_3;
     // 0x80047498: addiu       $a0, $s0, 0xD4
     ctx->r4 = ADD32(ctx->r16, 0XD4);
@@ -2876,7 +2876,7 @@ RECOMP_FUNC void wonders3_Deinit(uint8_t* rdram, recomp_context* ctx) {
     // 0x800474AC: jal         0x800572F8
     // 0x800474B0: addiu       $a0, $s0, 0xC
     ctx->r4 = ADD32(ctx->r16, 0XC);
-    FUN_01D300_800572f8_twoliner(rdram, ctx);
+    Sprite_FreeImagePair(rdram, ctx);
         goto after_4;
     // 0x800474B0: addiu       $a0, $s0, 0xC
     ctx->r4 = ADD32(ctx->r16, 0XC);
@@ -2884,7 +2884,7 @@ RECOMP_FUNC void wonders3_Deinit(uint8_t* rdram, recomp_context* ctx) {
     // 0x800474B4: jal         0x800572F8
     // 0x800474B8: addiu       $a0, $s0, 0x20
     ctx->r4 = ADD32(ctx->r16, 0X20);
-    FUN_01D300_800572f8_twoliner(rdram, ctx);
+    Sprite_FreeImagePair(rdram, ctx);
         goto after_5;
     // 0x800474B8: addiu       $a0, $s0, 0x20
     ctx->r4 = ADD32(ctx->r16, 0X20);
@@ -2914,7 +2914,7 @@ L_800474CC:
     // 0x800474DC: jal         0x800572F8
     // 0x800474E0: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);
-    FUN_01D300_800572f8_twoliner(rdram, ctx);
+    Sprite_FreeImagePair(rdram, ctx);
         goto after_6;
     // 0x800474E0: addiu       $a0, $a0, 0x34
     ctx->r4 = ADD32(ctx->r4, 0X34);

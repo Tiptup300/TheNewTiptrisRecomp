@@ -99,6 +99,7 @@ DOMAINS = {
     "OpponentPlayer": "ai",
     "GarbageFx": "gameplay", "Smoke": "graphics", "Particle": "graphics",
     "GarbageImg": "graphics", "ImageRect": "graphics",
+    "Sprite": "graphics", "Rand": "system", "GameMode": "core",
 }
 DEFAULT_DOMAIN = "misc"
 

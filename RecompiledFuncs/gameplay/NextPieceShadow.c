@@ -77,7 +77,7 @@ RECOMP_FUNC void NextPieceShadow_Setup(uint8_t* rdram, recomp_context* ctx) {
     // 0x8006812C: jal         0x800653E4
     // 0x80068130: addiu       $a0, $a0, 0x18
     ctx->r4 = ADD32(ctx->r4, 0X18);
-    MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times(rdram, ctx);
+    MobilePiece_Init(rdram, ctx);
         goto after_0;
     // 0x80068130: addiu       $a0, $a0, 0x18
     ctx->r4 = ADD32(ctx->r4, 0X18);

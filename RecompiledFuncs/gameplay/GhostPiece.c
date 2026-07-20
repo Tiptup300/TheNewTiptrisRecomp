@@ -21,7 +21,7 @@ RECOMP_FUNC void GhostPiece_800666d0_sixliner_loops_arg1_times(uint8_t* rdram, r
     // 0x800666EC: jal         0x800655C4
     // 0x800666F0: addiu       $a0, $a0, 0x500
     ctx->r4 = ADD32(ctx->r4, 0X500);
-    MobilePiece_800655c4_oneliner_if_calls_fun(rdram, ctx);
+    MobilePiece_UpdateAltColor(rdram, ctx);
         goto after_0;
     // 0x800666F0: addiu       $a0, $a0, 0x500
     ctx->r4 = ADD32(ctx->r4, 0X500);
@@ -327,7 +327,7 @@ L_8006683C:
     // 0x800668B4: jal         0x800653E4
     // 0x800668B8: sw          $t5, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r13;
-    MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times(rdram, ctx);
+    MobilePiece_Init(rdram, ctx);
         goto after_0;
     // 0x800668B8: sw          $t5, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r13;

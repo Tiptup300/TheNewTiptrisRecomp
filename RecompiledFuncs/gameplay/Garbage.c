@@ -81,7 +81,7 @@ RECOMP_FUNC void Garbage_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x80072DC4: jal         0x80072B30
     // 0x80072DC8: addiu       $a0, $a0, 0x14
     ctx->r4 = ADD32(ctx->r4, 0X14);
-    func_80072B30(rdram, ctx);
+    Landfill_InitHoleColumn(rdram, ctx);
         goto after_1;
     // 0x80072DC8: addiu       $a0, $a0, 0x14
     ctx->r4 = ADD32(ctx->r4, 0X14);
@@ -95,7 +95,7 @@ RECOMP_FUNC void Garbage_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x80072DD8: jal         0x8006089C
     // 0x80072DDC: nop
 
-    FUN_026900_PRNG_2(rdram, ctx);
+    Rand_Hash(rdram, ctx);
         goto after_2;
     // 0x80072DDC: nop
 

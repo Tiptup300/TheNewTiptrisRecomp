@@ -166,7 +166,7 @@ L_80066A28:
     // 0x80066A2C: jal         0x80065620
     // 0x80066A30: addiu       $a0, $a0, 0xA40
     ctx->r4 = ADD32(ctx->r4, 0XA40);
-    MobilePiece_80065620_threeliner_if_zero_calls_fun_537c(rdram, ctx);
+    MobilePiece_EnableAltColor(rdram, ctx);
         goto after_3;
     // 0x80066A30: addiu       $a0, $a0, 0xA40
     ctx->r4 = ADD32(ctx->r4, 0XA40);
@@ -183,7 +183,7 @@ L_80066A3C:
     // 0x80066A40: jal         0x8006567C
     // 0x80066A44: addiu       $a0, $a0, 0xA40
     ctx->r4 = ADD32(ctx->r4, 0XA40);
-    MobilePiece_8006567c_threeliner_if_notzero_calls_fun_537c(rdram, ctx);
+    MobilePiece_DisableAltColor(rdram, ctx);
         goto after_4;
     // 0x80066A44: addiu       $a0, $a0, 0xA40
     ctx->r4 = ADD32(ctx->r4, 0XA40);
@@ -214,7 +214,7 @@ L_80066A48:
     // 0x80066A64: jal         0x80065620
     // 0x80066A68: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    MobilePiece_80065620_threeliner_if_zero_calls_fun_537c(rdram, ctx);
+    MobilePiece_EnableAltColor(rdram, ctx);
         goto after_6;
     // 0x80066A68: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -231,7 +231,7 @@ L_80066A74:
     // 0x80066A78: jal         0x8006567C
     // 0x80066A7C: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    MobilePiece_8006567c_threeliner_if_notzero_calls_fun_537c(rdram, ctx);
+    MobilePiece_DisableAltColor(rdram, ctx);
         goto after_7;
     // 0x80066A7C: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -2481,7 +2481,7 @@ RECOMP_FUNC void CurrentPiece_Update(uint8_t* rdram, recomp_context* ctx) {
     // 0x800677E8: jal         0x800655C4
     // 0x800677EC: addiu       $a0, $t6, 0x518
     ctx->r4 = ADD32(ctx->r14, 0X518);
-    MobilePiece_800655c4_oneliner_if_calls_fun(rdram, ctx);
+    MobilePiece_UpdateAltColor(rdram, ctx);
         goto after_0;
     // 0x800677EC: addiu       $a0, $t6, 0x518
     ctx->r4 = ADD32(ctx->r14, 0X518);
@@ -3683,7 +3683,7 @@ RECOMP_FUNC void CurrentPiece_Spawn(uint8_t* rdram, recomp_context* ctx) {
     // 0x80067F0C: jal         0x800653E4
     // 0x80067F10: addiu       $a0, $s0, 0x20
     ctx->r4 = ADD32(ctx->r16, 0X20);
-    MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times(rdram, ctx);
+    MobilePiece_Init(rdram, ctx);
         goto after_6;
     // 0x80067F10: addiu       $a0, $s0, 0x20
     ctx->r4 = ADD32(ctx->r16, 0X20);
@@ -3898,7 +3898,7 @@ L_80068068:
     // 0x80068068: jal         0x80065620
     // 0x8006806C: addiu       $a0, $s0, 0xA40
     ctx->r4 = ADD32(ctx->r16, 0XA40);
-    MobilePiece_80065620_threeliner_if_zero_calls_fun_537c(rdram, ctx);
+    MobilePiece_EnableAltColor(rdram, ctx);
         goto after_14;
     // 0x8006806C: addiu       $a0, $s0, 0xA40
     ctx->r4 = ADD32(ctx->r16, 0XA40);

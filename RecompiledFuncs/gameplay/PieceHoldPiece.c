@@ -71,7 +71,7 @@ RECOMP_FUNC void PieceHoldPiece_MakeShadowActive(uint8_t* rdram, recomp_context*
     // 0x800657EC: jal         0x800653E4
     // 0x800657F0: sw          $t4, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r12;
-    MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times(rdram, ctx);
+    MobilePiece_Init(rdram, ctx);
         goto after_0;
     // 0x800657F0: sw          $t4, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r12;
@@ -415,7 +415,7 @@ L_80065B30:
     // 0x80065B38: jal         0x800655C4
     // 0x80065B3C: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    MobilePiece_800655c4_oneliner_if_calls_fun(rdram, ctx);
+    MobilePiece_UpdateAltColor(rdram, ctx);
         goto after_1;
     // 0x80065B3C: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -458,7 +458,7 @@ L_80065B68:
     // 0x80065B70: jal         0x800655C4
     // 0x80065B74: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    MobilePiece_800655c4_oneliner_if_calls_fun(rdram, ctx);
+    MobilePiece_UpdateAltColor(rdram, ctx);
         goto after_4;
     // 0x80065B74: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -785,7 +785,7 @@ RECOMP_FUNC void PieceHoldPiece_MakeActive(uint8_t* rdram, recomp_context* ctx) 
     // 0x80065D90: jal         0x800653E4
     // 0x80065D94: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);
-    MobilePiece_800653e4_eightliner_sets_arg0_struct_to_other_args_loops_4_times(rdram, ctx);
+    MobilePiece_Init(rdram, ctx);
         goto after_0;
     // 0x80065D94: addiu       $a0, $a0, 0x20
     ctx->r4 = ADD32(ctx->r4, 0X20);

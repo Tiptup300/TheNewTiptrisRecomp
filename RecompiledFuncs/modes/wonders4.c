@@ -804,7 +804,7 @@ L_80047B34:
     // 0x80047B98: jal         0x80077EE0
     // 0x80047B9C: sw          $t0, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r8;
-    displayText_80077ee0_5(rdram, ctx);
+    displayText_DrawString(rdram, ctx);
         goto after_20;
     // 0x80047B9C: sw          $t0, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r8;
@@ -848,7 +848,7 @@ L_80047B34:
     // 0x80047BE8: jal         0x80077EE0
     // 0x80047BEC: sw          $t6, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r14;
-    displayText_80077ee0_5(rdram, ctx);
+    displayText_DrawString(rdram, ctx);
         goto after_21;
     // 0x80047BEC: sw          $t6, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r14;
@@ -892,7 +892,7 @@ L_80047B34:
     // 0x80047C38: jal         0x80077EE0
     // 0x80047C3C: sw          $t9, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r25;
-    displayText_80077ee0_5(rdram, ctx);
+    displayText_DrawString(rdram, ctx);
         goto after_22;
     // 0x80047C3C: sw          $t9, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r25;
@@ -1058,7 +1058,7 @@ L_80047CCC:
     // 0x80047D50: jal         0x80077EE0
     // 0x80047D54: sw          $t9, 0x24($sp)
     MEM_W(0X24, ctx->r29) = ctx->r25;
-    displayText_80077ee0_5(rdram, ctx);
+    displayText_DrawString(rdram, ctx);
         goto after_2;
     // 0x80047D54: sw          $t9, 0x24($sp)
     MEM_W(0X24, ctx->r29) = ctx->r25;
@@ -1378,7 +1378,7 @@ L_80047ED8:
     // 0x80047F58: jal         0x80077EE0
     // 0x80047F5C: sw          $t7, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r15;
-    displayText_80077ee0_5(rdram, ctx);
+    displayText_DrawString(rdram, ctx);
         goto after_8;
     // 0x80047F5C: sw          $t7, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r15;

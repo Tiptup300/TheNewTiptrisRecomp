@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void Minos_8006f260_eightliner_calls_8007641c_4_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_SetTilePositions(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006F260: addiu       $sp, $sp, -0x28
@@ -108,7 +108,7 @@ RECOMP_FUNC void Minos_8006f260_eightliner_calls_8007641c_4_times(uint8_t* rdram
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Minos_8006f300_eightliner_calls_80076458_4_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_SampleTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006F300: addiu       $sp, $sp, -0x28
@@ -1824,7 +1824,7 @@ L_8006FF14:
     // 0x8006FF24: jal         0x8006F260
     // 0x8006FF28: nop
 
-    Minos_8006f260_eightliner_calls_8007641c_4_times(rdram, ctx);
+    Minos_SetTilePositions(rdram, ctx);
         goto after_1;
     // 0x8006FF28: nop
 
@@ -1843,7 +1843,7 @@ L_8006FF2C:
     // 0x8006FF38: jal         0x8006F300
     // 0x8006FF3C: nop
 
-    Minos_8006f300_eightliner_calls_80076458_4_times(rdram, ctx);
+    Minos_SampleTiles(rdram, ctx);
         goto after_2;
     // 0x8006FF3C: nop
 
@@ -3308,7 +3308,7 @@ RECOMP_FUNC void Minos_EndRender(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X4, ctx->r13) = 0;
 ;}
 
-RECOMP_FUNC void Minos_80070fd8_notcalled_q(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_TransformVec(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80070FD8: addiu       $sp, $sp, -0x10
@@ -3373,7 +3373,7 @@ RECOMP_FUNC void Minos_80070fd8_notcalled_q(uint8_t* rdram, recomp_context* ctx)
     MEM_H(0X2, ctx->r4) = ctx->r25;
 ;}
 
-RECOMP_FUNC void Minos_8007104c_fiveliner_nuts(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_TransformCoords(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007104C: lui         $a3, 0x8012
@@ -3470,7 +3470,7 @@ RECOMP_FUNC void Minos_8007104c_fiveliner_nuts(uint8_t* rdram, recomp_context* c
     MEM_H(0X2, ctx->r4) = ctx->r11;
 ;}
 
-RECOMP_FUNC void Minos_80071100_fiveliner_nuts2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Minos_TransformVecRot(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80071100: lui         $a2, 0x8012

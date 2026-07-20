@@ -186,7 +186,7 @@ RECOMP_FUNC void gamefinish_DrawResultSprite(uint8_t* rdram, recomp_context* ctx
     // 0x80052BCC: jal         0x8005BE40
     // 0x80052BD0: nop
 
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_3;
     // 0x80052BD0: nop
 

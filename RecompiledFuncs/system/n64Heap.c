@@ -4347,7 +4347,7 @@ L_8007F910:
     // 0x8007F978: jal         0x8005BE40
     // 0x8007F97C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_31;
     // 0x8007F97C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -4624,7 +4624,7 @@ L_8007FAB0:
     // 0x8007FB04: jal         0x8005BE40
     // 0x8007FB08: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_42;
     // 0x8007FB08: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -4972,7 +4972,7 @@ RECOMP_FUNC void func_8007FC74(uint8_t* rdram, recomp_context* ctx) {
     // 0x8007FCFC: jal         0x8005BE40
     // 0x8007FD00: nop
 
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_2;
     // 0x8007FD00: nop
 

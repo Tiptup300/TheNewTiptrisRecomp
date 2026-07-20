@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void PFGFX_8005fa80_twoliner_calls_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_InitTransformMatrix(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8005FA80: lui         $a0, 0x8012
@@ -40,7 +40,7 @@ RECOMP_FUNC void PFGFX_8005fa80_twoliner_calls_fun(uint8_t* rdram, recomp_contex
 
 ;}
 
-RECOMP_FUNC void PFGFX_8005fab8_oneliner_calls_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_InitBaseMatrix(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8005FAB8: lui         $a0, 0x8012
@@ -847,7 +847,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_1p(uint8_t* rdram, recomp_context* ctx)
     // 0x8005FF84: jal         0x8007104C
     // 0x8005FF88: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_4;
     // 0x8005FF88: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
@@ -871,7 +871,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_1p(uint8_t* rdram, recomp_context* ctx)
     // 0x8005FFAC: jal         0x8007104C
     // 0x8005FFB0: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_5;
     // 0x8005FFB0: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
@@ -895,7 +895,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_1p(uint8_t* rdram, recomp_context* ctx)
     // 0x8005FFD4: jal         0x8007104C
     // 0x8005FFD8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_6;
     // 0x8005FFD8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -919,7 +919,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_1p(uint8_t* rdram, recomp_context* ctx)
     // 0x8005FFFC: jal         0x8007104C
     // 0x80060000: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_7;
     // 0x80060000: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
@@ -1130,7 +1130,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_2p(uint8_t* rdram, recomp_context* ctx)
     // 0x80060164: jal         0x8007104C
     // 0x80060168: addiu       $a0, $sp, 0x38
     ctx->r4 = ADD32(ctx->r29, 0X38);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_4;
     // 0x80060168: addiu       $a0, $sp, 0x38
     ctx->r4 = ADD32(ctx->r29, 0X38);
@@ -1154,7 +1154,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_2p(uint8_t* rdram, recomp_context* ctx)
     // 0x8006018C: jal         0x8007104C
     // 0x80060190: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_5;
     // 0x80060190: addiu       $a0, $a0, 0x4
     ctx->r4 = ADD32(ctx->r4, 0X4);
@@ -1178,7 +1178,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_2p(uint8_t* rdram, recomp_context* ctx)
     // 0x800601B4: jal         0x8007104C
     // 0x800601B8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_6;
     // 0x800601B8: addiu       $a0, $a0, 0x8
     ctx->r4 = ADD32(ctx->r4, 0X8);
@@ -1202,7 +1202,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_2p(uint8_t* rdram, recomp_context* ctx)
     // 0x800601DC: jal         0x8007104C
     // 0x800601E0: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_7;
     // 0x800601E0: addiu       $a0, $a0, 0xC
     ctx->r4 = ADD32(ctx->r4, 0XC);
@@ -2296,7 +2296,7 @@ L_8006080C:
 
 ;}
 
-RECOMP_FUNC void FUN_026900_PRNG_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Rand_Next(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80060814: lui         $t6, 0x8012
@@ -2375,7 +2375,7 @@ L_8006087C:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void FUN_026900_sets_g8011FA70_to_arg0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Rand_SetSeed(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80060890: lui         $at, 0x8012
@@ -2388,7 +2388,7 @@ RECOMP_FUNC void FUN_026900_sets_g8011FA70_to_arg0(uint8_t* rdram, recomp_contex
     MEM_W(-0X590, ctx->r1) = ctx->r4;
 ;}
 
-RECOMP_FUNC void FUN_026900_PRNG_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Rand_Hash(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006089C: or          $a2, $zero, $zero
@@ -5130,7 +5130,7 @@ L_80061874:
     // 0x80061954: jal         0x8005BE40
     // 0x80061958: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_15;
     // 0x80061958: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -10745,7 +10745,7 @@ L_80063790:
     // 0x8006381C: jal         0x8005BE40
     // 0x80063820: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_3;
     // 0x80063820: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -11021,7 +11021,7 @@ L_80063790:
     // 0x800639D4: jal         0x8005BE40
     // 0x800639D8: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_17;
     // 0x800639D8: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -11252,7 +11252,7 @@ L_80063A40:
     // 0x80063B2C: jal         0x8005BE40
     // 0x80063B30: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_30;
     // 0x80063B30: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -11411,7 +11411,7 @@ L_80063B48:
     // 0x80063C24: jal         0x8005BE40
     // 0x80063C28: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_38;
     // 0x80063C28: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -11550,7 +11550,7 @@ L_80063C34:
     // 0x80063D04: jal         0x8005BE40
     // 0x80063D08: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_44;
     // 0x80063D08: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -11699,7 +11699,7 @@ L_80063D20:
     // 0x80063DF0: jal         0x8005BE40
     // 0x80063DF4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_51;
     // 0x80063DF4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -11906,7 +11906,7 @@ L_80063E00:
     // 0x80063F28: jal         0x8005BE40
     // 0x80063F2C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_62;
     // 0x80063F2C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -12175,7 +12175,7 @@ L_80063F44:
     // 0x800640A4: jal         0x8005BE40
     // 0x800640A8: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_81;
     // 0x800640A8: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -12424,7 +12424,7 @@ L_800640C0:
     // 0x80064208: jal         0x8005BE40
     // 0x8006420C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_98;
     // 0x8006420C: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -12525,7 +12525,7 @@ L_80064258:
     // 0x800642A0: jal         0x8005BE40
     // 0x800642A4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_101;
     // 0x800642A4: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -12654,7 +12654,7 @@ L_800642A8:
     // 0x80064370: jal         0x8005BE40
     // 0x80064374: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_106;
     // 0x80064374: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -13099,7 +13099,7 @@ L_80064670:
     // 0x80064674: jal         0x8005BE40
     // 0x80064678: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_117;
     // 0x80064678: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -13482,7 +13482,7 @@ L_80064900:
     // 0x80064904: jal         0x8005BE40
     // 0x80064908: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_127;
     // 0x80064908: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -13903,7 +13903,7 @@ L_80064BD4:
     // 0x80064BD8: jal         0x8005BE40
     // 0x80064BDC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_138;
     // 0x80064BDC: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
@@ -14018,7 +14018,7 @@ L_80064C10:
     // 0x80064C94: jal         0x8005BE40
     // 0x80064C98: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);
-    func_8005BE40(rdram, ctx);
+    Color_SetSpriteRenderMode(rdram, ctx);
         goto after_141;
     // 0x80064C98: addiu       $a0, $a0, 0x20C0
     ctx->r4 = ADD32(ctx->r4, 0X20C0);

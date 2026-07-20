@@ -19,7 +19,7 @@ RECOMP_FUNC void Particle_Spawn(uint8_t* rdram, recomp_context* ctx) {
     // 0x800749B8: jal         0x80060814
     // 0x800749BC: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_0;
     // 0x800749BC: sw          $s0, 0x14($sp)
     MEM_W(0X14, ctx->r29) = ctx->r16;
@@ -55,7 +55,7 @@ RECOMP_FUNC void Particle_Spawn(uint8_t* rdram, recomp_context* ctx) {
     // 0x800749F8: jal         0x80060814
     // 0x800749FC: sh          $t1, 0x4($t2)
     MEM_H(0X4, ctx->r10) = ctx->r9;
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_1;
     // 0x800749FC: sh          $t1, 0x4($t2)
     MEM_H(0X4, ctx->r10) = ctx->r9;
@@ -128,7 +128,7 @@ L_80074A54:
     // 0x80074A5C: jal         0x80060814
     // 0x80074A60: nop
 
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_2;
     // 0x80074A60: nop
 
@@ -192,7 +192,7 @@ L_80074AB0:
     // 0x80074AB8: jal         0x80060814
     // 0x80074ABC: nop
 
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_3;
     // 0x80074ABC: nop
 
@@ -204,7 +204,7 @@ L_80074AB0:
     // 0x80074AC8: jal         0x80060814
     // 0x80074ACC: sh          $t8, 0x8($t9)
     MEM_H(0X8, ctx->r25) = ctx->r24;
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_4;
     // 0x80074ACC: sh          $t8, 0x8($t9)
     MEM_H(0X8, ctx->r25) = ctx->r24;
@@ -218,7 +218,7 @@ L_80074AB0:
     // 0x80074ADC: jal         0x80060814
     // 0x80074AE0: sh          $t0, 0xA($t1)
     MEM_H(0XA, ctx->r9) = ctx->r8;
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_5;
     // 0x80074AE0: sh          $t0, 0xA($t1)
     MEM_H(0XA, ctx->r9) = ctx->r8;
@@ -301,7 +301,7 @@ L_80074B4C:
     // 0x80074B54: jal         0x80060814
     // 0x80074B58: nop
 
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_6;
     // 0x80074B58: nop
 

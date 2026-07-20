@@ -4198,7 +4198,7 @@ L_8006CC4C:
 
 ;}
 
-RECOMP_FUNC void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GameMode_PausedTick(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006CC80: addiu       $sp, $sp, -0x28
@@ -4411,7 +4411,7 @@ L_8006CD84:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_032F00_8006cd98_tenliner_checks_12(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GameMode_PlayingTick(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006CD98: addiu       $sp, $sp, -0x28
@@ -4530,7 +4530,7 @@ L_8006CE20:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_032F00_8006ce30_tenliner_magic_4000(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void GameMode_AttractCountdownTick(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006CE30: lui         $t6, 0x800D

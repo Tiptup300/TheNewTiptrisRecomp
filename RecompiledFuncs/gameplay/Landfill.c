@@ -551,7 +551,7 @@ L_8007268C:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void func_800726A4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_ClearColumn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800726A4: addiu       $sp, $sp, -0x38
@@ -1398,7 +1398,7 @@ L_80072B10:
 
 ;}
 
-RECOMP_FUNC void func_80072B30(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_InitHoleColumn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072B30: addiu       $at, $zero, 0xA
@@ -1425,7 +1425,7 @@ RECOMP_FUNC void func_80072B30(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void func_80072B58(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Landfill_RandomizeHoleColumn(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80072B58: addiu       $sp, $sp, -0x18
@@ -1441,7 +1441,7 @@ RECOMP_FUNC void func_80072B58(uint8_t* rdram, recomp_context* ctx) {
     // 0x80072B6C: jal         0x8006089C
     // 0x80072B70: nop
 
-    FUN_026900_PRNG_2(rdram, ctx);
+    Rand_Hash(rdram, ctx);
         goto after_0;
     // 0x80072B70: nop
 
@@ -1589,7 +1589,7 @@ L_80072C24:
     // 0x80072C3C: jal         0x80060814
     // 0x80072C40: nop
 
-    FUN_026900_PRNG_1(rdram, ctx);
+    Rand_Next(rdram, ctx);
         goto after_1;
     // 0x80072C40: nop
 
@@ -1661,7 +1661,7 @@ L_80072C74:
     // 0x80072CA8: jal         0x80072B58
     // 0x80072CAC: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
-    func_80072B58(rdram, ctx);
+    Landfill_RandomizeHoleColumn(rdram, ctx);
         goto after_3;
     // 0x80072CAC: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;

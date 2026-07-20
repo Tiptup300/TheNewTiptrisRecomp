@@ -637,7 +637,7 @@ RECOMP_FUNC void PieceHold_80065ff8_oneliner_calls_fun2_wunk518(uint8_t* rdram, 
     // 0x80066008: jal         0x80065620
     // 0x8006600C: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    MobilePiece_80065620_threeliner_if_zero_calls_fun_537c(rdram, ctx);
+    MobilePiece_EnableAltColor(rdram, ctx);
         goto after_0;
     // 0x8006600C: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -668,7 +668,7 @@ RECOMP_FUNC void PieceHold_80066020_oneliner_calls_fun3_wunk518(uint8_t* rdram, 
     // 0x80066030: jal         0x8006567C
     // 0x80066034: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    MobilePiece_8006567c_threeliner_if_notzero_calls_fun_537c(rdram, ctx);
+    MobilePiece_DisableAltColor(rdram, ctx);
         goto after_0;
     // 0x80066034: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -778,7 +778,7 @@ L_80066094:
     // 0x800660D0: jal         0x8007104C
     // 0x800660D4: or          $a2, $t4, $zero
     ctx->r6 = ctx->r12 | 0;
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_0;
     // 0x800660D4: or          $a2, $t4, $zero
     ctx->r6 = ctx->r12 | 0;
@@ -829,7 +829,7 @@ L_800660E0:
     // 0x80066128: jal         0x8007104C
     // 0x8006612C: or          $a2, $t9, $zero
     ctx->r6 = ctx->r25 | 0;
-    Minos_8007104c_fiveliner_nuts(rdram, ctx);
+    Minos_TransformCoords(rdram, ctx);
         goto after_1;
     // 0x8006612C: or          $a2, $t9, $zero
     ctx->r6 = ctx->r25 | 0;
@@ -1536,7 +1536,7 @@ RECOMP_FUNC void PieceHold_Init(uint8_t* rdram, recomp_context* ctx) {
     // 0x800665A8: jal         0x8006089C
     // 0x800665AC: nop
 
-    FUN_026900_PRNG_2(rdram, ctx);
+    Rand_Hash(rdram, ctx);
         goto after_4;
     // 0x800665AC: nop
 
