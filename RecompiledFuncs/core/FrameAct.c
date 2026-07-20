@@ -28,7 +28,7 @@ RECOMP_FUNC void FrameAct_80053684_threeliner(uint8_t* rdram, recomp_context* ct
     // 0x8005368C: jal         0x800688E0
     // 0x80053690: sw          $a0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r4;
-    NextPieces_800688e0_sets_global_var_element(rdram, ctx);
+    NextPieces_StartSlide(rdram, ctx);
         goto after_0;
     // 0x80053690: sw          $a0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r4;
@@ -694,7 +694,7 @@ L_80053A34:
     // 0x80053A44: jal         0x800688E0
     // 0x80053A48: sb          $zero, 0x2($t8)
     MEM_B(0X2, ctx->r24) = 0;
-    NextPieces_800688e0_sets_global_var_element(rdram, ctx);
+    NextPieces_StartSlide(rdram, ctx);
         goto after_1;
     // 0x80053A48: sb          $zero, 0x2($t8)
     MEM_B(0X2, ctx->r24) = 0;
@@ -709,7 +709,7 @@ L_80053A54:
     // 0x80053A54: jal         0x8004376C
     // 0x80053A58: nop
 
-    aiplayer_8004376c_fiveliner(rdram, ctx);
+    aiplayer_UpdateTarget(rdram, ctx);
         goto after_2;
     // 0x80053A58: nop
 
@@ -721,7 +721,7 @@ L_80053A54:
     // 0x80053A64: jal         0x800688E0
     // 0x80053A68: sb          $t9, 0x0($t0)
     MEM_B(0X0, ctx->r8) = ctx->r25;
-    NextPieces_800688e0_sets_global_var_element(rdram, ctx);
+    NextPieces_StartSlide(rdram, ctx);
         goto after_3;
     // 0x80053A68: sb          $t9, 0x0($t0)
     MEM_B(0X0, ctx->r8) = ctx->r25;
@@ -802,7 +802,7 @@ L_80053AD0:
     // 0x80053AD0: jal         0x80068904
     // 0x80053AD4: nop
 
-    NextPieces_80068904_twoliner_if_fb80_eq_1_call_fun(rdram, ctx);
+    NextPieces_Update(rdram, ctx);
         goto after_0;
     // 0x80053AD4: nop
 
@@ -893,7 +893,7 @@ L_80053AE4:
     // 0x80053B4C: jal         0x8004370C
     // 0x80053B50: nop
 
-    aiplayer_8004370c_threeliner(rdram, ctx);
+    aiplayer_RequestDecision(rdram, ctx);
         goto after_4;
     // 0x80053B50: nop
 

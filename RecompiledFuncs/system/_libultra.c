@@ -7771,7 +7771,7 @@ RECOMP_FUNC void FUN_003E40_8003dda8_twentyfiveliner_nested_loops(uint8_t* rdram
     // 0x8003DDCC: jal         0x800412E0
     // 0x8003DDD0: addiu       $a0, $sp, 0x33
     ctx->r4 = ADD32(ctx->r29, 0X33);
-    FUN_800412e0_fifteenliner_logic_cell(rdram, ctx);
+    aisquarelist_BuildBoardModel(rdram, ctx);
         goto after_0;
     // 0x8003DDD0: addiu       $a0, $sp, 0x33
     ctx->r4 = ADD32(ctx->r29, 0X33);
@@ -7810,7 +7810,7 @@ L_8003DE00:
     // 0x8003DE08: jal         0x80041810
     // 0x8003DE0C: or          $a1, $s3, $zero
     ctx->r5 = ctx->r19 | 0;
-    FUN_80041810_twentyliner(rdram, ctx);
+    aisquarelist_CanPieceMove(rdram, ctx);
         goto after_1;
     // 0x8003DE0C: or          $a1, $s3, $zero
     ctx->r5 = ctx->r19 | 0;
@@ -7830,7 +7830,7 @@ L_8003DE00:
     // 0x8003DE20: jal         0x800416CC
     // 0x8003DE24: or          $a1, $s3, $zero
     ctx->r5 = ctx->r19 | 0;
-    FUN_800416cc_fourliner(rdram, ctx);
+    aisquarelist_TryPlacePiece(rdram, ctx);
         goto after_2;
     // 0x8003DE24: or          $a1, $s3, $zero
     ctx->r5 = ctx->r19 | 0;
@@ -7852,7 +7852,7 @@ L_8003DE00:
     // 0x8003DE3C: jal         0x800413C0
     // 0x8003DE40: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_3;
     // 0x8003DE40: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
@@ -8045,7 +8045,7 @@ L_8003DF3C:
     // 0x8003DF48: jal         0x800413C0
     // 0x8003DF4C: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_5;
     // 0x8003DF4C: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -8281,7 +8281,7 @@ L_8003E084:
     // 0x8003E098: jal         0x8004199C
     // 0x8003E09C: or          $a2, $s1, $zero
     ctx->r6 = ctx->r17 | 0;
-    FUN_8004199c_twentyliner_loop(rdram, ctx);
+    aisquarelist_DropPieceToRow(rdram, ctx);
         goto after_0;
     // 0x8003E09C: or          $a2, $s1, $zero
     ctx->r6 = ctx->r17 | 0;
@@ -8394,7 +8394,7 @@ L_8003E0A8:
     // 0x8003E158: jal         0x8004191C
     // 0x8003E15C: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
-    FUN_8004191c_sixliner_loop_shift_right(rdram, ctx);
+    aisquarelist_IsColumnClearToTop(rdram, ctx);
         goto after_1;
     // 0x8003E15C: or          $a1, $t8, $zero
     ctx->r5 = ctx->r24 | 0;
@@ -8422,7 +8422,7 @@ L_8003E0A8:
     // 0x8003E180: jal         0x8004199C
     // 0x8003E184: or          $a2, $s1, $zero
     ctx->r6 = ctx->r17 | 0;
-    FUN_8004199c_twentyliner_loop(rdram, ctx);
+    aisquarelist_DropPieceToRow(rdram, ctx);
         goto after_2;
     // 0x8003E184: or          $a2, $s1, $zero
     ctx->r6 = ctx->r17 | 0;
@@ -23142,7 +23142,7 @@ L_80090F88:
     // 0x80090FBC: jal         0x80042800
     // 0x80090FC0: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
-    aiplayer_gameinit_related(rdram, ctx);
+    aiplayer_Init(rdram, ctx);
         goto after_16;
     // 0x80090FC0: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
@@ -25507,7 +25507,7 @@ L_80091E1C:
     // 0x80091E88: jal         0x8007A6C4
     // 0x80091E8C: addiu       $a2, $zero, 0xD
     ctx->r6 = ADD32(0, 0XD);
-    func_8007A6C4(rdram, ctx);
+    displayText_InitEntry(rdram, ctx);
         goto after_4;
     // 0x80091E8C: addiu       $a2, $zero, 0xD
     ctx->r6 = ADD32(0, 0XD);
@@ -26335,7 +26335,7 @@ L_800922EC:
     // 0x80092344: jal         0x8007A6C4
     // 0x80092348: or          $a2, $t2, $zero
     ctx->r6 = ctx->r10 | 0;
-    func_8007A6C4(rdram, ctx);
+    displayText_InitEntry(rdram, ctx);
         goto after_33;
     // 0x80092348: or          $a2, $t2, $zero
     ctx->r6 = ctx->r10 | 0;
@@ -28413,7 +28413,7 @@ L_80093090:
     // 0x80093114: jal         0x8007AEB0
     // 0x80093118: nop
 
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_78;
     // 0x80093118: nop
 
@@ -28801,7 +28801,7 @@ L_80093364:
     // 0x80093370: jal         0x8007AEB0
     // 0x80093374: nop
 
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_91;
     // 0x80093374: nop
 
@@ -37744,7 +37744,7 @@ L_80096DF4:
     // 0x80096E2C: jal         0x800798F0
     // 0x80096E30: or          $a0, $t3, $zero
     ctx->r4 = ctx->r11 | 0;
-    func_800798F0(rdram, ctx);
+    displayText_DrawWonderProgress(rdram, ctx);
         goto after_245;
     // 0x80096E30: or          $a0, $t3, $zero
     ctx->r4 = ctx->r11 | 0;
@@ -39126,7 +39126,7 @@ L_8009767C:
     // 0x80097684: jal         0x8007A660
     // 0x80097688: nop
 
-    func_8007A660(rdram, ctx);
+    displayText_CountSetBitsInWord(rdram, ctx);
         goto after_283;
     // 0x80097688: nop
 
@@ -39392,7 +39392,7 @@ L_800977F4:
     // 0x8009781C: jal         0x8007A5D4
     // 0x80097820: nop
 
-    func_8007A5D4(rdram, ctx);
+    displayText_FindFirstSetBit(rdram, ctx);
         goto after_291;
     // 0x80097820: nop
 
@@ -39430,7 +39430,7 @@ L_800977F4:
     // 0x80097858: jal         0x8007A5D4
     // 0x8009785C: nop
 
-    func_8007A5D4(rdram, ctx);
+    displayText_FindFirstSetBit(rdram, ctx);
         goto after_293;
     // 0x8009785C: nop
 
@@ -39693,7 +39693,7 @@ L_80097964:
     // 0x800979CC: jal         0x8007A660
     // 0x800979D0: nop
 
-    func_8007A660(rdram, ctx);
+    displayText_CountSetBitsInWord(rdram, ctx);
         goto after_300;
     // 0x800979D0: nop
 
@@ -39738,7 +39738,7 @@ L_800979F0:
     // 0x80097A08: jal         0x8007A660
     // 0x80097A0C: nop
 
-    func_8007A660(rdram, ctx);
+    displayText_CountSetBitsInWord(rdram, ctx);
         goto after_301;
     // 0x80097A0C: nop
 
@@ -43354,7 +43354,7 @@ L_800991A4:
     // 0x800991C0: jal         0x8007AEB0
     // 0x800991C4: nop
 
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_341;
     // 0x800991C4: nop
 
@@ -43759,7 +43759,7 @@ L_80099444:
     // 0x80099450: jal         0x8007AEB0
     // 0x80099454: nop
 
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_348;
     // 0x80099454: nop
 
@@ -66639,7 +66639,7 @@ L_800A2958:
     // 0x800A29A4: jal         0x80042800
     // 0x800A29A8: addiu       $a2, $a2, -0x1
     ctx->r6 = ADD32(ctx->r6, -0X1);
-    aiplayer_gameinit_related(rdram, ctx);
+    aiplayer_Init(rdram, ctx);
         goto after_2;
     // 0x800A29A8: addiu       $a2, $a2, -0x1
     ctx->r6 = ADD32(ctx->r6, -0X1);

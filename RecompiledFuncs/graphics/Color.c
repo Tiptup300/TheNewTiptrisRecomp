@@ -1109,7 +1109,7 @@ L_800552F4:
     // 0x80055324: jal         0x8007AA5C
     // 0x80055328: addu        $a1, $t8, $t5
     ctx->r5 = ADD32(ctx->r24, ctx->r13);
-    func_8007AA5C(rdram, ctx);
+    displayText_FindEntry(rdram, ctx);
         goto after_3;
     // 0x80055328: addu        $a1, $t8, $t5
     ctx->r5 = ADD32(ctx->r24, ctx->r13);
@@ -4733,7 +4733,7 @@ L_80056930:
     // 0x80056A14: jal         0x8007AA5C
     // 0x80056A18: addiu       $a0, $a0, 0x2D98
     ctx->r4 = ADD32(ctx->r4, 0X2D98);
-    func_8007AA5C(rdram, ctx);
+    displayText_FindEntry(rdram, ctx);
         goto after_68;
     // 0x80056A18: addiu       $a0, $a0, 0x2D98
     ctx->r4 = ADD32(ctx->r4, 0X2D98);
@@ -5369,7 +5369,7 @@ L_80056DF0:
     // 0x80056E1C: jal         0x8007AA5C
     // 0x80056E20: addiu       $a0, $a0, 0x2D98
     ctx->r4 = ADD32(ctx->r4, 0X2D98);
-    func_8007AA5C(rdram, ctx);
+    displayText_FindEntry(rdram, ctx);
         goto after_80;
     // 0x80056E20: addiu       $a0, $a0, 0x2D98
     ctx->r4 = ADD32(ctx->r4, 0X2D98);

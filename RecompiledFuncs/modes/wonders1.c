@@ -6569,7 +6569,7 @@ L_80045E04:
     // 0x80045E08: jal         0x80051618
     // 0x80045E0C: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_80051618_twentyliner(rdram, ctx);
+    Game_StartRound(rdram, ctx);
         goto after_10;
     // 0x80045E0C: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);

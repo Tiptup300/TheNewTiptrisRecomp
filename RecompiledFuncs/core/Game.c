@@ -167,7 +167,7 @@ RECOMP_FUNC void PlayerVars_SetGlobalPointers(uint8_t* rdram, recomp_context* ct
 
 ;}
 
-RECOMP_FUNC void Game_calls_SETGP_magic_7(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_AnyBoardCubeInRows7(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80050AC4: addiu       $sp, $sp, -0x28
@@ -1185,7 +1185,7 @@ L_8005108C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Game_800510a4_eightliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_CountPlayersPlaying(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800510A4: lbu         $t6, 0x5($a0)
@@ -1255,7 +1255,7 @@ L_800510F8:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void Game_80051104_sevenliner_num_players(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_CountAlivePlayers(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051104: lui         $a3, 0x8012
@@ -1626,7 +1626,7 @@ L_80051308:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void Game_80051320_fiveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_HandlePlayerTopOut(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051320: addiu       $sp, $sp, -0x28
@@ -1736,7 +1736,7 @@ L_800513AC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Game_800513bc_tenliner_num_players(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_HandleLastPlayerStanding(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800513BC: addiu       $sp, $sp, -0x28
@@ -1766,7 +1766,7 @@ RECOMP_FUNC void Game_800513bc_tenliner_num_players(uint8_t* rdram, recomp_conte
     // 0x800513E4: jal         0x80051104
     // 0x800513E8: nop
 
-    Game_80051104_sevenliner_num_players(rdram, ctx);
+    Game_CountAlivePlayers(rdram, ctx);
         goto after_0;
     // 0x800513E8: nop
 
@@ -1921,7 +1921,7 @@ L_80051498:
     // 0x800514C4: jal         0x80051320
     // 0x800514C8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    Game_80051320_fiveliner(rdram, ctx);
+    Game_HandlePlayerTopOut(rdram, ctx);
         goto after_0;
     // 0x800514C8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -1955,7 +1955,7 @@ L_800514DC:
     // 0x800514EC: jal         0x800513BC
     // 0x800514F0: nop
 
-    Game_800513bc_tenliner_num_players(rdram, ctx);
+    Game_HandleLastPlayerStanding(rdram, ctx);
         goto after_1;
     // 0x800514F0: nop
 
@@ -2096,7 +2096,7 @@ L_800515A4:
     // 0x800515A8: jal         0x800510A4
     // 0x800515AC: nop
 
-    Game_800510a4_eightliner(rdram, ctx);
+    Game_CountPlayersPlaying(rdram, ctx);
         goto after_6;
     // 0x800515AC: nop
 
@@ -2150,7 +2150,7 @@ L_800515DC:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void Game_800515f8_twoliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_LatchEndState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800515F8: lbu         $t6, 0x3($a0)
@@ -2178,7 +2178,7 @@ L_80051610:
 
 ;}
 
-RECOMP_FUNC void Game_80051618_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_StartRound(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051618: addiu       $sp, $sp, -0x38
@@ -2413,7 +2413,7 @@ L_80051718:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void Game_80051790_twelveliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_BeginEndSequence(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051790: addiu       $sp, $sp, -0x28
@@ -2562,7 +2562,7 @@ L_800517F4:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Game_80051880_sixliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_FinishAllBoards(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051880: addiu       $sp, $sp, -0x28
@@ -2762,7 +2762,7 @@ L_8005199C:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void Game_800519b4_thirtyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_HandleEndGameInput(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800519B4: addiu       $sp, $sp, -0x58
@@ -2911,7 +2911,7 @@ L_80051A90:
     // 0x80051A9C: jal         0x80051790
     // 0x80051AA0: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    Game_80051790_twelveliner(rdram, ctx);
+    Game_BeginEndSequence(rdram, ctx);
         goto after_0;
     // 0x80051AA0: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
@@ -2928,7 +2928,7 @@ L_80051AAC:
     // 0x80051AB0: jal         0x80051104
     // 0x80051AB4: nop
 
-    Game_80051104_sevenliner_num_players(rdram, ctx);
+    Game_CountAlivePlayers(rdram, ctx);
         goto after_1;
     // 0x80051AB4: nop
 
@@ -3056,7 +3056,7 @@ L_80051B60:
     // 0x80051B6C: jal         0x80051880
     // 0x80051B70: nop
 
-    Game_80051880_sixliner(rdram, ctx);
+    Game_FinishAllBoards(rdram, ctx);
         goto after_2;
     // 0x80051B70: nop
 
@@ -3279,7 +3279,7 @@ L_80051CA0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Game_line_782_game_c(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_Tick(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051CB0: addiu       $sp, $sp, -0x18
@@ -3563,7 +3563,7 @@ L_80051E2C:
     // 0x80051E44: jal         0x80051104
     // 0x80051E48: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
-    Game_80051104_sevenliner_num_players(rdram, ctx);
+    Game_CountAlivePlayers(rdram, ctx);
         goto after_3;
     // 0x80051E48: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
@@ -3634,7 +3634,7 @@ L_80051E74:
     // 0x80051EA8: jal         0x8004311C
     // 0x80051EAC: nop
 
-    aiplayer_8004311c_largefunction(rdram, ctx);
+    aiplayer_Update(rdram, ctx);
         goto after_6;
     // 0x80051EAC: nop
 
@@ -3659,7 +3659,7 @@ L_80051EB0:
     // 0x80051EC8: jal         0x800519B4
     // 0x80051ECC: nop
 
-    Game_800519b4_thirtyliner(rdram, ctx);
+    Game_HandleEndGameInput(rdram, ctx);
         goto after_7;
     // 0x80051ECC: nop
 
@@ -3670,7 +3670,7 @@ L_80051ED0:
     // 0x80051ED4: jal         0x800515F8
     // 0x80051ED8: nop
 
-    Game_800515f8_twoliner(rdram, ctx);
+    Game_LatchEndState(rdram, ctx);
         goto after_8;
     // 0x80051ED8: nop
 
@@ -3739,7 +3739,7 @@ L_80051F20:
 
 ;}
 
-RECOMP_FUNC void Game_render_stuff_line_850(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_Draw(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80051F30: addiu       $sp, $sp, -0x28
@@ -3990,7 +3990,7 @@ L_80052080:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Game_80052090_calls_3_functions(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_DeinitCubeTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80052090: addiu       $sp, $sp, -0x28
@@ -4041,7 +4041,7 @@ RECOMP_FUNC void Game_80052090_calls_3_functions(uint8_t* rdram, recomp_context*
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void Game_800520d0_calls_cubetiles_init(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Game_InitCubeTiles(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800520D0: addiu       $sp, $sp, -0x28
@@ -4802,7 +4802,7 @@ L_8005252C:
     // 0x8005252C: jal         0x80041260
     // 0x80052530: nop
 
-    FUN_80041260_twoliner(rdram, ctx);
+    aisquarelist_CreateState(rdram, ctx);
         goto after_27;
     // 0x80052530: nop
 
@@ -5081,7 +5081,7 @@ L_80052684:
     // 0x80052698: jal         0x80042B3C
     // 0x8005269C: nop
 
-    aiplayer_80042b3c_calls_heap_unalloc(rdram, ctx);
+    aiplayer_Deinit(rdram, ctx);
         goto after_10;
     // 0x8005269C: nop
 
@@ -5089,7 +5089,7 @@ L_80052684:
     // 0x800526A0: jal         0x8004129C
     // 0x800526A4: nop
 
-    FUN_8004129c_fourliner(rdram, ctx);
+    aisquarelist_DestroyState(rdram, ctx);
         goto after_11;
     // 0x800526A4: nop
 

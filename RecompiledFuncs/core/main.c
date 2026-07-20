@@ -131,7 +131,7 @@ RECOMP_FUNC void boot(uint8_t* rdram, recomp_context* ctx) {
     // 0x80049D20: jal         0x80061134
     // 0x80049D24: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
-    func_80061134(rdram, ctx);
+    PFGFX_ClearCellGrids(rdram, ctx);
         goto after_3;
     // 0x80049D24: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
@@ -498,7 +498,7 @@ L_80049F50:
     // 0x80049F5C: jal         0x80061134
     // 0x80049F60: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
-    func_80061134(rdram, ctx);
+    PFGFX_ClearCellGrids(rdram, ctx);
         goto after_8;
     // 0x80049F60: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
@@ -821,7 +821,7 @@ L_8004A140:
     // 0x8004A140: jal         0x80060E30
     // 0x8004A144: nop
 
-    func_80060E30(rdram, ctx);
+    PFGFX_ApplyViMode(rdram, ctx);
         goto after_4;
     // 0x8004A144: nop
 
@@ -1341,7 +1341,7 @@ RECOMP_FUNC void main_another_but_diff_400x300(uint8_t* rdram, recomp_context* c
     // 0x8004A43C: jal         0x8006110C
     // 0x8004A440: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
-    func_8006110C(rdram, ctx);
+    PFGFX_RequestViModeChange(rdram, ctx);
         goto after_3;
     // 0x8004A440: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);

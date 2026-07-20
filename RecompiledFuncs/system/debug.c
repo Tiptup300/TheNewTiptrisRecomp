@@ -269,7 +269,7 @@ L_8004A664:
     // 0x8004A724: jal         0x80061134
     // 0x8004A728: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
-    func_80061134(rdram, ctx);
+    PFGFX_ClearCellGrids(rdram, ctx);
         goto after_7;
     // 0x8004A728: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);

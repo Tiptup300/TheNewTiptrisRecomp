@@ -3248,7 +3248,7 @@ L_8004769C:
     // 0x800476A8: jal         0x80051618
     // 0x800476AC: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_80051618_twentyliner(rdram, ctx);
+    Game_StartRound(rdram, ctx);
         goto after_19;
     // 0x800476AC: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);

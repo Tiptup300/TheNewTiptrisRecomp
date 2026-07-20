@@ -94,6 +94,8 @@ DOMAINS = {
     "lzo": "system", "lzo1x": "system", "vec3": "system", "strutil": "system",
     "debug": "system", "frametime": "system", "SaveData": "system",
     "vec4": "system", "mtx4": "system", "mtx3": "system",  # math split out of vec3
+    "Bitstream": "system",  # bit-packing for save data
+    "NextPiece": "gameplay", "NextPieceShadow": "gameplay",
 }
 DEFAULT_DOMAIN = "misc"
 

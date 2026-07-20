@@ -1721,7 +1721,7 @@ L_8007854C:
     // 0x80078578: jal         0x8007AEB0
     // 0x8007857C: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_0;
     // 0x8007857C: or          $a0, $t7, $zero
     ctx->r4 = ctx->r15 | 0;
@@ -1875,7 +1875,7 @@ L_800785F4:
     // 0x80078650: jal         0x8007AEB0
     // 0x80078654: or          $a0, $t0, $zero
     ctx->r4 = ctx->r8 | 0;
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_0;
     // 0x80078654: or          $a0, $t0, $zero
     ctx->r4 = ctx->r8 | 0;
@@ -2040,7 +2040,7 @@ L_8007871C:
     // 0x80078720: jal         0x8007AEB0
     // 0x80078724: nop
 
-    func_8007AEB0(rdram, ctx);
+    displayText_RemoveEntry(rdram, ctx);
         goto after_0;
     // 0x80078724: nop
 
@@ -4111,7 +4111,7 @@ L_800794EC:
     // 0x80079548: jal         0x800798F0
     // 0x8007954C: nop
 
-    func_800798F0(rdram, ctx);
+    displayText_DrawWonderProgress(rdram, ctx);
         goto after_1;
     // 0x8007954C: nop
 
@@ -4292,7 +4292,7 @@ L_8007960C:
     MEM_H(0X16, ctx->r5) = ctx->r24;
 ;}
 
-RECOMP_FUNC void func_80079650(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_FindEntryIndexByXY(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80079650: addiu       $sp, $sp, -0x8
@@ -4376,7 +4376,7 @@ L_800796C0:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_800796C8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_InsertEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800796C8: addiu       $sp, $sp, -0x30
@@ -4716,7 +4716,7 @@ L_800798E0:
 
 ;}
 
-RECOMP_FUNC void func_800798F0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_DrawWonderProgress(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800798F0: lui         $t6, 0x800D
@@ -4827,7 +4827,7 @@ L_8007992C:
     // 0x80079998: jal         0x80079650
     // 0x8007999C: nop
 
-    func_80079650(rdram, ctx);
+    displayText_FindEntryIndexByXY(rdram, ctx);
         goto after_3;
     // 0x8007999C: nop
 
@@ -4857,7 +4857,7 @@ L_8007992C:
     // 0x800799C4: jal         0x800796C8
     // 0x800799C8: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    func_800796C8(rdram, ctx);
+    displayText_InsertEntry(rdram, ctx);
         goto after_4;
     // 0x800799C8: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -5558,7 +5558,7 @@ L_80079E88:
     // 0x80079EB8: jal         0x80079650
     // 0x80079EBC: nop
 
-    func_80079650(rdram, ctx);
+    displayText_FindEntryIndexByXY(rdram, ctx);
         goto after_8;
     // 0x80079EBC: nop
 
@@ -5586,7 +5586,7 @@ L_80079E88:
     // 0x80079EE0: jal         0x800796C8
     // 0x80079EE4: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
-    func_800796C8(rdram, ctx);
+    displayText_InsertEntry(rdram, ctx);
         goto after_9;
     // 0x80079EE4: or          $a3, $zero, $zero
     ctx->r7 = 0 | 0;
@@ -6231,7 +6231,7 @@ L_8007A1F8:
     // 0x8007A2AC: jal         0x8007AB10
     // 0x8007A2B0: nop
 
-    func_8007AB10(rdram, ctx);
+    displayText_SetSlotData(rdram, ctx);
         goto after_4;
     // 0x8007A2B0: nop
 
@@ -6306,7 +6306,7 @@ L_8007A2C8:
     // 0x8007A314: jal         0x8007AB10
     // 0x8007A318: nop
 
-    func_8007AB10(rdram, ctx);
+    displayText_SetSlotData(rdram, ctx);
         goto after_6;
     // 0x8007A318: nop
 
@@ -6391,7 +6391,7 @@ L_8007A34C:
     // 0x8007A3B0: jal         0x8007AB10
     // 0x8007A3B4: nop
 
-    func_8007AB10(rdram, ctx);
+    displayText_SetSlotData(rdram, ctx);
         goto after_7;
     // 0x8007A3B4: nop
 
@@ -6403,7 +6403,7 @@ L_8007A34C:
     // 0x8007A3C0: jal         0x8007A5D4
     // 0x8007A3C4: nop
 
-    func_8007A5D4(rdram, ctx);
+    displayText_FindFirstSetBit(rdram, ctx);
         goto after_8;
     // 0x8007A3C4: nop
 
@@ -6457,7 +6457,7 @@ L_8007A34C:
     // 0x8007A41C: jal         0x8007A5D4
     // 0x8007A420: nop
 
-    func_8007A5D4(rdram, ctx);
+    displayText_FindFirstSetBit(rdram, ctx);
         goto after_10;
     // 0x8007A420: nop
 
@@ -6502,7 +6502,7 @@ L_8007A450:
     // 0x8007A458: jal         0x8007AB10
     // 0x8007A45C: nop
 
-    func_8007AB10(rdram, ctx);
+    displayText_SetSlotData(rdram, ctx);
         goto after_13;
     // 0x8007A45C: nop
 
@@ -6544,7 +6544,7 @@ L_8007A48C:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void func_8007A4A0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_FindClearTableBit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A4A0: lui         $t6, 0x800E
@@ -6749,7 +6749,7 @@ L_8007A5B0:
     ctx->r29 = ADD32(ctx->r29, 0X10);
 ;}
 
-RECOMP_FUNC void func_8007A5D4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_FindFirstSetBit(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A5D4: lw          $t6, 0x0($a0)
@@ -6853,7 +6853,7 @@ RECOMP_FUNC void displayText_SetBit(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X0, ctx->r4) = ctx->r25;
 ;}
 
-RECOMP_FUNC void func_8007A660(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_CountSetBitsInWord(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A660: lw          $t6, 0x0($a0)
@@ -6920,7 +6920,7 @@ L_8007A6A0:
     ctx->r29 = ADD32(ctx->r29, 0X10);
 ;}
 
-RECOMP_FUNC void func_8007A6C4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_InitEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007A6C4: addiu       $sp, $sp, -0x8
@@ -7439,7 +7439,7 @@ RECOMP_FUNC void func_8007AA50(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X4, ctx->r29) = ctx->r5;
 ;}
 
-RECOMP_FUNC void func_8007AA5C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_FindEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007AA5C: addiu       $sp, $sp, -0x8
@@ -7575,7 +7575,7 @@ L_8007AB04:
 
 ;}
 
-RECOMP_FUNC void func_8007AB10(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_SetSlotData(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007AB10: andi        $a0, $a0, 0xFF
@@ -8069,7 +8069,7 @@ L_8007AEA8:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007AEB0(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_RemoveEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007AEB0: addiu       $sp, $sp, -0x20
@@ -8357,7 +8357,7 @@ L_8007B058:
     // 0x8007B060: jal         0x8007B8A8
     // 0x8007B064: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_3;
     // 0x8007B064: addiu       $a2, $zero, 0x6
     ctx->r6 = ADD32(0, 0X6);
@@ -8387,7 +8387,7 @@ L_8007B058:
     // 0x8007B08C: jal         0x8007B8A8
     // 0x8007B090: addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_4;
     // 0x8007B090: addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
@@ -8401,7 +8401,7 @@ L_8007B058:
     // 0x8007B0A0: jal         0x8007B8A8
     // 0x8007B0A4: addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_5;
     // 0x8007B0A4: addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
@@ -8415,7 +8415,7 @@ L_8007B058:
     // 0x8007B0B4: jal         0x8007B8A8
     // 0x8007B0B8: addiu       $a2, $zero, 0x5
     ctx->r6 = ADD32(0, 0X5);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_6;
     // 0x8007B0B8: addiu       $a2, $zero, 0x5
     ctx->r6 = ADD32(0, 0X5);
@@ -8438,7 +8438,7 @@ L_8007B0C0:
     // 0x8007B0D8: jal         0x8007B8A8
     // 0x8007B0DC: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_7;
     // 0x8007B0DC: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8477,7 +8477,7 @@ L_8007B0FC:
     // 0x8007B114: jal         0x8007B8A8
     // 0x8007B118: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_8;
     // 0x8007B118: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8516,7 +8516,7 @@ L_8007B138:
     // 0x8007B150: jal         0x8007B8A8
     // 0x8007B154: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_9;
     // 0x8007B154: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8555,7 +8555,7 @@ L_8007B174:
     // 0x8007B18C: jal         0x8007B8A8
     // 0x8007B190: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_10;
     // 0x8007B190: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8594,7 +8594,7 @@ L_8007B1B0:
     // 0x8007B1C8: jal         0x8007B8A8
     // 0x8007B1CC: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_11;
     // 0x8007B1CC: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8633,7 +8633,7 @@ L_8007B1EC:
     // 0x8007B204: jal         0x8007B8A8
     // 0x8007B208: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_12;
     // 0x8007B208: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8672,7 +8672,7 @@ L_8007B228:
     // 0x8007B240: jal         0x8007B8A8
     // 0x8007B244: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_13;
     // 0x8007B244: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8711,7 +8711,7 @@ L_8007B264:
     // 0x8007B27C: jal         0x8007B8A8
     // 0x8007B280: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_14;
     // 0x8007B280: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8750,7 +8750,7 @@ L_8007B2A0:
     // 0x8007B2B8: jal         0x8007B8A8
     // 0x8007B2BC: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_15;
     // 0x8007B2BC: addiu       $a2, $zero, 0x11
     ctx->r6 = ADD32(0, 0X11);
@@ -8780,7 +8780,7 @@ L_8007B2A0:
     // 0x8007B2E4: jal         0x8007B8A8
     // 0x8007B2E8: addiu       $a2, $zero, 0xA
     ctx->r6 = ADD32(0, 0XA);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_16;
     // 0x8007B2E8: addiu       $a2, $zero, 0xA
     ctx->r6 = ADD32(0, 0XA);
@@ -8794,7 +8794,7 @@ L_8007B2A0:
     // 0x8007B2F8: jal         0x8007B8A8
     // 0x8007B2FC: addiu       $a2, $zero, 0xE
     ctx->r6 = ADD32(0, 0XE);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_17;
     // 0x8007B2FC: addiu       $a2, $zero, 0xE
     ctx->r6 = ADD32(0, 0XE);
@@ -8808,7 +8808,7 @@ L_8007B2A0:
     // 0x8007B30C: jal         0x8007B8A8
     // 0x8007B310: addiu       $a2, $zero, 0x14
     ctx->r6 = ADD32(0, 0X14);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_18;
     // 0x8007B310: addiu       $a2, $zero, 0x14
     ctx->r6 = ADD32(0, 0X14);
@@ -8822,7 +8822,7 @@ L_8007B2A0:
     // 0x8007B320: jal         0x8007B8A8
     // 0x8007B324: addiu       $a2, $zero, 0x1E
     ctx->r6 = ADD32(0, 0X1E);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_19;
     // 0x8007B324: addiu       $a2, $zero, 0x1E
     ctx->r6 = ADD32(0, 0X1E);
@@ -8836,7 +8836,7 @@ L_8007B2A0:
     // 0x8007B334: jal         0x8007B8A8
     // 0x8007B338: addiu       $a2, $zero, 0x1E
     ctx->r6 = ADD32(0, 0X1E);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_20;
     // 0x8007B338: addiu       $a2, $zero, 0x1E
     ctx->r6 = ADD32(0, 0X1E);
@@ -8850,7 +8850,7 @@ L_8007B2A0:
     // 0x8007B348: jal         0x8007B8A8
     // 0x8007B34C: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_21;
     // 0x8007B34C: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -8864,7 +8864,7 @@ L_8007B2A0:
     // 0x8007B35C: jal         0x8007B8A8
     // 0x8007B360: addiu       $a2, $zero, 0x10
     ctx->r6 = ADD32(0, 0X10);
-    func_8007B8A8(rdram, ctx);
+    Bitstream_WriteBits(rdram, ctx);
         goto after_22;
     // 0x8007B360: addiu       $a2, $zero, 0x10
     ctx->r6 = ADD32(0, 0X10);
@@ -8874,7 +8874,7 @@ L_8007B2A0:
     // 0x8007B368: jal         0x8007BA38
     // 0x8007B36C: nop
 
-    func_8007BA38(rdram, ctx);
+    Bitstream_Flush(rdram, ctx);
         goto after_23;
     // 0x8007B36C: nop
 
@@ -8901,7 +8901,7 @@ L_8007B2A0:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void func_8007B38C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void displayText_PrintEntry(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007B38C: addiu       $sp, $sp, -0x18
@@ -9080,7 +9080,7 @@ L_8007B48C:
     // 0x8007B490: jal         0x8007B964
     // 0x8007B494: addiu       $a1, $zero, 0x6
     ctx->r5 = ADD32(0, 0X6);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_1;
     // 0x8007B494: addiu       $a1, $zero, 0x6
     ctx->r5 = ADD32(0, 0X6);
@@ -9138,7 +9138,7 @@ L_8007B48C:
     // 0x8007B4F4: jal         0x8007B964
     // 0x8007B4F8: nop
 
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_2;
     // 0x8007B4F8: nop
 
@@ -9154,7 +9154,7 @@ L_8007B48C:
     // 0x8007B50C: jal         0x8007B964
     // 0x8007B510: addiu       $a1, $zero, 0x8
     ctx->r5 = ADD32(0, 0X8);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_3;
     // 0x8007B510: addiu       $a1, $zero, 0x8
     ctx->r5 = ADD32(0, 0X8);
@@ -9170,7 +9170,7 @@ L_8007B48C:
     // 0x8007B524: jal         0x8007B964
     // 0x8007B528: addiu       $a1, $zero, 0x5
     ctx->r5 = ADD32(0, 0X5);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_4;
     // 0x8007B528: addiu       $a1, $zero, 0x5
     ctx->r5 = ADD32(0, 0X5);
@@ -9189,7 +9189,7 @@ L_8007B53C:
     // 0x8007B540: jal         0x8007B964
     // 0x8007B544: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_5;
     // 0x8007B544: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9234,7 +9234,7 @@ L_8007B584:
     // 0x8007B588: jal         0x8007B964
     // 0x8007B58C: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_6;
     // 0x8007B58C: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9279,7 +9279,7 @@ L_8007B5CC:
     // 0x8007B5D0: jal         0x8007B964
     // 0x8007B5D4: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_7;
     // 0x8007B5D4: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9324,7 +9324,7 @@ L_8007B614:
     // 0x8007B618: jal         0x8007B964
     // 0x8007B61C: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_8;
     // 0x8007B61C: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9369,7 +9369,7 @@ L_8007B65C:
     // 0x8007B660: jal         0x8007B964
     // 0x8007B664: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_9;
     // 0x8007B664: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9414,7 +9414,7 @@ L_8007B6A4:
     // 0x8007B6A8: jal         0x8007B964
     // 0x8007B6AC: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_10;
     // 0x8007B6AC: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9459,7 +9459,7 @@ L_8007B6EC:
     // 0x8007B6F0: jal         0x8007B964
     // 0x8007B6F4: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_11;
     // 0x8007B6F4: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9504,7 +9504,7 @@ L_8007B734:
     // 0x8007B738: jal         0x8007B964
     // 0x8007B73C: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_12;
     // 0x8007B73C: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9549,7 +9549,7 @@ L_8007B77C:
     // 0x8007B780: jal         0x8007B964
     // 0x8007B784: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_13;
     // 0x8007B784: addiu       $a1, $zero, 0x11
     ctx->r5 = ADD32(0, 0X11);
@@ -9591,7 +9591,7 @@ L_8007B77C:
     // 0x8007B7C4: jal         0x8007B964
     // 0x8007B7C8: addiu       $a1, $zero, 0xA
     ctx->r5 = ADD32(0, 0XA);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_14;
     // 0x8007B7C8: addiu       $a1, $zero, 0xA
     ctx->r5 = ADD32(0, 0XA);
@@ -9607,7 +9607,7 @@ L_8007B77C:
     // 0x8007B7DC: jal         0x8007B964
     // 0x8007B7E0: addiu       $a1, $zero, 0xE
     ctx->r5 = ADD32(0, 0XE);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_15;
     // 0x8007B7E0: addiu       $a1, $zero, 0xE
     ctx->r5 = ADD32(0, 0XE);
@@ -9623,7 +9623,7 @@ L_8007B77C:
     // 0x8007B7F4: jal         0x8007B964
     // 0x8007B7F8: addiu       $a1, $zero, 0x14
     ctx->r5 = ADD32(0, 0X14);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_16;
     // 0x8007B7F8: addiu       $a1, $zero, 0x14
     ctx->r5 = ADD32(0, 0X14);
@@ -9643,7 +9643,7 @@ L_8007B77C:
     // 0x8007B814: jal         0x8007B964
     // 0x8007B818: addiu       $a1, $zero, 0x1E
     ctx->r5 = ADD32(0, 0X1E);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_17;
     // 0x8007B818: addiu       $a1, $zero, 0x1E
     ctx->r5 = ADD32(0, 0X1E);
@@ -9663,7 +9663,7 @@ L_8007B77C:
     // 0x8007B834: jal         0x8007B964
     // 0x8007B838: addiu       $a1, $zero, 0x1E
     ctx->r5 = ADD32(0, 0X1E);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_18;
     // 0x8007B838: addiu       $a1, $zero, 0x1E
     ctx->r5 = ADD32(0, 0X1E);
@@ -9683,7 +9683,7 @@ L_8007B77C:
     // 0x8007B854: jal         0x8007B964
     // 0x8007B858: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_19;
     // 0x8007B858: addiu       $a1, $zero, 0x1
     ctx->r5 = ADD32(0, 0X1);
@@ -9699,7 +9699,7 @@ L_8007B77C:
     // 0x8007B86C: jal         0x8007B964
     // 0x8007B870: addiu       $a1, $zero, 0x10
     ctx->r5 = ADD32(0, 0X10);
-    func_8007B964(rdram, ctx);
+    Bitstream_ReadBits(rdram, ctx);
         goto after_20;
     // 0x8007B870: addiu       $a1, $zero, 0x10
     ctx->r5 = ADD32(0, 0X10);
@@ -9738,7 +9738,7 @@ L_8007B77C:
 
 ;}
 
-RECOMP_FUNC void func_8007B8A8(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Bitstream_WriteBits(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007B8A8: lw          $t6, 0x4($a0)
@@ -9854,7 +9854,7 @@ L_8007B95C:
 
 ;}
 
-RECOMP_FUNC void func_8007B964(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Bitstream_ReadBits(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007B964: addiu       $sp, $sp, -0x8
@@ -9982,7 +9982,7 @@ L_8007BA2C:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void func_8007BA38(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void Bitstream_Flush(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007BA38: lw          $t6, 0x4($a0)
@@ -10032,7 +10032,7 @@ L_8007BA7C:
 
 ;}
 
-RECOMP_FUNC void func_8007BA84(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void SaveData_LoadOrInitBlock(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007BA84: addiu       $sp, $sp, -0x18
@@ -10116,7 +10116,7 @@ L_8007BAD4:
     // 0x8007BAFC: jal         0x8007BB54
     // 0x8007BB00: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
-    func_8007BB54(rdram, ctx);
+    SaveData_InitBlock(rdram, ctx);
         goto after_1;
     // 0x8007BB00: or          $a0, $t1, $zero
     ctx->r4 = ctx->r9 | 0;
@@ -10180,7 +10180,7 @@ L_8007BB44:
 
 ;}
 
-RECOMP_FUNC void func_8007BB54(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void SaveData_InitBlock(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8007BB54: addiu       $sp, $sp, -0x20

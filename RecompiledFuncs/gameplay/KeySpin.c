@@ -4232,7 +4232,7 @@ RECOMP_FUNC void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(uint8_t* rdra
     // 0x8006CCA8: jal         0x80051CB0
     // 0x8006CCAC: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_line_782_game_c(rdram, ctx);
+    Game_Tick(rdram, ctx);
         goto after_2;
     // 0x8006CCAC: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
@@ -4242,7 +4242,7 @@ RECOMP_FUNC void FUN_032F00_8006cc80_twentyliner_checks_pnum_1_2_4(uint8_t* rdra
     // 0x8006CCB4: jal         0x80051F30
     // 0x8006CCB8: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_render_stuff_line_850(rdram, ctx);
+    Game_Draw(rdram, ctx);
         goto after_3;
     // 0x8006CCB8: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
@@ -4303,7 +4303,7 @@ L_8006CCEC:
     // 0x8006CCF8: jal         0x80051618
     // 0x8006CCFC: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_80051618_twentyliner(rdram, ctx);
+    Game_StartRound(rdram, ctx);
         goto after_6;
     // 0x8006CCFC: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
@@ -4435,7 +4435,7 @@ RECOMP_FUNC void FUN_032F00_8006cd98_tenliner_checks_12(uint8_t* rdram, recomp_c
     // 0x8006CDB4: jal         0x80051CB0
     // 0x8006CDB8: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_line_782_game_c(rdram, ctx);
+    Game_Tick(rdram, ctx);
         goto after_1;
     // 0x8006CDB8: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
@@ -4445,7 +4445,7 @@ RECOMP_FUNC void FUN_032F00_8006cd98_tenliner_checks_12(uint8_t* rdram, recomp_c
     // 0x8006CDC0: jal         0x80051F30
     // 0x8006CDC4: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_render_stuff_line_850(rdram, ctx);
+    Game_Draw(rdram, ctx);
         goto after_2;
     // 0x8006CDC4: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
@@ -4562,7 +4562,7 @@ RECOMP_FUNC void FUN_032F00_8006ce30_tenliner_magic_4000(uint8_t* rdram, recomp_
     // 0x8006CE5C: jal         0x80051CB0
     // 0x8006CE60: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_line_782_game_c(rdram, ctx);
+    Game_Tick(rdram, ctx);
         goto after_1;
     // 0x8006CE60: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
@@ -4572,7 +4572,7 @@ RECOMP_FUNC void FUN_032F00_8006ce30_tenliner_magic_4000(uint8_t* rdram, recomp_
     // 0x8006CE68: jal         0x80051F30
     // 0x8006CE6C: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);
-    Game_render_stuff_line_850(rdram, ctx);
+    Game_Draw(rdram, ctx);
         goto after_2;
     // 0x8006CE6C: addiu       $a0, $a0, 0xA00
     ctx->r4 = ADD32(ctx->r4, 0XA00);

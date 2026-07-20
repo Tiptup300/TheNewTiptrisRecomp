@@ -5663,7 +5663,7 @@ L_80049B7C:
     // 0x80049C20: jal         0x8006110C
     // 0x80049C24: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
-    func_8006110C(rdram, ctx);
+    PFGFX_RequestViModeChange(rdram, ctx);
         goto after_12;
     // 0x80049C24: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
@@ -5671,7 +5671,7 @@ L_80049B7C:
     // 0x80049C28: jal         0x80060E30
     // 0x80049C2C: nop
 
-    func_80060E30(rdram, ctx);
+    PFGFX_ApplyViMode(rdram, ctx);
         goto after_13;
     // 0x80049C2C: nop
 

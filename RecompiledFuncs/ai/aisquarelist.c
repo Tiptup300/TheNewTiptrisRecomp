@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void aisquarelist_8003e1e0_sevenliner_loops_6t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_Reset(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E1E0: or          $a1, $zero, $zero
@@ -56,7 +56,7 @@ L_8003E224:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void aisquarelist_8003e22c_tenliner_loops_6t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_AddSquare(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E22C: or          $a3, $zero, $zero
@@ -160,7 +160,7 @@ L_8003E2C0:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void aisquarelist_8003e2c8_sevenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_RemoveAt(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E2C8: andi        $a1, $a1, 0xFF
@@ -247,7 +247,7 @@ L_8003E32C:
     MEM_B(0X0, ctx->r4) = ctx->r25;
 ;}
 
-RECOMP_FUNC void aisquarelist_8003e34c_thirteenliner_loops_arg0_t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_OverlapsExisting(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E34C: lbu         $t6, 0x0($a0)
@@ -436,7 +436,7 @@ L_8003E450:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void aisquarelist_8003e458_thirteenliner_loops_7t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_FindSquarePlacement(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E458: addiu       $sp, $sp, -0x30
@@ -522,7 +522,7 @@ L_8003E490:
     // 0x8003E4CC: jal         0x80041AB4
     // 0x8003E4D0: addiu       $a1, $s1, 0x4
     ctx->r5 = ADD32(ctx->r17, 0X4);
-    FUN_80041ab4_tenliner_loop(rdram, ctx);
+    aisquarelist_IsRowSpanFilled(rdram, ctx);
         goto after_1;
     // 0x8003E4D0: addiu       $a1, $s1, 0x4
     ctx->r5 = ADD32(ctx->r17, 0X4);
@@ -542,7 +542,7 @@ L_8003E490:
     // 0x8003E4E4: jal         0x8003E34C
     // 0x8003E4E8: or          $a2, $s1, $zero
     ctx->r6 = ctx->r17 | 0;
-    aisquarelist_8003e34c_thirteenliner_loops_arg0_t(rdram, ctx);
+    aisquarelist_OverlapsExisting(rdram, ctx);
         goto after_2;
     // 0x8003E4E8: or          $a2, $s1, $zero
     ctx->r6 = ctx->r17 | 0;
@@ -625,7 +625,7 @@ L_8003E548:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void aisquarelist_8003e55c_eightliner_loops_arg0_t_1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_AllSquaresComplete(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E55C: addiu       $sp, $sp, -0x38
@@ -740,7 +740,7 @@ L_8003E5F4:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void aisquarelist_8003e608_eightliner_loops_arg0_t_2(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_ShiftSquaresDown(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003E608: lbu         $t6, 0x0($a0)
@@ -1128,7 +1128,7 @@ L_8003E82C:
     // 0x8003E848: jal         0x8004199C
     // 0x8003E84C: or          $a2, $s4, $zero
     ctx->r6 = ctx->r20 | 0;
-    FUN_8004199c_twentyliner_loop(rdram, ctx);
+    aisquarelist_DropPieceToRow(rdram, ctx);
         goto after_1;
     // 0x8003E84C: or          $a2, $s4, $zero
     ctx->r6 = ctx->r20 | 0;
@@ -1169,7 +1169,7 @@ L_8003E874:
     // 0x8003E880: jal         0x800413C0
     // 0x8003E884: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_2;
     // 0x8003E884: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
@@ -1519,7 +1519,7 @@ L_8003EA6C:
     // 0x8003EA78: jal         0x8003F4F4
     // 0x8003EA7C: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    FUN_005580_8003f4f4_thirtyliner_nested_loops(rdram, ctx);
+    aisquarelist_MatchPattern4x4(rdram, ctx);
         goto after_5;
     // 0x8003EA7C: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -1632,7 +1632,7 @@ L_8003EB0C:
     // 0x8003EB18: jal         0x800413C0
     // 0x8003EB1C: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_7;
     // 0x8003EB1C: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -1691,7 +1691,7 @@ L_8003EB58:
     // 0x8003EB64: jal         0x8003F4F4
     // 0x8003EB68: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    FUN_005580_8003f4f4_thirtyliner_nested_loops(rdram, ctx);
+    aisquarelist_MatchPattern4x4(rdram, ctx);
         goto after_9;
     // 0x8003EB68: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -1804,7 +1804,7 @@ L_8003EBF8:
     // 0x8003EC04: jal         0x800413C0
     // 0x8003EC08: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_11;
     // 0x8003EC08: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -1850,7 +1850,7 @@ L_8003EC34:
     // 0x8003EC40: jal         0x800413C0
     // 0x8003EC44: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_13;
     // 0x8003EC44: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -1872,7 +1872,7 @@ L_8003EC34:
     // 0x8003EC5C: jal         0x8004191C
     // 0x8003EC60: or          $a1, $t9, $zero
     ctx->r5 = ctx->r25 | 0;
-    FUN_8004191c_sixliner_loop_shift_right(rdram, ctx);
+    aisquarelist_IsColumnClearToTop(rdram, ctx);
         goto after_14;
     // 0x8003EC60: or          $a1, $t9, $zero
     ctx->r5 = ctx->r25 | 0;
@@ -1900,7 +1900,7 @@ L_8003EC34:
     // 0x8003EC84: jal         0x8004199C
     // 0x8003EC88: or          $a2, $s4, $zero
     ctx->r6 = ctx->r20 | 0;
-    FUN_8004199c_twentyliner_loop(rdram, ctx);
+    aisquarelist_DropPieceToRow(rdram, ctx);
         goto after_15;
     // 0x8003EC88: or          $a2, $s4, $zero
     ctx->r6 = ctx->r20 | 0;
@@ -2254,7 +2254,7 @@ L_8003EDF4:
     // 0x8003EEB8: jal         0x800413C0
     // 0x8003EEBC: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_1;
     // 0x8003EEBC: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
@@ -2334,7 +2334,7 @@ L_8003EDF4:
     // 0x8003EF38: jal         0x80040784
     // 0x8003EF3C: sb          $t2, 0x4($s5)
     MEM_B(0X4, ctx->r21) = ctx->r10;
-    FUN_006930_80040784_nested_loop_20t_inside_loop_10t(rdram, ctx);
+    aisquarelist_GetPieceBounds(rdram, ctx);
         goto after_3;
     // 0x8003EF3C: sb          $t2, 0x4($s5)
     MEM_B(0X4, ctx->r21) = ctx->r10;
@@ -2348,7 +2348,7 @@ L_8003EDF4:
     // 0x8003EF4C: jal         0x800413C0
     // 0x8003EF50: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_4;
     // 0x8003EF50: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -2639,7 +2639,7 @@ L_8003F0E4:
     // 0x8003F0F0: jal         0x8003F4F4
     // 0x8003F0F4: or          $a3, $s2, $zero
     ctx->r7 = ctx->r18 | 0;
-    FUN_005580_8003f4f4_thirtyliner_nested_loops(rdram, ctx);
+    aisquarelist_MatchPattern4x4(rdram, ctx);
         goto after_6;
     // 0x8003F0F4: or          $a3, $s2, $zero
     ctx->r7 = ctx->r18 | 0;
@@ -2730,7 +2730,7 @@ L_8003F164:
     // 0x8003F170: jal         0x8003F4F4
     // 0x8003F174: or          $a3, $s2, $zero
     ctx->r7 = ctx->r18 | 0;
-    FUN_005580_8003f4f4_thirtyliner_nested_loops(rdram, ctx);
+    aisquarelist_MatchPattern4x4(rdram, ctx);
         goto after_8;
     // 0x8003F174: or          $a3, $s2, $zero
     ctx->r7 = ctx->r18 | 0;
@@ -2885,7 +2885,7 @@ L_8003F218:
     // 0x8003F268: jal         0x80040784
     // 0x8003F26C: sh          $t5, 0x0($s5)
     MEM_H(0X0, ctx->r21) = ctx->r13;
-    FUN_006930_80040784_nested_loop_20t_inside_loop_10t(rdram, ctx);
+    aisquarelist_GetPieceBounds(rdram, ctx);
         goto after_10;
     // 0x8003F26C: sh          $t5, 0x0($s5)
     MEM_H(0X0, ctx->r21) = ctx->r13;
@@ -2906,7 +2906,7 @@ L_8003F27C:
     // 0x8003F288: jal         0x800413C0
     // 0x8003F28C: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_11;
     // 0x8003F28C: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -3283,7 +3283,7 @@ L_8003F4CC:
     ctx->r29 = ADD32(ctx->r29, 0X48);
 ;}
 
-RECOMP_FUNC void FUN_005580_8003f4f4_thirtyliner_nested_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_MatchPattern4x4(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8003F4F4: andi        $a1, $a1, 0xFF
@@ -3981,7 +3981,7 @@ L_8003F908:
     // 0x8003F910: jal         0x8004172C
     // 0x8003F914: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_1;
     // 0x8003F914: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -4043,7 +4043,7 @@ L_8003F958:
     // 0x8003F960: jal         0x8004172C
     // 0x8003F964: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_2;
     // 0x8003F964: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -4106,7 +4106,7 @@ L_8003F9A8:
     // 0x8003F9B0: jal         0x8004172C
     // 0x8003F9B4: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_3;
     // 0x8003F9B4: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -4169,7 +4169,7 @@ L_8003F9F8:
     // 0x8003FA00: jal         0x8004172C
     // 0x8003FA04: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_4;
     // 0x8003FA04: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -4250,7 +4250,7 @@ L_8003FA64:
     // 0x8003FA6C: jal         0x8004172C
     // 0x8003FA70: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_5;
     // 0x8003FA70: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
@@ -4582,7 +4582,7 @@ L_8003FBDC:
     // 0x8003FC54: jal         0x800406B0
     // 0x8003FC58: addiu       $a2, $sp, 0x42
     ctx->r6 = ADD32(ctx->r29, 0X42);
-    FUN_006930_800406b0_fifteenliner_two_loops(rdram, ctx);
+    aisquarelist_GetRotationSteps(rdram, ctx);
         goto after_9;
     // 0x8003FC58: addiu       $a2, $sp, 0x42
     ctx->r6 = ADD32(ctx->r29, 0X42);
@@ -5243,7 +5243,7 @@ L_80040000:
     // 0x80040020: jal         0x800406B0
     // 0x80040024: addiu       $a2, $sp, 0x42
     ctx->r6 = ADD32(ctx->r29, 0X42);
-    FUN_006930_800406b0_fifteenliner_two_loops(rdram, ctx);
+    aisquarelist_GetRotationSteps(rdram, ctx);
         goto after_23;
     // 0x80040024: addiu       $a2, $sp, 0x42
     ctx->r6 = ADD32(ctx->r29, 0X42);
@@ -5450,7 +5450,7 @@ RECOMP_FUNC void FUN_005580_800400fc_largefun_more_currpiece_stuff(uint8_t* rdra
     // 0x80040170: jal         0x80041810
     // 0x80040174: sb          $s3, 0xA($t1)
     MEM_B(0XA, ctx->r9) = ctx->r19;
-    FUN_80041810_twentyliner(rdram, ctx);
+    aisquarelist_CanPieceMove(rdram, ctx);
         goto after_0;
     // 0x80040174: sb          $s3, 0xA($t1)
     MEM_B(0XA, ctx->r9) = ctx->r19;
@@ -5500,7 +5500,7 @@ L_800401B4:
     // 0x800401BC: jal         0x8004172C
     // 0x800401C0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_1;
     // 0x800401C0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -5647,7 +5647,7 @@ L_80040294:
     // 0x8004029C: jal         0x8004172C
     // 0x800402A0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_4;
     // 0x800402A0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -5740,7 +5740,7 @@ L_8004031C:
     // 0x80040324: jal         0x8004172C
     // 0x80040328: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_5;
     // 0x80040328: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -5808,7 +5808,7 @@ L_8004037C:
     // 0x80040384: jal         0x800406B0
     // 0x80040388: addiu       $a2, $sp, 0x32
     ctx->r6 = ADD32(ctx->r29, 0X32);
-    FUN_006930_800406b0_fifteenliner_two_loops(rdram, ctx);
+    aisquarelist_GetRotationSteps(rdram, ctx);
         goto after_6;
     // 0x80040388: addiu       $a2, $sp, 0x32
     ctx->r6 = ADD32(ctx->r29, 0X32);
@@ -5902,7 +5902,7 @@ L_80040414:
     // 0x8004041C: jal         0x8004172C
     // 0x80040420: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_7;
     // 0x80040420: addiu       $a2, $zero, 0x1
     ctx->r6 = ADD32(0, 0X1);
@@ -5973,7 +5973,7 @@ L_80040478:
     // 0x80040480: jal         0x8004172C
     // 0x80040484: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_8;
     // 0x80040484: addiu       $a2, $zero, -0x1
     ctx->r6 = ADD32(0, -0X1);
@@ -6059,7 +6059,7 @@ L_800404D8:
 
 ;}
 
-RECOMP_FUNC void FUN_006780_80040500_twentyfiveliner_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_EvaluateSquareMoves(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80040500: addiu       $sp, $sp, -0x40
@@ -6077,7 +6077,7 @@ RECOMP_FUNC void FUN_006780_80040500_twentyfiveliner_loops(uint8_t* rdram, recom
     // 0x80040518: jal         0x80041E88
     // 0x8004051C: sw          $s0, 0x20($sp)
     MEM_W(0X20, ctx->r29) = ctx->r16;
-    FUN_008050_80041e88_loops_200_times(rdram, ctx);
+    aisquarelist_ClearCandidates(rdram, ctx);
         goto after_0;
     // 0x8004051C: sw          $s0, 0x20($sp)
     MEM_W(0X20, ctx->r29) = ctx->r16;
@@ -6146,7 +6146,7 @@ L_80040540:
     // 0x80040580: jal         0x8003E2C8
     // 0x80040584: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    aisquarelist_8003e2c8_sevenliner(rdram, ctx);
+    aisquarelist_RemoveAt(rdram, ctx);
         goto after_2;
     // 0x80040584: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -6219,7 +6219,7 @@ L_800405BC:
     // 0x800405E4: jal         0x8003E2C8
     // 0x800405E8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    aisquarelist_8003e2c8_sevenliner(rdram, ctx);
+    aisquarelist_RemoveAt(rdram, ctx);
         goto after_4;
     // 0x800405E8: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -6269,7 +6269,7 @@ L_80040610:
     // 0x80040628: jal         0x8003E458
     // 0x8004062C: addiu       $a2, $sp, 0x32
     ctx->r6 = ADD32(ctx->r29, 0X32);
-    aisquarelist_8003e458_thirteenliner_loops_7t(rdram, ctx);
+    aisquarelist_FindSquarePlacement(rdram, ctx);
         goto after_5;
     // 0x8004062C: addiu       $a2, $sp, 0x32
     ctx->r6 = ADD32(ctx->r29, 0X32);
@@ -6289,7 +6289,7 @@ L_80040610:
     // 0x80040640: jal         0x8003E22C
     // 0x80040644: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
-    aisquarelist_8003e22c_tenliner_loops_6t(rdram, ctx);
+    aisquarelist_AddSquare(rdram, ctx);
         goto after_6;
     // 0x80040644: or          $a0, $s1, $zero
     ctx->r4 = ctx->r17 | 0;
@@ -6343,7 +6343,7 @@ L_80040684:
     // 0x80040688: jal         0x800423F0
     // 0x8004068C: nop
 
-    FUN_008050_800423f0_uses_dat_800e1f40_ptr(rdram, ctx);
+    aisquarelist_SortCandidates(rdram, ctx);
         goto after_8;
     // 0x8004068C: nop
 
@@ -6369,7 +6369,7 @@ L_80040694:
 
 ;}
 
-RECOMP_FUNC void FUN_006930_800406b0_fifteenliner_two_loops(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_GetRotationSteps(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800406B0: lui         $t7, 0x8012
@@ -6512,7 +6512,7 @@ L_80040774:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void FUN_006930_80040784_nested_loop_20t_inside_loop_10t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_GetPieceBounds(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80040784: addiu       $t6, $zero, 0xA
@@ -6854,7 +6854,7 @@ RECOMP_FUNC void FUN_006BB0_80040930_large_eightyliner(uint8_t* rdram, recomp_co
     // 0x80040968: jal         0x80040784
     // 0x8004096C: addiu       $a3, $sp, 0x34
     ctx->r7 = ADD32(ctx->r29, 0X34);
-    FUN_006930_80040784_nested_loop_20t_inside_loop_10t(rdram, ctx);
+    aisquarelist_GetPieceBounds(rdram, ctx);
         goto after_0;
     // 0x8004096C: addiu       $a3, $sp, 0x34
     ctx->r7 = ADD32(ctx->r29, 0X34);
@@ -7848,7 +7848,7 @@ L_80040F74:
     ctx->r29 = ADD32(ctx->r29, 0X40);
 ;}
 
-RECOMP_FUNC void FUN_006BB0_80040f9c_twentyfiveliner_loops_200t(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_BuildCandidateMoves(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80040F9C: addiu       $sp, $sp, -0x48
@@ -7876,7 +7876,7 @@ RECOMP_FUNC void FUN_006BB0_80040f9c_twentyfiveliner_loops_200t(uint8_t* rdram, 
     // 0x80040FC8: jal         0x80041E88
     // 0x80040FCC: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    FUN_008050_80041e88_loops_200_times(rdram, ctx);
+    aisquarelist_ClearCandidates(rdram, ctx);
         goto after_0;
     // 0x80040FCC: sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -7966,7 +7966,7 @@ L_80041008:
     // 0x8004105C: jal         0x800413C0
     // 0x80041060: or          $a2, $s2, $zero
     ctx->r6 = ctx->r18 | 0;
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_1;
     // 0x80041060: or          $a2, $s2, $zero
     ctx->r6 = ctx->r18 | 0;
@@ -8022,7 +8022,7 @@ L_80041008:
     // 0x800410B4: jal         0x8003E55C
     // 0x800410B8: addiu       $a0, $a0, 0x2E
     ctx->r4 = ADD32(ctx->r4, 0X2E);
-    aisquarelist_8003e55c_eightliner_loops_arg0_t_1(rdram, ctx);
+    aisquarelist_AllSquaresComplete(rdram, ctx);
         goto after_3;
     // 0x800410B8: addiu       $a0, $a0, 0x2E
     ctx->r4 = ADD32(ctx->r4, 0X2E);
@@ -8053,7 +8053,7 @@ L_800410D4:
     // 0x800410E0: jal         0x80040784
     // 0x800410E4: addiu       $a3, $s6, 0x6
     ctx->r7 = ADD32(ctx->r22, 0X6);
-    FUN_006930_80040784_nested_loop_20t_inside_loop_10t(rdram, ctx);
+    aisquarelist_GetPieceBounds(rdram, ctx);
         goto after_4;
     // 0x800410E4: addiu       $a3, $s6, 0x6
     ctx->r7 = ADD32(ctx->r22, 0X6);
@@ -8073,7 +8073,7 @@ L_800410D4:
     // 0x80041100: jal         0x800413C0
     // 0x80041104: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_5;
     // 0x80041104: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -8108,7 +8108,7 @@ L_80041134:
     // 0x80041134: jal         0x800423F0
     // 0x80041138: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
-    FUN_008050_800423f0_uses_dat_800e1f40_ptr(rdram, ctx);
+    aisquarelist_SortCandidates(rdram, ctx);
         goto after_6;
     // 0x80041138: or          $a0, $s4, $zero
     ctx->r4 = ctx->r20 | 0;
@@ -8143,7 +8143,7 @@ L_80041134:
 
 ;}
 
-RECOMP_FUNC void FUN_0073F0_80041170_fifteenliner_pf_logic_cell(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_ClassifyCell(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041170: addiu       $sp, $sp, -0x28
@@ -8303,7 +8303,7 @@ L_80041248:
 
 ;}
 
-RECOMP_FUNC void FUN_80041260_twoliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_CreateState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041260: addiu       $sp, $sp, -0x18
@@ -8348,7 +8348,7 @@ RECOMP_FUNC void FUN_80041260_twoliner(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void FUN_8004129c_fourliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_DestroyState(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004129C: lui         $t6, 0x800E
@@ -8402,7 +8402,7 @@ L_800412D0:
 
 ;}
 
-RECOMP_FUNC void FUN_800412e0_fifteenliner_logic_cell(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_BuildBoardModel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800412E0: addiu       $sp, $sp, -0x28
@@ -8453,7 +8453,7 @@ L_80041314:
     // 0x80041328: jal         0x80041170
     // 0x8004132C: addu        $a0, $t7, $t8
     ctx->r4 = ADD32(ctx->r15, ctx->r24);
-    FUN_0073F0_80041170_fifteenliner_pf_logic_cell(rdram, ctx);
+    aisquarelist_ClassifyCell(rdram, ctx);
         goto after_0;
     // 0x8004132C: addu        $a0, $t7, $t8
     ctx->r4 = ADD32(ctx->r15, ctx->r24);
@@ -8559,7 +8559,7 @@ L_800413A8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_800413c0_twentyfive_liner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_PlacePieceOnModel(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800413C0: addiu       $sp, $sp, -0x40
@@ -9047,7 +9047,7 @@ L_800416A8:
     ctx->r29 = ADD32(ctx->r29, 0X40);
 ;}
 
-RECOMP_FUNC void FUN_800416cc_fourliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_TryPlacePiece(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800416CC: addiu       $sp, $sp, -0x28
@@ -9071,7 +9071,7 @@ RECOMP_FUNC void FUN_800416cc_fourliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x800416F0: jal         0x800413C0
     // 0x800416F4: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_0;
     // 0x800416F4: addiu       $a3, $zero, 0x8
     ctx->r7 = ADD32(0, 0X8);
@@ -9095,7 +9095,7 @@ RECOMP_FUNC void FUN_800416cc_fourliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x80041710: jal         0x800413C0
     // 0x80041714: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
-    FUN_800413c0_twentyfive_liner(rdram, ctx);
+    aisquarelist_PlacePieceOnModel(rdram, ctx);
         goto after_1;
     // 0x80041714: addiu       $a3, $zero, 0x7
     ctx->r7 = ADD32(0, 0X7);
@@ -9115,7 +9115,7 @@ L_80041718:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_8004172c_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_TryShiftPiece(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004172C: addiu       $sp, $sp, -0x28
@@ -9198,7 +9198,7 @@ L_800417A4:
     // 0x800417B0: jal         0x800416CC
     // 0x800417B4: nop
 
-    FUN_800416cc_fourliner(rdram, ctx);
+    aisquarelist_TryPlacePiece(rdram, ctx);
         goto after_1;
     // 0x800417B4: nop
 
@@ -9259,7 +9259,7 @@ L_80041800:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_80041810_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_CanPieceMove(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041810: addiu       $sp, $sp, -0x30
@@ -9319,7 +9319,7 @@ RECOMP_FUNC void FUN_80041810_twentyliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x8004187C: jal         0x8004172C
     // 0x80041880: sb          $t0, 0xA($t1)
     MEM_B(0XA, ctx->r9) = ctx->r8;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_0;
     // 0x80041880: sb          $t0, 0xA($t1)
     MEM_B(0XA, ctx->r9) = ctx->r8;
@@ -9339,7 +9339,7 @@ RECOMP_FUNC void FUN_80041810_twentyliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x80041894: jal         0x8004172C
     // 0x80041898: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_1;
     // 0x80041898: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -9359,7 +9359,7 @@ RECOMP_FUNC void FUN_80041810_twentyliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x800418AC: jal         0x8004172C
     // 0x800418B0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_2;
     // 0x800418B0: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -9379,7 +9379,7 @@ RECOMP_FUNC void FUN_80041810_twentyliner(uint8_t* rdram, recomp_context* ctx) {
     // 0x800418C4: jal         0x8004172C
     // 0x800418C8: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
-    FUN_8004172c_twentyliner(rdram, ctx);
+    aisquarelist_TryShiftPiece(rdram, ctx);
         goto after_3;
     // 0x800418C8: or          $a2, $zero, $zero
     ctx->r6 = 0 | 0;
@@ -9434,7 +9434,7 @@ L_800418D8:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void FUN_8004191c_sixliner_loop_shift_right(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_IsColumnClearToTop(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004191C: andi        $a1, $a1, 0xFF
@@ -9523,7 +9523,7 @@ L_80041994:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void FUN_8004199c_twentyliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_DropPieceToRow(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8004199C: addiu       $sp, $sp, -0x70
@@ -9596,7 +9596,7 @@ L_800419F0:
     // 0x80041A10: jal         0x800416CC
     // 0x80041A14: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    FUN_800416cc_fourliner(rdram, ctx);
+    aisquarelist_TryPlacePiece(rdram, ctx);
         goto after_1;
     // 0x80041A14: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
@@ -9704,7 +9704,7 @@ L_80041A68:
     ctx->r29 = ADD32(ctx->r29, 0X70);
 ;}
 
-RECOMP_FUNC void FUN_80041ab4_tenliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_IsRowSpanFilled(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041AB4: andi        $a1, $a1, 0xFF
@@ -10214,7 +10214,7 @@ L_80041D98:
     ctx->r29 = ADD32(ctx->r29, 0X18);
 ;}
 
-RECOMP_FUNC void FUN_80041da0_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_CopyEntry3(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041DA0: lbu         $t6, 0x0($a1)
@@ -10245,7 +10245,7 @@ RECOMP_FUNC void FUN_80041da0_threeliner(uint8_t* rdram, recomp_context* ctx) {
 
 ;}
 
-RECOMP_FUNC void FUN_008050_80041dd0_alloc_heap_4_and_x640(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_AllocList(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041DD0: addiu       $sp, $sp, -0x18
@@ -10307,7 +10307,7 @@ L_80041E14:
 
 ;}
 
-RECOMP_FUNC void FUN_008050_80041e24_maybe_calls_unalloc_heap(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_FreeList(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041E24: lui         $t6, 0x800E
@@ -10382,7 +10382,7 @@ L_80041E78:
 
 ;}
 
-RECOMP_FUNC void FUN_008050_80041e88_loops_200_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_ClearCandidates(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041E88: lui         $t6, 0x800E
@@ -10455,7 +10455,7 @@ L_80041EE8:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void FUN_008050_80041ef0_twentyliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_SwapEntries(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041EF0: lh          $t6, 0x0($a0)
@@ -10572,7 +10572,7 @@ RECOMP_FUNC void FUN_008050_80041ef0_twentyliner(uint8_t* rdram, recomp_context*
     MEM_B(0X6, ctx->r5) = ctx->r11;
 ;}
 
-RECOMP_FUNC void FUN_008050_80041fcc_twentyliner_case4(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_GetSortMetric(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80041FCC: addiu       $sp, $sp, -0x28
@@ -10711,7 +10711,7 @@ L_80042084:
     // 0x80042090: jal         0x800406B0
     // 0x80042094: addiu       $a2, $sp, 0x24
     ctx->r6 = ADD32(ctx->r29, 0X24);
-    FUN_006930_800406b0_fifteenliner_two_loops(rdram, ctx);
+    aisquarelist_GetRotationSteps(rdram, ctx);
         goto after_0;
     // 0x80042094: addiu       $a2, $sp, 0x24
     ctx->r6 = ADD32(ctx->r29, 0X24);
@@ -10760,7 +10760,7 @@ L_800420C0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_008050_800420d8_fifteenliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_CompareKeys(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800420D8: andi        $a2, $a2, 0xFF
@@ -10904,7 +10904,7 @@ L_80042178:
     ctx->r29 = ADD32(ctx->r29, 0X8);
 ;}
 
-RECOMP_FUNC void FUN_008050_80042184_fifteenliner_loop(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_PartitionByKey(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80042184: addiu       $sp, $sp, -0x30
@@ -10940,7 +10940,7 @@ RECOMP_FUNC void FUN_008050_80042184_fifteenliner_loop(uint8_t* rdram, recomp_co
     // 0x800421C0: jal         0x80041FCC
     // 0x800421C4: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    FUN_008050_80041fcc_twentyliner_case4(rdram, ctx);
+    aisquarelist_GetSortMetric(rdram, ctx);
         goto after_0;
     // 0x800421C4: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -10997,7 +10997,7 @@ L_80042204:
     // 0x80042228: jal         0x80041FCC
     // 0x8004222C: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    FUN_008050_80041fcc_twentyliner_case4(rdram, ctx);
+    aisquarelist_GetSortMetric(rdram, ctx);
         goto after_1;
     // 0x8004222C: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -11015,7 +11015,7 @@ L_80042204:
     // 0x80042244: jal         0x800420D8
     // 0x80042248: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    FUN_008050_800420d8_fifteenliner(rdram, ctx);
+    aisquarelist_CompareKeys(rdram, ctx);
         goto after_2;
     // 0x80042248: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -11050,7 +11050,7 @@ L_80042254:
     // 0x80042278: jal         0x80041FCC
     // 0x8004227C: addu        $a0, $t4, $t5
     ctx->r4 = ADD32(ctx->r12, ctx->r13);
-    FUN_008050_80041fcc_twentyliner_case4(rdram, ctx);
+    aisquarelist_GetSortMetric(rdram, ctx);
         goto after_3;
     // 0x8004227C: addu        $a0, $t4, $t5
     ctx->r4 = ADD32(ctx->r12, ctx->r13);
@@ -11068,7 +11068,7 @@ L_80042254:
     // 0x80042294: jal         0x800420D8
     // 0x80042298: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    FUN_008050_800420d8_fifteenliner(rdram, ctx);
+    aisquarelist_CompareKeys(rdram, ctx);
         goto after_4;
     // 0x80042298: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -11104,7 +11104,7 @@ L_80042254:
     // 0x800422C4: jal         0x80041EF0
     // 0x800422C8: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
-    FUN_008050_80041ef0_twentyliner(rdram, ctx);
+    aisquarelist_SwapEntries(rdram, ctx);
         goto after_5;
     // 0x800422C8: addu        $a0, $t7, $t9
     ctx->r4 = ADD32(ctx->r15, ctx->r25);
@@ -11136,7 +11136,7 @@ L_800422D4:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void FUN_008050_800422f4_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_PartitionRandomPivot(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800422F4: addiu       $sp, $sp, -0x28
@@ -11180,7 +11180,7 @@ RECOMP_FUNC void FUN_008050_800422f4_threeliner(uint8_t* rdram, recomp_context* 
     // 0x80042338: jal         0x80041EF0
     // 0x8004233C: addu        $a1, $t7, $t0
     ctx->r5 = ADD32(ctx->r15, ctx->r8);
-    FUN_008050_80041ef0_twentyliner(rdram, ctx);
+    aisquarelist_SwapEntries(rdram, ctx);
         goto after_1;
     // 0x8004233C: addu        $a1, $t7, $t0
     ctx->r5 = ADD32(ctx->r15, ctx->r8);
@@ -11196,7 +11196,7 @@ RECOMP_FUNC void FUN_008050_800422f4_threeliner(uint8_t* rdram, recomp_context* 
     // 0x80042350: jal         0x80042184
     // 0x80042354: nop
 
-    FUN_008050_80042184_fifteenliner_loop(rdram, ctx);
+    aisquarelist_PartitionByKey(rdram, ctx);
         goto after_2;
     // 0x80042354: nop
 
@@ -11213,7 +11213,7 @@ RECOMP_FUNC void FUN_008050_800422f4_threeliner(uint8_t* rdram, recomp_context* 
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_008050_80042368_threeliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_QuickSort(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80042368: addiu       $sp, $sp, -0x28
@@ -11251,7 +11251,7 @@ RECOMP_FUNC void FUN_008050_80042368_threeliner(uint8_t* rdram, recomp_context* 
     // 0x800423A0: jal         0x800422F4
     // 0x800423A4: or          $a2, $t7, $zero
     ctx->r6 = ctx->r15 | 0;
-    FUN_008050_800422f4_threeliner(rdram, ctx);
+    aisquarelist_PartitionRandomPivot(rdram, ctx);
         goto after_0;
     // 0x800423A4: or          $a2, $t7, $zero
     ctx->r6 = ctx->r15 | 0;
@@ -11267,7 +11267,7 @@ RECOMP_FUNC void FUN_008050_80042368_threeliner(uint8_t* rdram, recomp_context* 
     // 0x800423B8: jal         0x80042368
     // 0x800423BC: or          $a2, $s0, $zero
     ctx->r6 = ctx->r16 | 0;
-    FUN_008050_80042368_threeliner(rdram, ctx);
+    aisquarelist_QuickSort(rdram, ctx);
         goto after_1;
     // 0x800423BC: or          $a2, $s0, $zero
     ctx->r6 = ctx->r16 | 0;
@@ -11287,7 +11287,7 @@ RECOMP_FUNC void FUN_008050_80042368_threeliner(uint8_t* rdram, recomp_context* 
     // 0x800423D8: jal         0x80042368
     // 0x800423DC: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
-    FUN_008050_80042368_threeliner(rdram, ctx);
+    aisquarelist_QuickSort(rdram, ctx);
         goto after_2;
     // 0x800423DC: or          $a1, $s0, $zero
     ctx->r5 = ctx->r16 | 0;
@@ -11305,7 +11305,7 @@ L_800423E0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_008050_800423f0_uses_dat_800e1f40_ptr(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_SortCandidates(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800423F0: addiu       $sp, $sp, -0x38
@@ -11365,7 +11365,7 @@ RECOMP_FUNC void FUN_008050_800423f0_uses_dat_800e1f40_ptr(uint8_t* rdram, recom
     // 0x80042444: jal         0x80042368
     // 0x80042448: addiu       $a2, $a2, -0x1
     ctx->r6 = ADD32(ctx->r6, -0X1);
-    FUN_008050_80042368_threeliner(rdram, ctx);
+    aisquarelist_QuickSort(rdram, ctx);
         goto after_0;
     // 0x80042448: addiu       $a2, $a2, -0x1
     ctx->r6 = ADD32(ctx->r6, -0X1);
@@ -11476,7 +11476,7 @@ L_800424D4:
     // 0x800424EC: jal         0x80042368
     // 0x800424F0: addiu       $a3, $zero, 0x1
     ctx->r7 = ADD32(0, 0X1);
-    FUN_008050_80042368_threeliner(rdram, ctx);
+    aisquarelist_QuickSort(rdram, ctx);
         goto after_1;
     // 0x800424F0: addiu       $a3, $zero, 0x1
     ctx->r7 = ADD32(0, 0X1);
@@ -11639,7 +11639,7 @@ L_800425C4:
     // 0x800425DC: jal         0x80042368
     // 0x800425E0: addiu       $a3, $zero, 0x2
     ctx->r7 = ADD32(0, 0X2);
-    FUN_008050_80042368_threeliner(rdram, ctx);
+    aisquarelist_QuickSort(rdram, ctx);
         goto after_2;
     // 0x800425E0: addiu       $a3, $zero, 0x2
     ctx->r7 = ADD32(0, 0X2);
@@ -11830,7 +11830,7 @@ L_800426DC:
     // 0x800426F4: jal         0x80042368
     // 0x800426F8: addiu       $a3, $zero, 0x3
     ctx->r7 = ADD32(0, 0X3);
-    FUN_008050_80042368_threeliner(rdram, ctx);
+    aisquarelist_QuickSort(rdram, ctx);
         goto after_3;
     // 0x800426F8: addiu       $a3, $zero, 0x3
     ctx->r7 = ADD32(0, 0X3);
@@ -11878,7 +11878,7 @@ L_8004271C:
     ctx->r29 = ADD32(ctx->r29, 0X38);
 ;}
 
-RECOMP_FUNC void FUN_008050_80042738_passes_dat_800e1f40_ptr(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_CopyTop3Moves(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80042738: lui         $t6, 0x800E
@@ -11933,7 +11933,7 @@ L_80042764:
     // 0x80042788: jal         0x80041DA0
     // 0x8004278C: addu        $a0, $t7, $t8
     ctx->r4 = ADD32(ctx->r15, ctx->r24);
-    FUN_80041da0_threeliner(rdram, ctx);
+    aisquarelist_CopyEntry3(rdram, ctx);
         goto after_0;
     // 0x8004278C: addu        $a0, $t7, $t8
     ctx->r4 = ADD32(ctx->r15, ctx->r24);
@@ -11967,7 +11967,7 @@ L_800427A8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void FUN_008050_800427b8_passes_dat_800e1f40_ptr(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void aisquarelist_CopyMoveAt(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800427B8: lui         $t6, 0x800E
@@ -12001,7 +12001,7 @@ RECOMP_FUNC void FUN_008050_800427b8_passes_dat_800e1f40_ptr(uint8_t* rdram, rec
     // 0x800427E8: jal         0x80041DA0
     // 0x800427EC: addiu       $a1, $a1, 0x2
     ctx->r5 = ADD32(ctx->r5, 0X2);
-    FUN_80041da0_threeliner(rdram, ctx);
+    aisquarelist_CopyEntry3(rdram, ctx);
         goto after_0;
     // 0x800427EC: addiu       $a1, $a1, 0x2
     ctx->r5 = ADD32(ctx->r5, 0X2);

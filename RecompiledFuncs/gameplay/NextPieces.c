@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "funcs.h"
 
-RECOMP_FUNC void NextPieces_800680a0_sixliner(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieceShadow_Setup(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800680A0: addiu       $sp, $sp, -0x30
@@ -108,7 +108,7 @@ RECOMP_FUNC void NextPieces_800680a0_sixliner(uint8_t* rdram, recomp_context* ct
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void NextPieces_80068158_sevenliner_sets_arg0_struct_to_arg1(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieceShadow_InitSlide(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068158: lwl         $at, 0x0($a1)
@@ -201,7 +201,7 @@ RECOMP_FUNC void NextPieces_80068158_sevenliner_sets_arg0_struct_to_arg1(uint8_t
 
 ;}
 
-RECOMP_FUNC void NextPieces_80068204_fourliner_sets_arg0_struct_math(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieceShadow_StepSlide(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068204: lh          $t6, 0x2($a0)
@@ -387,7 +387,7 @@ L_800682D8:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_8006832c_sixliner_shift_0xe(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPiece_Setup(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006832C: addiu       $sp, $sp, -0x30
@@ -477,7 +477,7 @@ RECOMP_FUNC void NextPieces_8006832c_sixliner_shift_0xe(uint8_t* rdram, recomp_c
     // 0x800683CC: jal         0x800680A0
     // 0x800683D0: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    NextPieces_800680a0_sixliner(rdram, ctx);
+    NextPieceShadow_Setup(rdram, ctx);
         goto after_1;
     // 0x800683D0: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -655,7 +655,7 @@ L_8006848C:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_800684e0_sevenliner_sets_arg0_struct_math(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPiece_StepSlide(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800684E0: addiu       $sp, $sp, -0x18
@@ -751,7 +751,7 @@ RECOMP_FUNC void NextPieces_800684e0_sevenliner_sets_arg0_struct_math(uint8_t* r
     // 0x80068594: jal         0x80068204
     // 0x80068598: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    NextPieces_80068204_fourliner_sets_arg0_struct_math(rdram, ctx);
+    NextPieceShadow_StepSlide(rdram, ctx);
         goto after_0;
     // 0x80068598: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -768,7 +768,7 @@ RECOMP_FUNC void NextPieces_800684e0_sevenliner_sets_arg0_struct_math(uint8_t* r
 
 ;}
 
-RECOMP_FUNC void NextPieces_800685ac_lg_interesting_arg3_is_nextpiecepos(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPiece_InitSlide(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800685AC: addiu       $sp, $sp, -0x30
@@ -1126,7 +1126,7 @@ L_800687A0:
     // 0x80068820: jal         0x80068158
     // 0x80068824: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
-    NextPieces_80068158_sevenliner_sets_arg0_struct_to_arg1(rdram, ctx);
+    NextPieceShadow_InitSlide(rdram, ctx);
         goto after_3;
     // 0x80068824: addiu       $a0, $a0, 0x518
     ctx->r4 = ADD32(ctx->r4, 0X518);
@@ -1145,7 +1145,7 @@ L_800687A0:
     ctx->r29 = ADD32(ctx->r29, 0X30);
 ;}
 
-RECOMP_FUNC void NextPieces_8006883c_tenliner_loops_4_times_sets_glb_var(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_StepSlides(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006883C: addiu       $sp, $sp, -0x28
@@ -1190,7 +1190,7 @@ L_80068860:
     // 0x80068880: jal         0x800684E0
     // 0x80068884: addiu       $a0, $a0, 0x78
     ctx->r4 = ADD32(ctx->r4, 0X78);
-    NextPieces_800684e0_sevenliner_sets_arg0_struct_math(rdram, ctx);
+    NextPiece_StepSlide(rdram, ctx);
         goto after_0;
     // 0x80068884: addiu       $a0, $a0, 0x78
     ctx->r4 = ADD32(ctx->r4, 0X78);
@@ -1256,7 +1256,7 @@ L_800688CC:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_800688e0_sets_global_var_element(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_StartSlide(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800688E0: lui         $a0, 0x8012
@@ -1281,7 +1281,7 @@ RECOMP_FUNC void NextPieces_800688e0_sets_global_var_element(uint8_t* rdram, rec
     MEM_B(0X2919, ctx->r4) = ctx->r15;
 ;}
 
-RECOMP_FUNC void NextPieces_80068904_twoliner_if_fb80_eq_1_call_fun(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_Update(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068904: addiu       $sp, $sp, -0x28
@@ -1309,7 +1309,7 @@ RECOMP_FUNC void NextPieces_80068904_twoliner_if_fb80_eq_1_call_fun(uint8_t* rdr
     // 0x80068928: jal         0x8006883C
     // 0x8006892C: nop
 
-    NextPieces_8006883c_tenliner_loops_4_times_sets_glb_var(rdram, ctx);
+    NextPieces_StepSlides(rdram, ctx);
         goto after_0;
     // 0x8006892C: nop
 
@@ -1422,7 +1422,7 @@ L_800689A0:
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_800689c4_tenliner_loops_4_times(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_InitSlides(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x800689C4: addiu       $sp, $sp, -0x28
@@ -1495,7 +1495,7 @@ L_800689F0:
     // 0x80068A40: jal         0x800685AC
     // 0x80068A44: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
-    NextPieces_800685ac_lg_interesting_arg3_is_nextpiecepos(rdram, ctx);
+    NextPiece_InitSlide(rdram, ctx);
         goto after_0;
     // 0x80068A44: or          $a3, $s0, $zero
     ctx->r7 = ctx->r16 | 0;
@@ -1598,7 +1598,7 @@ RECOMP_FUNC void NextPieces_Advance(uint8_t* rdram, recomp_context* ctx) {
     // 0x80068AD4: jal         0x8006832C
     // 0x80068AD8: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
-    NextPieces_8006832c_sixliner_shift_0xe(rdram, ctx);
+    NextPiece_Setup(rdram, ctx);
         goto after_1;
     // 0x80068AD8: or          $a1, $s1, $zero
     ctx->r5 = ctx->r17 | 0;
@@ -1631,7 +1631,7 @@ L_80068AFC:
     // 0x80068AFC: jal         0x800689C4
     // 0x80068B00: sb          $t0, 0x2918($s0)
     MEM_B(0X2918, ctx->r16) = ctx->r8;
-    NextPieces_800689c4_tenliner_loops_4_times(rdram, ctx);
+    NextPieces_InitSlides(rdram, ctx);
         goto after_2;
     // 0x80068B00: sb          $t0, 0x2918($s0)
     MEM_B(0X2918, ctx->r16) = ctx->r8;
@@ -1711,7 +1711,7 @@ RECOMP_FUNC void NextPieces_PopNext(uint8_t* rdram, recomp_context* ctx) {
     ctx->r29 = ADD32(ctx->r29, 0X28);
 ;}
 
-RECOMP_FUNC void NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void NextPieces_BuildPieceDisplay(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80068B7C: lbu         $t6, 0x11($a0)
@@ -2267,7 +2267,7 @@ L_80068F48:
     // 0x80068F80: jal         0x8006832C
     // 0x80068F84: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
-    NextPieces_8006832c_sixliner_shift_0xe(rdram, ctx);
+    NextPiece_Setup(rdram, ctx);
         goto after_1;
     // 0x80068F84: or          $a1, $s2, $zero
     ctx->r5 = ctx->r18 | 0;
@@ -2311,7 +2311,7 @@ L_80068FB4:
     // 0x80068FB4: jal         0x800689C4
     // 0x80068FB8: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;
-    NextPieces_800689c4_tenliner_loops_4_times(rdram, ctx);
+    NextPieces_InitSlides(rdram, ctx);
         goto after_2;
     // 0x80068FB8: or          $a0, $s0, $zero
     ctx->r4 = ctx->r16 | 0;

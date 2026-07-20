@@ -943,7 +943,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_1p(uint8_t* rdram, recomp_context* ctx)
     // 0x80060024: jal         0x80068B7C
     // 0x80060028: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
-    NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems(rdram, ctx);
+    NextPieces_BuildPieceDisplay(rdram, ctx);
         goto after_8;
     // 0x80060028: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
@@ -1226,7 +1226,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_2p(uint8_t* rdram, recomp_context* ctx)
     // 0x80060204: jal         0x80068B7C
     // 0x80060208: addiu       $a0, $sp, 0x38
     ctx->r4 = ADD32(ctx->r29, 0X38);
-    NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems(rdram, ctx);
+    NextPieces_BuildPieceDisplay(rdram, ctx);
         goto after_8;
     // 0x80060208: addiu       $a0, $sp, 0x38
     ctx->r4 = ADD32(ctx->r29, 0X38);
@@ -1432,7 +1432,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_3p(uint8_t* rdram, recomp_context* ctx)
     // 0x8006034C: jal         0x80068B7C
     // 0x80060350: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
-    NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems(rdram, ctx);
+    NextPieces_BuildPieceDisplay(rdram, ctx);
         goto after_4;
     // 0x80060350: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
@@ -1667,7 +1667,7 @@ RECOMP_FUNC void PFGFX_SetTextDisplayPos_4p(uint8_t* rdram, recomp_context* ctx)
     // 0x800604C0: jal         0x80068B7C
     // 0x800604C4: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
-    NextPieces_80068b7c_largeliner_sets_lots_of_struct_elems(rdram, ctx);
+    NextPieces_BuildPieceDisplay(rdram, ctx);
         goto after_4;
     // 0x800604C4: addiu       $a0, $sp, 0x28
     ctx->r4 = ADD32(ctx->r29, 0X28);
@@ -3387,7 +3387,7 @@ L_80060E14:
 
 ;}
 
-RECOMP_FUNC void func_80060E30(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_ApplyViMode(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80060E30: lui         $t6, 0x800D
@@ -3851,7 +3851,7 @@ L_800610FC:
 
 ;}
 
-RECOMP_FUNC void func_8006110C(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_RequestViModeChange(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x8006110C: addiu       $t6, $zero, 0x1
@@ -3885,7 +3885,7 @@ RECOMP_FUNC void func_80061124(uint8_t* rdram, recomp_context* ctx) {
     MEM_W(0X288, ctx->r1) = ctx->r14;
 ;}
 
-RECOMP_FUNC void func_80061134(uint8_t* rdram, recomp_context* ctx) {
+RECOMP_FUNC void PFGFX_ClearCellGrids(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     int c1cs = 0;
     // 0x80061134: multu       $a0, $a1
@@ -4945,7 +4945,7 @@ L_80061778:
     // 0x8006181C: jal         0x80061134
     // 0x80061820: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
-    func_80061134(rdram, ctx);
+    PFGFX_ClearCellGrids(rdram, ctx);
         goto after_10;
     // 0x80061820: addiu       $a1, $zero, 0x12C
     ctx->r5 = ADD32(0, 0X12C);
@@ -10561,7 +10561,7 @@ RECOMP_FUNC void FUN_027BF0_800636C0_display_game_stats_screen_q(uint8_t* rdram,
     // 0x80063704: jal         0x80050AC4
     // 0x80063708: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
-    Game_calls_SETGP_magic_7(rdram, ctx);
+    Game_AnyBoardCubeInRows7(rdram, ctx);
         goto after_0;
     // 0x80063708: or          $a0, $t6, $zero
     ctx->r4 = ctx->r14 | 0;
